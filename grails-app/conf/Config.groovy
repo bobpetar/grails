@@ -126,11 +126,27 @@ grails.plugin.springsecurity.authority.className = 'com.retouch.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
+	'/register/**':                   ['permitAll'],
 	'/index.gsp':                     ['permitAll'],
 	'/assets/**':                     ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
+	'/**/favicon.ico':                ['permitAll'],
+	'/**/**':							['ROLE_ADMIN']
 ]
+
+grails {
+	mail {
+		host = "smtp.gmail.com"
+		port = 465
+		username = "retouch.null@gmail.com"
+		password = "iam@codeharmony"
+		props = ["mail.smtp.auth":"true",
+				"mail.smtp.socketFactory.port":"465",
+				"mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+				"mail.smtp.socketFactory.fallback":"false"]
+	} }
+
+grails.mail.default.from = "1hRetouch <retouch.null@gmail.com>"
 
