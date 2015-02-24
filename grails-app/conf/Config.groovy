@@ -115,3 +115,22 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.password.bcrypt.logrounds = 15
+grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.retouch.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.retouch.UserRole'
+grails.plugin.springsecurity.authority.className = 'com.retouch.Role'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                              ['permitAll'],
+	'/index':                         ['permitAll'],
+	'/index.gsp':                     ['permitAll'],
+	'/assets/**':                     ['permitAll'],
+	'/**/js/**':                      ['permitAll'],
+	'/**/css/**':                     ['permitAll'],
+	'/**/images/**':                  ['permitAll'],
+	'/**/favicon.ico':                ['permitAll']
+]
+
