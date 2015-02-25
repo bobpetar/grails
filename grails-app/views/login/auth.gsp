@@ -1,60 +1,94 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-<title><g:message code='spring.security.ui.login.title'/></title>
-<meta name='layout' content='register'/>
+<meta name="layout" content="main" />
+<title>Welcome to 1hRetouch !!!</title>
 </head>
+<div role="main" class="main">
 
-<body>
+	<section class="page-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="breadcrumb">
+						<li><a href="#">Home</a></li>
+						<li class="active">Pages</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Login</h1>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<p/>
+	<div class="container">
 
-<div class="login s2ui_center ui-corner-all" style='text-align:center;'>
-	<div class="login-inner">
-	<form action='${postUrl}' method='POST' id="loginForm" name="loginForm" autocomplete='off'>
-	<div class="sign-in">
+		<div class="row">
+			<div class="col-md-12">
 
-	<h1><g:message code='spring.security.ui.login.signin'/></h1>
+				<div class="row featured-boxes login">
+					<div class="col-sm-6">
 
-	<table>
-		<tr>
-			<td><label for="username"><g:message code='spring.security.ui.login.username'/></label></td>
-			<td><input name="j_username" id="username" size="20" /></td>
-		</tr>
-		<tr>
-			<td><label for="password"><g:message code='spring.security.ui.login.password'/></label></td>
-			<td><input type="password" name="j_password" id="password" size="20" /></td>
-		</tr>
-		<tr>
-			<td colspan='2'>
-				<input type="checkbox" class="checkbox" name="${rememberMeParameter}" id="remember_me" checked="checked" />
-				<label for='remember_me'><g:message code='spring.security.ui.login.rememberme'/></label> |
-				<span class="forgot-link">
-					<g:link controller='register' action='forgotPassword'><g:message code='spring.security.ui.login.forgotPassword'/></g:link>
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td colspan='2'>
-				<s2ui:linkButton elementId='register' controller='register' messageCode='spring.security.ui.login.register'/>
-				<s2ui:submitButton elementId='loginButton' form='loginForm' messageCode='spring.security.ui.login.login'/>
-			</td>
-		</tr>
-	</table>
+							<h2 class="more-spaced">Welcome Back</h2>
 
-	</div>
-	</form>
+							<blockquote>
+								We work with latest tools from tablets to the latest Imacs so we can work extremely 
+								efficient and our web-site is organized in the same way. This way retouchers are foucs
+								on the image only and save time. For this reason we have kept the price as low as 50cent
+								per technique. The average technique will be about 3-5 minutes work for a professional 
+								retoucher.
+								<small>1hrtouch.com</small>
+							</blockquote>
+					</div>
+					<div class="col-sm-6">
+						<div
+							class="featured-box featured-box-secundary default info-content">
+							<div class="box-content">
+								<h4>Sing In</h4>
+								<form action="${postUrl}" id="loginForm" method="post" name="loginForm" autocomplete='off'>
+									<div class="row">
+										<div class="form-group">
+											<div class="col-md-12">
+												<label>Username or E-mail Address</label> <input name="j_username" id="username"
+												 class="form-control input-lg"> 
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group">
+											<div class="col-md-12">
+												<a class="pull-right" href="#">(Lost Password?)</a> <label>Password</label>
+												<input type="password" name="j_password" id="password"
+													class="form-control input-lg">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<span class="remember-box checkbox"> <label
+												for="rememberme"> <input type="checkbox" name="${rememberMeParameter}"
+													id="remember_me" name="rememberme">Remember Me
+											</label>
+											</span>
+										</div>
+										<div class="col-md-6">
+											<input type="submit" value="Login"
+												class="btn btn-primary pull-right push-bottom"
+												data-loading-text="Loading...">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+
+			</div>
+		</div>
 	</div>
 </div>
-
-<script>
-$(document).ready(function() {
-	$('#username').focus();
-});
-
-<s2ui:initCheckboxes/>
-
-</script>
-
-</body>
 </html>
