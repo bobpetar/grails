@@ -1,122 +1,469 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
-		<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
+	<meta name="layout" content="main"/>
+	<title> Welcome to 1hRetouch !!! </title>
+	
+	</head>	
+			<div role="main" class="main">
 
-			.ie6 #status {
-				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-			}
+				<div class="slider-container light">
+					<div class="slider" id="revolutionSlider" data-plugin-revolution-slider data-plugin-options='{"startheight": 490}'>
+						<ul>
+							<li data-slotamount="7" data-masterspeed="1000" data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7">
+								<asset:image src="img/slides/light-cover.jpg" alt="light" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" />
 
-			#status ul {
-				font-size: 0.9em;
-				list-style-type: none;
-				margin-bottom: 0.6em;
-				padding: 0;
-			}
+								<div class="tp-caption tp-fade fadeout fullscreenvideo"
+									data-x="0"
+									data-y="0"
+									data-speed="1000"
+									data-start="100"
+									data-easing="Power4.easeOut"
+									data-elementdelay="0.01"
+									data-endelementdelay="0.1"
+									data-endspeed="1500"
+									data-endeasing="Power4.easeIn"
+									data-autoplay="true"
+									data-autoplayonlyfirsttime="false"
+									data-nextslideatend="true"
+									data-volume="mute"
+									data-forceCover="1"
+									data-aspectratio="16:9"
+									data-forcerewind="on">
 
-			#status li {
-				line-height: 1.3;
-			}
+									<video preload="none" width="100%" height="100%" poster="img/slides/light-cover.jpg"> 
+										<source src="../video/light.mp4" type="video/mp4" />
+										<source src="../video/light.ogv" type="video/ogg">
+									</video>
 
-			#status h1 {
-				text-transform: uppercase;
-				font-size: 1.1em;
-				margin: 0 0 0.3em;
-			}
+								</div>
 
-			#page-body {
-				margin: 2em 1em 1.25em 18em;
-			}
+								<div class="tp-caption top-label lfl stl"
+									 data-x="center"
+									 data-y="180"
+									 data-speed="300"
+									 data-start="500"
+									 data-easing="easeOutExpo">DO YOU NEED A NEW</div>
 
-			h2 {
-				margin-top: 1em;
-				margin-bottom: 0.3em;
-				font-size: 1em;
-			}
+								<div class="tp-caption main-label sft stb"
+									 data-x="center"
+									 data-y="210"
+									 data-speed="300"
+									 data-start="1500"
+									 data-easing="easeOutExpo">WEB DESIGN?</div>
 
-			p {
-				line-height: 1.5;
-				margin: 0.25em 0;
-			}
+								<div class="tp-caption bottom-label sft stb"
+									 data-x="center"
+									 data-y="280"
+									 data-speed="500"
+									 data-start="2000"
+									 data-easing="easeOutExpo">Check out our options and features.</div>
 
-			#controller-list ul {
-				list-style-position: inside;
-			}
+							</li>
+						</ul>
+					</div>
+				</div>
 
-			#controller-list li {
-				line-height: 1.3;
-				list-style-position: inside;
-				margin: 0.25em 0;
-			}
+				<div class="home-intro light secundary">
+					<div class="container">
 
-			@media screen and (max-width: 480px) {
-				#status {
-					display: none;
-				}
+						<div class="row">
+							<div class="col-md-8">
+								<p>
+									The fastest way to grow your business with the leader in <em>Technology</em>
+									<span>Check out our options and features included.</span>
+								</p>
+							</div>
+							<div class="col-md-4">
+								<div class="get-started">
+									<a href="#" class="btn btn-lg btn-primary">Get Started Now!</a>
+									<div class="learn-more">or <a href="index.html">learn more.</a></div>
+								</div>
+							</div>
+						</div>
 
-				#page-body {
-					margin: 0 1em 1em;
-				}
+					</div>
+				</div>
 
-				#page-body h1 {
-					margin-top: 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="complementary">
-			<h1>Application Status</h1>
-			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Groovy version: ${GroovySystem.getVersion()}</li>
-				<li>JVM version: ${System.getProperty('java.version')}</li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-				<li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-			</ul>
-			<h1>Installed Plugins</h1>
-			<ul>
-				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-					<li>${plugin.name} - ${plugin.version}</li>
-				</g:each>
-			</ul>
-		</div>
-		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
+				<div class="container">
 
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
+					<div class="row center">
+						<div class="col-md-12">
+							<h1 class="short word-rotator-title">
+								Porto is
+								<strong class="inverted">
+									<span class="word-rotate" data-plugin-options='{"delay": 2000}'>
+										<span class="word-rotate-items">
+											<span>incredibly</span>
+											<span>especially</span>
+											<span>extremely</span>
+										</span>
+									</span>
+								</strong>
+								beautiful and fully responsive.
+							</h1>
+							<p class="featured lead">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo. vamus suscipit molestie vestibulum.
+							</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="home-concept">
+					<div class="container">
+
+						<div class="row center">
+							<span class="sun"></span>
+							<span class="cloud"></span>
+							<div class="col-md-2 col-md-offset-1">
+								<div class="process-image" data-appear-animation="bounceIn">
+									<asset:image src="img/home-concept-item-1.png" alt="" />
+									<strong>Strategy</strong>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="process-image" data-appear-animation="bounceIn" data-appear-animation-delay="200">
+									<asset:image src="img/home-concept-item-2.png" alt="" />
+									<strong>Planning</strong>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="process-image" data-appear-animation="bounceIn" data-appear-animation-delay="400">
+									<asset:image src="img/home-concept-item-3.png" alt="" />
+									<strong>Build</strong>
+								</div>
+							</div>
+							<div class="col-md-4 col-md-offset-1">
+								<div class="project-image">
+									<div id="fcSlideshow" class="fc-slideshow">
+										<ul class="fc-slides">
+											<li><a href="portfolio-single-project.html"><asset:image class="img-responsive" src="img/projects/project-home-1.jpg" /></a></li>
+											<li><a href="portfolio-single-project.html"><asset:image class="img-responsive" src="img/projects/project-home-2.jpg" /></a></li>
+											<li><a href="portfolio-single-project.html"><asset:image class="img-responsive" src="img/projects/project-home-3.jpg" /></a></li>
+										</ul>
+									</div>
+									<strong class="our-work">Our Work</strong>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="container">
+
+					<div class="row">
+						<hr class="tall" />
+					</div>
+
+				</div>
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-8">
+							<h2>Our <strong>Features</strong></h2>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="feature-box">
+										<div class="feature-box-icon">
+											<i class="fa fa-group"></i>
+										</div>
+										<div class="feature-box-info">
+											<h4 class="shorter">Customer Support</h4>
+											<p class="tall">Lorem ipsum dolor sit amet, consectetur adip.</p>
+										</div>
+									</div>
+									<div class="feature-box">
+										<div class="feature-box-icon">
+											<i class="fa fa-file"></i>
+										</div>
+										<div class="feature-box-info">
+											<h4 class="shorter">HTML5 / CSS3 / JS</h4>
+											<p class="tall">Lorem ipsum dolor sit amet, adip.</p>
+										</div>
+									</div>
+									<div class="feature-box">
+										<div class="feature-box-icon">
+											<i class="fa fa-google-plus"></i>
+										</div>
+										<div class="feature-box-info">
+											<h4 class="shorter">500+ Google Fonts</h4>
+											<p class="tall">Lorem ipsum dolor sit amet, consectetur adip.</p>
+										</div>
+									</div>
+									<div class="feature-box">
+										<div class="feature-box-icon">
+											<i class="fa fa-adjust"></i>
+										</div>
+										<div class="feature-box-info">
+											<h4 class="shorter">Colors</h4>
+											<p class="tall">Lorem ipsum dolor sit amet, consectetur adip.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="feature-box">
+										<div class="feature-box-icon">
+											<i class="fa fa-film"></i>
+										</div>
+										<div class="feature-box-info">
+											<h4 class="shorter">Sliders</h4>
+											<p class="tall">Lorem ipsum dolor sit amet, consectetur.</p>
+										</div>
+									</div>
+									<div class="feature-box">
+										<div class="feature-box-icon">
+											<i class="fa fa-user"></i>
+										</div>
+										<div class="feature-box-info">
+											<h4 class="shorter">Icons</h4>
+											<p class="tall">Lorem ipsum dolor sit amet, consectetur adip.</p>
+										</div>
+									</div>
+									<div class="feature-box">
+										<div class="feature-box-icon">
+											<i class="fa fa-bars"></i>
+										</div>
+										<div class="feature-box-info">
+											<h4 class="shorter">Buttons</h4>
+											<p class="tall">Lorem ipsum dolor sit, consectetur adip.</p>
+										</div>
+									</div>
+									<div class="feature-box">
+										<div class="feature-box-icon">
+											<i class="fa fa-desktop"></i>
+										</div>
+										<div class="feature-box-info">
+											<h4 class="shorter">Lightbox</h4>
+											<p class="tall">Lorem sit amet, consectetur adip.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h2>and more...</h2>
+
+							<div class="panel-group" id="accordion">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+												<i class="fa fa-usd"></i>
+												Pricing Tables
+											</a>
+										</h4>
+									</div>
+									<div id="collapseOne" class="accordion-body collapse in">
+										<div class="panel-body">
+											Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor.
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+												<i class="fa fa-comment"></i>
+												Contact Forms
+											</a>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="accordion-body collapse">
+										<div class="panel-body">
+											Donec tellus massa, tristique sit amet condimentum vel, facilisis quis sapien.
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+												<i class="fa fa-laptop"></i>
+												Portfolio Pages
+											</a>
+										</h4>
+									</div>
+									<div id="collapseThree" class="accordion-body collapse">
+										<div class="panel-body">
+											Donec tellus massa, tristique sit amet condimentum vel, facilisis quis sapien.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<hr class="tall" />
+
+					<div class="row center">
+						<div class="col-md-12">
+							<h2 class="short word-rotator-title">
+								We're not the only ones
+								<strong>
+									<span class="word-rotate" data-plugin-options='{"delay": 2000}'>
+										<span class="word-rotate-items">
+											<span>excited</span>
+											<span>happy</span>
+										</span>
+									</span>
+								</strong>
+								about Porto Template...
+							</h2>
+							<h4 class="lead tall">5,500 customers in 100 countries use Porto Template. Meet our customers.</h4>
+						</div>
+					</div>
+					<div class="row center">
+						<div class="owl-carousel" data-plugin-options='{"items": 6, "autoplay": true, "autoplayTimeout": 3000}'>
+							<div>
+								<asset:image class="img-responsive" src="img/logos/logo-1.png" alt="" />
+							</div>
+							<div>
+								<asset:image class="img-responsive" src="img/logos/logo-2.png" alt="" />
+							</div>
+							<div>
+								<asset:image class="img-responsive" src="img/logos/logo-3.png" alt="" />
+							</div>
+							<div>
+								<asset:image class="img-responsive" src="img/logos/logo-4.png" alt="" />
+							</div>
+							<div>
+								<asset:image class="img-responsive" src="img/logos/logo-5.png" alt="" />
+							</div>
+							<div>
+								<asset:image class="img-responsive" src="img/logos/logo-6.png" alt="" />
+							</div>
+							<div>
+								<asset:image class="img-responsive" src="img/logos/logo-4.png" alt="" />
+							</div>
+							<div>
+								<asset:image class="img-responsive" src="img/logos/logo-2.png" alt="" />
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="map-section">
+					<section class="featured footer map">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="recent-posts push-bottom">
+										<h2>Latest <strong>Blog</strong> Posts</h2>
+										<div class="row">
+											<div class="owl-carousel" data-plugin-options='{"items": 1}'>
+												<div>
+													<div class="col-md-6">
+														<article>
+															<div class="date">
+																<span class="day">15</span>
+																<span class="month">Jan</span>
+															</div>
+															<h4><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat libero. <a href="/" class="read-more">read more <i class="fa fa-angle-right"></i></a></p>
+														</article>
+													</div>
+													<div class="col-md-6">
+														<article>
+															<div class="date">
+																<span class="day">15</span>
+																<span class="month">Jan</span>
+															</div>
+															<h4><a href="blog-post.html">Lorem ipsum dolor</a></h4>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat. <a href="/" class="read-more">read more <i class="fa fa-angle-right"></i></a></p>
+														</article>
+													</div>
+												</div>
+												<div>
+													<div class="col-md-6">
+														<article>
+															<div class="date">
+																<span class="day">12</span>
+																<span class="month">Jan</span>
+															</div>
+															<h4><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat libero. <a href="/" class="read-more">read more <i class="fa fa-angle-right"></i></a></p>
+														</article>
+													</div>
+													<div class="col-md-6">
+														<article>
+															<div class="date">
+																<span class="day">11</span>
+																<span class="month">Jan</span>
+															</div>
+															<h4><a href="blog-post.html">Lorem ipsum dolor</a></h4>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="/" class="read-more">read more <i class="fa fa-angle-right"></i></a></p>
+														</article>
+													</div>
+												</div>
+												<div>
+													<div class="col-md-6">
+														<article>
+															<div class="date">
+																<span class="day">15</span>
+																<span class="month">Jan</span>
+															</div>
+															<h4><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat libero. <a href="/" class="read-more">read more <i class="fa fa-angle-right"></i></a></p>
+														</article>
+													</div>
+													<div class="col-md-6">
+														<article>
+															<div class="date">
+																<span class="day">15</span>
+																<span class="month">Jan</span>
+															</div>
+															<h4><a href="blog-post.html">Lorem ipsum dolor</a></h4>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat. <a href="/" class="read-more">read more <i class="fa fa-angle-right"></i></a></p>
+														</article>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<h2><strong>What</strong> Client’s Say</h2>
+									<div class="row">
+										<div class="owl-carousel push-bottom" data-plugin-options='{"items": 1}'>
+											<div>
+												<div class="col-md-12">
+													<blockquote class="testimonial">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat.  Donec hendrerit vehicula est, in consequat.  Donec hendrerit vehicula est, in consequat.</p>
+													</blockquote>
+													<div class="testimonial-arrow-down"></div>
+													<div class="testimonial-author">
+														<div class="img-thumbnail img-thumbnail-small">
+															<asset:image src="img/clients/client-1.jpg" alt="" />
+														</div>
+														<p><strong>John Smith</strong><span>CEO & Founder - Okler</span></p>
+													</div>
+												</div>
+											</div>
+											<div>
+												<div class="col-md-12">
+													<blockquote class="testimonial">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+													</blockquote>
+													<div class="testimonial-arrow-down"></div>
+													<div class="testimonial-author">
+														<div class="img-thumbnail img-thumbnail-small">
+															<asset:image src="img/clients/client-1.jpg" alt="" />
+														</div>
+														<p><strong>John Smith</strong><span>CEO & Founder - Okler</span></p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
 			</div>
-		</div>
-	</body>
+
 </html>
