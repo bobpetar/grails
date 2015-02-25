@@ -32,11 +32,10 @@
 				<div class="row featured-boxes login">
 					<div class="col-sm-6">
 
-							<h2 class="more-spaced">Trust US</h2>
+						<h2 class="more-spaced">Trust US</h2>
 
-							<blockquote>
-								We guarantee 100% privacy. Your information will not be shared 
-							</blockquote>
+						<blockquote>We guarantee 100% privacy. Your
+							information will not be shared</blockquote>
 					</div>
 					<div class="col-sm-6">
 						<div
@@ -92,14 +91,19 @@
 											</div>
 										</div>
 										<div class="row">
-											<div class="col-md-12">
+											<div class="col-md-6">
+												<p class="sign-up-info">
+													Already a member?
+													<g:link controller="login">Log In</g:link>
+												</p>
+											</div>
+											<div class="col-md-6">
 												<input type="submit" value="Register"
 													class="btn btn-primary pull-right push-bottom"
 													data-loading-text="Loading...">
 											</div>
 									</g:else>
 							</div>
-
 							</g:form>
 							<script>
 								$(document).ready(function() {
