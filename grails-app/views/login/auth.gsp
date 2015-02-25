@@ -62,8 +62,10 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<a class="pull-right" href="#">(Lost Password?)</a> <label>Password</label>
-												<input type="password" name="j_password" id="password"
+												<g:link controller="register" action="forgotPassword"
+													class="pull-right">(Lost Password?)</g:link>
+												<label>Password</label> <input type="password"
+													name="j_password" id="password"
 													class="form-control input-lg">
 											</div>
 										</div>
