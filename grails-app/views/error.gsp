@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><g:if env="development">500 - Internal Server Error</g:if><g:else>Error</g:else></title>
+<title>500 - Internal Server Error</title>
 <meta name="layout" content="main">
-<g:if env="development">
-	<asset:stylesheet src="errors.css" />
-</g:if>
 </head>
 <body>
 	<div role="main" class="main">
@@ -45,8 +42,5 @@
 
 		</div>
 	</div>
-	<g:if env="development">
-		<g:renderException exception="${exception}" />
-	</g:if>
 </body>
 </html>
