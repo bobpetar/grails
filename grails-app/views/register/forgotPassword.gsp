@@ -37,7 +37,7 @@
 						<blockquote>
 							We work with latest tools from tablets to the latest Imacs so we
 							can work extremely efficient and our web-site is organized in the
-							same way. This way retouchers are foucs on the image only and
+							same way. This way retouchers are focus on the image only and
 							save time. For this reason we have kept the price as low as
 							50cent per technique. The average technique will be about 3-5
 							minutes work for a professional retoucher. <small>1hrtouch.com</small>
@@ -58,8 +58,9 @@
 										<div class="row">
 											<div class="form-group">
 												<div class="col-md-12">
-													<label>Enter your username and we'll send a link to reset your password to the address we have for your account.</label> <input
-														name="username" id="username"
+													<label>Enter your username and we'll send a link to
+														reset your password to the address we have for your
+														account.</label> <input name="username" id="username"
 														class="form-control input-lg">
 												</div>
 											</div>
@@ -89,16 +90,14 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 		</div>
 	</div>
 </div>
 <script>
-$(document).ready(function() {
-	$('#username').focus();
-});
+	$(document).ready(function() {
+		$('#username').focus();
+	});
 </script>
 </html>
