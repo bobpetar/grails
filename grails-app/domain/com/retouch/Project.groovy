@@ -1,6 +1,6 @@
 package com.retouch
 
-class Task {
+class Project {
     User assignedTo
     User createdBy
     String note

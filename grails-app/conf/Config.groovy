@@ -88,9 +88,13 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        retouch.imageUploadPath = "C:\\wamp\\www\\assured\\"
+        retouch.imageServer= "http://localhost/assured/"
     }
     production {
         grails.logging.jul.usebridge = false
+        retouch.imageUploadPath = "/var/www/html/assured/"
+        retouch.imageServer= "http://128.199.150.5:8080/html/assured/"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
@@ -146,7 +150,11 @@ grails {
 				"mail.smtp.socketFactory.port":"465",
 				"mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
 				"mail.smtp.socketFactory.fallback":"false"]
-	} }
+	}
+}
 
 grails.mail.default.from = "1hRetouch <retouch.null@gmail.com>"
 
+imageUpload {
+    temporaryFile = '/tmp/uploaded.file' // Path to where files will be uploaded
+}
