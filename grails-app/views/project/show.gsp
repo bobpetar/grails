@@ -32,11 +32,47 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${projectInstance?.createdBy}">
+				<g:if test="${projectInstance?.note}">
 				<li class="fieldcontain">
-					<span id="createdBy-label" class="property-label"><g:message code="project.createdBy.label" default="Created By" /></span>
+					<span id="note-label" class="property-label"><g:message code="project.note.label" default="Note" /></span>
 					
-						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${projectInstance?.createdBy?.id}">${projectInstance?.createdBy?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="note-label"><g:fieldValue bean="${projectInstance}" field="note"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${projectInstance?.client}">
+				<li class="fieldcontain">
+					<span id="client-label" class="property-label"><g:message code="project.client.label" default="Client" /></span>
+					
+						<span class="property-value" aria-labelledby="client-label"><g:link controller="user" action="show" id="${projectInstance?.client?.id}">${projectInstance?.client?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${projectInstance?.projectId}">
+				<li class="fieldcontain">
+					<span id="projectId-label" class="property-label"><g:message code="project.projectId.label" default="Project Id" /></span>
+					
+						<span class="property-value" aria-labelledby="projectId-label"><g:fieldValue bean="${projectInstance}" field="projectId"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${projectInstance?.originalImage}">
+				<li class="fieldcontain">
+					<span id="originalImage-label" class="property-label"><g:message code="project.originalImage.label" default="Original Image" /></span>
+					
+						<span class="property-value" aria-labelledby="originalImage-label"><g:link controller="reImage" action="show" id="${projectInstance?.originalImage?.id}">${projectInstance?.originalImage?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${projectInstance?.finalImage}">
+				<li class="fieldcontain">
+					<span id="finalImage-label" class="property-label"><g:message code="project.finalImage.label" default="Final Image" /></span>
+					
+						<span class="property-value" aria-labelledby="finalImage-label"><g:link controller="reImage" action="show" id="${projectInstance?.finalImage?.id}">${projectInstance?.finalImage?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -55,15 +91,6 @@
 					<span id="lastUpdated-label" class="property-label"><g:message code="project.lastUpdated.label" default="Last Updated" /></span>
 					
 						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${projectInstance?.lastUpdated}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectInstance?.note}">
-				<li class="fieldcontain">
-					<span id="note-label" class="property-label"><g:message code="project.note.label" default="Note" /></span>
-					
-						<span class="property-value" aria-labelledby="note-label"><g:fieldValue bean="${projectInstance}" field="note"/></span>
 					
 				</li>
 				</g:if>

@@ -11,12 +11,48 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'createdBy', 'error')} ">
-	<label for="createdBy">
-		<g:message code="project.createdBy.label" default="Created By" />
+<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'note', 'error')} ">
+	<label for="note">
+		<g:message code="project.note.label" default="Note" />
 		
 	</label>
-	<g:select id="createdBy" name="createdBy.id" from="${com.retouch.User.list()}" optionKey="id" value="${projectInstance?.createdBy?.id}" class="many-to-one" noSelection="['null': '']"/>
+	<g:textArea name="note" cols="40" rows="5" maxlength="1000" value="${projectInstance?.note}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'client', 'error')} required">
+	<label for="client">
+		<g:message code="project.client.label" default="Client" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="client" name="client.id" from="${com.retouch.User.list()}" optionKey="id" required="" value="${projectInstance?.client?.id}" class="many-to-one"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'projectId', 'error')} required">
+	<label for="projectId">
+		<g:message code="project.projectId.label" default="Project Id" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="projectId" required="" value="${projectInstance?.projectId}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'originalImage', 'error')} required">
+	<label for="originalImage">
+		<g:message code="project.originalImage.label" default="Original Image" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="originalImage" name="originalImage.id" from="${com.retouch.ReImage.list()}" optionKey="id" required="" value="${projectInstance?.originalImage?.id}" class="many-to-one"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'finalImage', 'error')} ">
+	<label for="finalImage">
+		<g:message code="project.finalImage.label" default="Final Image" />
+		
+	</label>
+	<g:select id="finalImage" name="finalImage.id" from="${com.retouch.ReImage.list()}" optionKey="id" value="${projectInstance?.finalImage?.id}" class="many-to-one" noSelection="['null': '']"/>
 
 </div>
 
@@ -26,15 +62,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:datePicker name="createdDate" precision="day"  value="${projectInstance?.createdDate}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'note', 'error')} required">
-	<label for="note">
-		<g:message code="project.note.label" default="Note" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="note" required="" value="${projectInstance?.note}"/>
 
 </div>
 

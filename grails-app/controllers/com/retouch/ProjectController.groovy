@@ -19,18 +19,64 @@ class ProjectController {
     //Main upload page
     def upload(){
        def projectId = (new Date()).time.toString()
-        [projectId:projectId]
+        def projectInstance = new Project(projectId:projectId )
+        [projectInstance:projectInstance]
     }
 
     def instructions(String id){
         def projectInstance = Project.findByProjectId(id)
         if(!projectInstance){
             println "NO Project" + id
+            flash.message = "This project does not exist."
             redirect(action: "upload")
         }
 
         [projectInstance:projectInstance]
 
+    }
+
+    @Transactional
+    def addInstructions(String id){
+        def projectInstance = Project.findByProjectId(id)
+        println "*************"+id
+
+        if(!projectInstance || projectInstance?.client!=springSecurityService.getCurrentUser()){
+            flash.message = "This project does not exist."
+            redirect(action: "upload")
+        }
+        println "*************"+projectInstance.client.id
+        println "*************"+springSecurityService.getCurrentUser().id
+        projectInstance.note = params.note
+        println "TESTTTSTSTS"
+        if(!projectInstance.save(flush:true)){
+            println "TESTTTSTSTS"
+            flash.message = message(code: 'default.updated.message', args: [message(code: 'Project.label', default: 'Project'), projectInstance.id])
+            println projectInstance.errors
+           // redirect(action: "instructions", id:projectInstance.projectId)
+        }else{
+            println "SERV"
+            redirect(action: "service", id:projectInstance.projectId )
+        }
+    }
+
+    def service(String id){
+        def projectInstance = Project.findByProjectId(id)
+        println "Service"
+        if(!projectInstance){
+            flash.message = "This project does not exist."
+            redirect(action: "upload")
+        }
+        if(!projectInstance.note){
+            redirect(action: "instructions", id:projectInstance.projectId )
+        }
+
+        [projectInstance:projectInstance]
+
+    }
+
+    def projects(Integer max){
+        params.max = Math.min(max ?: 10, 100)
+        respond Project.findAllByClient(springSecurityService.getCurrentUser(),params), model: [projectInstanceCount: Project.countByClient(springSecurityService.getCurrentUser())]
     }
 
     @Transactional
@@ -43,6 +89,7 @@ class ProjectController {
             }
         }else{
             redirect(action: "upload")
+            return
         }
 
         def imageFile

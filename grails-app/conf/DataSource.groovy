@@ -20,9 +20,9 @@ environments {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/retouch?zeroDateTimeBehavior=convertToNull"
             username = "root"
-            password = "root"
+            password = ""
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
-            logSql = true
+            logSql = false
         }
     }
     test {

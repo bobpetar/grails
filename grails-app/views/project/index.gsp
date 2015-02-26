@@ -26,15 +26,15 @@
 					
 						<th><g:message code="project.assignedTo.label" default="Assigned To" /></th>
 					
-						<th><g:message code="project.createdBy.label" default="Created By" /></th>
-					
-						<g:sortableColumn property="createdDate" title="${message(code: 'project.createdDate.label', default: 'Created Date')}" />
-					
-						<g:sortableColumn property="lastUpdated" title="${message(code: 'project.lastUpdated.label', default: 'Last Updated')}" />
-					
 						<g:sortableColumn property="note" title="${message(code: 'project.note.label', default: 'Note')}" />
 					
-						<g:sortableColumn property="status" title="${message(code: 'project.status.label', default: 'Status')}" />
+						<th><g:message code="project.client.label" default="Client" /></th>
+					
+						<g:sortableColumn property="projectId" title="${message(code: 'project.projectId.label', default: 'Project Id')}" />
+					
+						<th><g:message code="project.originalImage.label" default="Original Image" /></th>
+					
+						<th><g:message code="project.finalImage.label" default="Final Image" /></th>
 					
 					</tr>
 				</thead>
@@ -44,15 +44,15 @@
 					
 						<td><g:link action="show" id="${projectInstance.id}">${fieldValue(bean: projectInstance, field: "assignedTo")}</g:link></td>
 					
-						<td>${fieldValue(bean: projectInstance, field: "createdBy")}</td>
-					
-						<td><g:formatDate date="${projectInstance.createdDate}" /></td>
-					
-						<td><g:formatDate date="${projectInstance.lastUpdated}" /></td>
-					
 						<td>${fieldValue(bean: projectInstance, field: "note")}</td>
 					
-						<td>${fieldValue(bean: projectInstance, field: "status")}</td>
+						<td>${fieldValue(bean: projectInstance, field: "client")}</td>
+					
+						<td>${fieldValue(bean: projectInstance, field: "projectId")}</td>
+					
+						<td>${fieldValue(bean: projectInstance, field: "originalImage")}</td>
+					
+						<td>${fieldValue(bean: projectInstance, field: "finalImage")}</td>
 					
 					</tr>
 				</g:each>

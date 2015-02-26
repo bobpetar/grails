@@ -15,7 +15,7 @@ class Project {
 
     static constraints = {
         assignedTo(nullable:true,blank:true)
-        note(nullable:true,blank:true)
+        note(nullable:true,blank:true, maxSize: 2000)
         client(nullable:false,blank:false)
         projectId(nullable: false,blank: false,unique: true)
         originalImage(nullable: false,blank: false)
