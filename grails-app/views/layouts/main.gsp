@@ -72,25 +72,22 @@
 		<header id="header">
 			<div class="container">
 				<div class="logo">
-					<a href="${createLink(uri:'/')}"> <asset:image alt="Porto" width="111"
-							height="54" data-sticky-width="82" data-sticky-height="40"
-							src="img/logo.png" />
+					<a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
+							width="111" height="54" data-sticky-width="82"
+							data-sticky-height="40" src="img/logo.png" />
 					</a>
 				</div>
-				<div class="search">
-					<form id="searchForm" action="page-search-results.html"
-						method="get">
-						<div class="input-group">
-							<input type="text" class="form-control search" name="q" id="q"
-								placeholder="Search..." required> <span
-								class="input-group-btn">
-								<button class="btn btn-default" type="submit">
-									<i class="fa fa-search"></i>
-								</button>
-							</span>
-						</div>
-					</form>
-				</div>
+				<div class="search"></div>
+
+				<ul class="social-icons">
+					<li class="facebook"><a href="http://www.facebook.com/"
+						target="_blank" title="Facebook">Facebook</a></li>
+					<li class="twitter"><a href="http://www.twitter.com/"
+						target="_blank" title="Twitter">Twitter</a></li>
+					<li class="linkedin"><a href="http://www.linkedin.com/"
+						target="_blank" title="Linkedin">Linkedin</a></li>
+				</ul>
+
 				<nav>
 					<ul class="nav nav-pills nav-top">
 						<li><a href="about-us.html"><i class="fa fa-angle-right"></i>About
@@ -108,21 +105,51 @@
 			</div>
 			<div class="navbar-collapse nav-main-collapse collapse">
 				<div class="container">
-					<ul class="social-icons">
-						<li class="facebook"><a href="http://www.facebook.com/"
-							target="_blank" title="Facebook">Facebook</a></li>
-						<li class="twitter"><a href="http://www.twitter.com/"
-							target="_blank" title="Twitter">Twitter</a></li>
-						<li class="linkedin"><a href="http://www.linkedin.com/"
-							target="_blank" title="Linkedin">Linkedin</a></li>
-					</ul>
 					<nav class="nav-main mega-menu">
 						<ul class="nav nav-pills nav-main" id="mainMenu">
 							<li><a href="${createLink(uri:'/')}">Home</a></li>
 							<li><a href="${createLink(uri:'/examples')}">Examples</a></li>
 							<li><a href="${createLink(uri:'/pricing') }">Pricing</a></li>
 							<li><a href="${createLink(uri:'/faq') }">FAQ</a></li>
-							<li><a href="${createLink(uri:'/login') }">Login</a></li>
+							<sec:ifNotLoggedIn>
+								<li><a href="${createLink(uri:'/login') }">Login</a></li>
+							</sec:ifNotLoggedIn>
+
+							<sec:ifLoggedIn>
+								<li id="headerAccount"
+									class="dropdown mega-menu-item mega-menu-signin signin logged"><a
+									class="dropdown-toggle extra" href="#"><i
+										class="fa fa-angle-down"></i></a> <a href="page-login.html"
+									class="dropdown-toggle disabled"> <i class="fa fa-user"></i>
+										<sec:username /> <i class="fa fa-angle-down"></i>
+								</a>
+									<ul class="dropdown-menu">
+										<li>
+											<div class="mega-menu-content">
+												<div class="row">
+													<div class="col-md-8">
+														<div class="user-avatar">
+															<div class="img-thumbnail">
+																<asset:image alt="" src="img/clients/client-1.jpg" />
+															</div>
+															<p>
+																<strong><sec:username /></strong><span>CEO &amp;
+																	Founder - Okler</span>
+															</p>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<ul class="list-account-options">
+															<li><a href="#">My Account</a></li>
+															<li><a href="${createLink(uri:'/logout') }">Log
+																	Out</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul></li>
+							</sec:ifLoggedIn>
 						</ul>
 					</nav>
 				</div>
@@ -138,7 +165,7 @@
 					<div class="footer-ribbon">
 						<span>Get in Touch</span>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="contact-details">
 							<h4>Contact Us</h4>
