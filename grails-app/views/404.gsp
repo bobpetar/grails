@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><g:if env="development">500 - Internal Server Error</g:if><g:else>Error</g:else></title>
+<title>Page not found 404</title>
 <meta name="layout" content="main">
-<g:if env="development">
-	<asset:stylesheet src="errors.css" />
-</g:if>
 </head>
 <body>
 	<div role="main" class="main">
-
 		<section class="page-top">
 			<div class="container">
 				<div class="row">
@@ -22,7 +18,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<h1>500 - Internal Server Error</h1>
+						<h1>404 - Page Not Found</h1>
 					</div>
 				</div>
 			</div>
@@ -35,18 +31,25 @@
 					<div class="col-md-6 col-md-offset-1">
 						<div class="page-not-found-main">
 							<h2>
-								500 <i class="fa fa-file"></i>
+								404 <i class="fa fa-file"></i>
 							</h2>
-							<p>We're sorry, but something went wrong. Please try again!!!</p>
+							<p>We're sorry, but the page you were looking for doesn't
+								exist.</p>
 						</div>
+					</div>
+					<div class="col-md-4">
+						<h4>Here are some useful links</h4>
+						<ul class="nav nav-list primary">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">FAQ's</a></li>
+							<li><a href="#">Sitemap</a></li>
+							<li><a href="#">Contact Us</a></li>
+						</ul>
 					</div>
 				</div>
 			</section>
-
 		</div>
 	</div>
-	<g:if env="development">
-		<g:renderException exception="${exception}" />
-	</g:if>
 </body>
 </html>
