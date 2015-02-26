@@ -18,7 +18,10 @@
 
 		<!-- Web Fonts  -->
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
-
+		
+		<!--  Custome CSS -->
+		<asset:stylesheet src="custom.css" />
+		
 		<!-- Vendor CSS -->
 		
 		<asset:stylesheet src="vendor/bootstrap/bootstrap.css"/>

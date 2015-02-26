@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+
+/*Override spring security error message*/
+
+.s2ui_error {
+    border-color: #ebccd1;
+    color: #a94442;
+}

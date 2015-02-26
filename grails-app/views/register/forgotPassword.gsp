@@ -96,4 +96,9 @@
 		</div>
 	</div>
 </div>
+<script>
+$(document).ready(function() {
+	$('#username').focus();
+});
+</script>
 </html>

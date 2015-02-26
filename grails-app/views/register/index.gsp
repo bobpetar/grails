@@ -54,8 +54,8 @@
 												<div class="col-md-12">
 													<s2ui:textFieldRow name='username'
 														labelCode='user.username.label' bean="${command}"
-														size='40' labelCodeDefault='User Name'
-														value="${command.username}" class="form-control input-lg" />
+														labelCodeDefault='Username' value="${command.username}"
+														class="form-control input-lg" />
 												</div>
 											</div>
 										</div>

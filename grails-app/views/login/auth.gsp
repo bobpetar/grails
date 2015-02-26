@@ -50,6 +50,12 @@
 								<h4>Sing In</h4>
 								<form action="${postUrl}" id="loginForm" method="post"
 									name="loginForm" autocomplete='off'>
+									<g:if test='${flash.message}'>
+										<div class="alert alert-danger">
+											${flash.message}
+										</div>
+									</g:if>
+
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
@@ -109,4 +115,12 @@
 		</div>
 	</div>
 </div>
+<script>
+$(document).ready(function() {
+	$('#username').focus();
+});
+
+<s2ui:initCheckboxes/>
+
+</script>
 </html>
