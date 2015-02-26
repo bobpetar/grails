@@ -8,6 +8,7 @@ class UrlMappings {
         }
 
         "/"(view:"/index")
+        "/upload"(controller: "project",action: "upload")
         "500"(view:'/error')
 		"404"(view:'/404')
 	}

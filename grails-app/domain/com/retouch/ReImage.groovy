@@ -1,6 +1,6 @@
 package com.retouch
 
-class Image {
+class ReImage {
 
     String imagePath
 

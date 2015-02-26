@@ -2,14 +2,35 @@ package com.retouch
 
 class Project {
     User assignedTo
-    User createdBy
+    User client
     String note
     Date createdDate
     Date lastUpdated
     String status
+    String projectId
+    ReImage originalImage
+    ReImage finalImage
+
+//    static hasOne = [image:Image]
 
     static constraints = {
         assignedTo(nullable:true,blank:true)
-        createdBy(nullable:true,blank:true)
+        note(nullable:true,blank:true)
+        client(nullable:false,blank:false)
+        projectId(nullable: false,blank: false,unique: true)
+        originalImage(nullable: false,blank: false)
+        finalImage(nullable: true,blank: true)
+    }
+
+    def beforeUpdate() {
+        lastUpdated = new Date()
+    }
+
+    def beforeValidate() {
+        if (id == null) {
+            createdDate = new Date()
+            lastUpdated = new Date()
+            status = "New"
+        }
     }
 }

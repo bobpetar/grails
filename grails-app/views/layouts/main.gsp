@@ -33,6 +33,7 @@
 		<!-- Theme CSS -->
 		
 		<asset:stylesheet src="css/theme.css"/>
+		<asset:stylesheet src="css/admin.css"/>
 		<asset:stylesheet src="css/theme-elements.css"/>
 		<asset:stylesheet src="css/theme-blog.css"/>
 		<asset:stylesheet src="css/theme-shop.css"/>
