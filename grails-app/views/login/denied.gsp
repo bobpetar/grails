@@ -40,11 +40,9 @@
 					<div class="col-md-4">
 						<h4>Here are some useful links</h4>
 						<ul class="nav nav-list primary">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">FAQ's</a></li>
-							<li><a href="#">Sitemap</a></li>
-							<li><a href="#">Contact Us</a></li>
+							<li><a href="${createLink(uri:'/')}">Home</a></li>
+							<li><a href="${createLink(uri:'/faq')}">FAQ's</a></li>
+							<li><a href="${createLink(uri:'/contactus')}">Contact Us</a></li>
 						</ul>
 					</div>
 				</div>
