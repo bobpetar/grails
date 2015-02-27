@@ -1,7 +1,5 @@
 package com.retouch
 
-import org.imgscalr.Scalr
-import org.springframework.web.multipart.commons.CommonsMultipartFile
 
 /*import javax.imageio.ImageIO
 import java.awt.image.BufferedImage*/
