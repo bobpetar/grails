@@ -33,4 +33,10 @@ class Project {
             status = "New"
         }
     }
+
+    def static generateProjectId(){
+        return (new Date()).time.toString()
+    }
+
+
 }

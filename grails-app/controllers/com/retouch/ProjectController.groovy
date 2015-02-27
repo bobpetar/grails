@@ -18,7 +18,7 @@ class ProjectController {
 
     //Main upload page
     def upload(){
-       def projectId = (new Date()).time.toString()
+       def projectId = Project.generateProjectId()
         def projectInstance = new Project(projectId:projectId )
         [projectInstance:projectInstance]
     }
@@ -30,7 +30,7 @@ class ProjectController {
             flash.message = "This project does not exist."
             redirect(action: "upload")
         }
-
+        println "NO Project" + id
         [projectInstance:projectInstance]
 
     }
@@ -44,12 +44,9 @@ class ProjectController {
             flash.message = "This project does not exist."
             redirect(action: "upload")
         }
-        println "*************"+projectInstance.client.id
-        println "*************"+springSecurityService.getCurrentUser().id
         projectInstance.note = params.note
-        println "TESTTTSTSTS"
+
         if(!projectInstance.save(flush:true)){
-            println "TESTTTSTSTS"
             flash.message = message(code: 'default.updated.message', args: [message(code: 'Project.label', default: 'Project'), projectInstance.id])
             println projectInstance.errors
            // redirect(action: "instructions", id:projectInstance.projectId)
@@ -76,6 +73,10 @@ class ProjectController {
 
     def projects(Integer max){
         params.max = Math.min(max ?: 10, 100)
+        if(!params.sort){
+            params.sort = "id"
+            params.order = "desc"
+        }
         respond Project.findAllByClient(springSecurityService.getCurrentUser(),params), model: [projectInstanceCount: Project.countByClient(springSecurityService.getCurrentUser())]
     }
 
@@ -98,11 +99,12 @@ class ProjectController {
         }
 
         if(imageFile && !imageFile.empty) {
-            def fileName = myImageService.saveImage( imageFile )
+            def fileName = myImageService.saveImagePackage( imageFile )
             def image = new ReImage(imagePath: fileName)
             project?.originalImage = image
             image.save(flush:true)
             if(!project.save(flush:true)){
+                myImageService.deleteImagePackage(image)
                 flash.message = "Action Failed!!! Please try again"
                 redirect(action: "upload")
             }else{

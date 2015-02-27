@@ -88,12 +88,12 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        retouch.imageUploadPath = "C:\\wamp\\www\\assured\\"
-        retouch.imageServer= "http://localhost/assured/"
+        retouch.imageUploadPath = "C:\\wamp\\www\\retouch\\"
+        retouch.imageServer= "http://localhost/retouch/"
     }
     production {
         grails.logging.jul.usebridge = false
-        retouch.imageUploadPath = "/var/www/html/assured/"
+        retouch.imageUploadPath = "/var/www/html/retouch/"
         retouch.imageServer= "http://128.199.150.5:8080/html/assured/"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }

@@ -60,6 +60,7 @@
     <asset:stylesheet src="css/ie.css"/>
     <![endif]-->
 
+    <asset:javascript src="vendor/jquery/jquery.js" />
     <!--[if lte IE 8]>
     <asset:javascript src="vendor/respond/respond.js"/>
     <asset:javascript src="vendor/excanvas/excanvas.js"/>
@@ -238,7 +239,7 @@
 </div>
 
 <!-- Vendor -->
-<asset:javascript src="vendor/jquery/jquery.js" />
+
 <asset:javascript src="vendor/jquery.appear/jquery.appear.js" />
 <asset:javascript src="vendor/jquery.easing/jquery.easing.js" />
 <asset:javascript src="vendor/jquery-cookie/jquery-cookie.js" />

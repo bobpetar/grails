@@ -35,10 +35,14 @@
 								500 <i class="fa fa-file"></i>
 							</h2>
 							<p>We're sorry, but something went wrong. Please try again!!!</p>
+
 						</div>
 					</div>
 				</div>
 			</section>
+            <g:if env="development">
+                <g:renderException exception="${exception}" />
+            </g:if>
 
 		</div>
 	</div>

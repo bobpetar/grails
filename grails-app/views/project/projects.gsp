@@ -44,7 +44,7 @@
 
 
 
-                    <table class="table table-striped mb-none">
+                    <table class="table table-striped mb-none  table-bordered">
                         <thead>
                         <tr>
 
@@ -52,7 +52,7 @@
 
                             <th><g:message code="project.originalImage.label" default="Original Image" /></th>
                             <th><g:message code="project.status.label" default="Status" /></th>
-                            <th><g:message code="project.createdDate.label" default="Status" /></th>
+                            <th><g:message code="project.createdDate.label" default="Date Created" /></th>
 
                         </tr>
                         </thead>
@@ -60,8 +60,7 @@
                         <g:each in="${projectInstanceList}" status="i" var="projectInstance">
                             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                                <td>${fieldValue(bean: projectInstance, field: "projectId")}</td>
-
+                                <td><g:link action="instructions" id="${projectInstance.projectId}">${fieldValue(bean: projectInstance, field: "projectId")}</g:link></td>
                                 <td>${fieldValue(bean: projectInstance, field: "originalImage")}</td>
                                 <td>${fieldValue(bean: projectInstance, field: "status")}</td>
                                 <td>${fieldValue(bean: projectInstance, field: "createdDate")}</td>
@@ -72,9 +71,9 @@
                         </g:each>
                         </tbody>
                     </table>
-                    <div class="pagination">
-                        <g:paginate total="${projectInstanceCount ?: 0}" />
-                    </div>
+                    <ul class="pagination">
+                        <retouch:paginate total="${projectInstanceCount ?: 0}" />
+                    </ul>
                 </div>
             </div>
         </div>
