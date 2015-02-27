@@ -49,6 +49,24 @@
 										<g:message code='spring.security.ui.register.sent' />
 									</g:if>
 									<g:else>
+									<div class="row">
+											<div class="form-group">
+												<div class="col-md-6">
+													<s2ui:textFieldRow name='firstname'
+														labelCode='user.firstname.label' bean="${command}"
+														labelCodeDefault='Firstname' value="${command.firstname}"
+														class="form-control input-lg" />
+												</div>
+
+												<div class="col-md-6">
+													<s2ui:textFieldRow name='lastname'
+														labelCode='user.lastname.label' bean="${command}"
+														labelCodeDefault='Lastname' value="${command.lastname}"
+														class="form-control input-lg" />
+
+												</div>
+											</div>
+										</div>
 										<div class="row">
 											<div class="form-group">
 												<div class="col-md-12">
