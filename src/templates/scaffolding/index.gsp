@@ -79,9 +79,9 @@
 							</g:each>
 						</tbody>
 					</table>
-					<div class="pagination">
-						<g:paginate total="\${${propertyName}Count ?: 0}" />
-					</div>
+					<ul class="pagination">
+						<retouch:paginate total="\${${propertyName}Count ?: 0}" />
+					</ul>
 
 				</div>
 			</div>
