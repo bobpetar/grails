@@ -49,7 +49,7 @@
                         <div class="thumb-preview">
                             <a class="thumb-image" href="#">
 
-                                <img class="img-responsive" %{--onError="this.onerror=null;this.src='${createLink(uri: '/')}assets/noimage.png';"--}% src="${grailsApplication.config.retouch.imageServer}${projectInstance?.originalImage?.getThumbnailImageName()}"/>
+                                <img class="img-responsive" %{--onError="this.onerror=null;this.src='${createLink(uri: '/')}assets/noimage.png';"--}% src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getThumbnailImageName()}"/>
 
                             </a>
 

@@ -148,10 +148,11 @@
                     </header>
                     <textarea class="form-control" rows="3" id="textareaDefault" required="required" name="note" style="margin-top: 0px; margin-bottom: 0px; height: 150px;" >${projectInstance?.note}</textarea>
                     <br>
-                    <fieldset class="buttons">
-                        <button id='addnotelink' class="btn btn-primary" > Add a note</button>
+                   %{-- <fieldset class="buttons">--}%
+
                         <g:submitButton name="continue" class="btn btn-primary" value="Continue" />
-                    </fieldset>
+                    <input id='addnotelink' class="btn btn-primary" type="button" value="Add a note" >
+                   %{-- </fieldset>--}%
 
 
                 </g:form>
