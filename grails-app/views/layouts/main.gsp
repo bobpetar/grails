@@ -23,9 +23,13 @@
             href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light"
             rel="stylesheet" type="text/css">
 
+
+
     <!--  Custome CSS -->
     <asset:stylesheet src="custom.css" />
     <asset:stylesheet src="css/admin.css"/>
+
+
 
     <!-- Vendor CSS -->
 
@@ -34,6 +38,8 @@
     <asset:stylesheet src="vendor/owlcarousel/owl.carousel.min.css" />
     <asset:stylesheet src="vendor/owlcarousel/owl.theme.default.min.css" />
     <asset:stylesheet src="vendor/magnific-popup/magnific-popup.css" />
+
+
 
     <!-- Theme CSS -->
 
@@ -65,6 +71,11 @@
     <asset:javascript src="vendor/respond/respond.js"/>
     <asset:javascript src="vendor/excanvas/excanvas.js"/>
     <![endif]-->
+
+    %{--Admin--}%
+    <asset:stylesheet src="admin/vendor/pnotify/pnotify.custom.css" />
+    <asset:stylesheet src="admin/vendor/font-awesome/css/font-awesome.css" />
+
 
     <g:layoutHead />
 </head>
@@ -247,8 +258,7 @@
 <asset:javascript src="vendor/common/common.js" />
 <asset:javascript src="vendor/jquery.validation/jquery.validation.js" />
 <asset:javascript src="vendor/jquery.stellar/jquery.stellar.js" />
-<asset:javascript
-        src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js" />
+<asset:javascript src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js" />
 <asset:javascript src="vendor/jquery.gmap/jquery.gmap.js" />
 <asset:javascript src="vendor/isotope/jquery.isotope.js" />
 <asset:javascript src="vendor/owlcarousel/owl.carousel.js" />
@@ -256,16 +266,19 @@
 <asset:javascript src="vendor/magnific-popup/jquery.magnific-popup.js" />
 <asset:javascript src="vendor/vide/vide.js" />
 
+
+%{--Admin--}%
+
+<asset:javascript src="admin/vendor/dropzone/dropzone.js" />
+<asset:javascript src="admin/vendor/pnotify/pnotify.custom.js" />
+
 <!-- Theme Base, Components and Settings -->
 <asset:javascript src="js/theme.js" />
 
 <!-- Specific Page Vendor and Views -->
-<asset:javascript
-        src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js" />
-<asset:javascript
-        src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js" />
-<asset:javascript
-        src="vendor/circle-flip-slideshow/js/jquery.flipshow.js" />
+<asset:javascript src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js" />
+<asset:javascript src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js" />
+<asset:javascript src="vendor/circle-flip-slideshow/js/jquery.flipshow.js" />
 <asset:javascript src="js/views/view.home.js" />
 
 <!-- Theme Custom -->

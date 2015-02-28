@@ -8,18 +8,18 @@ class Project {
     Date lastUpdated
     String status
     String projectId
-    ReImage originalImage
-    ReImage finalImage
+/*    ReImage originalImage
+    ReImage finalImage*/
 
-//    static hasOne = [image:Image]
+    static hasOne = [task:Task]
 
     static constraints = {
         assignedTo(nullable:true,blank:true)
         note(nullable:true,blank:true, maxSize: 2000)
         client(nullable:false,blank:false)
         projectId(nullable: false,blank: false,unique: true)
-        originalImage(nullable: false,blank: false)
-        finalImage(nullable: true,blank: true)
+/*        originalImage(nullable: false,blank: false)
+        finalImage(nullable: true,blank: true)*/
     }
 
     def beforeUpdate() {
