@@ -6,6 +6,7 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@page expressionCodec="none" %>
 <html>
 <head>
     <meta name="layout" content="main">
@@ -15,7 +16,7 @@
 
     <script type="text/javascript">
 
-        mynotes = [{"x1":"10","y1":"10","height":"150","width":"50","note":"This is a note"}, {"x1":"25","y1":"25","height":"70","width":"80","note":"<b>This</b> is a new note This is another note This is a new note"}];
+        mynotes = ${imageTagsJson.encodeAsJSON()};
 
         $(window).load(function () {
             // somecode to detect mobile/touch devices, it is better
@@ -37,33 +38,59 @@
 
             //If your notes data is in the same scrip but is not named notes pass it
             //Setting isMObile to true overlays an icon to toggle the notes, useful in touch devices
-            $('#uploadedImage').imgNotes({notes: mynotes, isMobile:true});
-
-            // example of how to use the showAll/hideAll functions
-            $('#shownotelink').toggle(
-                    function(){
-                        $('#tern').imgNotes.showAll();
-                        return false;
-                    },
-                    function() {
-                        $('#tern').imgNotes.hideAll();
-                        return false;
-                    }
-            );
+            $('#uploadedImage').imgNotes({notes: mynotes, isMobile:thisIsMobile,removeURL:'${createLink(controller: "project",action: "removeImageNote")}'});
 
             //The following code is not a part of Image-notes plugin but added to show how to code the add notes functionality using the imgareaselect plugin
             $('#cancelnote').click(function(){
-                $('#tern').imgAreaSelect({ hide: true, disable:true });
+                $('#uploadedImage').imgAreaSelect({ hide: true, disable:true });
                 $('#noteform').hide();
             });
 
             $('#addnotelink').click(function(){
-                $('#tern').imgAreaSelect({ enable:true, onSelectChange: showaddnote, x1: 120, y1: 90, x2: 280, y2: 210 });
-                return false;
+                initiaizeAddNote();
             });
 
-
+            $('#uploadedImage').imgNotes.showAll();
+            initiaizeAddNote();
         });
+
+        function initiaizeAddNote(){
+            $('#uploadedImage').imgAreaSelect({ enable:true, onSelectChange: showaddnote, x1: 0, y1: 0, x2: 205, y2: 150 });
+            return false;
+        }
+
+        function tagSuccess(data){
+            if(data!="false" && data!=false){
+                $('#uploadedImage').imgAreaSelect({ hide: true, disable:true });
+                $("#NoteNote").val('');
+                $('#noteform').hide();
+                $('#uploadedImage').imgNotes.appendNote(data);
+                new PNotify({
+                    title: 'Success',
+                    text: 'Note Saved',
+                    type: 'success'
+                });
+            }
+        }
+
+        function tagRemoveSuccess(data){
+            console.log(data)
+            if(data!="false" && data!=false){
+                new PNotify({
+                    title: 'Success',
+                    text: 'Note Removed',
+                    type: 'info'
+                });
+            }
+        }
+        function tagRemoveFailed(data){
+            console.log(data)
+                new PNotify({
+                    title: 'Success',
+                    text: 'Failed to delete note',
+                    type: 'info'
+                });
+        }
 
         function showaddnote(img, area){
             imgOffset = $(img).offset();
@@ -122,19 +149,40 @@
                     <textarea class="form-control" rows="3" id="textareaDefault" required="required" name="note" style="margin-top: 0px; margin-bottom: 0px; height: 150px;" >${projectInstance?.note}</textarea>
                     <br>
                     <fieldset class="buttons">
+                        <button id='addnotelink' class="btn btn-primary" > Add a note</button>
                         <g:submitButton name="continue" class="btn btn-primary" value="Continue" />
                     </fieldset>
+
+
                 </g:form>
-           </div>
+            </div>
             <div class="col-md-8"> <div class="isotope-item document col-md-11" style="float:none;">
                 <div class="thumbnail">
                     <div class="thumb-preview">
                         <a class="thumb-image" href="javascript:void(0);">
-                            <img id="uploadedImage" class="img-responsive" %{--onError="this.onerror=null;this.src='${createLink(uri: '/')}assets/noimage.png';"--}% src="${grailsApplication.config.retouch.imageServer}${projectInstance?.originalImage?.getLargeImageName()}"/>
+                            <div id="imageovelaynote">
+                            <img id="uploadedImage" class="img-responsive" %{--onError="this.onerror=null;this.src='${createLink(uri: '/')}assets/noimage.png';"--}% src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getLargeImageName()}"/>
+                            </div>
                         </a>
                     </div>
                 </div>
             </div></div>
+            <div id="noteform" >
+
+
+            %{--      <form id="NoteAddForm" method="post" action="/nagpurbirds2/notes/add">--}%
+                <g:formRemote name="NoteAddForm" on404="alert('not found!')" onSuccess="tagSuccess(data);" update="updateMe" url="[controller: 'project', action:'addImageNote', id:projectInstance.taskId]">
+                    <fieldset>
+                        <input name="posX" type="hidden" value="" id="NoteX1" />
+                        <input name="posY" type="hidden" value="" id="NoteY1" />
+                        <input name="height" type="hidden" value="" id="NoteHeight" />
+                        <input name="width" type="hidden" value="" id="NoteWidth" />
+                        <textarea name="note" id="NoteNote" class="form-control" maxlength="300"></textarea>
+                    </fieldset>
+                    <div class="submit"><input type="submit" value="Submit" class="btn btn-primary btn-xs notebut" /> &nbsp;&nbsp;&nbsp;<input type="button" value="Cancel" class="btn btn-primary btn-xs notebut" id="cancelnote" ></div>
+                %{--</form>--}%
+                </g:formRemote>
+            </div>
         </div>
     </div>
 </div>

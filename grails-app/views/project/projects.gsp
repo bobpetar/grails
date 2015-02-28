@@ -50,7 +50,7 @@
 
                             <g:sortableColumn property="projectId" title="${message(code: 'project.projectId.label', default: 'Project Id')}" />
 
-                            <th><g:message code="project.originalImage.label" default="Original Image" /></th>
+                  %{--          <th><g:message code="project.originalImage.label" default="Original Image" /></th>--}%
                             <th><g:message code="project.status.label" default="Status" /></th>
                             <th><g:message code="project.createdDate.label" default="Date Created" /></th>
 
@@ -61,7 +61,7 @@
                             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
                                 <td><g:link action="instructions" id="${projectInstance.projectId}">${fieldValue(bean: projectInstance, field: "projectId")}</g:link></td>
-                                <td>${fieldValue(bean: projectInstance, field: "originalImage")}</td>
+                              %{--  <td>${fieldValue(bean: projectInstance, field: "originalImage")}</td>--}%
                                 <td>${fieldValue(bean: projectInstance, field: "status")}</td>
                                 <td>${fieldValue(bean: projectInstance, field: "createdDate")}</td>
 

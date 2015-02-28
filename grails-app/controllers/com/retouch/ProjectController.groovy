@@ -1,5 +1,6 @@
 package com.retouch
 
+import grails.converters.JSON
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -8,6 +9,7 @@ import grails.transaction.Transactional
 class ProjectController {
     def myImageService
     def springSecurityService
+    def taskService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -29,9 +31,13 @@ class ProjectController {
             println "NO Project" + id
             flash.message = "This project does not exist."
             redirect(action: "upload")
+            return
         }
         println "NO Project" + id
-        [projectInstance:projectInstance]
+        def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
+        println imageTagsJson
+        println imageTagsJson.toString()
+        [projectInstance:projectInstance,imageTagsJson:imageTagsJson]
 
     }
 
@@ -83,6 +89,7 @@ class ProjectController {
     @Transactional
     def addTask(){
         def project
+        println params.id
         if(params.id){
             project  = Project.findByProjectId(params.id)
             if(!project){
@@ -101,10 +108,12 @@ class ProjectController {
         if(imageFile && !imageFile.empty) {
             def fileName = myImageService.saveImagePackage( imageFile )
             def image = new ReImage(imagePath: fileName)
-            project?.originalImage = image
-            image.save(flush:true)
+            def task = new Task(originalImage: image)
+            project?.task = task
+           // image.save(flush:true)
             if(!project.save(flush:true)){
-                myImageService.deleteImagePackage(image)
+               // myImageService.deleteImagePackage(image)
+                println project.errors
                 flash.message = "Action Failed!!! Please try again"
                 redirect(action: "upload")
             }else{
@@ -190,6 +199,41 @@ class ProjectController {
                 redirect action: "index", method: "GET"
             }
             '*' { render status: NO_CONTENT }
+        }
+    }
+
+    @Transactional
+    def addImageNote(Task task) {
+
+            if(!task || task.project.client!=springSecurityService.getCurrentUser()){
+                render false
+            }else{
+                println "TESTTTT" +params
+                println "TESTTTT" +task
+
+                params.note=params.note?.encodeAsHTML()
+                def imgTg = new ImageTag(params)
+                task.addToTags(imgTg)
+                if(task.save(flush:true)){
+                    def noteJ = [x1:params.posX,y1:params.posY,height:params.height,width:params.width,note:params.note,note_id:imgTg.id ]
+                    render noteJ as JSON
+                }else{
+                    render false
+                }
+            }
+    }
+    @Transactional
+    def removeImageNote(ImageTag imageTag){
+        if(!imageTag || imageTag?.task?.project?.client!=springSecurityService.getCurrentUser()){
+            render false
+        }else{
+            try{
+                imageTag.delete(failOnError:true)
+                render true
+            }
+            catch(e) {
+                render false
+            }
         }
     }
 

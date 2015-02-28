@@ -17,24 +17,51 @@
 	z-index: 0;
 	cursor: default;
 }
+.noteX{
+    opacity: 0.8 !important;
+    margin-right: 5px;
+}
 
 .notep {
 	display: none;
-	background: #eee;
-	font-size: 8pt;
-	margin-top: 0px;
-	padding: 2px;
+	background: #fff;
+	font-size: 12pt;
+	margin-top: 5px;
+	padding: 4px;
 	position: absolute;
-	width: 175px;
+	/*width: 175px;*/
 	cursor: default;
+    text-shadow:  1px 1px 1px white;
 }
 
 #noteform {
 	display: none;
 	position: absolute;
-	width: 250px;
+	width: 205px;
+}
+
+#noteform .submit{
+    margin-top: 5px;
 }
 
 #noteform textarea{
 	width: 100%;
+}
+
+.notebut{
+   width:45%;
+}
+
+.notep:before {
+    bottom: 100%;
+    left: 16px;
+    border-bottom: 6px solid #FFF;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    content: '';
+    height: 0;
+    margin-right: -3px;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
 }
