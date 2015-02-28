@@ -19,65 +19,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Web Fonts  -->
-    <link
-            href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light"
-            rel="stylesheet" type="text/css">
+    <link   href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light"  rel="stylesheet" type="text/css">
 
 
 
     <!--  Custome CSS -->
-    <asset:stylesheet src="custom.css" />
-    <asset:stylesheet src="css/admin.css"/>
+<asset:stylesheet src="custom.css" />
+<asset:stylesheet src="css/admin.css"/>
 
 
 
-    <!-- Vendor CSS -->
+<!-- Vendor CSS -->
 
-    <asset:stylesheet src="vendor/bootstrap/bootstrap.css" />
-    <asset:stylesheet src="vendor/fontawesome/css/font-awesome.css" />
-    <asset:stylesheet src="vendor/owlcarousel/owl.carousel.min.css" />
-    <asset:stylesheet src="vendor/owlcarousel/owl.theme.default.min.css" />
-    <asset:stylesheet src="vendor/magnific-popup/magnific-popup.css" />
-
-
-
-    <!-- Theme CSS -->
-
-    <asset:stylesheet src="css/theme.css" />
-    <asset:stylesheet src="css/theme-elements.css" />
-    <asset:stylesheet src="css/theme-blog.css" />
-    <asset:stylesheet src="css/theme-shop.css" />
-    <asset:stylesheet src="css/theme-animate.css" />
-
-    <!-- Current Page CSS -->
-    <asset:stylesheet src="vendor/rs-plugin/css/settings.css" />
-    <asset:stylesheet src="vendor/circle-flip-slideshow/css/component.css" />
-
-    <!-- Skin CSS -->
-    <asset:stylesheet src="css/skins/default.css" />
-
-    <!-- Theme Custom CSS -->
-    <asset:stylesheet src="css/custom.css" />
-
-    <!-- Head Libs -->
-    <asset:javascript src="vendor/modernizr/modernizr.js" />
-
-    <!--[if IE]>
-    <asset:stylesheet src="css/ie.css"/>
-    <![endif]-->
-
-    <asset:javascript src="vendor/jquery/jquery.js" />
-    <!--[if lte IE 8]>
-    <asset:javascript src="vendor/respond/respond.js"/>
-    <asset:javascript src="vendor/excanvas/excanvas.js"/>
-    <![endif]-->
-
-    %{--Admin--}%
-    <asset:stylesheet src="admin/vendor/pnotify/pnotify.custom.css" />
-    <asset:stylesheet src="admin/vendor/font-awesome/css/font-awesome.css" />
+<asset:stylesheet src="vendor/bootstrap/bootstrap.css" />
+<asset:stylesheet src="vendor/fontawesome/css/font-awesome.css" />
+<asset:stylesheet src="vendor/owlcarousel/owl.carousel.min.css" />
+<asset:stylesheet src="vendor/owlcarousel/owl.theme.default.min.css" />
+<asset:stylesheet src="vendor/magnific-popup/magnific-popup.css" />
 
 
-    <g:layoutHead />
+
+<!-- Theme CSS -->
+
+<asset:stylesheet src="css/theme.css" />
+<asset:stylesheet src="css/theme-elements.css" />
+<asset:stylesheet src="css/theme-blog.css" />
+<asset:stylesheet src="css/theme-shop.css" />
+<asset:stylesheet src="css/theme-animate.css" />
+
+
+
+<!-- Current Page CSS -->
+<asset:stylesheet src="vendor/rs-plugin/css/settings.css" />
+<asset:stylesheet src="vendor/circle-flip-slideshow/css/component.css" />
+
+    <!-- Admin Extension Specific Page Vendor CSS -->
+    <asset:stylesheet src="admin/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+    <asset:stylesheet src="admin/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+    <asset:stylesheet src="admin/assets/vendor/select2/select2.css" />
+    <asset:stylesheet src="admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+    <asset:stylesheet src="admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+    <asset:stylesheet src="admin/assets/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.css" />
+    <asset:stylesheet src="admin/assets/vendor/bootstrap-timepicker/css/bootstrap-timepicker.css" />
+    <asset:stylesheet src="admin/assets/vendor/dropzone/css/basic.css" />
+    <asset:stylesheet src="admin/assets/vendor/dropzone/css/dropzone.css" />
+    <asset:stylesheet src="admin/assets/vendor/bootstrap-markdown/css/bootstrap-markdown.min.css" />
+    <asset:stylesheet src="admin/assets/vendor/summernote/summernote.css" />
+    <asset:stylesheet src="admin/assets/vendor/summernote/summernote-bs3.css" />
+    <asset:stylesheet src="admin/assets/vendor/codemirror/lib/codemirror.css" />
+    <asset:stylesheet src="admin/assets/vendor/codemirror/theme/monokai.css" />
+    <asset:stylesheet src="admin/assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css" />
+
+    <!-- Admin Extension CSS -->
+    <asset:stylesheet src="admin/assets/stylesheets/theme-admin-extension.css"/>
+
+    <!-- Admin Extension Skin CSS -->
+    <asset:stylesheet src="admin/assets/stylesheets/skins/extension.css"/>
+
+<!-- Skin CSS -->
+<asset:stylesheet src="css/skins/default.css" />
+
+<!-- Theme Custom CSS -->
+<asset:stylesheet src="css/custom.css" />
+
+<!-- Head Libs -->
+<asset:javascript src="vendor/modernizr/modernizr.js" />
+
+<!--[if IE]>
+<asset:stylesheet src="css/ie.css"/>
+<![endif]-->
+
+<asset:javascript src="vendor/jquery/jquery.js" />
+<!--[if lte IE 8]>
+<asset:javascript src="vendor/respond/respond.js"/>
+<asset:javascript src="vendor/excanvas/excanvas.js"/>
+<![endif]-->
+
+%{--Admin--}%
+<asset:stylesheet src="admin/assets/vendor/pnotify/pnotify.custom.css" />
+<asset:stylesheet src="admin/assets/vendor/font-awesome/css/font-awesome.css" />
+
+
+<g:layoutHead />
 </head>
 <body>
 
@@ -269,8 +292,7 @@
 
 %{--Admin--}%
 
-<asset:javascript src="admin/vendor/dropzone/dropzone.js" />
-<asset:javascript src="admin/vendor/pnotify/pnotify.custom.js" />
+<asset:javascript src="admin/assets/vendor/pnotify/pnotify.custom.js" />
 
 <!-- Theme Base, Components and Settings -->
 <asset:javascript src="js/theme.js" />
@@ -287,19 +309,53 @@
 <!-- Theme Initialization Files -->
 <asset:javascript src="js/theme.init.js" />
 
+
+<!-- Admin Extension Specific Page Vendor -->
+<asset:javascript src="admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"/>
+<asset:javascript src="admin/assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"/>
+<asset:javascript src="admin/assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"/>
+<asset:javascript src="admin/assets/vendor/select2/select2.js"/>
+<asset:javascript src="admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"/>
+<asset:javascript src="admin/assets/vendor/jquery-maskedinput/jquery.maskedinput.js"/>
+<asset:javascript src="admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js"/>
+<asset:javascript src="admin/assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js"/>
+<asset:javascript src="admin/assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"/>
+<asset:javascript src="admin/assets/vendor/fuelux/js/spinner.js"/>
+<asset:javascript src="admin/assets/vendor/dropzone/dropzone.js"/>
+<asset:javascript src="admin/assets/vendor/bootstrap-markdown/js/markdown.js"/>
+<asset:javascript src="admin/assets/vendor/bootstrap-markdown/js/to-markdown.js"/>
+<asset:javascript src="admin/assets/vendor/bootstrap-markdown/js/bootstrap-markdown.js"/>
+<asset:javascript src="admin/assets/vendor/codemirror/lib/codemirror.js"/>
+<asset:javascript src="admin/assets/vendor/codemirror/addon/selection/active-line.js"/>
+<asset:javascript src="admin/assets/vendor/codemirror/addon/edit/matchbrackets.js"/>
+<asset:javascript src="admin/assets/vendor/codemirror/mode/javascript/javascript.js"/>
+<asset:javascript src="admin/assets/vendor/codemirror/mode/xml/xml.js"/>
+<asset:javascript src="admin/assets/vendor/codemirror/mode/htmlmixed/htmlmixed.js"/>
+<asset:javascript src="admin/assets/vendor/codemirror/mode/css/css.js"/>
+<asset:javascript src="admin/assets/vendor/summernote/summernote.js"/>
+<asset:javascript src="admin/assets/vendor/bootstrap-maxlength/bootstrap-maxlength.js"/>
+<asset:javascript src="admin/assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"/>
+<asset:javascript src="admin/assets/vendor/ios7-switch/ios7-switch.js"/>
+
+<!-- Admin Extension -->
+<asset:javascript src="admin/assets/javascripts/theme.admin.extension.js"/>
+
+<!-- Admin Extension Examples -->
+%{--<asset:javascript src="admin/assets/javascripts/forms/examples.advanced.form.js" />--}%
+
 <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
 		<script type="text/javascript">
-		
+
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-12345678-1']);
 			_gaq.push(['_trackPageview']);
-		
+
 			(function() {
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
-		
+
 		</script>
 		 -->
 
