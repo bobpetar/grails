@@ -46,13 +46,32 @@
         <div class="row center">
             <div class="col-md-12">
                 <g:form action="addTask" enctype="multipart/form-data" id="${projectInstance.projectId}" >
-                    <fieldset class="buttons">
+                    %{--<fieldset class="buttons">
                         <input type="file" name="reimage" required="required" style="margin: auto;" class="btn btn-primary btn-lg"/>
-                    </fieldset>
+                    </fieldset>--}%
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <div class="input-append">
+                            <div class="uneditable-input">
+                                <i class="fa fa-file fileupload-exists"></i>
+                                <span class="fileupload-preview"></span>
+                            </div>
+                            <span class="btn btn-default btn-file">
+                                <span class="fileupload-exists">Change</span>
+                                <span class="fileupload-new">Select file</span>
+                                <input type="file" name="reimage" required="required" />
+                            </span>
+                            <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+                        </div>
+                    </div>
                     <br>
                     <fieldset class="buttons">
                         <g:submitButton name="upload" class="btn btn-primary btn-lg" value="Upload" />
                     </fieldset>
+
+
+
+
+
                 </g:form>
 
                %{-- <div class="col-xs-12">
