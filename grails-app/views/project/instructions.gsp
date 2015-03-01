@@ -85,11 +85,11 @@
         }
         function tagRemoveFailed(data){
             console.log(data)
-                new PNotify({
-                    title: 'Success',
-                    text: 'Failed to delete note',
-                    type: 'info'
-                });
+            new PNotify({
+                title: 'Success',
+                text: 'Failed to delete note',
+                type: 'info'
+            });
         }
 
         function showaddnote(img, area){
@@ -144,27 +144,61 @@
             <div class="col-md-4">
 
 
-                <section>
-                    <h4 class="page-header">Add Instructions</h4>
+                <section class="panel">
                     <g:form action="addInstructions" id="${projectInstance?.projectId}" >
-                        <textarea class="form-control"  maxlength="1500" data-plugin-maxlength rows="3" id="textareaDefault" required="required" name="note" style="margin-top: 0px; margin-bottom: 0px; height: 150px;" >${projectInstance?.note}</textarea>
-                        <br>
-                    %{-- <fieldset class="buttons">--}%
+                        <header class="panel-heading">
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                                %{--                <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>--}%
+                            </div>
 
-                        <g:submitButton name="continue" class="btn btn-primary" value="Continue" />
-                        <input id='addnotelink' class="btn btn-primary" type="button" value="Add a note" >
-                    %{-- </fieldset>--}%
+                            <h2 class="panel-title">Project Instructions</h2>
+
+                            <p class="panel-subtitle">
+                                What would you like to do?
+                            </p>
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="control-label">Techniques</label>
+                                    <select multiple data-plugin-selectTwo class="form-control populate" name="techniques">
+
+                                        <option value="AZ" title="Viewer's eyes will go to your eyes">Increase Contrast</option>
+                                        <option value="CO">Add more life</option>
+                                        <option value="ID">Remove veins</option>
+                                        <option value="MT">Create catch light</option>
+                                        <option value="NE">Darken the outer rim</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">Message</label>
+                                    <textarea class="form-control"  maxlength="1500" data-plugin-maxlength rows="3" id="textareaDefault" required="required" name="note" style="margin-top: 0px; margin-bottom: 0px; height: 150px;" >${projectInstance?.note}</textarea>
+                                </div>
 
 
+
+
+                            </div>
+
+                        </div>
+                        <footer class="panel-footer">
+                            <g:submitButton name="continue" class="btn btn-primary" value="Continue" />
+                            <input id='addnotelink' class="btn btn-primary" type="button" value="Tag a note" >
+                        </footer>
                     </g:form>
                 </section>
+
             </div>
             <div class="col-md-8"> <div class="isotope-item document col-md-11" style="float:none;">
                 <div class="thumbnail">
                     <div class="thumb-preview">
                         <a class="thumb-image" href="javascript:void(0);">
                             <div id="imageovelaynote">
-                            <img id="uploadedImage" class="%{--img-responsive--}%" style="width: 100%;" %{--onError="this.onerror=null;this.src='${createLink(uri: '/')}assets/noimage.png';"--}% src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getLargeImageName()}"/>
+                                <img id="uploadedImage" class="%{--img-responsive--}%" style="width: 100%;" %{--onError="this.onerror=null;this.src='${createLink(uri: '/')}assets/noimage.png';"--}% src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getLargeImageName()}"/>
                             </div>
                         </a>
                     </div>
@@ -180,7 +214,7 @@
                         <input name="posY" type="hidden" value="" id="NoteY1" />
                         <input name="height" type="hidden" value="" id="NoteHeight" />
                         <input name="width" type="hidden" value="" id="NoteWidth" />
-                        <textarea name="note" id="NoteNote" class="form-control"  maxlength="300"></textarea>
+                        <textarea name="note" id="NoteNote" required="required" class="form-control"  maxlength="300"></textarea>
                     </fieldset>
                     <div class="submit"><input type="submit" value="Submit" class="btn btn-primary btn-xs notebut" /> &nbsp;&nbsp;&nbsp;<input type="button" value="Cancel" class="btn btn-primary btn-xs notebut" id="cancelnote" ></div>
                 %{--</form>--}%
