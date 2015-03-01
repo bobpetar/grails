@@ -13,16 +13,18 @@
 		<section class="page-top">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12">
-						<ul class="breadcrumb">
-							<li><a href="${createLink(uri:'/') }">Home</a></li>
-							<li class="active"><a href="${createLink(uri:'/user') }"><g:message
-										code="default.list.label" args="[entityName]" /></a></li>
-							<li class="active"><a
-								href="${createLink(uri:'/user/create') }"><g:message
-										code="default.create.label" args="[entityName]" /></a></li>
-						</ul>
-					</div>
+					<sec:ifAnyGranted roles="ROLE_ADMIN">
+						<div class="col-md-12">
+
+							<ul class="breadcrumb">
+								<li class="active"><a href="${createLink(uri:'/user') }"><g:message
+											code="default.list.label" args="[entityName]" /></a></li>
+								<li class="active"><a
+									href="${createLink(uri:'/user/create') }"><g:message
+											code="default.create.label" args="[entityName]" /></a></li>
+							</ul>
+						</div>
+					</sec:ifAnyGranted>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
