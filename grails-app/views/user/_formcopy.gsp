@@ -99,6 +99,7 @@
 				</div>
 			</div>
 		</fieldset>
+		<sec:ifAnyGranted roles="ROLE_ADMIN">
 		<hr class="dotted tall">
 		<h4 class="mb-xlg">Access Control</h4>
 		<fieldset>
@@ -157,6 +158,7 @@
 				</div>
 			</div>
 		</fieldset>
+		</sec:ifAnyGranted>
 		<hr class="dotted tall">
 		<h4 class="mb-xlg">Enter Password</h4>
 		<fieldset class="mb-xl">
