@@ -16,6 +16,7 @@
 	position: absolute;
 	z-index: 0;
 	cursor: default;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.31);
 }
 .noteX{
     opacity: 0.8 !important;
@@ -30,6 +31,10 @@
 	padding: 4px;
 	position: absolute;
 	/*width: 175px;*/
+    min-width: 48px;
+    max-width: 250px;
+    word-break: break-all;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.31);
 	cursor: default;
     text-shadow:  1px 1px 1px white;
 }

@@ -58,7 +58,7 @@
                             <span class="btn btn-default btn-file">
                                 <span class="fileupload-exists">Change</span>
                                 <span class="fileupload-new">Select file</span>
-                                <input type="file" name="reimage" required="required" />
+                                <input type="file" name="reimage" required="required" accept='image/*'/>
                             </span>
                             <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
                         </div>
