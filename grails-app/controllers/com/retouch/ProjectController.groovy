@@ -218,6 +218,9 @@ class ProjectController {
                     def noteJ = [x1:params.posX,y1:params.posY,height:params.height,width:params.width,note:params.note,note_id:imgTg.id ]
                     render noteJ as JSON
                 }else{
+                    task.errors.each{
+                        println it
+                    }
                     render false
                 }
             }
