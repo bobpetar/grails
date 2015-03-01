@@ -142,27 +142,29 @@
 
         <div class="row show-grid">
             <div class="col-md-4">
-                <g:form action="addInstructions" id="${projectInstance?.projectId}" >
-                    <header class="panel-heading">
-                        <h3>Instructions</h3>
-                    </header>
-                    <textarea class="form-control" rows="3" id="textareaDefault" required="required" name="note" style="margin-top: 0px; margin-bottom: 0px; height: 150px;" >${projectInstance?.note}</textarea>
-                    <br>
-                   %{-- <fieldset class="buttons">--}%
+
+
+                <section>
+                    <h4 class="page-header">Add Instructions</h4>
+                    <g:form action="addInstructions" id="${projectInstance?.projectId}" >
+                        <textarea class="form-control"  maxlength="1500" data-plugin-maxlength rows="3" id="textareaDefault" required="required" name="note" style="margin-top: 0px; margin-bottom: 0px; height: 150px;" >${projectInstance?.note}</textarea>
+                        <br>
+                    %{-- <fieldset class="buttons">--}%
 
                         <g:submitButton name="continue" class="btn btn-primary" value="Continue" />
-                    <input id='addnotelink' class="btn btn-primary" type="button" value="Add a note" >
-                   %{-- </fieldset>--}%
+                        <input id='addnotelink' class="btn btn-primary" type="button" value="Add a note" >
+                    %{-- </fieldset>--}%
 
 
-                </g:form>
+                    </g:form>
+                </section>
             </div>
             <div class="col-md-8"> <div class="isotope-item document col-md-11" style="float:none;">
                 <div class="thumbnail">
                     <div class="thumb-preview">
                         <a class="thumb-image" href="javascript:void(0);">
                             <div id="imageovelaynote">
-                            <img id="uploadedImage" class="img-responsive" %{--onError="this.onerror=null;this.src='${createLink(uri: '/')}assets/noimage.png';"--}% src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getLargeImageName()}"/>
+                            <img id="uploadedImage" class="%{--img-responsive--}%" style="width: 100%;" %{--onError="this.onerror=null;this.src='${createLink(uri: '/')}assets/noimage.png';"--}% src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getLargeImageName()}"/>
                             </div>
                         </a>
                     </div>
@@ -178,7 +180,7 @@
                         <input name="posY" type="hidden" value="" id="NoteY1" />
                         <input name="height" type="hidden" value="" id="NoteHeight" />
                         <input name="width" type="hidden" value="" id="NoteWidth" />
-                        <textarea name="note" id="NoteNote" class="form-control" maxlength="300"></textarea>
+                        <textarea name="note" id="NoteNote" class="form-control"  maxlength="300"></textarea>
                     </fieldset>
                     <div class="submit"><input type="submit" value="Submit" class="btn btn-primary btn-xs notebut" /> &nbsp;&nbsp;&nbsp;<input type="button" value="Cancel" class="btn btn-primary btn-xs notebut" id="cancelnote" ></div>
                 %{--</form>--}%
