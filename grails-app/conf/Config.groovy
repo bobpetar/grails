@@ -88,7 +88,7 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        retouch.imageUploadPath = "C:\\wamp\\www\\retouch\\"
+        retouch.imageUploadPath = "/opt/lampp/htdocs/retouch/"
         retouch.imageServer= "http://localhost/retouch/"
     }
     production {
@@ -137,7 +137,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
-	'/**/**':							['ROLE_ADMIN']
+	'/**/**':						  ['ROLE_ADMIN'],
+	'/user/show/**':				  ['ROLE_USER'],
+	'/user/edit/**':				  ['ROLE_USER'],
+	'/user/create':				      ['ROLE_USER']
 ]
 
 grails {
