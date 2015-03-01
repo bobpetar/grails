@@ -14,10 +14,12 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="breadcrumb">
-							<li><a class="home" href="${createLink(uri: '/')}"><g:message
-										code="default.home.label" /></a></li>
-							<li><g:message code="default.edit.label"
-									args="[entityName]" /></li>
+							<li><a href="${createLink(uri:'/') }">Home</a></li>
+							<li class="active"><a href="${createLink(uri:'/user') }"><g:message
+										code="default.list.label" args="[entityName]" /></a></li>
+							<li class="active"><a
+								href="${createLink(uri:'/user/create') }"><g:message
+										code="default.create.label" args="[entityName]" /></a></li>
 						</ul>
 					</div>
 				</div>
@@ -32,16 +34,7 @@
 		</section>
 
 		<div class="container">
-			<div class="col-md-4">
-				<g:link class="btn btn-default" action="index">
-					<g:message code="default.list.label" args="[entityName]" />
-				</g:link>
-				<g:link class="btn btn-default" action="create">
-					<g:message code="default.new.label" args="[entityName]" />
-				</g:link>
-			</div>
-			<div class="nav" role="navigation">
-			</div>
+			<div class="nav" role="navigation"></div>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">
 					${flash.message}

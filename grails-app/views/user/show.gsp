@@ -15,9 +15,12 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="breadcrumb">
-							<li><a href="#">Home</a></li>
-							<li class="active"><g:message code="default.show.label"
-									args="[entityName]" /></li>
+							<li><a href="${createLink(uri:'/') }">Home</a></li>
+							<li class="active"><a href="${createLink(uri:'/user') }"><g:message
+										code="default.list.label" args="[entityName]" /></a></li>
+							<li class="active"><a
+								href="${createLink(uri:'/user/create') }"><g:message
+										code="default.create.label" args="[entityName]" /></a></li>
 						</ul>
 					</div>
 				</div>
@@ -33,14 +36,6 @@
 
 		<div class="container">
 			<div class="row show-grid">
-			<div class="col-md-12">
-				<g:link class="btn btn-default" action="index">
-					<g:message code="default.list.label" args="[entityName]" />
-				</g:link>
-				<g:link class="btn btn-default" action="create">
-					<g:message code="default.new.label" args="[entityName]" />
-				</g:link>
-			</div>
 				<div class="col-md-3">
 					<section>
 						<h4 class="page-header">User Information</h4>
@@ -60,7 +55,7 @@
 						</div>
 					</section>
 				</div>
-				<div class="col-md-8">
+				<div class="col-md-9">
 					<h4 class="page-header">Project List: Uploaded</h4>
 					<table class="table table-striped">
 						<tbody>
