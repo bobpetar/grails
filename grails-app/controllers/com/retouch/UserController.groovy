@@ -43,7 +43,7 @@ class UserController {
 			UserRole.create userInstance, userRole, true
 		}
 		catch (Exception e) {
-			flash.message = 'Problem Sending email. User has been created, however'
+			flash.message = 'Problem Creating User.'
 		}
 
         request.withFormat {
