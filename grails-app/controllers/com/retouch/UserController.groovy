@@ -21,10 +21,14 @@ class UserController {
 
     def create() {
         respond new User(params)
+		respond new Role(params.role)
     }
 
     @Transactional
     def save(User userInstance) {
+		
+		def userRole = Role.findByAuthority(params.role)
+		
         if (userInstance == null) {
             notFound()
             return
@@ -34,8 +38,13 @@ class UserController {
             respond userInstance.errors, view:'create'
             return
         }
-
-        userInstance.save flush:true
+		try{
+			userInstance.save flush:true
+			UserRole.create userInstance, userRole, true
+		}
+		catch (Exception e) {
+			flash.message = 'Problem Sending email. User has been created, however'
+		}
 
         request.withFormat {
             form multipartForm {
@@ -52,6 +61,9 @@ class UserController {
 
     @Transactional
     def update(User userInstance) {
+		
+		def userRole = Role.findByAuthority(params.role)
+		
         if (userInstance == null) {
             notFound()
             return
@@ -61,8 +73,13 @@ class UserController {
             respond userInstance.errors, view:'edit'
             return
         }
+		
+		def deleteRole = UserRole.findByUser(userInstance)
+		deleteRole.delete flush:true
 
         userInstance.save flush:true
+		
+		UserRole.create userInstance, userRole, true
 
         request.withFormat {
             form multipartForm {

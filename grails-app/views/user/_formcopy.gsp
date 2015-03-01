@@ -1,4 +1,5 @@
 <%@ page import="com.retouch.User"%>
+<%@ page import="com.retouch.Role"%>
 
 
 <!-- start: page -->
@@ -14,7 +15,7 @@
 						class="panel-action panel-action-dismiss" data-panel-dismiss></a>
 				</div>
 
-				<h2 class="panel-title">Projects</h2>
+				<h4>Projects</h4>
 			</header>
 			<div class="panel-body">
 				<ul class="simple-post-list">
@@ -102,6 +103,17 @@
 		<h4 class="mb-xlg">Access Control</h4>
 		<fieldset>
 			<div class="form-group">
+				<label class="col-xs-5 control-label mt-xs pt-none">User
+					Role</label>
+				<div class="col-md-5">
+					<div class="">
+						<g:select class="form-control populate" name="role" from="${Role.list()}"
+							value="${userInstance.id ? userInstance?.authorities.iterator().next() : ""}" />
+						<label for="enabled"></label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="col-xs-5 control-label mt-xs pt-none">Enabled</label>
 				<div class="col-md-5">
 					<div class="checkbox-custom checkbox-default checkbox-inline mt-xs">
@@ -160,8 +172,8 @@
 				<label class="col-md-3 control-label" for="profileNewPasswordRepeat">Repeat
 					Password</label>
 				<div class="col-md-8">
-					<g:passwordField name="password2" id="password2" class="form-control"
-						required="" value="${userInstance?.password}" />
+					<g:passwordField name="password2" id="password2"
+						class="form-control" required="" value="${userInstance?.password}" />
 				</div>
 			</div>
 
