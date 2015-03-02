@@ -23,9 +23,6 @@
 
 
 
-    <!--  Custome CSS -->
-<asset:stylesheet src="custom.css" />
-<asset:stylesheet src="css/admin.css"/>
 
 
 
@@ -100,9 +97,45 @@
 <asset:stylesheet src="admin/assets/vendor/font-awesome/css/font-awesome.css" />
 
 
+
+<!--  Custome CSS -->
+<asset:stylesheet src="custom.css" />
+<asset:stylesheet src="css/admin.css"/>
+
+<script>
+
+        $( document ).ready(function() {
+
+
+
+            <g:if test="${flash.message}">
+            new PNotify({
+                title: 'Info',
+                text: '${flash.message}',
+                type: 'notice'
+
+            });
+            </g:if>
+            <g:if test="${flash.error}">
+            new PNotify({
+                title: 'Error!',
+                text: '${flash.error}',
+                type: 'error'
+            });
+            </g:if>
+
+
+
+
+
+        });
+
+</script>
+
 <g:layoutHead />
 </head>
 <body>
+
 
 <div class="body">
     <header id="header">

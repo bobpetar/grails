@@ -46,12 +46,15 @@
                 $('#noteform').hide();
             });
 
-            $('#addnotelink').click(function(){
+            $('#addnotelink, #uploadedImage').click(function(){
                 initiaizeAddNote();
             });
+/*            $('#uploadedImage').click(function(){
+                initiaizeAddNote();
+            });*/
 
             $('#uploadedImage').imgNotes.showAll();
-            initiaizeAddNote();
+            //initiaizeAddNote();
         });
 
         function initiaizeAddNote(){
@@ -74,21 +77,20 @@
         }
 
         function tagRemoveSuccess(data){
-            console.log(data)
             if(data!="false" && data!=false){
                 new PNotify({
                     title: 'Success',
                     text: 'Note Removed',
-                    type: 'info'
+                    type: 'success'
                 });
             }
         }
         function tagRemoveFailed(data){
-            console.log(data)
+            console.log(data);
             new PNotify({
-                title: 'Success',
+                title: 'Failed',
                 text: 'Failed to delete note',
-                type: 'info'
+                type: 'error'
             });
         }
 
@@ -163,15 +165,7 @@
                             <div class="row">
                                 <div class="form-group">
                                     <label class="control-label">Techniques</label>
-                                    <select multiple data-plugin-selectTwo class="form-control populate" name="techniques">
-
-                                        <option value="AZ" title="Viewer's eyes will go to your eyes">Increase Contrast</option>
-                                        <option value="CO">Add more life</option>
-                                        <option value="ID">Remove veins</option>
-                                        <option value="MT">Create catch light</option>
-                                        <option value="NE">Darken the outer rim</option>
-
-                                    </select>
+                                    <retouch:selectWithOptGroup multiple="true" value="${projectInstance?.task?.techniques.id}" data-plugin-selectTwo="data-plugin-selectTwo" class="form-control populate" name="task.techniques" from="${techniques}" groupBy="groep" optionKey="id" optionValue="name"/>
                                 </div>
 
                                 <div class="form-group">

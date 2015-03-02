@@ -4,7 +4,7 @@ class Task {
     ReImage finalImage
     ReImage originalImage
 
-    static hasMany = [tags:ImageTag]
+    static hasMany = [tags:ImageTag,techniques:Technique]
     static belongsTo = [project:Project]
 
 

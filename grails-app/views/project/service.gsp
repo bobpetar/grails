@@ -43,8 +43,8 @@
         <hr class="tall">
 
         <div class="row show-grid">
-            <div class="col-md-8">
-                <div class="isotope-item document col-md-4">
+            <div class="col-md-12">
+                <div class="isotope-item document col-md-3">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="#">
@@ -57,14 +57,17 @@
 
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <h4>Instructions</h4>
+
+                        <g:each in="${projectInstance.task.techniques}">
+                            <span class="label label-danger" title="${it.description}">${it.name}</span>
+                        </g:each>
+                   <br>
                     <span>${projectInstance.note}</span>
                 </div>
             </div>
-            <div class="col-md-4">
 
-            </div>
         </div>
     </div>
 
