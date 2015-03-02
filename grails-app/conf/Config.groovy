@@ -88,7 +88,7 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        retouch.imageUploadPath = "/opt/lampp/htdocs/retouch/"
+        retouch.imageUploadPath = "C:\\wamp\\www\\retouch\\"
         retouch.imageServer= "http://localhost/retouch/"
     }
     production {

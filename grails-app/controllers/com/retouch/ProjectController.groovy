@@ -33,11 +33,10 @@ class ProjectController {
             redirect(action: "upload")
             return
         }
-        println "NO Project" + id
         def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
-        println imageTagsJson
-        println imageTagsJson.toString()
-        [projectInstance:projectInstance,imageTagsJson:imageTagsJson]
+        def techniques = Technique.list() //.executeQuery("select from Technique group by groep")
+        println techniques
+        [projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques]
 
     }
 
@@ -49,8 +48,9 @@ class ProjectController {
         if(!projectInstance || projectInstance?.client!=springSecurityService.getCurrentUser()){
             flash.message = "This project does not exist."
             redirect(action: "upload")
+            return
         }
-        projectInstance.note = params.note
+        projectInstance.properties = params
 
         if(!projectInstance.save(flush:true)){
             flash.message = message(code: 'default.updated.message', args: [message(code: 'Project.label', default: 'Project'), projectInstance.id])
@@ -66,8 +66,9 @@ class ProjectController {
         def projectInstance = Project.findByProjectId(id)
         println "Service"
         if(!projectInstance){
-            flash.message = "This project does not exist."
+            flash.message = "The project does not exist."
             redirect(action: "upload")
+            return
         }
         if(!projectInstance.note){
             redirect(action: "instructions", id:projectInstance.projectId )
