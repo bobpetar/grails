@@ -26,6 +26,31 @@
 			</div>
 		</section>
 		<div class="container">
+			<div class="row center">
+				<div class="col-md-12">
+					<div class="wizard-progress wizard-progress-lg">
+						<div class="steps-progress">
+							<div style="width: 0%;" class="progress-indicator"></div>
+						</div>
+						<ul class="wizard-steps">
+							<li class=""><a data-toggle="tab" href="javascript:void(0);"><span>1</span>Upload</a>
+							</li>
+							<li class="active"><a
+								href="/retouch/instructions/1425305373244"><span>2</span>Instructions</a>
+							</li>
+							<li class=""><a href="/retouch/service/1425305373244"><span>3</span>Order
+									Service</a></li>
+							<li class=""><a data-toggle="tab" href="javascript:void(0);"><span>4</span>Payment</a>
+							</li>
+							<li class=""><a data-toggle="tab" href="javascript:void(0);"><span>5</span>Download</a>
+							</li>
+						</ul>
+
+					</div>
+
+				</div>
+			</div>
+			<hr class="tall">
 			<div class="row show-grid">
 				<div class="col-md-4">
 					<ul data-option-key="filter" data-sort-id="portfolio"
