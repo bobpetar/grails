@@ -13,6 +13,12 @@ class TechniqueController {
         params.max = Math.min(max ?: 10, 100)
         respond Technique.list(params), model: [techniqueInstanceCount: Technique.count()]
     }
+	def technique(){
+		
+	}
+	def tech(){
+		
+	}
 
     def show(Technique techniqueInstance) {
         respond techniqueInstance
