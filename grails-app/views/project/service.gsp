@@ -61,7 +61,7 @@
                     <h4>Instructions</h4>
 
                         <g:each in="${projectInstance.task.techniques}">
-                            <span class="label label-danger" title="${it.description}">${it.name}</span>
+                            <span class="label label-success" title="${it.description}">${it.name}</span>
                         </g:each>
                    <br>
                     <span>${projectInstance.note}</span>
