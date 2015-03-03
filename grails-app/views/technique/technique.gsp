@@ -69,21 +69,61 @@
 						<ul data-sort-id="portfolio"
 							class="portfolio-list sort-destination"
 							style="position: relative; height: 1185px;">
-							<li class="col-md-6  col-sm-6 col-xs-12 isotope-item eyes"
-								style="position: absolute; left: 0px; top: 0px;">
-								<div class="portfolio-item img-thumbnail">
-									<a class="thumb-info" href="#popupProject4"> <asset:image
-											src="img/projects/project.jpg" class="img-responsive" alt="" />
-										<span class="thumb-info-title"> <span
-											class="thumb-info-inner">SEO</span> <span
-											class="thumb-info-type">Adding more life</span>
-									</span> <span class="thumb-info-action"> <span
-											class="thumb-info-action-icon" title="Universal"><i
-												class="fa fa-link"></i></span>
-									</span>
-									</a>
+<!-- Start pop up test -->
+							<li class="owl-item active col-md-6  col-sm-6 col-xs-12 isotope-item eyes">
+								<div>
+									<div class="portfolio-item img-thumbnail">
+										<a class="thumb-info lightbox" href="#popupProject"
+											data-plugin-options="{&quot;type&quot;:&quot;inline&quot;, preloader: false}">
+											<asset:image alt="" class="img-responsive"
+												src="img/projects/project.jpg" /> <span
+											class="thumb-info-title"> <span
+												class="thumb-info-inner">POP test</span> <span
+												class="thumb-info-type">Website</span>
+										</span> <span class="thumb-info-action"> <span
+												title="Universal" class="thumb-info-action-icon"><i
+													class="fa fa-link"></i></span>
+										</span>
+										</a>
+									</div>
+									<div id="popupProject" class="popup-inline-content mfp-hide">
+										<h2>SEO</h2>
+
+										<div class="row">
+											<div class="col-md-6">
+												<asset:image class="img-thumbnail img-responsive" alt=""
+													src="img/projects/project.jpg" />
+											</div>
+											<div class="col-md-6">
+
+												<h4>
+													Project <strong>Description</strong>
+												</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+													elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in
+													hendrerit purus. Suspendisse potenti. Proin quis eros odio,
+													dapibus dictum mauris. Donec nisi libero, adipiscing id
+													pretium eget, consectetur sit amet leo. Nam at eros quis mi
+													egestas fringilla non nec purus.</p>
+
+												<a href="#" class="btn btn-primary">Live Preview</a> <span
+													class="arrow hlb"></span>
+
+												<h4 class="push-top">Services</h4>
+
+												<ul class="list icons list-unstyled">
+													<li><i class="fa fa-check"></i> Design</li>
+													<li><i class="fa fa-check"></i> HTML/CSS</li>
+													<li><i class="fa fa-check"></i> Javascript</li>
+													<li><i class="fa fa-check"></i> Backend</li>
+												</ul>
+
+											</div>
+										</div>
+									</div>
 								</div>
 							</li>
+							<!-- End pop up test -->
 							<li class="col-md-6  col-sm-6 col-xs-12 isotope-item face"
 								style="position: absolute; left: 390px; top: 0px;">
 								<div class="portfolio-item img-thumbnail">
@@ -116,6 +156,63 @@
 									</a>
 								</div>
 							</li>
+
+							<!-- Start pop up test -->
+							<li class="owl-item active col-md-6  col-sm-6 col-xs-12 isotope-item hair">
+								<div>
+									<div class="portfolio-item img-thumbnail">
+										<a class="thumb-info lightbox" href="#popupProject"
+											data-plugin-options="{&quot;type&quot;:&quot;inline&quot;, preloader: false}">
+											<asset:image alt="" class="img-responsive"
+												src="img/projects/project.jpg" /> <span
+											class="thumb-info-title"> <span
+												class="thumb-info-inner">POP test</span> <span
+												class="thumb-info-type">Website</span>
+										</span> <span class="thumb-info-action"> <span
+												title="Universal" class="thumb-info-action-icon"><i
+													class="fa fa-link"></i></span>
+										</span>
+										</a>
+									</div>
+									<div id="popupProject" class="popup-inline-content mfp-hide">
+										<h2>SEO</h2>
+
+										<div class="row">
+											<div class="col-md-6">
+												<asset:image class="img-thumbnail img-responsive" alt=""
+													src="img/projects/project.jpg" />
+											</div>
+											<div class="col-md-6">
+
+												<h4>
+													Project <strong>Description</strong>
+												</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+													elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in
+													hendrerit purus. Suspendisse potenti. Proin quis eros odio,
+													dapibus dictum mauris. Donec nisi libero, adipiscing id
+													pretium eget, consectetur sit amet leo. Nam at eros quis mi
+													egestas fringilla non nec purus.</p>
+
+												<a href="#" class="btn btn-primary">Live Preview</a> <span
+													class="arrow hlb"></span>
+
+												<h4 class="push-top">Services</h4>
+
+												<ul class="list icons list-unstyled">
+													<li><i class="fa fa-check"></i> Design</li>
+													<li><i class="fa fa-check"></i> HTML/CSS</li>
+													<li><i class="fa fa-check"></i> Javascript</li>
+													<li><i class="fa fa-check"></i> Backend</li>
+												</ul>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<!-- End pop up test -->
+
 							<li class="col-md-6  col-sm-6 col-xs-12 isotope-item eyes"
 								style="position: absolute; left: 0px; top: 395px;">
 								<div class="portfolio-item img-thumbnail">
