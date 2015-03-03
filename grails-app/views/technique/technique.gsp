@@ -56,7 +56,8 @@
 											class="thumb-info-action-icon" title="Universal"><i
 												class="fa fa-link"></i></span>
 									</span>
-									</a></div>
+									</a>
+								</div>
 							</li>
 							<li class="col-md-6  col-sm-6 col-xs-12 isotope-item face"
 								style="position: absolute; left: 390px; top: 0px;">
@@ -848,8 +849,28 @@
 					</div>
 				</div>
 				<div class="col-md-8">
-					<h2>Invoice</h2>
-					<span class="show-grid-block">4</span>
+					<h2>Image</h2>
+					<img id="uploadedImage" class=""
+						src="http://localhost/retouch/1_1425305382985_264076_L.png"
+						style="width: 100%;">
+
+					<div class="row show-grid">
+						<div class="col-md-6">
+							<h2>Project Instructions</h2>
+							<form method="post" action="">
+								<div class="form-group">
+									<textarea
+										style="margin-top: 0px; margin-bottom: 0px; height: 150px;"
+										name="note" required="required" id="textareaDefault" rows="3"
+										data-plugin-maxlength="" maxlength="1500" class="form-control">message test</textarea>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<h2>Invoice</h2>
+							<span class="show-grid-block">6</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
