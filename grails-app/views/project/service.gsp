@@ -74,10 +74,10 @@
                 <div class="tabs">
                     <ul class="nav nav-tabs">
                         <li class="active">
-                            <a href="#regularService" data-toggle="tab"><i class="fa fa-star"></i> Regular</a>
+                            <a href="#regularService" data-toggle="tab"> Regular</a>
                         </li>
                         <li>
-                            <a href="#standardService" data-toggle="tab">Standard</a>
+                            <a href="#standardService" data-toggle="tab"><i class="fa fa-star"></i>Standard</a>
                         </li>
                         <li>
                             <a href="#specialService" data-toggle="tab">Special</a>
