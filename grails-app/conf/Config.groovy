@@ -93,8 +93,8 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        retouch.imageUploadPath = "/var/www/html/retouch/"
-        retouch.imageServer= "http://128.199.150.5:8080/html/assured/"
+        retouch.imageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/"
+        retouch.imageServer= "http://1hretouch.com/retouch/"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }

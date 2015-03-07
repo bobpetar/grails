@@ -55,6 +55,7 @@ class TechniqueController {
         respond techniqueInstance
     }
 
+
     @Transactional
     def update(Technique techniqueInstance) {
         if (techniqueInstance == null) {
