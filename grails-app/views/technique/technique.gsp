@@ -973,7 +973,7 @@
 				<div class="col-md-8">
 					<h2>Image</h2>
 					<img id="uploadedImage" class=""
-						src="http://localhost/retouch/1_1425305382985_264076_L.png"
+						src="http://localhost/retouch/1_1425390299369_211402_L.png"
 						style="width: 100%;">
 
 					<div class="row show-grid">

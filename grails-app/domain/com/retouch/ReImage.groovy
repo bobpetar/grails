@@ -4,10 +4,11 @@ class ReImage {
 
     String imagePath
 
-    static belongsTo = [task:Task]
+    static belongsTo = [task:Task, technique:Technique]
 
     static constraints = {
         imagePath(nullable: false, blank:false)
+		technique(nullable:true, blank:true)
     }
 
     String toString(){

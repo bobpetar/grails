@@ -17,10 +17,10 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/retouch?zeroDateTimeBehavior=convertToNull"
             username = "root"
-            password = ""
+            password = "43301083"
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
             logSql = false
         }
