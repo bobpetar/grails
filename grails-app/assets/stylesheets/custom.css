@@ -6,3 +6,11 @@
     border-color: #ebccd1;
     color: #a94442;
 }
+
+.parallax_message {
+	background: url('img/parallax.jpg');
+}
+
+.parallax_transparent {
+	background: url('img/parallax-transparent.jpg');
+}
