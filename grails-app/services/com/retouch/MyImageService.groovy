@@ -79,12 +79,12 @@ class MyImageService {
 		return fileName.substring(lastIndexOf);
 	}
 
-	public String saveTechniqueImagePath(imageFile){
+	public String saveTechniqueImage(imageFile){
 		def date = new Date()
 		def Random randomGenerator = new Random()
-		def String fileNamePrefix = date.time.toString()+"_"+ randomGenerator.nextInt(1000000);
+		def String fileNamePrefix = date.time.toString()+"_"+ randomGenerator.nextInt(1000000)
 		def String userId  = ((User)springSecurityService.getCurrentUser())?.getId()
-		def String fileNameNoExt = userId+"_"+fileNamePrefix
+		def String fileNameNoExt = userId + "_" + fileNamePrefix
 		String ext =  getFileExtension(imageFile.originalFilename);
 		String fileName = fileNameNoExt+ext
 		String fileNameLarge = fileNameNoExt+"_L"
@@ -96,7 +96,7 @@ class MyImageService {
 			it.scaleApproximate(447, 447)
 		})
 		.execute (fileNameThumb, {
-			it.scaleApproximate(400, 400)
+			it.scaleApproximate(335, 335)
 		})
 
 
