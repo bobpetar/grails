@@ -9,7 +9,7 @@
 <title><g:message code="default.create.label"
 		args="[entityName]" /></title>
 
- <script type="text/javascript">
+<script type="text/javascript">
 
         mynotes = ${imageTagsJson.encodeAsJSON()};
 
@@ -33,79 +33,98 @@
 
             //If your notes data is in the same scrip but is not named notes pass it
             //Setting isMObile to true overlays an icon to toggle the notes, useful in touch devices
-            $('#uploadedImage').imgNotes({notes: mynotes, isMobile:thisIsMobile,removeURL:'${createLink(controller: "project",action: "removeImageNote")}'});
+            $('#uploadedImage').imgNotes({notes: mynotes, isMobile:thisIsMobile,removeURL:'${createLink(controller: "project",action: "removeImageNote")}'
+	
+										});
 
-            //The following code is not a part of Image-notes plugin but added to show how to code the add notes functionality using the imgareaselect plugin
-            $('#cancelnote').click(function(){
-                $('#uploadedImage').imgAreaSelect({ hide: true, disable:true });
-                $('#noteform').hide();
-            });
+						//The following code is not a part of Image-notes plugin but added to show how to code the add notes functionality using the imgareaselect plugin
+						$('#cancelnote').click(function() {
+							$('#uploadedImage').imgAreaSelect({
+								hide : true,
+								disable : true
+							});
+							$('#noteform').hide();
+						});
 
-            $('#addnotelink, #uploadedImage').click(function(){
-                initiaizeAddNote();
-            });
-/*            $('#uploadedImage').click(function(){
-                initiaizeAddNote();
-            });*/
+						$('#addnotelink, #uploadedImage').click(function() {
+							initiaizeAddNote();
+						});
+						/*            $('#uploadedImage').click(function(){
+						 initiaizeAddNote();
+						 });*/
 
-            $('#uploadedImage').imgNotes.showAll();
-            //initiaizeAddNote();
-        });
+						$('#uploadedImage').imgNotes.showAll();
+						//initiaizeAddNote();
+					});
 
-        function initiaizeAddNote(){
-            $('#uploadedImage').imgAreaSelect({ enable:true, onSelectChange: showaddnote, x1: 0, y1: 0, x2: 205, y2: 150 });
-            return false;
-        }
+	function initiaizeAddNote() {
+		$('#uploadedImage').imgAreaSelect({
+			enable : true,
+			onSelectChange : showaddnote,
+			x1 : 0,
+			y1 : 0,
+			x2 : 205,
+			y2 : 150
+		});
+		return false;
+	}
 
-        function tagSuccess(data){
-            if(data!="false" && data!=false){
-                $('#uploadedImage').imgAreaSelect({ hide: true, disable:true });
-                $("#NoteNote").val('');
-                $('#noteform').hide();
-                $('#uploadedImage').imgNotes.appendNote(data);
-                new PNotify({
-                    title: 'Success',
-                    text: 'Note Saved',
-                    type: 'success'
-                });
-            }
-        }
+	function tagSuccess(data) {
+		if (data != "false" && data != false) {
+			$('#uploadedImage').imgAreaSelect({
+				hide : true,
+				disable : true
+			});
+			$("#NoteNote").val('');
+			$('#noteform').hide();
+			$('#uploadedImage').imgNotes.appendNote(data);
+			new PNotify({
+				title : 'Success',
+				text : 'Note Saved',
+				type : 'success'
+			});
+		}
+	}
 
-        function tagRemoveSuccess(data){
-            if(data!="false" && data!=false){
-                new PNotify({
-                    title: 'Success',
-                    text: 'Note Removed',
-                    type: 'success'
-                });
-            }
-        }
-        function tagRemoveFailed(data){
-            console.log(data);
-            new PNotify({
-                title: 'Failed',
-                text: 'Failed to delete note',
-                type: 'error'
-            });
-        }
+	function tagRemoveSuccess(data) {
+		if (data != "false" && data != false) {
+			new PNotify({
+				title : 'Success',
+				text : 'Note Removed',
+				type : 'success'
+			});
+		}
+	}
+	function tagRemoveFailed(data) {
+		console.log(data);
+		new PNotify({
+			title : 'Failed',
+			text : 'Failed to delete note',
+			type : 'error'
+		});
+	}
 
-        function showaddnote(img, area){
-            imgOffset = $(img).offset();
-            form_left  = parseInt(imgOffset.left) + parseInt(area.x1);
-            form_top   = parseInt(imgOffset.top) + parseInt(area.y1) + parseInt(area.height)+5;
+	function showaddnote(img, area) {
+		imgOffset = $(img).offset();
+		form_left = parseInt(imgOffset.left) + parseInt(area.x1);
+		form_top = parseInt(imgOffset.top) + parseInt(area.y1)
+				+ parseInt(area.height) + 5;
 
-            $('#noteform').css({ left: form_left + 'px', top: form_top + 'px'});
+		$('#noteform').css({
+			left : form_left + 'px',
+			top : form_top + 'px'
+		});
 
-            $('#noteform').show();
+		$('#noteform').show();
 
-            $('#noteform').css("z-index", 10000);
-            $('#NoteX1').val(area.x1);
-            $('#NoteY1').val(area.y1);
-            $('#NoteHeight').val(area.height);
-            $('#NoteWidth').val(area.width);
+		$('#noteform').css("z-index", 10000);
+		$('#NoteX1').val(area.x1);
+		$('#NoteY1').val(area.y1);
+		$('#NoteHeight').val(area.height);
+		$('#NoteWidth').val(area.width);
 
-        }
-    </script>
+	}
+</script>
 </head>
 <body>
 	<div role="main" class="main">
@@ -174,6 +193,12 @@
 														class="fa fa-link"></i></span>
 											</span>
 											</a>
+											<g:formRemote name="selectTechnique" update="techniqueList"
+												url="[controller: 'project', action:'addTechnique', id:projectInstance.taskId]">
+												<input type="hidden" name="technique"
+													value="${fieldValue(bean: techniqueInstance, field: 'id')}" />
+												<input type="submit" value="Select Technique" />
+											</g:formRemote>
 										</div>
 										<div id="${fieldValue(bean: techniqueInstance, field: 'id')}"
 											class="popup-inline-content mfp-hide">
@@ -193,10 +218,14 @@
 													<p>
 														${fieldValue(bean: techniqueInstance, field: "description")}
 													</p>
-
-													<a href="#" class="btn btn-primary">Select this
-														Technique</a> <span class="arrow hlb"></span>
-
+													<g:formRemote name="selectTechnique" update="techniqueList"
+														url="[controller: 'project', action:'addTechnique', id:projectInstance.taskId]">
+														<input type="hidden" name="technique"
+															value="${fieldValue(bean: techniqueInstance, field: 'id')}" />
+														<input type="submit" class="btn btn-primary"
+															value="Select This Technique" />
+														<span class="arrow hlb"></span>
+													</g:formRemote>
 												</div>
 											</div>
 										</div>
@@ -239,7 +268,12 @@
 							</div>
 							<div class="col-md-6">
 								<h2>Invoice</h2>
-								<span class="show-grid-block">6</span>
+								<!-- Invoice block start -->
+								<div id="techniqueList">
+									<g:render template="techniqueList"
+										model="[techniqueList: techniqueList]" />
+								</div>
+								<!-- Invoive block end -->
 							</div>
 						</div>
 					</div>
@@ -270,6 +304,5 @@
 	</div>
 	<asset:javascript src="imgnote/jquery.imgnotes.js" />
 </body>
-
 
 </html>

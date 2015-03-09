@@ -1,8 +1,8 @@
 package com.retouch
 
 import grails.converters.JSON
-
 import static org.springframework.http.HttpStatus.*
+import grails.plugin.springsecurity.SpringSecurityService;
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -50,10 +50,12 @@ class ProjectController {
 			return
 		}
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
-		def techniques = Technique.list() 
+		def techniques = Technique.list()
 		def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
 		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques]
 	}
+
+	def invoice(){}
 
 	@Transactional
 	def addInstructions(String id){
@@ -264,6 +266,28 @@ class ProjectController {
 				render false
 			}
 		}
+	}
+
+	@Transactional
+	def addTechnique(Task task){
+		
+		def technique = Technique.get(params.technique)
+
+		def techniqueFound = TechniqueTemp.findAllByUserAndTaskAndTechnique(springSecurityService.getCurrentUser(), task, technique)
+
+		if(!techniqueFound) {
+			def techniqueTemp = new TechniqueTemp(technique:technique, user:springSecurityService.getCurrentUser(), task:task)
+			techniqueTemp.save(flush:true)
+		}
+
+		def techniqueList = TechniqueTemp.findAllByUserAndTask(springSecurityService.getCurrentUser(), task)
+		render (template: 'techniqueList', model:[techniqueList:techniqueList])
+
+	}
+
+	def listTechnique(){
+		def techniqueList = TechniqueTemp.findAllByUser(springSecurityService.getCurrentUser())
+		render (template: 'techniqueList', model:[techniqueList:techniqueList])
 	}
 
 	protected void notFound() {
