@@ -40,7 +40,7 @@
                                 </a>
                                 <g:formRemote name="selectTechnique" id="selectTechnique"
                                               update="techniqueList"
-                                              url="[controller: 'project', action: 'addTechnique', id: projectInstance.taskId]">
+                                              url="[controller: 'project', action: 'addTechniqueInvoice', id: projectInstance.taskId]">
                                     <input type="hidden" name="technique"
                                            value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
                                     <input type="submit" value="Choose Technique"/>
@@ -66,7 +66,7 @@
                                         <p>${fieldValue(bean: techniqueInstance, field: "description")}</p>
 
                                         <g:formRemote name="selectTechnique" update="techniqueList"
-                                                      url="[controller: 'project', action: 'addTechnique', id: projectInstance.taskId]">
+                                                      url="[controller: 'project', action: 'addTechniqueInvoice', id: projectInstance.taskId]">
                                             <input type="hidden" name="technique"
                                                    value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
                                             <input type="submit" class="btn btn-primary" value="Select This Technique"/>

@@ -1,6 +1,6 @@
 package com.retouch
 
-class TechniqueTemp {
+class TechniqueInvoice {
 	static belongsTo = [user:User, task:Task, technique:Technique]
     static constraints = {
 		user(blank:false, nullable:false)

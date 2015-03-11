@@ -9,7 +9,9 @@
     <tbody>
     <g:each in="${techniqueList}" var="technique">
         <tr>
-            <td>*</td>
+            <td>
+                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" id="${technique.id}" action="removeTechniqueInvoice" > Delete </g:remoteLink>
+            </td>
             <td>${technique.technique.name} (${technique.technique.groep})</td>
             <td>$0.05</td>
         </tr>

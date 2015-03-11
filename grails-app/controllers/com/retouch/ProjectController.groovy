@@ -2,7 +2,7 @@ package com.retouch
 
 import grails.converters.JSON
 import static org.springframework.http.HttpStatus.*
-import grails.plugin.springsecurity.SpringSecurityService;
+
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -269,25 +269,39 @@ class ProjectController {
 	}
 
 	@Transactional
-	def addTechnique(Task task){
+	def addTechniqueInvoice(Task task){
 		
 		def technique = Technique.get(params.technique)
 
-		def techniqueFound = TechniqueTemp.findAllByUserAndTaskAndTechnique(springSecurityService.getCurrentUser(), task, technique)
+		def techniqueFound = TechniqueInvoice.findAllByUserAndTaskAndTechnique(springSecurityService.getCurrentUser(), task, technique)
 
 		if(!techniqueFound) {
-			def techniqueTemp = new TechniqueTemp(technique:technique, user:springSecurityService.getCurrentUser(), task:task)
+			def techniqueTemp = new TechniqueInvoice(technique:technique, user:springSecurityService.getCurrentUser(), task:task)
 			techniqueTemp.save(flush:true)
 		}
 
-		def techniqueList = TechniqueTemp.findAllByUserAndTask(springSecurityService.getCurrentUser(), task)
-		render (template: 'techniqueList', model:[techniqueList:techniqueList])
+		def techniqueList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), task)
+		render (template: 'invoicelist', model:[techniqueList:techniqueList])
 
 	}
 
+    @Transactional
+
+    def removeTechniqueInvoice(TechniqueInvoice techniqueInvoiceInstance) {
+
+        if(techniqueInvoiceInstance == null){
+            notFound()
+            return
+        }
+
+        techniqueInvoiceInstance.delete flush: true
+        def techniqueList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), techniqueInvoiceInstance.task)
+        render (template: 'invoicelist', model:[techniqueList:techniqueList])
+    }
+
 	def listTechnique(){
-		def techniqueList = TechniqueTemp.findAllByUser(springSecurityService.getCurrentUser())
-		render (template: 'techniqueList', model:[techniqueList:techniqueList])
+		def techniqueList = TechniqueInvoice.findAllByUser(springSecurityService.getCurrentUser())
+		render (template: 'invoicelist', model:[techniqueList:techniqueList])
 	}
 
 	protected void notFound() {
