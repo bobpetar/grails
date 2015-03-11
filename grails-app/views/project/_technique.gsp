@@ -33,17 +33,19 @@
                                     </span> <span
                                             class="thumb-info-type">${fieldValue(bean: techniqueInstance, field: "name")}
                                     </span>
-                                    </span> <span class="thumb-info-action"><span title="Universal"
-                                                                                  class="thumb-info-action-icon"><i
-                                            class="fa fa-link"></i></span>
-                                </span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span title="Universal" class="thumb-info-action-icon">
+                                            <i class="fa fa-link"></i>
+                                        </span>
+                                    </span>
                                 </a>
                                 <g:formRemote name="selectTechnique" id="selectTechnique"
                                               update="techniqueList"
                                               url="[controller: 'project', action: 'addTechniqueInvoice', id: projectInstance.taskId]">
                                     <input type="hidden" name="technique"
                                            value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
-                                    <input type="submit" value="Choose Technique"/>
+                                    <input type="submit" class="btn btn-block btn-warning" value="Choose Technique"/>
                                 </g:formRemote>
 
                             </div>
