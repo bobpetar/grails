@@ -51,8 +51,9 @@ class ProjectController {
 		}
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
 		def techniques = Technique.list()
+        def techniqueInvoiceList = TechniqueInvoice.findAllByUser(springSecurityService.getCurrentUser())
 		def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
-		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques]
+		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList]
 	}
 
 	def invoice(){}
@@ -298,11 +299,6 @@ class ProjectController {
         def techniqueList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), techniqueInvoiceInstance.task)
         render (template: 'invoicelist', model:[techniqueList:techniqueList])
     }
-
-	def listTechnique(){
-		def techniqueList = TechniqueInvoice.findAllByUser(springSecurityService.getCurrentUser())
-		render (template: 'invoicelist', model:[techniqueList:techniqueList])
-	}
 
 	protected void notFound() {
 		request.withFormat {
