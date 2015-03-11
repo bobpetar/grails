@@ -54,7 +54,6 @@
 			</g:hasErrors>
 
 			<div class="panel-body">
-				<div class="table-responsive">
 					<g:if test="${flash.message}">
 						<div class="message" role="status">
 							${flash.message}
@@ -64,10 +63,9 @@
 						class="form-horizontal">
 						<g:hiddenField name="version" value="${userInstance?.version}" />
 						<fieldset class="form">
-							<g:render template="formcopy" />
+							<g:render template="formedit" />
 						</fieldset>
 					</g:form>
-				</div>
 			</div>
 		</div>
 	</div>
