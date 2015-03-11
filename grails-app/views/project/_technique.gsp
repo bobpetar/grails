@@ -45,7 +45,9 @@
                                               url="[controller: 'project', action: 'addTechniqueInvoice', id: projectInstance.taskId]">
                                     <input type="hidden" name="technique"
                                            value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
-                                    <input type="submit" class="btn btn-block btn-warning" value="Choose Technique"/>
+                                    <input type="submit" id="chooseTechnique1"
+                                           class="btn btn-block btn-warning ${techniqueInvoiceList.technique.id.contains(techniqueInstance.id) ? 'disabled' : ''}"
+                                           value="Choose Technique"/>
                                 </g:formRemote>
 
                             </div>
@@ -71,7 +73,7 @@
                                                       url="[controller: 'project', action: 'addTechniqueInvoice', id: projectInstance.taskId]">
                                             <input type="hidden" name="technique"
                                                    value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
-                                            <input type="submit" class="btn btn-primary" value="Select This Technique"/>
+                                            <input type="submit" class="btn btn-primary ${techniqueInvoiceList.technique.id.contains(techniqueInstance.id) ? 'disabled' : ''} " value="Select This Technique"/>
                                             <span class="arrow hlb"></span>
                                         </g:formRemote>
                                     </div>
