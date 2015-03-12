@@ -59,24 +59,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${projectInstance?.originalImage}">
-				<li class="fieldcontain">
-					<span id="originalImage-label" class="property-label"><g:message code="project.originalImage.label" default="Original Image" /></span>
-					
-						<span class="property-value" aria-labelledby="originalImage-label"><g:link controller="reImage" action="show" id="${projectInstance?.originalImage?.id}">${projectInstance?.originalImage?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectInstance?.finalImage}">
-				<li class="fieldcontain">
-					<span id="finalImage-label" class="property-label"><g:message code="project.finalImage.label" default="Final Image" /></span>
-					
-						<span class="property-value" aria-labelledby="finalImage-label"><g:link controller="reImage" action="show" id="${projectInstance?.finalImage?.id}">${projectInstance?.finalImage?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${projectInstance?.createdDate}">
 				<li class="fieldcontain">
 					<span id="createdDate-label" class="property-label"><g:message code="project.createdDate.label" default="Created Date" /></span>
@@ -100,6 +82,15 @@
 					<span id="status-label" class="property-label"><g:message code="project.status.label" default="Status" /></span>
 					
 						<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${projectInstance}" field="status"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${projectInstance?.task}">
+				<li class="fieldcontain">
+					<span id="task-label" class="property-label"><g:message code="project.task.label" default="Task" /></span>
+					
+						<span class="property-value" aria-labelledby="task-label"><g:link controller="task" action="show" id="${projectInstance?.task?.id}">${projectInstance?.task?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

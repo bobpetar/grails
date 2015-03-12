@@ -18,4 +18,8 @@ class TaskService {
         }
         return list as JSON
     }
+
+    def notifyRetouchers(Task task){
+
+    }
 }

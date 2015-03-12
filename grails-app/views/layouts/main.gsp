@@ -177,12 +177,18 @@
                 <nav class="nav-main mega-menu">
                     <ul class="nav nav-pills nav-main" id="mainMenu">
                         <li><a href="${createLink(uri:'/')}">Home</a></li>
-                        <sec:ifLoggedIn>
+                        <sec:ifAllGranted roles="ROLE_USER">
                             <li><a href="${createLink(uri:'/upload') }">Upload</a></li>
-                        </sec:ifLoggedIn>
-                        <sec:ifLoggedIn>
+                        </sec:ifAllGranted>
+                        <sec:ifAllGranted roles="ROLE_USER">
                             <li><a href="${createLink(uri:'/projects') }">Projects</a></li>
-                        </sec:ifLoggedIn>
+                        </sec:ifAllGranted>
+                        <sec:ifAllGranted roles="ROLE_ADMIN">
+                            <li><a href="${createLink(uri:'/projects') }">Projects</a></li>
+                        </sec:ifAllGranted>
+                        <sec:ifAllGranted roles="ROLE_RETOUCHER">
+                            <li><a href="${createLink(uri:'/tasks') }">My Tasks<span class="badge">3</span></a></li>
+                        </sec:ifAllGranted>
                         <li><a href="${createLink(uri:'/examples')}">Examples</a></li>
                         <li><a href="${createLink(uri:'/pricing') }">Pricing</a></li>
                         <li><a href="${createLink(uri:'/faq') }">FAQ</a></li>

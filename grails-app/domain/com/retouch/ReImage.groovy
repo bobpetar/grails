@@ -3,6 +3,7 @@ package com.retouch
 class ReImage {
 
     String imagePath
+    def myImageService
 
     static belongsTo = [task:Task, technique:Technique]
 
@@ -30,6 +31,10 @@ class ReImage {
              return fullFileName + part; // empty extension
          }
          return  fullFileName.substring(0,lastIndexOf) + part + fullFileName.substring(lastIndexOf);
+    }
+
+    def beforeDelete() {
+        myImageService.deleteImagePackage(this)
     }
 
 }

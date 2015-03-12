@@ -22,11 +22,23 @@ class BootStrap {
 				retoucherRole = new	Role(authority:'ROLE_RETOUCHER')
 				retoucherRole.save(flush:true)
 			}
-			def adminUser = new User(username: 'admin', password: 'admin',email: "test@test.com", firstname:'Sachit', lastname:'Pandey')
-			println adminUser.save(flush:true)
-            println adminUser.errors
-			UserRole.create adminUser, adminRole, true
+
 		}
+
+        try{
+            def adminUser = new User(username: 'admin', password: 'admin',email: "test@test.com", firstname:'Sachit', lastname:'Pandey')
+            def retoucherRole = Role.findByAuthority('ROLE_RETOUCHER')
+            println adminUser.save(flush:true)
+            println adminUser.errors
+            if(adminUser.id){
+                UserRole.create adminUser, adminRole, true
+            }
+
+        }
+            catch(e){
+
+
+        }
 
 
     }

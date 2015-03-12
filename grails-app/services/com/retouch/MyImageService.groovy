@@ -38,7 +38,7 @@ class MyImageService {
 		deleteImage( imageDomain.getLargeImageName())
 		deleteImage( imageDomain.getThumbnailImageName())
 		deleteImage( imageDomain.getImagePath())
-		imageDomain.delete(flush: true)
+		//imageDomain.delete(flush: true)
 	}
 
 
