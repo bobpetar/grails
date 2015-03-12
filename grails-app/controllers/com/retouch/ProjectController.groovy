@@ -51,9 +51,11 @@ class ProjectController {
 		}
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
 		def techniques = Technique.list()
-        def techniqueInvoiceList = TechniqueInvoice.findAllByUser(springSecurityService.getCurrentUser())
+        def techniqueInvoiceList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), projectInstance.task)
+        def sumInvoiceTechnique = techniqueInvoiceList.ratePerTechnique.sum()
+        println(sumInvoiceTechnique)
 		def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
-		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList]
+		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique]
 	}
 
 	def invoice(){}
@@ -139,7 +141,7 @@ class ProjectController {
 				flash.message = "Action Failed!!! Please try again"
 				redirect(action: "upload")
 			}else{
-				redirect(action: "instructions", id:project.projectId )
+				redirect(action: "technique", id:project.projectId )
 			}
 		}else{
 			flash.message = "Please select an image"
@@ -277,12 +279,15 @@ class ProjectController {
 		def techniqueFound = TechniqueInvoice.findAllByUserAndTaskAndTechnique(springSecurityService.getCurrentUser(), task, technique)
 
 		if(!techniqueFound) {
-			def techniqueTemp = new TechniqueInvoice(technique:technique, user:springSecurityService.getCurrentUser(), task:task)
+			def techniqueTemp = new TechniqueInvoice(technique:technique, user:springSecurityService.getCurrentUser(), task:task, ratePerTechnique: 0.5)
 			techniqueTemp.save(flush:true)
 		}
 
+        boolean isExist = isTechniqueSelectButtonDisabled(task, technique)
+
 		def techniqueList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), task)
-		render (template: 'invoicelist', model:[techniqueList:techniqueList])
+        def sumTechnique = techniqueList.ratePerTechnique.sum()
+		render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, isExist:isExist])
 
 	}
 
@@ -297,7 +302,14 @@ class ProjectController {
 
         techniqueInvoiceInstance.delete flush: true
         def techniqueList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), techniqueInvoiceInstance.task)
-        render (template: 'invoicelist', model:[techniqueList:techniqueList])
+        def sumTechnique = techniqueList.ratePerTechnique.sum()
+        render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique])
+    }
+
+    boolean isTechniqueSelectButtonDisabled(Task task, Technique technique){
+        if(!TechniqueInvoice.findByUserAndTaskAndTechnique(springSecurityService.getCurrentUser(), task, technique)){
+            return false
+        }
     }
 
 	protected void notFound() {

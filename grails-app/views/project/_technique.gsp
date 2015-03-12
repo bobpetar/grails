@@ -45,9 +45,9 @@
                                               url="[controller: 'project', action: 'addTechniqueInvoice', id: projectInstance.taskId]">
                                     <input type="hidden" name="technique"
                                            value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
-                                    <input type="submit" id="chooseTechnique1"
+                                    <input type="submit" id="chooseTechnique1${fieldValue(bean: techniqueInstance, field: 'id')}"
                                            class="btn btn-block btn-warning ${techniqueInvoiceList.technique.id.contains(techniqueInstance.id) ? 'disabled' : ''}"
-                                           value="Choose Technique"/>
+                                           value="Choose Technique" onclick="disable(${fieldValue(bean: techniqueInstance, field: 'id')});"/>
                                 </g:formRemote>
 
                             </div>
@@ -73,7 +73,7 @@
                                                       url="[controller: 'project', action: 'addTechniqueInvoice', id: projectInstance.taskId]">
                                             <input type="hidden" name="technique"
                                                    value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
-                                            <input type="submit" class="btn btn-primary ${techniqueInvoiceList.technique.id.contains(techniqueInstance.id) ? 'disabled' : ''} " value="Select This Technique"/>
+                                            <input id="chooseTechnique2${fieldValue(bean: techniqueInstance, field: 'id')}" type="submit" class="btn btn-primary ${techniqueInvoiceList.technique.id.contains(techniqueInstance.id) ? 'disabled' : 'enable'} " value="Select This Technique" onclick="disable(${fieldValue(bean: techniqueInstance, field: 'id')});"/>
                                             <span class="arrow hlb"></span>
                                         </g:formRemote>
                                     </div>

@@ -7,6 +7,19 @@
            value="${message(code: 'project.label', default: 'Project')}"/>
     <title><g:message code="default.create.label"
                       args="[entityName]"/></title>
+
+    <script type="application/javascript" >
+        function disable1(i){
+            $("#chooseTechnique1"+i).prop("disabled",true);
+            $("#chooseTechnique2"+i).prop("disabled",true);
+        }
+
+        function enable1(i){
+            alert(i)
+            $("#chooseTechnique1"+i).prop("disabled",false);
+            $("#chooseTechnique2"+i).prop("disabled",false);
+        }
+    </script>
 </head>
 
 <body>
