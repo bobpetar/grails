@@ -1,5 +1,3 @@
-
-
 <%@ page import="com.retouch.Technique" %>
 <!DOCTYPE html>
 <html>
@@ -20,7 +18,7 @@
 						<ul class="breadcrumb">
 							<li><a class="home" href="${createLink(uri: '/')}"><g:message
 										code="default.home.label" /></a></li>
-							<li><g:message code="default.list.label" args="[entityName]" /></li>
+							<li><g:link action="create"> <g:message code="default.create.label" args="[entityName]" /></g:link></li>
 						</ul>
 					</div>
 				</div>
@@ -35,8 +33,6 @@
 		</section>
 
 		<div class="container">
-			<div class="alert alert-info">Change Text</div>
-
 			<div class="panel-body">
 				<div class="table-responsive">
 					<g:if test="${flash.message}">
