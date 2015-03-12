@@ -45,8 +45,6 @@
 						</div>
 					</g:if>
 
-					<h4>Striped</h4>
-
 					<div class="col-md-12">
 						<table class="table table-striped">
 							<thead>
@@ -62,7 +60,7 @@
 										title="${message(code: 'user.email.label', default: 'Email')}" />
 
 									<g:sortableColumn property="accountExpired"
-										title="${message(code: 'user.accountExpired.label', default: 'Account Expired')}" />
+										title="${message(code: 'user.accountExpired.label', default: 'Account Enabled')}" />
 
 								</tr>
 							</thead>
@@ -84,7 +82,7 @@
 										</td>
 
 										<td><g:formatBoolean
-												boolean="${userInstance.accountExpired}" /></td>
+												boolean="${userInstance.enabled}" /></td>
 
 
 									</tr>

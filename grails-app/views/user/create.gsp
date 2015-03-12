@@ -55,7 +55,6 @@
 
 
 			<div class="panel-body">
-				<div class="table-responsive">
 					<g:if test="${flash.message}">
 						<div class="message" role="status">
 							${flash.message}
@@ -64,10 +63,9 @@
 					<g:form url="[resource:userInstance, action:'save']"
 						class="form-horizontal">
 						<fieldset class="form">
-							<g:render template="formcopy" />
+							<g:render template="formcreate" />
 						</fieldset>
 					</g:form>
-				</div>
 			</div>
 			</section>
 		</div>

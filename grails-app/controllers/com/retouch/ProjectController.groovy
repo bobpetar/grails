@@ -4,15 +4,16 @@ import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
+import grails.plugin.springsecurity.SpringSecurityService;
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class ProjectController {
-    def myImageService
-    def springSecurityService
-    def taskService
+	def myImageService
+	def springSecurityService
+	def taskService
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     @Secured(["ROLE_ADMIN"])
     def index(Integer max) {
@@ -44,6 +45,25 @@ class ProjectController {
 
     }
 
+	def technique(String id){
+		def projectInstance = Project.findByProjectId(id)
+		if(!projectInstance){
+			println "NO Project" + id
+			flash.message = "This project does not exist."
+			redirect(action: "upload")
+			return
+		}
+		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
+		def techniques = Technique.list()
+        def techniqueInvoiceList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), projectInstance.task)
+        def sumInvoiceTechnique = techniqueInvoiceList.ratePerTechnique.sum()
+        println(sumInvoiceTechnique)
+		def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
+		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique]
+	}
+
+	def invoice(){}
+
     @Secured(["ROLE_USER","ROLE_ADMIN"])
     @Transactional
     def addInstructions(String id){
@@ -60,7 +80,7 @@ class ProjectController {
         if(!projectInstance.save(flush:true)){
             flash.message = message(code: 'default.updated.message', args: [message(code: 'Project.label', default: 'Project'), projectInstance.id])
             println projectInstance.errors
-           // redirect(action: "instructions", id:projectInstance.projectId)
+            // redirect(action: "instructions", id:projectInstance.projectId)
         }else{
             println "SERV"
             redirect(action: "service", id:projectInstance.projectId )
@@ -93,7 +113,6 @@ class ProjectController {
         }
         respond Project.findAllByClient(springSecurityService.getCurrentUser(),params), model: [projectInstanceCount: Project.countByClient(springSecurityService.getCurrentUser())]
     }
-
 
 
     @Transactional
@@ -250,13 +269,57 @@ class ProjectController {
         }
     }
 
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'project.label', default: 'Project'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*' { render status: NOT_FOUND }
+	@Transactional
+	def addTechniqueInvoice(Task task){
+		
+		def technique = Technique.get(params.technique)
+
+		def techniqueFound = TechniqueInvoice.findAllByUserAndTaskAndTechnique(springSecurityService.getCurrentUser(), task, technique)
+
+		if(!techniqueFound) {
+			def techniqueTemp = new TechniqueInvoice(technique:technique, user:springSecurityService.getCurrentUser(), task:task, ratePerTechnique: 0.5)
+			techniqueTemp.save(flush:true)
+		}
+
+        boolean isExist = isTechniqueSelectButtonDisabled(task, technique)
+
+		def techniqueList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), task)
+        def sumTechnique = techniqueList.ratePerTechnique.sum()
+		render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, isExist:isExist])
+
+	}
+
+    @Transactional
+
+    def removeTechniqueInvoice(TechniqueInvoice techniqueInvoiceInstance) {
+
+        if(techniqueInvoiceInstance == null){
+            notFound()
+            return
+        }
+
+        techniqueInvoiceInstance.delete flush: true
+        def techniqueList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), techniqueInvoiceInstance.task)
+        def sumTechnique = techniqueList.ratePerTechnique.sum()
+        render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique])
+    }
+
+    boolean isTechniqueSelectButtonDisabled(Task task, Technique technique){
+        if(!TechniqueInvoice.findByUserAndTaskAndTechnique(springSecurityService.getCurrentUser(), task, technique)){
+            return false
         }
     }
+
+	protected void notFound() {
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.not.found.message', args: [
+					message(code: 'project.label', default: 'Project'),
+					params.id
+				])
+				redirect action: "index", method: "GET"
+			}
+			'*' { render status: NOT_FOUND }
+		}
+	}
 }
