@@ -29,7 +29,7 @@ class ProjectController {
         [projectInstance:projectInstance]
     }
 
-    @Secured(["ROLE_USER","ROLE_ADMIN"])
+    @Secured(["ROLE_USER"])
     def instructions(String id){
         def projectInstance = Project.findByProjectId(id)
         if(!projectInstance){
@@ -45,6 +45,7 @@ class ProjectController {
 
     }
 
+    @Secured(["ROLE_USER"])
 	def technique(String id){
 		def projectInstance = Project.findByProjectId(id)
 		if(!projectInstance){
@@ -114,7 +115,7 @@ class ProjectController {
         respond Project.findAllByClient(springSecurityService.getCurrentUser(),params), model: [projectInstanceCount: Project.countByClient(springSecurityService.getCurrentUser())]
     }
 
-
+    @Secured(["ROLE_USER"])
     @Transactional
     def addTask(){
         def project
@@ -146,7 +147,7 @@ class ProjectController {
                 flash.message = "Action Failed!!! Please try again"
                 redirect(action: "upload")
             }else{
-                redirect(action: "instructions", id:project.projectId )
+                redirect(action: "technique", id:project.projectId )
             }
         }else{
             flash.message = "Please select an image"
@@ -270,6 +271,7 @@ class ProjectController {
     }
 
 	@Transactional
+    @Secured(["ROLE_USER","ROLE_ADMIN"])
 	def addTechniqueInvoice(Task task){
 		
 		def technique = Technique.get(params.technique)
@@ -290,7 +292,7 @@ class ProjectController {
 	}
 
     @Transactional
-
+    @Secured(["ROLE_USER","ROLE_ADMIN"])
     def removeTechniqueInvoice(TechniqueInvoice techniqueInvoiceInstance) {
 
         if(techniqueInvoiceInstance == null){
