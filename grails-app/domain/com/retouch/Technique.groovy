@@ -8,12 +8,8 @@ class Technique {
 
     static constraints = {
         name(unique:true,nullable:false,blank:false)
-        description(nullable:false,blank:false)
-        groep(nullable:true,blank:true)
+        description(nullable:false,blank:false, maxSize: 1000)
+        groep(nullable:true,blank:true, matches: "[a-zA-Z]+")
 		beforeafterimage(nullable:true, blank:true)
-    }
-
-    String toString(){
-        return name
     }
 }

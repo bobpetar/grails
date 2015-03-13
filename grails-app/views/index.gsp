@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="layout" content="headerFooter" />
+<meta name="layout" content="main" />
 <title>Welcome to 1hRetouch !!!</title>
 
 </head>
