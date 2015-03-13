@@ -41,11 +41,11 @@
 						data-easing="easeOutExpo">Check out our options and
 						features.</div> <a
 					class="tp-caption customin btn btn-lg btn-primary main-button"
-					data-hash href="#projects" data-x="center" data-hoffset="0"
+					href="${createLink(uri:'/upload') }" data-x="center" data-hoffset="0"
 					data-y="250"
 					data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
 					data-speed="800" data-start="1700" data-easing="Back.easeInOut"
-					data-endspeed="300"> Get Started Now! </a></li>
+					data-endspeed="300"> Upload Image! </a></li>
 				<li data-transition="fade" data-slotamount="10"
 					data-masterspeed="300"><asset:image src="img/slides/dark-cover.jpg"
 					data-bgposition="center center" data-bgfit="cover"
@@ -81,10 +81,10 @@
 						data-easing="easeOutExpo">The #1 Selling HTML Site Template
 						on ThemeForest</div> <a
 					class="tp-caption customin btn btn-lg btn-primary main-button"
-					data-hash href="#home-intro" data-x="260" data-y="335"
+					href="${createLink(uri:'/upload') }" data-x="260" data-y="335"
 					data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
 					data-speed="800" data-start="2500" data-easing="Back.easeInOut"
-					data-endspeed="300"> Get Started Now! </a>
+					data-endspeed="300"> Upload Image! </a>
 
 					<div class="tp-caption main-label sft stb visible-lg" data-x="345"
 						data-y="415" data-speed="500" data-start="2700"
