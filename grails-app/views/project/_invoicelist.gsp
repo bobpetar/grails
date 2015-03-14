@@ -7,21 +7,21 @@
     </tr>
     </thead>
     <tbody>
-    <g:each in="${techniqueInvoiceList}" var="technique">
+    <g:each in="${techniqueInvoiceList}" status="i" var="techniqueInstance">
         <tr>
-            <td>${technique.technique.name} (${technique.technique.groep})</td>
-            <td>$${technique.ratePerTechnique}</td>
+            <td>${techniqueInstance.name} (${techniqueInstance.groep})</td>
+            <td>$${techniqueInstance.ratePerTechnique}</td>
             <td>
-                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" id="${technique.id}" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" > Delete </g:remoteLink>
+                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" id="${techniqueInstance.id}" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" > Delete </g:remoteLink>
             </td>
         </tr>
     </g:each>
-    <g:each in="${techniqueList}" var="technique">
+    <g:each in="${techniqueList}" status="i" var="techniqueInstance">
         <tr>
-            <td>${technique.technique.name} (${technique.technique.groep})</td>
-            <td>$${technique.ratePerTechnique}</td>
+            <td>${techniqueInstance.name} (${techniqueInstance.groep})</td>
+            <td>$${techniqueInstance.ratePerTechnique}</td>
             <td>
-                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" id="${technique.id}" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" onComplete="enable(${technique.technique.id})"> Delete </g:remoteLink>
+                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" id="${taskInstance.id}" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" onComplete="enable(${techniqueInstance.id})"> Delete </g:remoteLink>
             </td>
         </tr>
     </g:each>

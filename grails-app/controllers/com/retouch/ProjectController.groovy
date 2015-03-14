@@ -56,9 +56,8 @@ class ProjectController {
 		}
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
 		def techniques = Technique.list()
-        def techniqueInvoiceList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), projectInstance.task)
+        def techniqueInvoiceList = projectInstance.task.techniques.toList()
         def sumInvoiceTechnique = techniqueInvoiceList.ratePerTechnique.sum()
-        println(sumInvoiceTechnique)
 		def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
 		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique]
 	}
@@ -275,34 +274,37 @@ class ProjectController {
 	def addTechniqueInvoice(Task task){
 		
 		def technique = Technique.get(params.technique)
+        task.addToTechniques(technique)
+        if(!task.save(flush: true)){
+            flash.message = "Unable to create Invoice."
+        }
 
-		def techniqueFound = TechniqueInvoice.findAllByUserAndTaskAndTechnique(springSecurityService.getCurrentUser(), task, technique)
-
-		if(!techniqueFound) {
-			def techniqueTemp = new TechniqueInvoice(technique:technique, user:springSecurityService.getCurrentUser(), task:task, ratePerTechnique: 0.5)
-			techniqueTemp.save(flush:true)
-		}
-
-        boolean isExist = isTechniqueSelectButtonDisabled(task, technique)
-
-		def techniqueList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), task)
+        def taskInstance = Task.get(task.id)
+        def techniqueList = taskInstance.techniques
         def sumTechnique = techniqueList.ratePerTechnique.sum()
-		render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, isExist:isExist])
+		render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance:taskInstance])
 
 	}
 
     @Transactional
     @Secured(["ROLE_USER","ROLE_ADMIN"])
-    def removeTechniqueInvoice(TechniqueInvoice techniqueInvoiceInstance) {
+    def removeTechniqueInvoice(Task task) {
 
-        if(techniqueInvoiceInstance == null){
-            notFound()
-            return
-        }
+        println("clicked")
+        println("Task " + task)
 
-        techniqueInvoiceInstance.delete flush: true
-        def techniqueList = TechniqueInvoice.findAllByUserAndTask(springSecurityService.getCurrentUser(), techniqueInvoiceInstance.task)
+        def technique = Technique.get(3)
+
+        println("technique:"+technique)
+
+        task.removeFromTechniques(technique)
+
+        def techniqueList = task.techniques.findAll()
+
+        println("technique list " +techniqueList)
+
         def sumTechnique = techniqueList.ratePerTechnique.sum()
+
         render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique])
     }
 

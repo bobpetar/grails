@@ -45,7 +45,7 @@ class TechniqueController {
 		println "Technique Image Name:: " + techniqueImage
 
 		if(techniqueImage){
-			techniqueInstance = new Technique(beforeafterimage:techniqueImage, name:params.name, description:params.description, groep:params.groep)
+			techniqueInstance = new Technique(beforeafterimage:techniqueImage, name:params.name, description:params.description, groep:params.groep, ratePerTechnique: 0.5)
 		}
 
 		techniqueInstance.save flush:true
