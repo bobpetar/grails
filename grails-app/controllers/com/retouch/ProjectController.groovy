@@ -145,7 +145,7 @@ class ProjectController {
             def fileName = myImageService.saveImagePackage( imageFile )
             def image = new ReImage(imagePath: fileName)
             def task = new Task(originalImage: image)
-            project?.task = task
+            project.addToTask(task)
            // image.save(flush:true)
             if(!project.save(flush:true)){
                 myImageService.deleteImagePackage(image)
@@ -163,49 +163,37 @@ class ProjectController {
 
     @Secured(["ROLE_USER"])
     @Transactional
-    def addTaskMulti(){
+    def addTaskMulti() {
         def project
-        println params
-        println params.projectInstance
-        if(params.projectInstance){
-            project  = Project.findByProjectId(params.projectInstance)
-            if(!project){
+        if (params.id) {
+            project = Project.findByProjectId(params.id)
+            if (!project) {
                 println("Inside project Instance")
-                project = new Project(client:springSecurityService.getCurrentUser(),projectId:params.id ,createdDate:new Date() )
+                project = new Project(client: springSecurityService.getCurrentUser(), projectId: params.id, createdDate: new Date())
             }
-        }else{
+        } else {
             redirect(action: "uploadmulti")
             return
         }
 
-        def imageFile
-        if(params.file){
-            println("Inside image file")
-//            imageFile = request.getMultiFileMap().each{
-//                println("Image file " + imageFile)
-//            }
-
-        }
-
-//        if(imageFile && !imageFile.empty) {
-//            def fileName = myImageService.saveImagePackage( imageFile )
-//            def image = new ReImage(imagePath: fileName)
-//            def task = new Task(originalImage: image)
-//            project?.task = task
-//            // image.save(flush:true)
-//            if(!project.save(flush:true)){
+        if (params.file) {
+            request.getFileNames().each { name ->
+                def imageFile = request.getFile(name)
+                if (imageFile && !imageFile.empty) {
+                    def fileName = myImageService.saveImagePackage(imageFile)
+                    def image = new ReImage(imagePath: fileName)
+                    def task = new Task(originalImage: image)
+                    project.addToTask(task)
+                }
+            }
+            try {
+                project.save(flush: true)
+            } catch (Exception e){
+                println(e)
 //                myImageService.deleteImagePackage(image)
-//                println project.errors
-//                flash.message = "Action Failed!!! Please try again"
-//                redirect(action: "upload")
-//            }else{
-//                redirect(action: "technique", id:project.projectId )
-//            }
-//        }else{
-//            flash.message = "Please select an image"
-//            redirect(action: "upload")
-//        }
-        println("At last")
+                println project.errors
+            }
+        }
     }
 
     def show(Project projectInstance) {

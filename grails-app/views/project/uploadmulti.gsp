@@ -36,7 +36,7 @@
                 </header>
 
                 <div class="panel-body">
-                    <g:form action="addTaskMulti" name="multiple-upload" enctype="multipart/form-data" params="[projectInstance: projectInstance.projectId]" class="dropzone dz-square" id="multiple-upload">
+                    <g:form action="addTaskMulti" name="multiple-upload" enctype="multipart/form-data" id="${projectInstance.projectId}" class="dropzone dz-square">
 
                     </g:form>
                 </div>
