@@ -297,12 +297,6 @@ class ProjectController {
         render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance: task])
     }
 
-    boolean isTechniqueSelectButtonDisabled(Task task, Technique technique){
-        if(!TechniqueInvoice.findByUserAndTaskAndTechnique(springSecurityService.getCurrentUser(), task, technique)){
-            return false
-        }
-    }
-
 	protected void notFound() {
 		request.withFormat {
 			form multipartForm {
