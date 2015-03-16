@@ -59,7 +59,7 @@ class ProjectController {
         def techniqueInvoiceList = projectInstance.task.techniques.toList()
         def sumInvoiceTechnique = techniqueInvoiceList.ratePerTechnique.sum()
 		def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
-		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique]
+		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique, taskInstance: projectInstance.task]
 	}
 
 	def invoice(){}
@@ -293,18 +293,15 @@ class ProjectController {
         println("clicked")
         println("Task " + task)
 
-        def technique = Technique.get(3)
+        def technique = Technique.get(params.techniqueparams)
 
         println("technique:"+technique)
 
         task.removeFromTechniques(technique)
-
         def techniqueList = task.techniques.findAll()
-
         println("technique list " +techniqueList)
-
         def sumTechnique = techniqueList.ratePerTechnique.sum()
-
+        println("Sum technique " + sumTechnique)
         render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique])
     }
 
