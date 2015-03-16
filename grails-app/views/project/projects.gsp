@@ -58,8 +58,9 @@
                         <g:each in="${projectInstanceList}" status="i" var="projectInstance">
                             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                                <td><g:link action="technique"
-                                            id="${projectInstance.projectId}">${fieldValue(bean: projectInstance, field: "projectId")}</g:link></td>
+                                <td>
+                                    <a href="${createLink(uri: '/project/technique')}/${projectInstance.projectId}#eyes"> ${fieldValue(bean: projectInstance, field: "projectId")}</a>
+                                </td>
                                 <td>${fieldValue(bean: projectInstance, field: "status")}</td>
                                 <td>${fieldValue(bean: projectInstance, field: "createdDate")}</td>
 
