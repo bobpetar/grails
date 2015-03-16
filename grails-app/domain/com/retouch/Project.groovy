@@ -11,7 +11,7 @@ class Project {
 /*    ReImage originalImage
     ReImage finalImage*/
 
-    static hasOne = [task:Task]
+    static hasMany = [task:Task]
 
     static constraints = {
         assignedTo(nullable:true,blank:true)

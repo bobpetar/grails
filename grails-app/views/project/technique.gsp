@@ -19,6 +19,22 @@
             $("#chooseTechnique1"+i).prop("disabled",false);
             $("#chooseTechnique2"+i).prop("disabled",false);
         }
+
+        %{--function disableonload(i){--}%
+            %{--if(${techniques.id.containsAll(techniqueInvoiceList.id)}){--}%
+               %{--var list = ${techniqueInvoiceList.id}--}%
+
+            %{--} else {--}%
+                %{--alert("nothing")--}%
+                %{--alert(${techniqueInvoiceList.id})--}%
+                %{--alert(${techniques.id})--}%
+            %{--}--}%
+        %{--}--}%
+
+        %{--window.onload = function(){--}%
+            %{--disableonload1()--}%
+        %{--}--}%
+
     </script>
 </head>
 
