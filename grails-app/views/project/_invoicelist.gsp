@@ -12,7 +12,7 @@
             <td>${techniqueInstance.name} (${techniqueInstance.groep})</td>
             <td>$${techniqueInstance.ratePerTechnique}</td>
             <td>
-                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" id="${taskInstance.id}" params="[techniqueparams: techniqueInstance.id]" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" > Delete </g:remoteLink>
+                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" params="[taskparams:taskInstance?.id, techniqueparams: techniqueInstance.id]" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" > Delete </g:remoteLink>
             </td>
         </tr>
     </g:each>
@@ -21,7 +21,7 @@
             <td>${techniqueInstance.name} (${techniqueInstance.groep})</td>
             <td>$${techniqueInstance.ratePerTechnique}</td>
             <td>
-                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" id="${taskInstance.id}" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" params="[techniqueparams:techniqueInstance.id]" > Delete </g:remoteLink>
+                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" params="[taskparams:taskInstance?.id, techniqueparams:techniqueInstance?.id]" > Delete </g:remoteLink>
             </td>
         </tr>
     </g:each>

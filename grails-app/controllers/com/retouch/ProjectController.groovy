@@ -288,21 +288,13 @@ class ProjectController {
 
     @Transactional
     @Secured(["ROLE_USER","ROLE_ADMIN"])
-    def removeTechniqueInvoice(Task task) {
-
-        println("clicked")
-        println("Task " + task)
-
+    def removeTechniqueInvoice() {
         def technique = Technique.get(params.techniqueparams)
-
-        println("technique:"+technique)
-
+        def task = Task.get(params.taskparams)
         task.removeFromTechniques(technique)
         def techniqueList = task.techniques.findAll()
-        println("technique list " +techniqueList)
         def sumTechnique = techniqueList.ratePerTechnique.sum()
-        println("Sum technique " + sumTechnique)
-        render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique])
+        render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance: task])
     }
 
     boolean isTechniqueSelectButtonDisabled(Task task, Technique technique){
