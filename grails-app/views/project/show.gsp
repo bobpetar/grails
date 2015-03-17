@@ -2,106 +2,218 @@
 <%@ page import="com.retouch.Project" %>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'project.label', default: 'Project')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#show-project" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-project" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list project">
-			
-				<g:if test="${projectInstance?.assignedTo}">
-				<li class="fieldcontain">
-					<span id="assignedTo-label" class="property-label"><g:message code="project.assignedTo.label" default="Assigned To" /></span>
-					
-						<span class="property-value" aria-labelledby="assignedTo-label"><g:link controller="user" action="show" id="${projectInstance?.assignedTo?.id}">${projectInstance?.assignedTo?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectInstance?.note}">
-				<li class="fieldcontain">
-					<span id="note-label" class="property-label"><g:message code="project.note.label" default="Note" /></span>
-					
-						<span class="property-value" aria-labelledby="note-label"><g:fieldValue bean="${projectInstance}" field="note"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectInstance?.client}">
-				<li class="fieldcontain">
-					<span id="client-label" class="property-label"><g:message code="project.client.label" default="Client" /></span>
-					
-						<span class="property-value" aria-labelledby="client-label"><g:link controller="user" action="show" id="${projectInstance?.client?.id}">${projectInstance?.client?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectInstance?.projectId}">
-				<li class="fieldcontain">
-					<span id="projectId-label" class="property-label"><g:message code="project.projectId.label" default="Project Id" /></span>
-					
-						<span class="property-value" aria-labelledby="projectId-label"><g:fieldValue bean="${projectInstance}" field="projectId"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectInstance?.createdDate}">
-				<li class="fieldcontain">
-					<span id="createdDate-label" class="property-label"><g:message code="project.createdDate.label" default="Created Date" /></span>
-					
-						<span class="property-value" aria-labelledby="createdDate-label"><g:formatDate date="${projectInstance?.createdDate}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectInstance?.lastUpdated}">
-				<li class="fieldcontain">
-					<span id="lastUpdated-label" class="property-label"><g:message code="project.lastUpdated.label" default="Last Updated" /></span>
-					
-						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${projectInstance?.lastUpdated}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectInstance?.status}">
-				<li class="fieldcontain">
-					<span id="status-label" class="property-label"><g:message code="project.status.label" default="Status" /></span>
-					
-						<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${projectInstance}" field="status"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${projectInstance?.task}">
-				<li class="fieldcontain">
-					<span id="task-label" class="property-label"><g:message code="project.task.label" default="Task" /></span>
-					
-						<span class="property-value" aria-labelledby="task-label"><g:link controller="task" action="show" id="${projectInstance?.task?.id}">${projectInstance?.task?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:projectInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${projectInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
-		</div>
-	</body>
+<head>
+    <meta name="layout" content="main">
+    <g:set var="entityName" value="${message(code: 'project.label', default: 'Project')}" />
+    <title><g:message code="default.show.label" args="[entityName]" /></title>
+</head>
+<body>
+
+<section class="page-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a class="home" href="${createLink(uri: '/')}"><g:message
+                            code="default.home.label" /></a></li>
+                    <li>My Task</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    Project # ${projectInstance.projectId}
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+
+    <div class="row show-grid">
+        <div class="col-md-4">
+
+
+            <section class="panel">
+
+                <header class="panel-heading">
+                    <div class="panel-actions">
+                        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                        %{--                <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>--}%
+                    </div>
+
+                    <h2 class="panel-title">Project Details</h2>
+                    <p class="panel-subtitle">
+                        <g:formatDate date="${projectInstance?.createdDate}" />
+                    </p>
+                </header>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="form-group">
+                            <ul class="property-list project">
+
+                                <g:if test="${projectInstance?.assignedTo}">
+                                    <li class="fieldcontain">
+                                        <span id="assignedTo-label" class="property-label"><g:message code="project.assignedTo.label" default="Assigned To" /></span>
+
+                                        <span class="property-value" aria-labelledby="assignedTo-label">: ${projectInstance?.assignedTo?.username?.encodeAsHTML()}</span>
+
+                                    </li>
+                                </g:if>
+
+                                <g:if test="${projectInstance?.client}">
+                                    <li class="fieldcontain">
+                                        <span id="client-label" class="property-label"><g:message code="project.client.label" default="Client" /></span>
+
+                                        <span class="property-value" aria-labelledby="client-label">: ${projectInstance?.client?.username?.encodeAsHTML()}</span>
+
+                                    </li>
+                                </g:if>
+
+                                <g:if test="${projectInstance?.note}">
+                                    <li class="fieldcontain">
+                                        <span id="note-label" class="property-label"><g:message code="project.note.label" default="Note" /></span>
+
+                                        <span class="property-value" aria-labelledby="note-label">: <g:fieldValue bean="${projectInstance}" field="note"/></span>
+
+                                    </li>
+                                </g:if>
+
+
+
+                                <g:if test="${projectInstance?.projectId}">
+                                    <li class="fieldcontain">
+                                        <span id="projectId-label" class="property-label"><g:message code="project.projectId.label" default="Project Id" /></span>
+
+                                        <span class="property-value" aria-labelledby="projectId-label">: <g:fieldValue bean="${projectInstance}" field="projectId"/></span>
+
+                                    </li>
+                                </g:if>
+
+                                <g:if test="${projectInstance?.createdDate}">
+                                    <li class="fieldcontain">
+                                        <span id="createdDate-label" class="property-label"><g:message code="project.createdDate.label" default="Created Date" /></span>
+
+                                        <span class="property-value" aria-labelledby="createdDate-label">: <g:formatDate date="${projectInstance?.createdDate}" /></span>
+
+                                    </li>
+                                </g:if>
+
+                                <g:if test="${projectInstance?.lastUpdated}">
+                                    <li class="fieldcontain">
+                                        <span id="lastUpdated-label" class="property-label"><g:message code="project.lastUpdated.label" default="Last Updated" /></span>
+
+                                        <span class="property-value" aria-labelledby="lastUpdated-label">: <g:formatDate date="${projectInstance?.lastUpdated}" /></span>
+
+                                    </li>
+                                </g:if>
+
+                                <g:if test="${projectInstance?.status}">
+                                    <li class="fieldcontain">
+                                        <span id="status-label" class="property-label"><g:message code="project.status.label" default="Status" /></span>
+
+                                        <span class="property-value" aria-labelledby="status-label">: <g:fieldValue bean="${projectInstance}" field="status"/></span>
+
+                                    </li>
+                                </g:if>
+
+                            </ul>
+
+                            <div class="form-group">
+                                <label class="control-label">Techniques</label>
+                                <br>
+                                <g:each in="${projectInstance?.task?.techniques}" >
+                                    <span class="label label-success" title="${it.description}">${it.name}</span>
+                                </g:each>
+                            </div>
+                            <div class="form-group">
+                                <g:if test="${projectInstance?.assignedTo}">
+                                    <label class="control-label">Upload Finished Image</label>
+                                    <g:form action="upload" enctype="multipart/form-data" id="${projectInstance.id}" >
+                                    %{--<fieldset class="buttons">
+                                        <input type="file" name="reimage" required="required" style="margin: auto;" class="btn btn-primary btn-lg"/>
+                                    </fieldset>--}%
+                                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                                            <div class="input-append">
+                                                <div class="uneditable-input">
+                                                    <i class="fa fa-file fileupload-exists"></i>
+                                                    <span class="fileupload-preview"></span>
+                                                </div>
+                                                <span class="btn btn-default btn-file">
+                                                    <span class="fileupload-exists">Change</span>
+                                                    <span class="fileupload-new">Select file</span>
+                                                    <input type="file" name="reimage" required="required" accept='image/*'/>
+                                                </span>
+                                                <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <fieldset class="buttons">
+                                            <g:submitButton name="upload" class="btn btn-primary btn-sm " value="Upload" />
+                                        </fieldset>
+
+                                    </g:form>
+                                </g:if>
+                                <g:else>
+                                    <g:link controller="task" action="claimTask" id="${projectInstance.id}" class="mb-xs mt-xs mr-xs btn btn-primary "><i class="fa fa-flag-o"></i> Claim</g:link>
+                                </g:else>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+        <div class="col-md-8">
+
+            <div class="isotope-item document col-md-11" style="float:none;">
+                <h2>Original Image</h2>
+                <div class="thumbnail">
+                    <div class="thumb-preview">
+                        <a class="thumb-image" href="javascript:void(0);">
+                            <div id="imageovelaynote">
+                                <img id="uploadedImage" class="%{--img-responsive--}%" style="width: 100%;" %{--onError="this.onerror=null;this.src='${createLink(uri: '/')}assets/noimage.png';"--}% src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getLargeImageName()}"/>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group" style="float: right">
+                    <a type="button" class="mb-xs mt-xs mr-xs btn btn-primary" href="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.toString()}" target="_blank"><i class="fa fa-download"></i> Download</a>
+                </div>
+
+            </div>
+
+<g:if test="${projectInstance?.task?.finalImage}">
+    <hr class="tall">
+    <div class="isotope-item document col-md-11" style="float:none;">
+        <h2>Retouched Image</h2>
+        <div class="thumbnail">
+            <div class="thumb-preview">
+                <a class="thumb-image" href="javascript:void(0);">
+                    <div>
+                        <img class="%{--img-responsive--}%" style="width: 100%;" %{--onError="this.onerror=null;this.src='${createLink(uri: '/')}assets/noimage.png';"--}% src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getLargeImageName()}"/>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="form-group" style="float: right">
+            <a type="button" class="mb-xs mt-xs mr-xs btn btn-primary" href="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.toString()}" target="_blank"><i class="fa fa-download"></i> Download</a>
+        </div>
+
+    </div>
+</g:if>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
 </html>

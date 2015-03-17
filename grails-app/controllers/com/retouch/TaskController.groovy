@@ -11,6 +11,7 @@ class TaskController {
 
     def springSecurityService
     def myImageService
+    def taskService
     def mailService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -93,6 +94,7 @@ class TaskController {
     @Secured(["ROLE_RETOUCHER"])
     def myTasks(Integer max){
         println "My tassks"
+       // taskService.notifyRetouchers(Task.get(1))
         params.max = Math.min(max ?: 10, 100)
         if(!params.sort){
             params.sort = "id"
@@ -102,13 +104,25 @@ class TaskController {
 
     }
 
+
+    @Secured(["ROLE_RETOUCHER"])
+    def newTasks(Integer max){
+        params.max = Math.min(max ?: 10, 100)
+        if(!params.sort){
+            params.sort = "id"
+            params.order = "desc"
+        }
+        respond Project.findAllByAssignedTo(null,params), model: [projectInstanceCount: Project.countByAssignedTo(null)]
+
+    }
+
     /*  def index(Integer max) {
           params.max = Math.min(max ?: 10, 100)
           respond Task.list(params), model: [taskInstanceCount: Task.count()]
       }*/
 
 
-    @Secured(["ROLE_RETOUCHER"])
+    @Secured(["ROLE_RETOUCHER","ROLE_ADMIN"])
     def show(Project projectInstance) {
         if(!projectInstance.assignedTo || projectInstance.assignedTo == springSecurityService.getCurrentUser()){
             respond projectInstance

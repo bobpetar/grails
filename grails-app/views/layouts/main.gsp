@@ -166,22 +166,35 @@
                         <li><a href="${createLink(uri:'/')}#home">Home</a></li>
                         <sec:ifAllGranted roles="ROLE_USER">
                             <li><a href="${createLink(uri:'/upload') }">Upload</a></li>
-                        </sec:ifAllGranted>
-                        <sec:ifAllGranted roles="ROLE_USER">
                             <li><a href="${createLink(uri:'/projects') }">Projects</a></li>
+                            <li><a href="${createLink(uri:'/')}#projects">Latest Projects</a></li>
+                            <li><a href="${createLink(uri:'/')}#features">Features</a></li>
+                            <li><a href="${createLink(uri:'/')}#team">Meet the Team</a></li>
+                            <li><a href="${createLink(uri:'/')}#contact">Contact Us</a></li>
                         </sec:ifAllGranted>
                         <sec:ifAllGranted roles="ROLE_ADMIN">
                             <li><a href="${createLink(uri:'/user') }">User</a></li>
                             <li><a href="${createLink(uri:'/projects') }">Projects</a></li>
                         </sec:ifAllGranted>
                         <sec:ifAllGranted roles="ROLE_RETOUCHER">
-                            <li><a href="${createLink(uri:'/tasks') }">My Tasks<span class="badge">3</span></a></li>
+                            <li><a href="${createLink(uri:'/tasks') }">My Tasks
+                                <g:if test="${incompleteTaskCount!=null}">
+                                    <span class="badge">${incompleteTaskCount}</span>
+                                </g:if>
+                            </a></li>
+                            <li><a href="${createLink(uri:'/new-tasks') }">New Tasks
+                                <g:if test="${newTaskCount!=null}">
+                                    <span class="badge">${newTaskCount}</span>
+                                </g:if>
+                                </a>
+                            </li>
                         </sec:ifAllGranted>
-                        <li><a href="${createLink(uri:'/')}#projects">Latest Projects</a></li>
-                        <li><a href="${createLink(uri:'/')}#features">Features</a></li>
-                        <li><a href="${createLink(uri:'/')}#team">Meet the Team</a></li>
-                        <li><a href="${createLink(uri:'/')}#contact">Contact Us</a></li>
+
                         <sec:ifNotLoggedIn>
+                            <li><a href="${createLink(uri:'/')}#projects">Latest Projects</a></li>
+                            <li><a href="${createLink(uri:'/')}#features">Features</a></li>
+                            <li><a href="${createLink(uri:'/')}#team">Meet the Team</a></li>
+                            <li><a href="${createLink(uri:'/')}#contact">Contact Us</a></li>
                             <li><a href="${createLink(uri:'/login') }">Login</a></li>
                         </sec:ifNotLoggedIn>
                         <sec:ifLoggedIn>
@@ -218,12 +231,12 @@
                 </div>
                 <div class="col-md-3 col-md-offset-1">
                     <h5 class="short">Contact Us</h5>
-                    <span class="phone">(800) 123-4567</span>
-                    <p class="short">International: (333) 456-6670</p>
-                    <p class="short">Fax: (222) 531-8999</p>
+                    <span class="phone">0031 (0)622752205</span>
+                    <p class="short">Kanaalpark 157</p>
+                    <p class="short">2321 JW Leiden</p>
                     <ul class="list icons list-unstyled">
                         <li><i class="fa fa-envelope"></i> <a
-                                href="mailto:okler@okler.net">okler@okler.net</a></li>
+                                href="mailto:okler@okler.net">info@1hretouch.com</a></li>
                     </ul>
                     <div class="social-icons">
                         <ul class="social-icons">
