@@ -57,7 +57,7 @@
             <g:form url="[resource:techniqueInstance, action:'update']"
                     class="form-horizontal">
                 <fieldset class="form">
-                    <g:render template="form" />
+                    <g:render template="formedit" />
                 </fieldset>
             </g:form>
         </div>
