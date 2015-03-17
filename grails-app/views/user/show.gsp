@@ -23,6 +23,10 @@
                             <li class="active"><a
                                     href="${createLink(uri: '/user/create')}"><g:message
                                         code="default.create.label" args="[entityName]"/></a></li>
+                            <li class="active"> <g:link class="edit" action="edit" resource="${userInstance}">
+                                <g:message code="default.edit.label" args="[entityName]"/>
+                            </g:link></li>
+
                         </ul>
                     </div>
                 </sec:ifAnyGranted>
@@ -71,82 +75,19 @@
                 <h4 class="page-header">Project List: Uploaded</h4>
                 <table class="table table-striped">
                     <tbody>
-                    <tr>
+                    <g:each in="${userProjects}">
+                        <tr>
 
-                        <td>
-                            <div class="post-image">
-                                <div class="img-thumbnail">
-                                    <a href="#"><asset:image
-                                            src="admin/images/post-thumb-1.jpg"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </td>
+                            <td>#${it.projectId}</td>
 
-                        <td>#1387218</td>
+                            <td>${it.status}</td>
 
-                        <td>New</td>
+                            <td><prettytime:display date="${it.createdDate}" /></td>
 
-                        <td>Uploaded 2 days ago</td>
+                        </tr>
+                    </g:each>
 
-                    </tr>
-                    <tr>
 
-                        <td>
-                            <div class="post-image">
-                                <div class="img-thumbnail">
-                                    <a href="#"><asset:image
-                                            src="admin/images/post-thumb-1.jpg"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td>#1387218</td>
-
-                        <td>New</td>
-
-                        <td>Uploaded 2 days ago</td>
-
-                    </tr>
-                    <tr>
-
-                        <td>
-                            <div class="post-image">
-                                <div class="img-thumbnail">
-                                    <a href="#"><asset:image
-                                            src="admin/images/post-thumb-1.jpg"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td>#1387218</td>
-
-                        <td>New</td>
-
-                        <td>Uploaded 2 days ago</td>
-
-                    </tr>
-                    <tr>
-
-                        <td>
-                            <div class="post-image">
-                                <div class="img-thumbnail">
-                                    <a href="#"><asset:image
-                                            src="admin/images/post-thumb-1.jpg"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td>#1387218</td>
-
-                        <td>New</td>
-
-                        <td>Uploaded 2 days ago</td>
-
-                    </tr>
                     </tbody>
                 </table>
 

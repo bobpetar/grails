@@ -32,9 +32,9 @@ class UserController {
 	def show(User userInstance){
 
 		if(SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')){
-			respond userInstance
+			respond userInstance ,model:[userProjects: Project.findAllByClient(userInstance)]
 		} else {
-			respond springSecurityService.getCurrentUser()
+			respond springSecurityService.getCurrentUser() , model:[userProjects: Project.findAllByClient(springSecurityService.getCurrentUser())]
 		}
 	}
 
