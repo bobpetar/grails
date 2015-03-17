@@ -57,7 +57,7 @@
 								var="techniqueInstance">
 								<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 								
-									<td><img id="uploadedImage" class="" style="width: 100%;" src="${grailsApplication.config.retouch.imageServer}${fieldValue(bean: techniqueInstance, field: "beforeafterimage")}"/></td>
+									<td><img id="uploadedImage" class="" style="width: 100%;" src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getThumbnailImageName()}"/></td>
 									
 									<td><g:link action="show" id="${techniqueInstance.id}">${fieldValue(bean: techniqueInstance, field: "name")}</g:link></td>
 								

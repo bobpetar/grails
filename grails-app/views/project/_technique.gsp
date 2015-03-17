@@ -25,7 +25,7 @@
                                    href="#${fieldValue(bean: techniqueInstance, field: 'id')}"
                                    data-plugin-options="{&quot;type&quot;:&quot;inline&quot;, preloader: false}">
                                     <img alt="" class="img-responsive"
-                                         src="${grailsApplication.config.retouch.imageServer}${fieldValue(bean: techniqueInstance, field: "beforeafterimage")}"/>
+                                         src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getThumbnailImageName()}"/>
                                     </span>
                                     <span class="thumb-info-action">
                                         <span title="Universal" class="thumb-info-action-icon">
@@ -53,8 +53,8 @@
 
                                     <div class="col-md-6">
                                         <img class="img-thumbnail img-responsive"
-                                             alt="${grailsApplication.config.retouch.imageServer}${fieldValue(bean: techniqueInstance, field: "name")}"
-                                             src="${grailsApplication.config.retouch.imageServer}${fieldValue(bean: techniqueInstance, field: "beforeafterimage")}"/>
+                                             alt="${fieldValue(bean: techniqueInstance, field: "name")}"
+                                             src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getLargeImageName()}"/>
                                     </div>
 
                                     <div class="col-md-6">
