@@ -28,7 +28,8 @@ class ProjectController {
         def projectInstance = new Project(projectId:projectId )
         [projectInstance:projectInstance]
     }
-    @Secured(["ROLE_USER"])
+
+    @Secured(["ROLE"])
     def uploadmulti(){
         def projectId = Project.generateProjectId()
         def projectInstance = new Project(projectId:projectId )
@@ -67,8 +68,6 @@ class ProjectController {
 		def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
 		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique, taskInstance: projectInstance.task]
 	}
-
-	def invoice(){}
 
     @Secured(["ROLE_USER","ROLE_ADMIN"])
     @Transactional
@@ -145,7 +144,7 @@ class ProjectController {
             def fileName = myImageService.saveImagePackage( imageFile )
             def image = new ReImage(imagePath: fileName)
             def task = new Task(originalImage: image)
-            project.addToTask(task)
+            project?.task=task
            // image.save(flush:true)
             if(!project.save(flush:true)){
                 myImageService.deleteImagePackage(image)
@@ -161,7 +160,7 @@ class ProjectController {
         }
     }
 
-    @Secured(["ROLE_USER"])
+    @Secured(["ROLE"])
     @Transactional
     def addTaskMulti() {
         def project
@@ -170,28 +169,28 @@ class ProjectController {
             if (!project) {
                 println("Inside project Instance")
                 project = new Project(client: springSecurityService.getCurrentUser(), projectId: params.id, createdDate: new Date())
+                project.save(flush: true)
             }
-        } else {
-            redirect(action: "uploadmulti")
-            return
         }
+        println("id "+ params.id)
 
         if (params.file) {
             request.getFileNames().each { name ->
                 def imageFile = request.getFile(name)
                 if (imageFile && !imageFile.empty) {
+                    def projectInstance = Project.findByProjectId(params.id)
                     def fileName = myImageService.saveImagePackage(imageFile)
                     def image = new ReImage(imagePath: fileName)
                     def task = new Task(originalImage: image)
-                    project.addToTask(task)
+                    projectInstance.addToTask(task)
+                    try {
+                        projectInstance.save(flush: true)
+                    } catch (Exception e){
+                        println(e)
+                        myImageService.deleteImagePackage(image)
+                        println projectInstance.errors
+                    }
                 }
-            }
-            try {
-                project.save(flush: true)
-            } catch (Exception e){
-                println(e)
-//                myImageService.deleteImagePackage(image)
-                println project.errors
             }
         }
     }
