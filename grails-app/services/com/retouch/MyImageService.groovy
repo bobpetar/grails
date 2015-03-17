@@ -41,6 +41,12 @@ class MyImageService {
 		//imageDomain.delete(flush: true)
 	}
 
+    public void deleteTechniqueImage(Technique techniqueInstance){
+        deleteImage(techniqueInstance.getLargeImageName())
+        deleteImage(techniqueInstance.getThumbnailImageName())
+        deleteImage(techniqueInstance.getBeforeafterimage())
+    }
+
 
 	public String saveImagePackage(imageFile){
 		def date = new Date()

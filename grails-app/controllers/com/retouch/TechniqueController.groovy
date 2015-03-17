@@ -48,7 +48,10 @@ class TechniqueController {
 			techniqueInstance = new Technique(beforeafterimage:techniqueImage, name:params.name, description:params.description, groep:params.groep, ratePerTechnique: 0.5)
 		}
 
-		techniqueInstance.save flush:true
+		if(!techniqueInstance.save(flush:true)){
+            println("Deleting images")
+            myImageService.deleteTechniqueImage(techniqueInstance)
+        }
 
 		request.withFormat {
 			form multipartForm {
@@ -100,6 +103,7 @@ class TechniqueController {
 			return
 		}
 
+        myImageService.deleteTechniqueImage(techniqueInstance)
 		techniqueInstance.delete flush:true
 
 		request.withFormat {

@@ -35,9 +35,6 @@
 		<div class="container">
 			<div class="panel-body">
 				<div class="table-responsive">
-					<g:if test="${flash.message}">
-						<div class="message" role="status">${flash.message}</div>
-					</g:if>
 					<table
 						class="table table-bordered table-striped table-condensed mb-none">
 						<thead>
