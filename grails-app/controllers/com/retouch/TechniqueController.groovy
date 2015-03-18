@@ -70,10 +70,6 @@ class TechniqueController {
 		respond techniqueInstance
 	}
 
-    def edit1(Technique techniqueInstance) {
-        respond techniqueInstance
-    }
-
 	@Transactional
 	def update(Technique techniqueInstance) {
         def beforeAfterImage
@@ -124,9 +120,13 @@ class TechniqueController {
 			notFound()
 			return
 		}
-
-        myImageService.deleteTechniqueImage(techniqueInstance)
-		techniqueInstance.delete flush:true
+        try {
+            myImageService.deleteTechniqueImage(techniqueInstance)
+            techniqueInstance.delete(flush:true)
+        } catch (Exception e){
+            render(view: 'show')
+            return
+        }
 
 		request.withFormat {
 			form multipartForm {
