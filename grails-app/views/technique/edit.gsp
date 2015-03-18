@@ -54,10 +54,10 @@
                     ${flash.message}
                 </div>
             </g:if>
-            <g:form url="[resource:techniqueInstance, action:'update']"
-                    class="form-horizontal">
+            <g:form enctype="multipart/form-data"  url="[resource:techniqueInstance, action:'update']" method="PUT">
+                <g:hiddenField name="version" value="${techniqueInstance?.version}" />
                 <fieldset class="form">
-                    <g:render template="formedit" />
+                    <g:render template="formedit"/>
                 </fieldset>
             </g:form>
         </div>

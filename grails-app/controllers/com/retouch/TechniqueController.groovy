@@ -10,7 +10,7 @@ class TechniqueController {
 
 	def myImageService
 
-	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	static allowedMethods = [save: "POST", delete: "DELETE"]
 
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
@@ -69,8 +69,19 @@ class TechniqueController {
 		respond techniqueInstance
 	}
 
+    def edit1(Technique techniqueInstance) {
+        respond techniqueInstance
+    }
+
 	@Transactional
 	def update(Technique techniqueInstance) {
+        def beforeAfterImage
+        def techniqueImage
+
+        if(params.beforeafterfile){
+            beforeAfterImage = request.getFile('beforeafterfile')
+        }
+
 		if (techniqueInstance == null) {
 			notFound()
 			return
@@ -81,7 +92,17 @@ class TechniqueController {
 			return
 		}
 
-		techniqueInstance.save flush:true
+        if(beforeAfterImage && !beforeAfterImage.empty){
+            techniqueImage = myImageService.saveTechniqueImage(beforeAfterImage)
+            myImageService.deleteTechniqueImage(techniqueInstance)
+            techniqueInstance?.beforeafterimage=techniqueImage
+            techniqueInstance?.name=params.name
+            techniqueInstance?.groep=params.groep
+            techniqueInstance?.description=params.description
+            techniqueInstance?.ratePerTechnique=0.5
+        }
+
+		techniqueInstance.save(flush:true)
 
 		request.withFormat {
 			form multipartForm {
