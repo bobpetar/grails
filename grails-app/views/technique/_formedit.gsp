@@ -8,8 +8,9 @@
 
                 <div class="row fontawesome-icon-list">
                     <div class="col-md-12 col-sm-12">
+                       <g:link class="list" action="show" id="${techniqueInstance.id}">
                         <img src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getThumbnailImageName()}"
-                             class="img-responsive" alt="">
+                             class="img-responsive" alt=""></g:link>
                     </div>
                 </div>
             </section>

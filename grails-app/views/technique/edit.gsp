@@ -14,8 +14,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="${createLink(uri:'/') }">Home</a></li>
                         <li class="active"><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                        <li class="active"><g:link class="list" action="create"><g:message code="default.create.label" args="[entityName]" /></g:link></li>
                     </ul>
                 </div>
             </div>
