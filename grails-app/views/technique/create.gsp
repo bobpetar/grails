@@ -56,7 +56,7 @@
             </g:if>
             <g:form enctype="multipart/form-data" url="[resource:techniqueInstance, action:'save']" >
                 <fieldset class="form">
-                    <g:render template="form"/>
+                    <g:render template="formcreate"/>
                 </fieldset>
             </g:form>
         </div>
