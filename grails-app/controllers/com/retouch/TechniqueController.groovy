@@ -50,8 +50,8 @@ class TechniqueController {
 		}
 
 		if(!techniqueInstance.save(flush:true)){
-            println("Deleting images")
-            myImageService.deleteTechniqueImage(techniqueInstance)
+            render(view: 'create', model: [techniqueInstance:techniqueInstance])
+            return
         }
 
 		request.withFormat {
