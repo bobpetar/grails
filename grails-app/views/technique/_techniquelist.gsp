@@ -6,9 +6,9 @@
 
             <ul data-option-key="filter" data-sort-id="portfolio" class="nav nav-pills sort-source">
                 <li class="active text-capitalize" data-option-value="*"><a href="#">Show All</a></li>
-                <g:each in="${techniqueInstanceList}" status="i" var="techniqueInstance">
-                    <li class="text-capitalize" data-option-value=".${techniqueInstance.groep}"><a href="#">
-                        ${techniqueInstance.groep}
+                <g:each in="${uniqueTechniques}" status="i" var="techniqueInstance">
+                    <li class="text-capitalize" data-option-value=".${techniqueInstance}"><a href="#">
+                        ${techniqueInstance}
                     </a></li>
                 </g:each>
             </ul>

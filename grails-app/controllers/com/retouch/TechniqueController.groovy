@@ -14,7 +14,8 @@ class TechniqueController {
 
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
-		respond Technique.list(params), model:[techniqueInstanceCount: Technique.count()]
+        def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
+		respond Technique.list(params), model:[techniqueInstanceCount: Technique.count(), uniqueTechniques:uniqueTechniques]
 	}
 
 	def show(Technique techniqueInstance) {
