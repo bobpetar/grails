@@ -8,8 +8,6 @@ class Project {
     Date lastUpdated
     String status
     String projectId
-/*    ReImage originalImage
-    ReImage finalImage*/
 
     static hasOne = [task:Task]
 
@@ -18,8 +16,6 @@ class Project {
         note(nullable:true,blank:true, maxSize: 2000)
         client(nullable:false,blank:false)
         projectId(nullable: false,blank: false,unique: true)
-/*        originalImage(nullable: false,blank: false)
-        finalImage(nullable: true,blank: true)*/
     }
 
     def beforeUpdate() {

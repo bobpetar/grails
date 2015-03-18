@@ -2,7 +2,7 @@
 <div class="row show-grid">
     <div class="col-md-12">
         <ul data-option-key="filter" data-sort-id="portfolio"
-            class="nav nav-pills sort-source">
+            class="nav nav-pills sort-source text-capitalize">
             <g:each in="${uniqueTechniques}" status="i" var="techniqueInstance">
                 <li data-option-value=".${techniqueInstance}"><a href="#">
                     ${techniqueInstance}
@@ -26,7 +26,7 @@
                                    data-plugin-options="{&quot;type&quot;:&quot;inline&quot;, preloader: false}">
                                     <img alt="" class="img-responsive"
                                          src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getThumbnailImageName()}"/>
-                                    </span>
+
                                     <span class="thumb-info-action">
                                         <span title="Universal" class="thumb-info-action-icon">
                                             <i class="fa fa-link"></i>

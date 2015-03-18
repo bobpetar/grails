@@ -87,18 +87,6 @@
                         <!-- Invoice block end -->
                     </div>
 
-                    %{--<div class="col-md12">--}%
-                        %{--<h3>Your Image</h3>--}%
-                        %{--<hr>--}%
-                        %{--<!-- Uploaded Image block start -->--}%
-                        %{--<div id="imageovelaynote">--}%
-                        %{--<img id="uploadedImage" class=""--}%
-                             %{--src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getLargeImageName()}"--}%
-                             %{--style="width: 100%;">--}%
-                        %{--</div>--}%
-                        %{--<!-- Uploaded Image block end -->--}%
-                    %{--</div>--}%
-
                 </div>
         </div>
 
