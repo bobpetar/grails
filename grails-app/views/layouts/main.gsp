@@ -142,8 +142,8 @@
         <div class="container">
             <div class="logo">
                 <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
-                                                               width="111" height="54" data-sticky-width="82"
-                                                               data-sticky-height="40" src="img/logo.png" />
+                                                               width="65" height="80" data-sticky-width="41"
+                                                               data-sticky-height="50" src="img/logo.png" />
                 </a>
             </div>
             <button class="btn btn-responsive-nav btn-inverse"
