@@ -100,403 +100,49 @@
 			<div class="row" id="projects">
 				<div class="col-md-12">
 					<h2>
-						Latest <strong>Projects</strong>
+						Technique <strong>List</strong>
 					</h2>
 
 					<div class="owl-carousel owl-carousel-spaced"
 						data-plugin-options='{"items": 4}'>
+                        <g:each in="${techniqueInstaneList}" status="i" var="techniqueInstance">
 						<div>
 							<div class="portfolio-item img-thumbnail">
-								<a class="thumb-info lightbox" href="#popupProject"
+								<a class="thumb-info lightbox" href="#popupProject${techniqueInstance.id}"
 									data-plugin-options='{"type":"inline", preloader: false}'>
-									<asset:image alt="" class="img-responsive"
-									src="img/projects/project.jpg" /> <span
-									class="thumb-info-title"> <span class="thumb-info-inner">SEO</span>
-										<span class="thumb-info-type">Website</span>
+                                    <img src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getLargeImageName()}"
+                                         class="img-responsive" alt="">
+                                    <span
+									class="thumb-info-title"> <span class="thumb-info-inner">${techniqueInstance.groep}</span>
+										<span class="thumb-info-type">${techniqueInstance.name}</span>
 								</span> <span class="thumb-info-action"> <span title="Universal"
 										class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
 								</span>
 								</a>
 							</div>
-							<div id="popupProject" class="popup-inline-content">
-								<h2>SEO</h2>
-
+							<div id="popupProject${techniqueInstance.id}" class="popup-inline-content">
 								<div class="row">
 									<div class="col-md-6">
-										<asset:image class="img-thumbnail img-responsive" alt=""
-											src="img/projects/project.jpg" />
+                                        <img src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getLargeImageName()}"
+                                             class="img-thumbnail img-responsive" alt="">
 									</div>
 									<div class="col-md-6">
 
-										<h4>
-											Project <strong>Description</strong>
-										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in
-											hendrerit purus. Suspendisse potenti. Proin quis eros odio,
-											dapibus dictum mauris. Donec nisi libero, adipiscing id
-											pretium eget, consectetur sit amet leo. Nam at eros quis mi
-											egestas fringilla non nec purus.</p>
-
-										<a href="#" class="btn btn-primary">Live Preview</a> <span
-											class="arrow hlb"></span>
-
-										<h4 class="push-top">Services</h4>
-
-										<ul class="list icons list-unstyled">
-											<li><i class="fa fa-check"></i> Design</li>
-											<li><i class="fa fa-check"></i> HTML/CSS</li>
-											<li><i class="fa fa-check"></i> Javascript</li>
-											<li><i class="fa fa-check"></i> Backend</li>
-										</ul>
+										<h4>${techniqueInstance.name}</h4>
+										<p> ${techniqueInstance.description}</p>
+                                        <ul class="portfolio-details">
+                                            <li>
+                                                <ul class="list list-skills icons list-unstyled list-inline text-uppercase">
+                                                    <li><i class="fa fa-check-circle"></i> ${techniqueInstance.groep} (group)</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
 
 									</div>
 								</div>
 							</div>
 						</div>
-						<div>
-							<div class="portfolio-item img-thumbnail">
-								<a class="thumb-info lightbox" href="#popupProject2"
-									data-plugin-options='{"type":"inline", preloader: false}'>
-									<asset:image alt="" class="img-responsive"
-									src="img/projects/project-1.jpg" /> <span
-									class="thumb-info-title"> <span class="thumb-info-inner">Okler</span>
-										<span class="thumb-info-type">Brand</span>
-								</span> <span class="thumb-info-action"> <span title="Universal"
-										class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-								</span>
-								</a>
-							</div>
-							<div id="popupProject2" class="popup-inline-content">
-								<h2>Okler</h2>
-
-								<div class="row">
-									<div class="col-md-6">
-										<asset:image class="img-thumbnail img-responsive" alt=""
-											src="img/projects/project-1.jpg" />
-									</div>
-									<div class="col-md-6">
-
-										<h4>
-											Project <strong>Description</strong>
-										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in
-											hendrerit purus. Suspendisse potenti. Proin quis eros odio,
-											dapibus dictum mauris. Donec nisi libero, adipiscing id
-											pretium eget, consectetur sit amet leo. Nam at eros quis mi
-											egestas fringilla non nec purus.</p>
-
-										<a href="#" class="btn btn-primary">Live Preview</a> <span
-											class="arrow hlb"></span>
-
-										<h4 class="push-top">Services</h4>
-
-										<ul class="list icons list-unstyled">
-											<li><i class="fa fa-check"></i> Design</li>
-											<li><i class="fa fa-check"></i> HTML/CSS</li>
-											<li><i class="fa fa-check"></i> Javascript</li>
-											<li><i class="fa fa-check"></i> Backend</li>
-										</ul>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<div class="portfolio-item img-thumbnail">
-								<a class="thumb-info lightbox" href="#popupProject3"
-									data-plugin-options='{"type":"inline", preloader: false}'>
-									<asset:image alt="" class="img-responsive"
-									src="img/projects/project-2.jpg" /> <span
-									class="thumb-info-title"> <span class="thumb-info-inner">The
-											Fly</span> <span class="thumb-info-type">Logo</span>
-								</span> <span class="thumb-info-action"> <span title="Universal"
-										class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-								</span>
-								</a>
-							</div>
-							<div id="popupProject3" class="popup-inline-content">
-								<h2>The Fly</h2>
-
-								<div class="row">
-									<div class="col-md-6">
-										<asset:image class="img-thumbnail img-responsive" alt=""
-											src="img/projects/project-2.jpg" />
-									</div>
-									<div class="col-md-6">
-
-										<h4>
-											Project <strong>Description</strong>
-										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in
-											hendrerit purus. Suspendisse potenti. Proin quis eros odio,
-											dapibus dictum mauris. Donec nisi libero, adipiscing id
-											pretium eget, consectetur sit amet leo. Nam at eros quis mi
-											egestas fringilla non nec purus.</p>
-
-										<a href="#" class="btn btn-primary">Live Preview</a> <span
-											class="arrow hlb"></span>
-
-										<h4 class="push-top">Services</h4>
-
-										<ul class="list icons list-unstyled">
-											<li><i class="fa fa-check"></i> Design</li>
-											<li><i class="fa fa-check"></i> HTML/CSS</li>
-											<li><i class="fa fa-check"></i> Javascript</li>
-											<li><i class="fa fa-check"></i> Backend</li>
-										</ul>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<div class="portfolio-item img-thumbnail">
-								<a class="thumb-info lightbox" href="#popupProject4"
-									data-plugin-options='{"type":"inline", preloader: false}'>
-									<asset:image alt="" class="img-responsive"
-									src="img/projects/project-3.jpg" /> <span
-									class="thumb-info-title"> <span class="thumb-info-inner">The
-											Code</span> <span class="thumb-info-type">Website</span>
-								</span> <span class="thumb-info-action"> <span title="Universal"
-										class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-								</span>
-								</a>
-							</div>
-							<div id="popupProject4" class="popup-inline-content">
-								<h2>The Code</h2>
-
-								<div class="row">
-									<div class="col-md-6">
-										<asset:image class="img-thumbnail img-responsive" alt=""
-											src="img/projects/project-3.jpg" />
-									</div>
-									<div class="col-md-6">
-
-										<h4>
-											Project <strong>Description</strong>
-										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in
-											hendrerit purus. Suspendisse potenti. Proin quis eros odio,
-											dapibus dictum mauris. Donec nisi libero, adipiscing id
-											pretium eget, consectetur sit amet leo. Nam at eros quis mi
-											egestas fringilla non nec purus.</p>
-
-										<a href="#" class="btn btn-primary">Live Preview</a> <span
-											class="arrow hlb"></span>
-
-										<h4 class="push-top">Services</h4>
-
-										<ul class="list icons list-unstyled">
-											<li><i class="fa fa-check"></i> Design</li>
-											<li><i class="fa fa-check"></i> HTML/CSS</li>
-											<li><i class="fa fa-check"></i> Javascript</li>
-											<li><i class="fa fa-check"></i> Backend</li>
-										</ul>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<div class="portfolio-item img-thumbnail">
-								<a class="thumb-info lightbox" href="#popupProject5"
-									data-plugin-options='{"type":"inline", preloader: false}'>
-									<asset:image alt="" class="img-responsive"
-									src="img/projects/project.jpg" /> <span
-									class="thumb-info-title"> <span class="thumb-info-inner">SEO</span>
-										<span class="thumb-info-type">Website</span>
-								</span> <span class="thumb-info-action"> <span title="Universal"
-										class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-								</span>
-								</a>
-							</div>
-							<div id="popupProject5" class="popup-inline-content">
-								<h2>SEO</h2>
-
-								<div class="row">
-									<div class="col-md-6">
-										<asset:image class="img-thumbnail img-responsive" alt=""
-											src="img/projects/project.jpg" />
-									</div>
-									<div class="col-md-6">
-
-										<h4>
-											Project <strong>Description</strong>
-										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in
-											hendrerit purus. Suspendisse potenti. Proin quis eros odio,
-											dapibus dictum mauris. Donec nisi libero, adipiscing id
-											pretium eget, consectetur sit amet leo. Nam at eros quis mi
-											egestas fringilla non nec purus.</p>
-
-										<a href="#" class="btn btn-primary">Live Preview</a> <span
-											class="arrow hlb"></span>
-
-										<h4 class="push-top">Services</h4>
-
-										<ul class="list icons list-unstyled">
-											<li><i class="fa fa-check"></i> Design</li>
-											<li><i class="fa fa-check"></i> HTML/CSS</li>
-											<li><i class="fa fa-check"></i> Javascript</li>
-											<li><i class="fa fa-check"></i> Backend</li>
-										</ul>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<div class="portfolio-item img-thumbnail">
-								<a class="thumb-info lightbox" href="#popupProject6"
-									data-plugin-options='{"type":"inline", preloader: false}'>
-									<asset:image alt="" class="img-responsive"
-									src="img/projects/project-1.jpg" /> <span
-									class="thumb-info-title"> <span class="thumb-info-inner">Okler</span>
-										<span class="thumb-info-type">Brand</span>
-								</span> <span class="thumb-info-action"> <span title="Universal"
-										class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-								</span>
-								</a>
-							</div>
-							<div id="popupProject6" class="popup-inline-content">
-								<h2>Okler</h2>
-
-								<div class="row">
-									<div class="col-md-6">
-										<asset:image class="img-thumbnail img-responsive" alt=""
-											src="img/projects/project-1.jpg" />
-									</div>
-									<div class="col-md-6">
-
-										<h4>
-											Project <strong>Description</strong>
-										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in
-											hendrerit purus. Suspendisse potenti. Proin quis eros odio,
-											dapibus dictum mauris. Donec nisi libero, adipiscing id
-											pretium eget, consectetur sit amet leo. Nam at eros quis mi
-											egestas fringilla non nec purus.</p>
-
-										<a href="#" class="btn btn-primary">Live Preview</a> <span
-											class="arrow hlb"></span>
-
-										<h4 class="push-top">Services</h4>
-
-										<ul class="list icons list-unstyled">
-											<li><i class="fa fa-check"></i> Design</li>
-											<li><i class="fa fa-check"></i> HTML/CSS</li>
-											<li><i class="fa fa-check"></i> Javascript</li>
-											<li><i class="fa fa-check"></i> Backend</li>
-										</ul>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<div class="portfolio-item img-thumbnail">
-								<a class="thumb-info lightbox" href="#popupProject7"
-									data-plugin-options='{"type":"inline", preloader: false}'>
-									<asset:image alt="" class="img-responsive"
-									src="img/projects/project-2.jpg" /> <span
-									class="thumb-info-title"> <span class="thumb-info-inner">The
-											Fly</span> <span class="thumb-info-type">Logo</span>
-								</span> <span class="thumb-info-action"> <span title="Universal"
-										class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-								</span>
-								</a>
-							</div>
-							<div id="popupProject7" class="popup-inline-content">
-								<h2>The Fly</h2>
-
-								<div class="row">
-									<div class="col-md-6">
-										<asset:image class="img-thumbnail img-responsive" alt=""
-											src="img/projects/project-2.jpg" />
-									</div>
-									<div class="col-md-6">
-
-										<h4>
-											Project <strong>Description</strong>
-										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in
-											hendrerit purus. Suspendisse potenti. Proin quis eros odio,
-											dapibus dictum mauris. Donec nisi libero, adipiscing id
-											pretium eget, consectetur sit amet leo. Nam at eros quis mi
-											egestas fringilla non nec purus.</p>
-
-										<a href="#" class="btn btn-primary">Live Preview</a> <span
-											class="arrow hlb"></span>
-
-										<h4 class="push-top">Services</h4>
-
-										<ul class="list icons list-unstyled">
-											<li><i class="fa fa-check"></i> Design</li>
-											<li><i class="fa fa-check"></i> HTML/CSS</li>
-											<li><i class="fa fa-check"></i> Javascript</li>
-											<li><i class="fa fa-check"></i> Backend</li>
-										</ul>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<div class="portfolio-item img-thumbnail">
-								<a class="thumb-info lightbox" href="#popupProject8"
-									data-plugin-options='{"type":"inline", preloader: false}'>
-									<asset:image alt="" class="img-responsive"
-									src="img/projects/project-3.jpg" /> <span
-									class="thumb-info-title"> <span class="thumb-info-inner">The
-											Code</span> <span class="thumb-info-type">Website</span>
-								</span> <span class="thumb-info-action"> <span title="Universal"
-										class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-								</span>
-								</a>
-							</div>
-							<div id="popupProject8" class="popup-inline-content">
-								<h2>The Code</h2>
-
-								<div class="row">
-									<div class="col-md-6">
-										<asset:image class="img-thumbnail img-responsive" alt=""
-											src="img/projects/project-3.jpg" />
-									</div>
-									<div class="col-md-6">
-
-										<h4>
-											Project <strong>Description</strong>
-										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in
-											hendrerit purus. Suspendisse potenti. Proin quis eros odio,
-											dapibus dictum mauris. Donec nisi libero, adipiscing id
-											pretium eget, consectetur sit amet leo. Nam at eros quis mi
-											egestas fringilla non nec purus.</p>
-
-										<a href="#" class="btn btn-primary">Live Preview</a> <span
-											class="arrow hlb"></span>
-
-										<h4 class="push-top">Services</h4>
-
-										<ul class="list icons list-unstyled">
-											<li><i class="fa fa-check"></i> Design</li>
-											<li><i class="fa fa-check"></i> HTML/CSS</li>
-											<li><i class="fa fa-check"></i> Javascript</li>
-											<li><i class="fa fa-check"></i> Backend</li>
-										</ul>
-
-									</div>
-								</div>
-							</div>
-						</div>
+                        </g:each>
 					</div>
 				</div>
 			</div>
