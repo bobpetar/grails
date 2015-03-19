@@ -66,6 +66,7 @@ class ProjectController {
         def techniqueInvoiceList = projectInstance.task.techniques.toList()
         def sumInvoiceTechnique = techniqueInvoiceList.ratePerTechnique.sum()
 		def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
+        println uniqueTechniques
 		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique, taskInstance: projectInstance.task]
 	}
 
