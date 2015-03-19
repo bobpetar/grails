@@ -130,6 +130,7 @@ grails.plugin.springsecurity.authority.className = 'com.retouch.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
+    '/public/index':                  ['permitAll'],
 	'/register/**':                   ['permitAll'],
 	'/index.gsp':                     ['permitAll'],
 	'/examples':                  ['permitAll'],

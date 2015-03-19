@@ -7,7 +7,7 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+        "/"(controller: "public", action: 'index')
 		"/examples"(view:"/examples")
 		"/faq"(view:"/faq")
 		"/pricing"(view:'/pricing')

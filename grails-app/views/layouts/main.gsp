@@ -166,11 +166,7 @@
                         <li><a href="${createLink(uri:'/')}#home">Home</a></li>
                         <sec:ifAllGranted roles="ROLE_USER">
                             <li><a href="${createLink(uri:'/upload') }">Upload</a></li>
-                            <li><a href="${createLink(uri:'/projects') }">Projects</a></li>
-                            <li><a href="${createLink(uri:'/')}#projects">Latest Projects</a></li>
-                            <li><a href="${createLink(uri:'/')}#features">Features</a></li>
-                            <li><a href="${createLink(uri:'/')}#team">Meet the Team</a></li>
-                            <li><a href="${createLink(uri:'/')}#contact">Contact Us</a></li>
+                            <li><a href="${createLink(uri:'/projects') }">My Task</a></li>
                         </sec:ifAllGranted>
                         <sec:ifAllGranted roles="ROLE_ADMIN">
                             <li><a href="${createLink(uri:'/user') }">User</a></li>
@@ -192,10 +188,7 @@
                         </sec:ifAllGranted>
 
                         <sec:ifNotLoggedIn>
-                            <li><a href="${createLink(uri:'/')}#projects">Latest Projects</a></li>
                             <li><a href="${createLink(uri:'/')}#features">Features</a></li>
-                            <li><a href="${createLink(uri:'/')}#team">Meet the Team</a></li>
-                            <li><a href="${createLink(uri:'/')}#contact">Contact Us</a></li>
                             <li><a href="${createLink(uri:'/login') }">Login</a></li>
                         </sec:ifNotLoggedIn>
                         <sec:ifLoggedIn>
@@ -237,7 +230,7 @@
                     <p class="short">2321 JW Leiden</p>
                     <ul class="list icons list-unstyled">
                         <li><i class="fa fa-envelope"></i> <a
-                                href="mailto:okler@okler.net">info@1hretouch.com</a></li>
+                                href="mailto:info@1hretouch.com">info@1hretouch.com</a></li>
                     </ul>
                     <div class="social-icons">
                         <ul class="social-icons">
