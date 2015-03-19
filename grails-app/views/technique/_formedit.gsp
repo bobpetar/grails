@@ -8,8 +8,9 @@
 
                 <div class="row fontawesome-icon-list">
                     <div class="col-md-12 col-sm-12">
+                       <g:link class="list" action="show" id="${techniqueInstance.id}">
                         <img src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getThumbnailImageName()}"
-                             class="img-responsive" alt="">
+                             class="img-responsive" alt=""></g:link>
                     </div>
                 </div>
             </section>
@@ -44,6 +45,10 @@
                 </div>
             </div>
 
+                    <g:textField name="beforeafterimage" id="beforeafterimage" class="form-control hidden"
+                                 required="" value="${techniqueInstance?.beforeafterimage}"/>
+
+
             <div class="form-group">
                 <label class="col-md-3 control-label">File Upload</label>
 
@@ -57,18 +62,18 @@
                             <span class="btn btn-default btn-file">
                                 <span class="fileupload-exists">Change</span>
                                 <span class="fileupload-new">Select file</span>
-                                <input type="file" name="beforeafterimage" required="required" accept='image/*'>
+                                <input type="file" name="beforeafterfile" accept='image/*'>
                             </span>
                             <a data-dismiss="fileupload" class="btn btn-default fileupload-exists" href="#">Remove</a>
                         </div>
                     </div>
                 </div>
-
             </div>
+
             <div class="panel-footer">
                 <div class="row">
                     <div class="col-md-9 col-md-offset-3">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <g:actionSubmit class="btn btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                         <button type="reset" class="btn btn-default">Reset</button>
                     </div>
                 </div>

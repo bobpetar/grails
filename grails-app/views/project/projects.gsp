@@ -47,6 +47,7 @@
                     <table class="table table-striped mb-none  table-bordered">
                         <thead>
                         <tr>
+                            <th>Original Image</th>
                             <g:sortableColumn property="projectId"
                                               title="${message(code: 'project.projectId.label', default: 'Project Id')}"/>
                             <th><g:message code="project.status.label" default="Status"/></th>
@@ -57,12 +58,12 @@
                         <tbody>
                         <g:each in="${projectInstanceList}" status="i" var="projectInstance">
                             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-
+                                <td><img id="uploadedImage" class="img-rounded img-responsive" style="width: 100px;" src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getThumbnailImageName()}"></td>
                                 <td>
-                                    <a href="${createLink(uri: '/project/technique')}/${projectInstance.projectId}#eyes"> ${fieldValue(bean: projectInstance, field: "projectId")}</a>
+                                    <a href="${createLink(uri: '/project/technique')}/${projectInstance.projectId}#eyes"> #${fieldValue(bean: projectInstance, field: "projectId")}</a>
                                 </td>
                                 <td>${fieldValue(bean: projectInstance, field: "status")}</td>
-                                <td>${fieldValue(bean: projectInstance, field: "createdDate")}</td>
+                                <td><prettytime:display date="${projectInstance.createdDate}" /></td>
 
                             </tr>
                         </g:each>

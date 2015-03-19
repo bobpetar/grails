@@ -39,6 +39,6 @@ class Technique {
     }
 
     def beforeDelete() {
-        myImageService.deleteImagePackage(this)
+        myImageService.deleteTechniqueImage(this)
     }
 }

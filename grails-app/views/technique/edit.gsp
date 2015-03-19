@@ -14,8 +14,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="${createLink(uri:'/') }">Home</a></li>
                         <li class="active"><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                        <li class="active"><g:link class="list" action="create"><g:message code="default.create.label" args="[entityName]" /></g:link></li>
                     </ul>
                 </div>
             </div>
@@ -54,10 +54,10 @@
                     ${flash.message}
                 </div>
             </g:if>
-            <g:form url="[resource:techniqueInstance, action:'update']"
-                    class="form-horizontal">
+            <g:form enctype="multipart/form-data"  url="[resource:techniqueInstance, action:'update']" method="PUT">
+                <g:hiddenField name="version" value="${techniqueInstance?.version}" />
                 <fieldset class="form">
-                    <g:render template="formedit" />
+                    <g:render template="formedit"/>
                 </fieldset>
             </g:form>
         </div>

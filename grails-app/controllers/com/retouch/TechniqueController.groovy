@@ -10,11 +10,12 @@ class TechniqueController {
 
 	def myImageService
 
-	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	static allowedMethods = [save: "POST", delete: "DELETE"]
 
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
-		respond Technique.list(params), model:[techniqueInstanceCount: Technique.count()]
+        def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
+		respond Technique.list(params), model:[techniqueInstanceCount: Technique.count(), uniqueTechniques:uniqueTechniques]
 	}
 
 	def show(Technique techniqueInstance) {
@@ -49,8 +50,8 @@ class TechniqueController {
 		}
 
 		if(!techniqueInstance.save(flush:true)){
-            println("Deleting images")
-            myImageService.deleteTechniqueImage(techniqueInstance)
+            render(view: 'create', model: [techniqueInstance:techniqueInstance])
+            return
         }
 
 		request.withFormat {
@@ -71,6 +72,13 @@ class TechniqueController {
 
 	@Transactional
 	def update(Technique techniqueInstance) {
+        def beforeAfterImage
+        def techniqueImage
+
+        if(params.beforeafterfile){
+            beforeAfterImage = request.getFile('beforeafterfile')
+        }
+
 		if (techniqueInstance == null) {
 			notFound()
 			return
@@ -81,7 +89,17 @@ class TechniqueController {
 			return
 		}
 
-		techniqueInstance.save flush:true
+        if(beforeAfterImage && !beforeAfterImage.empty){
+            techniqueImage = myImageService.saveTechniqueImage(beforeAfterImage)
+            myImageService.deleteTechniqueImage(techniqueInstance)
+            techniqueInstance?.beforeafterimage=techniqueImage
+            techniqueInstance?.name=params.name
+            techniqueInstance?.groep=params.groep
+            techniqueInstance?.description=params.description
+            techniqueInstance?.ratePerTechnique=0.5
+        }
+
+		techniqueInstance.save(flush:true)
 
 		request.withFormat {
 			form multipartForm {
@@ -102,9 +120,13 @@ class TechniqueController {
 			notFound()
 			return
 		}
-
-        myImageService.deleteTechniqueImage(techniqueInstance)
-		techniqueInstance.delete flush:true
+        try {
+            myImageService.deleteTechniqueImage(techniqueInstance)
+            techniqueInstance.delete(flush:true)
+        } catch (Exception e){
+            render(view: 'show')
+            return
+        }
 
 		request.withFormat {
 			form multipartForm {
