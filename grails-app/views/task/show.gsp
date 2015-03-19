@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'project.label', default: 'Project')}" />
+    <g:set var="entityName" value="${message(code: 'project.label', default: 'Task')}" />
     <title><g:message code="default.show.label" args="[entityName]" /></title>
 </head>
 <body>
@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>
-                    Project # ${projectInstance.projectId}
+                    Task # ${projectInstance.projectId}
                 </h1>
             </div>
         </div>
@@ -44,7 +44,7 @@
                         %{--                <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>--}%
                     </div>
 
-                    <h2 class="panel-title">Project Details</h2>
+                    <h2 class="panel-title">Task Details</h2>
                     <p class="panel-subtitle">
                         <g:formatDate date="${projectInstance?.createdDate}" />
                     </p>

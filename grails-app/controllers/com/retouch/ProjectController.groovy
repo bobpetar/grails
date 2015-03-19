@@ -195,14 +195,17 @@ class ProjectController {
         }
     }
 
+    @Secured(["ROLE_ADMIN"])
     def show(Project projectInstance) {
         respond projectInstance
     }
 
+    @Secured(["ROLE_ADMIN"])
     def create() {
         respond new Project(params)
     }
 
+    @Secured(["ROLE_ADMIN"])
     @Transactional
     def save(Project projectInstance) {
         if (projectInstance == null) {
@@ -226,10 +229,12 @@ class ProjectController {
         }
     }
 
+    @Secured(["ROLE_ADMIN"])
     def edit(Project projectInstance) {
         respond projectInstance
     }
 
+    @Secured(["ROLE_ADMIN"])
     @Transactional
     def update(Project projectInstance) {
         if (projectInstance == null) {
@@ -253,6 +258,7 @@ class ProjectController {
         }
     }
 
+    @Secured(["ROLE_ADMIN"])
     @Transactional
     def delete(Project projectInstance) {
 

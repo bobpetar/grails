@@ -174,7 +174,7 @@
                         </sec:ifAllGranted>
                         <sec:ifAllGranted roles="ROLE_ADMIN">
                             <li><a href="${createLink(uri:'/user') }">User</a></li>
-                            <li><a href="${createLink(uri:'/projects') }">Projects</a></li>
+                            <li><a href="${createLink(action: 'index',controller: 'project') }">Projects</a></li>
                             <li><a href="${createLink(uri:'/technique') }">Techniques</a></li>
                         </sec:ifAllGranted>
                         <sec:ifAllGranted roles="ROLE_RETOUCHER">
