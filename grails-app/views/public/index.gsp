@@ -97,10 +97,10 @@
 	</div>
 	<section class="highlight top">
 		<div class="container">
-			<div class="row" id="projects">
+			<div class="row" id="techniques">
 				<div class="col-md-12">
 					<h2>
-						Technique <strong>List</strong>
+						Techniques
 					</h2>
 
 					<div class="owl-carousel owl-carousel-spaced"
@@ -149,28 +149,44 @@
 		</div>
 	</section>
 
-	<div class="container">
+    <div class="container">
 
-		<div class="row center">
-			<div class="col-md-12">
-				<h1 class="short word-rotator-title">
-					Porto is <strong class="inverted" data-appear-animation="bounceIn">
-						<span class="word-rotate" data-plugin-options='{"delay": 2000}'>
-							<span class="word-rotate-items"> <span>incredibly</span> <span>especially</span>
-								<span>extremely</span>
-						</span>
-					</span>
-					</strong> beautiful and fully responsive.
-				</h1>
-				<p class="featured lead">Lorem ipsum dolor sit amet, consectetur
-					adipiscing elit. Fusce elementum, nulla vel pellentesque consequat,
-					ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo. vamus
-					suscipit molestie vestibulum.</p>
-			</div>
-		</div>
-
-		<hr class="tall" />
-	</div>
+        <div class="row featured-boxes">
+            <div class="col-md-4">
+                <div class="featured-box featured-box-secundary">
+                    <div class="box-content">
+                        <center>
+                        <asset:image class="img-responsive" src="img/front/money_back_guarantee.jpg" />
+                        <h4>Money Back Guarantee</h4>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus.</p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="featured-box featured-box-tertiary">
+                    <div class="box-content">
+                        <center>
+                        <asset:image class="img-responsive" src="img/front/1hrdelivery.jpg" />
+                        <h4>1 HR Delivery</h4>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus.</p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="featured-box featured-box-quartenary">
+                    <div class="box-content">
+                        <center>
+                        <asset:image class="img-responsive" src="img/front/reviews.jpg" />
+                        <h4>Reviews</h4>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus.</p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 </html>

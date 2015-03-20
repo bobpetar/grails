@@ -188,7 +188,7 @@
                         </sec:ifAllGranted>
 
                         <sec:ifNotLoggedIn>
-                            <li><a href="${createLink(uri:'/')}#features">Features</a></li>
+                            <li><a href="${createLink(uri:'/')}#techniques">Techniques</a></li>
                             <li><a href="${createLink(uri:'/login') }">Login</a></li>
                         </sec:ifNotLoggedIn>
                         <sec:ifLoggedIn>
