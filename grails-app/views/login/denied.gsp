@@ -34,7 +34,7 @@
 								404 <i class="fa fa-file"></i>
 							</h2>
 							<p>We're sorry, but the page you were looking for doesn't
-								exist.</p>
+								exist!</p>
 						</div>
 					</div>
 					<div class="col-md-4">

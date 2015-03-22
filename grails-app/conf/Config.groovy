@@ -90,6 +90,9 @@ environments {
         grails.logging.jul.usebridge = true
         retouch.imageUploadPath = "/opt/lampp/htdocs/retouch/"
         retouch.imageServer= "http://localhost/retouch/"
+        grails.paypal.server="https://www.sandbox.paypal.com/cgi-bin/webscr"
+        grails.paypal.email="sachit.nep-facilitator@gmail.com"
+        grails.serverURL = "http://localhost:8080/retouch"
     }
     production {
         grails.logging.jul.usebridge = false
@@ -143,7 +146,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll'],
 	'/**/**':						  ['ROLE_ADMIN'],
 	'/user/show/**':				  ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_RETOUCHER'],
-	'/user/edit/**':				  ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_RETOUCHER']
+	'/user/edit/**':				  ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_RETOUCHER'],
+    '/paypal/**':                    ['ROLE_USER']
 ]
 
 grails {
