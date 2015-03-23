@@ -67,6 +67,7 @@ class ProjectController {
         def sumInvoiceTechnique = techniqueInvoiceList.ratePerTechnique.sum()
         Set uniqueTechniques = techniques.groep
 		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique, taskInstance: projectInstance.task]
+//        render(template: 'paypalservice', model: [taskInstance:projectInstance.task])
 	}
 
     @Secured(["ROLE_USER","ROLE_ADMIN"])
@@ -330,6 +331,7 @@ class ProjectController {
         def techniqueList = taskInstance.techniques
         def sumTechnique = techniqueList.ratePerTechnique.sum()
 		render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance:taskInstance])
+        render(template: 'paypalservice', model: [taskInstance:taskInstance])
 
 	}
 
@@ -342,6 +344,12 @@ class ProjectController {
         def techniqueList = task.techniques.findAll()
         def sumTechnique = techniqueList.ratePerTechnique.sum()
         render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance: task])
+        render(template: 'paypalservice', model: [taskInstance:task])
+    }
+
+    def paymentMethod(Task taskInstance){
+        println("task instance"+taskInstance)
+        render(template: 'paypalservice', model: [taskInstance:taskInstance])
     }
 
 	protected void notFound() {

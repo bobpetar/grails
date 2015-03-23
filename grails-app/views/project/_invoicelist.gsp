@@ -26,25 +26,17 @@
         </tr>
     </g:each>
     <tr><td>Total</td></td><td>$${sumInvoiceTechnique}${sumTechnique}</td><td></td></tr>
-
-    <g:if test="${sumTechnique}">
-        <paypal:button
-                itemName="${taskInstance.project.projectId}"
-                itemNumber="${taskInstance.project.projectId}"
-                transactionId="${payment?.transId}"
-                discountAmount="${10}"
-                amount="${sumTechnique}"
-                buyerId="${taskInstance.project.client.id}"/>
-    </g:if>
-
-    <g:if test="${sumInvoiceTechnique}">
-        <paypal:button
-                itemName="${taskInstance.project.projectId}"
-                itemNumber="${taskInstance.project.projectId}"
-                transactionId="${payment?.transId}"
-                discountAmount="${10}"
-                amount="${sumInvoiceTechnique}"
-                buyerId="${taskInstance.project.client.id}"/>
-    </g:if>
+    <tr style="background: none"><td style="border: 0px;">
+        <g:if test="${sumInvoiceTechnique}">
+            <paypal:button
+                    itemName="${taskInstance.project.projectId}"
+                    itemNumber="${taskInstance.project.projectId}"
+                    transactionId="${payment?.transId}"
+                    discountAmount="${10}"
+                    amount="${sumInvoiceTechnique}"
+                    buyerId="${taskInstance.project.client.id}"/>
+        </g:if>
+    </td>
+    </tr>
     </tbody>
 </table>
