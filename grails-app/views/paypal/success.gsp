@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Transaction Cancelled</h1>
+                    <h1>Transaction Success</h1>
                 </div>
             </div>
         </div>
@@ -30,10 +30,13 @@
 
         <div class="panel-body">
             <div class="col-md-12"></head>
-                Your purchase transaction has been cancelled. Information about the items you planned to purchase can be seen below:
+                Your purchase is complete. Information for your reference can be seen below:
                 <div id="transactionSummary" class="transactionSummary">
-                    <g:render template="txsummary" model="[payment:payment]"/>
-                </div>
+                    <div class="transSummaryItem">
+                        <span class="transSummaryItemName">Transaction ID:</span>
+                        <span class="transSummaryItemValue">${payment.transactionId}</span>
+                    </div>
+                <g:render template="txsummary" model="[payment:payment]"/>
             </div>
 
         </div>

@@ -62,14 +62,6 @@
 
     <div class="container">
 
-        <!-- Flow start -->
-
-        %{--<div class="col-md-12">--}%
-        %{--<g:render template="flow"/>--}%
-        %{--</div>--}%
-
-        <!-- Flow End -->
-
         <div class="panel-body">
                 <div class="col-md-8">
                     <!-- Technique list template -->
@@ -88,7 +80,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <g:form controller="paypal" action="buy" >
+                        <g:form controller="paypal" action="buyImage" >
                             <input name="taskInstance" value="${taskInstance.id}" type="hidden"/>
                             <input type="submit" value="Checkout" class="btn btn-primary btn-lg pull-right push-top">
                         </g:form>
