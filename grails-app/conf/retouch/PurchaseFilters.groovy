@@ -1,6 +1,6 @@
 package retouch
 
-import com.retouch.Project
+import com.retouch.Task
 
 class PurchaseFilters {
 
@@ -11,9 +11,9 @@ class PurchaseFilters {
             }
             after = { Map model ->
                 def payment = request.payment
-                def projectInstance = Project.findByProjectId(params.itemName)
-                projectInstance.task.payment=payment
-                projectInstance.save(flush: true)
+                def taskInstance = Task.get(params.taskInstance)
+                taskInstance.payment=payment
+                taskInstance.save(flush: true)
             }
             afterView = { Exception e ->
 

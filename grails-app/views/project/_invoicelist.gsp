@@ -26,17 +26,5 @@
         </tr>
     </g:each>
     <tr><td>Total</td></td><td>$${sumInvoiceTechnique}${sumTechnique}</td><td></td></tr>
-    <tr style="background: none"><td style="border: 0px;">
-        <g:if test="${sumInvoiceTechnique}">
-            <paypal:button
-                    itemName="${taskInstance.project.projectId}"
-                    itemNumber="${taskInstance.project.projectId}"
-                    transactionId="${payment?.transId}"
-                    discountAmount="${10}"
-                    amount="${sumInvoiceTechnique}"
-                    buyerId="${taskInstance.project.client.id}"/>
-        </g:if>
-    </td>
-    </tr>
     </tbody>
 </table>

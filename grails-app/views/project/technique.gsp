@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="col-md12">
+                    <div class="col-md-12">
                         <h3>Invoice</h3>
                         <hr>
                         <!-- Invoice block start -->
@@ -85,6 +85,13 @@
                             <g:render template="invoicelist"/>
                         </div>
                         <!-- Invoice block end -->
+                    </div>
+
+                    <div class="col-md-12">
+                        <g:form controller="paypal" action="buy" >
+                            <input name="taskInstance" value="${taskInstance.id}" type="hidden"/>
+                            <input type="submit" value="Checkout" class="btn btn-primary btn-lg pull-right push-top">
+                        </g:form>
                     </div>
 
                 </div>
