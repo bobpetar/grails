@@ -166,7 +166,7 @@
                         <li><a href="${createLink(uri:'/')}#home">Home</a></li>
                         <sec:ifAllGranted roles="ROLE_USER">
                             <li><a href="${createLink(uri:'/upload') }">Upload</a></li>
-                            <li><a href="${createLink(uri:'/projects') }">My Task</a></li>
+                            <li><a href="${createLink(uri:'/projects') }">My Orders</a></li>
                         </sec:ifAllGranted>
                         <sec:ifAllGranted roles="ROLE_ADMIN">
                             <li><a href="${createLink(uri:'/user') }">User</a></li>

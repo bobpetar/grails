@@ -31,7 +31,10 @@ class PurchaseFilters {
             after = {
                 def payment = request.payment
                 if(payment && payment.status == Payment.COMPLETE) {
-                    taskService.notifyRetouchers(Task.findByPayment(payment))
+                    def task = Task.findByPayment(payment)
+                    task.project.status = "Paid"
+                    task.project.save()
+                    taskService.notifyRetouchers(task)
                 }
             }
         }
