@@ -60,7 +60,10 @@
                             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                                 <td><img id="uploadedImage" class="img-rounded img-responsive" style="width: 100px;" src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getThumbnailImageName()}"></td>
                                 <td>
-                                    <a href="${createLink(uri: '/project/technique')}/${projectInstance.projectId}#eyes"> #${fieldValue(bean: projectInstance, field: "projectId")}</a>
+                                    <g:if test="${projectInstance?.task?.payment?.status == 'COMPLETE'}"><a
+                                            href="${createLink(uri: '/project/uploaddetails')}/${projectInstance.projectId}">#${fieldValue(bean: projectInstance, field: "projectId")}</a></g:if>
+                                    <g:else><a
+                                            href="${createLink(uri: '/project/technique')}/${projectInstance.projectId}#eyes">#${fieldValue(bean: projectInstance, field: "projectId")}</a></g:else>
                                 </td>
                                 <td>${fieldValue(bean: projectInstance, field: "status")}</td>
                                 <td><prettytime:display date="${projectInstance.createdDate}" /></td>

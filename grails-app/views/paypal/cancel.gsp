@@ -29,7 +29,7 @@
     <div class="container">
 
         <div class="panel-body">
-            <div class="col-md-12"></head>
+            <div class="col-md-12">
                 Your purchase transaction has been cancelled. Information about the items you planned to purchase can be seen below:
                 <div id="transactionSummary" class="transactionSummary">
                     <g:render template="txsummary" model="[payment:payment]"/>

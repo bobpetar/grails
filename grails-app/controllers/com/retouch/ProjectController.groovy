@@ -61,6 +61,10 @@ class ProjectController {
 			redirect(action: "upload")
 			return
 		}
+        if(projectInstance.task.payment && projectInstance.task.payment.status == org.grails.paypal.Payment.COMPLETE){
+            redirect(controller: "notfound")
+        }
+
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
 		def techniques = Technique.list()
         def techniqueInvoiceList = projectInstance.task.techniques.toList()
@@ -68,6 +72,21 @@ class ProjectController {
         Set uniqueTechniques = techniques.groep
 		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique, taskInstance: projectInstance.task]
 	}
+
+    @Secured(["ROLE_USER", "ROLE_ADMIN"])
+    def uploaddetails(String id){
+        def projectInstance = Project.findByProjectId(id)
+
+        if(!projectInstance){
+            println "NO Project" + id
+            flash.message = "This project does not exist."
+            redirect(action: "upload")
+            return
+        }
+        def techniqueInvoiceList = projectInstance.task.techniques.toList()
+        def sumInvoiceTechnique = techniqueInvoiceList.ratePerTechnique.sum()
+        [projectInstance:projectInstance, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique]
+    }
 
     @Secured(["ROLE_USER","ROLE_ADMIN"])
     @Transactional
@@ -284,9 +303,6 @@ class ProjectController {
             if(!task || task.project.client!=springSecurityService.getCurrentUser()){
                 render false
             }else{
-                println "TESTTTT" +params
-                println "TESTTTT" +task
-
                 params.note=params.note?.encodeAsHTML()
                 def imgTg = new ImageTag(params)
                 task.addToTags(imgTg)
@@ -319,8 +335,8 @@ class ProjectController {
 	@Transactional
     @Secured(["ROLE_USER","ROLE_ADMIN"])
 	def addTechniqueInvoice(Task task){
-        if(!task || task?.project?.client!=springSecurityService.getCurrentUser()){
-            render false
+        if(!task || task?.project?.client!=springSecurityService.getCurrentUser() || task.payment && task.payment.status == org.grails.paypal.Payment.COMPLETE){
+            redirect(controller: "notfound")
         }else {
             def technique = Technique.get(params.technique)
             task.addToTechniques(technique)
@@ -340,8 +356,8 @@ class ProjectController {
     def removeTechniqueInvoice() {
         def technique = Technique.get(params.techniqueparams)
         def task = Task.get(params.taskparams)
-        if(!task || task?.project?.client!=springSecurityService.getCurrentUser()){
-            render false
+        if(!task || task?.project?.client!=springSecurityService.getCurrentUser() || task.payment && task.payment.status == org.grails.paypal.Payment.COMPLETE ){
+            redirect(controller: "notfound")
         }else {
             task.removeFromTechniques(technique)
             def techniqueList = task.techniques.findAll()
