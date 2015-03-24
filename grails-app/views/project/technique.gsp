@@ -21,18 +21,18 @@
         }
 
         %{--function disableonload(i){--}%
-            %{--if(${techniques.id.containsAll(techniqueInvoiceList.id)}){--}%
-               %{--var list = ${techniqueInvoiceList.id}--}%
+        %{--if(${techniques.id.containsAll(techniqueInvoiceList.id)}){--}%
+        %{--var list = ${techniqueInvoiceList.id}--}%
 
-            %{--} else {--}%
-                %{--alert("nothing")--}%
-                %{--alert(${techniqueInvoiceList.id})--}%
-                %{--alert(${techniques.id})--}%
-            %{--}--}%
+        %{--} else {--}%
+        %{--alert("nothing")--}%
+        %{--alert(${techniqueInvoiceList.id})--}%
+        %{--alert(${techniques.id})--}%
+        %{--}--}%
         %{--}--}%
 
         %{--window.onload = function(){--}%
-            %{--disableonload1()--}%
+        %{--disableonload1()--}%
         %{--}--}%
 
     </script>
@@ -63,30 +63,31 @@
     <div class="container">
 
         <div class="panel-body">
-                <div class="col-md-8">
-                    <!-- Technique list template -->
-                    <g:render template="technique"/>
+            <div class="col-md-8">
+                <!-- Technique list template -->
+                <g:render template="technique"/>
+            </div>
+
+            <div class="col-md-4">
+                <div class="col-md-12">
+                    <h3>Invoice</h3>
+                    <hr>
+                    <!-- Invoice block start -->
+                    <div id="techniqueList">
+                        <g:render template="invoicelist"/>
+                    </div>
+                    <!-- Invoice block end -->
                 </div>
 
-                <div class="col-md-4">
-                    <div class="col-md-12">
-                        <h3>Invoice</h3>
-                        <hr>
-                        <!-- Invoice block start -->
-                        <div id="techniqueList">
-                            <g:render template="invoicelist"/>
-                        </div>
-                        <!-- Invoice block end -->
-                    </div>
-
+                <g:if test="${projectInstance.status=='New'}">
                     <div class="col-md-12">
                         <g:form controller="paypal" action="buyImage" >
                             <input name="taskInstance" value="${taskInstance.id}" type="hidden"/>
                             <input type="submit" value="Checkout" class="btn btn-primary btn-lg pull-right push-top">
                         </g:form>
                     </div>
-
-                </div>
+                </g:if>
+            </div>
         </div>
 
     </div>
