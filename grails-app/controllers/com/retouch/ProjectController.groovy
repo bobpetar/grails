@@ -319,18 +319,20 @@ class ProjectController {
 	@Transactional
     @Secured(["ROLE_USER","ROLE_ADMIN"])
 	def addTechniqueInvoice(Task task){
-		
-		def technique = Technique.get(params.technique)
-        task.addToTechniques(technique)
-        if(!task.save(flush: true)){
-            flash.message = "Unable to create Invoice."
+        if(!task || task?.project?.client!=springSecurityService.getCurrentUser()){
+            render false
+        }else {
+            def technique = Technique.get(params.technique)
+            task.addToTechniques(technique)
+            if(!task.save(flush: true)){
+                flash.message = "Unable to create Invoice."
+            }
+
+            def taskInstance = Task.get(task.id)
+            def techniqueList = taskInstance.techniques
+            def sumTechnique = techniqueList.ratePerTechnique.sum()
+            render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance:taskInstance])
         }
-
-        def taskInstance = Task.get(task.id)
-        def techniqueList = taskInstance.techniques
-        def sumTechnique = techniqueList.ratePerTechnique.sum()
-		render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance:taskInstance])
-
 	}
 
     @Transactional
@@ -338,14 +340,14 @@ class ProjectController {
     def removeTechniqueInvoice() {
         def technique = Technique.get(params.techniqueparams)
         def task = Task.get(params.taskparams)
-        task.removeFromTechniques(technique)
-        def techniqueList = task.techniques.findAll()
-        def sumTechnique = techniqueList.ratePerTechnique.sum()
-        render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance: task])
-    }
-
-    def paymentMethod(Task taskInstance){
-        println("task instance"+taskInstance)
+        if(!task || task?.project?.client!=springSecurityService.getCurrentUser()){
+            render false
+        }else {
+            task.removeFromTechniques(technique)
+            def techniqueList = task.techniques.findAll()
+            def sumTechnique = techniqueList.ratePerTechnique.sum()
+            render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance: task])
+        }
     }
 
 	protected void notFound() {
