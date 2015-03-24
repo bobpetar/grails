@@ -74,7 +74,7 @@ class ProjectController {
 	}
 
     @Secured(["ROLE_USER", "ROLE_ADMIN"])
-    def uploaddetails(String id){
+    def orderdetails(String id){
         def projectInstance = Project.findByProjectId(id)
 
         if(!projectInstance){

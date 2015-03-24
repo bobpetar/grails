@@ -52,7 +52,7 @@
                                 <td><img id="uploadedImage" class="img-rounded img-responsive" style="width: 100px;" src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getThumbnailImageName()}"></td>
                                 <td>
                                     <g:if test="${projectInstance?.task?.payment?.status == 'COMPLETE'}"><a
-                                            href="${createLink(uri: '/project/uploaddetails')}/${projectInstance.projectId}">#${fieldValue(bean: projectInstance, field: "projectId")}</a></g:if>
+                                            href="${createLink(uri: '/project/orderdetails')}/${projectInstance.projectId}">#${fieldValue(bean: projectInstance, field: "projectId")}</a></g:if>
                                     <g:else><a
                                             href="${createLink(uri: '/project/technique')}/${projectInstance.projectId}#eyes">#${fieldValue(bean: projectInstance, field: "projectId")}</a></g:else>
                                 </td>
