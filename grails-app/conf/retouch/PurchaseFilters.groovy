@@ -1,9 +1,11 @@
 package retouch
 
 import com.retouch.Task
+import org.grails.paypal.Payment
 
 class PurchaseFilters {
 
+    def taskService
     def filters = {
         all(controller: 'paypal', action: 'buyImage') {
             before = {
@@ -18,6 +20,23 @@ class PurchaseFilters {
             }
             afterView = { Exception e ->
 
+            }
+        }
+
+        buyFilter(controller:"paypal", action:"buy") {
+            after = {
+
+            }
+        }
+        paymentReceivedFilter(controller:'paypal', action:'(success|notifyPaypal)') {
+            after = {
+                def payment = request.payment
+                if(payment && payment.status == Payment.COMPLETE) {
+                    def task = Task.findByPayment(payment)
+                    task.project.status = "Paid"
+                    task.project.save()
+                    taskService.notifyRetouchers(task)
+                }
             }
         }
     }

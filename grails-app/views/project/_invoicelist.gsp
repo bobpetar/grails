@@ -11,9 +11,11 @@
         <tr>
             <td>${techniqueInstance.name} (${techniqueInstance.groep})</td>
             <td>$${techniqueInstance.ratePerTechnique}</td>
-            <td>
-                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" params="[taskparams:taskInstance?.id, techniqueparams: techniqueInstance.id]" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" > Delete </g:remoteLink>
-            </td>
+            <g:if test="${projectInstance.status=='New'}">
+                <td>
+                    <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" params="[taskparams:taskInstance?.id, techniqueparams: techniqueInstance.id]" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" > Delete </g:remoteLink>
+                </td>
+            </g:if>
         </tr>
     </g:each>
     <g:each in="${techniqueList}" status="i" var="techniqueInstance">
