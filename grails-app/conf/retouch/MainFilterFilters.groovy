@@ -15,7 +15,7 @@ class MainFilterFilters {
             after = { Map model ->
                 if(SpringSecurityUtils.ifAllGranted("ROLE_RETOUCHER")){
                     def newTaskCount = Project.countByAssignedTo(null)
-                    def incompleteTaskCount = Project.countByStatusNotEqual("Complete")
+                    def incompleteTaskCount = Project.countByStatusNotEqualAndAssignedTo("Complete",(User)springSecurityService.getCurrentUser())
                     model?.newTaskCount = newTaskCount
                     model?.incompleteTaskCount = incompleteTaskCount
                 }

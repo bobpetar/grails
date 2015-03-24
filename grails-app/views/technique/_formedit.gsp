@@ -8,9 +8,9 @@
 
                 <div class="row fontawesome-icon-list">
                     <div class="col-md-12 col-sm-12">
-                       <g:link class="list" action="show" id="${techniqueInstance.id}">
-                        <img src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getThumbnailImageName()}"
-                             class="img-responsive" alt=""></g:link>
+                        <g:link class="list" action="show" id="${techniqueInstance.id}">
+                            <img src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getThumbnailImageName()}"
+                                 class="img-responsive" alt=""></g:link>
                     </div>
                 </div>
             </section>
@@ -45,15 +45,16 @@
                 </div>
             </div>
 
-                    <g:textField name="beforeafterimage" id="beforeafterimage" class="form-control hidden"
-                                 required="" value="${techniqueInstance?.beforeafterimage}"/>
+            <g:textField name="beforeafterimage" id="beforeafterimage" class="form-control hidden"
+                         required="" value="${techniqueInstance?.beforeafterimage}"/>
 
 
             <div class="form-group">
                 <label class="col-md-3 control-label">File Upload</label>
 
                 <div class="col-md-8">
-                    <div data-provides="fileupload" class="fileupload fileupload-new">
+                    <input type="file" name="beforeafterfile" accept='image/*'>
+                   %{-- <div data-provides="fileupload" class="fileupload fileupload-new">
                         <div class="input-append">
                             <div class="uneditable-input">
                                 <i class="fa fa-file fileupload-exists"></i>
@@ -62,13 +63,15 @@
                             <span class="btn btn-default btn-file">
                                 <span class="fileupload-exists">Change</span>
                                 <span class="fileupload-new">Select file</span>
-                                <input type="file" name="beforeafterfile" accept='image/*'>
+                                --}%%{--<input type="file" name="beforeafterfile" accept='image/*'>--}%%{--
                             </span>
                             <a data-dismiss="fileupload" class="btn btn-default fileupload-exists" href="#">Remove</a>
                         </div>
-                    </div>
+                    </div>--}%
                 </div>
             </div>
+
+
 
             <div class="panel-footer">
                 <div class="row">

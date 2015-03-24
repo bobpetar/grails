@@ -30,7 +30,7 @@ class Technique {
     }
 
     static String getSubName(String fullFileName,subSuffix){
-        int lastIndexOf = fullFileName.lastIndexOf(".");
+        int lastIndexOf = fullFileName?.lastIndexOf(".");
         def part = subSuffix
         if (lastIndexOf == -1) {
             return fullFileName + part; // empty extension

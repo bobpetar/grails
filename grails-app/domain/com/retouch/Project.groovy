@@ -12,6 +12,7 @@ class Project {
     static hasOne = [task:Task]
 
     static constraints = {
+        status(nullable: false,blank:false,inList: ["New","Complete","Paid","In Progress","In Review"])
         assignedTo(nullable:true,blank:true)
         note(nullable:true,blank:true, maxSize: 2000)
         client(nullable:false,blank:false)

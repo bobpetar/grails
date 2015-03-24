@@ -65,7 +65,7 @@
         <div class="panel-body">
                 <div class="col-md-8">
                     <!-- Technique list template -->
-                    <g:render template="technique"></g:render>
+                    <g:render template="technique"/>
                 </div>
 
                 <div class="col-md-4">

@@ -50,7 +50,7 @@ class TaskController {
 
             }
             projectInstance.task.finalImage = image
-            projectInstance.status = "Complete"
+            projectInstance.status = "In Review"
 
 
             def proj
