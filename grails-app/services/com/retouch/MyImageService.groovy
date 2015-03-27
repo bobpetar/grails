@@ -55,7 +55,7 @@ class MyImageService {
 		def String userId  = ((User)springSecurityService.getCurrentUser())?.getId()
 		def String fileNameNoExt = userId+"_"+fileNamePrefix
 		String ext =  getFileExtension(imageFile.originalFilename);
-		String fileName = fileNameNoExt+ext
+		String fileName = fileNameNoExt+ext.toLowerCase()
 		String fileNameLarge = fileNameNoExt+"_L"
 		String fileNameThumb = fileNameNoExt+"_T"
 
@@ -92,7 +92,7 @@ class MyImageService {
 		def String userId  = ((User)springSecurityService.getCurrentUser())?.getId()
 		def String fileNameNoExt = userId + "_" + fileNamePrefix
 		String ext =  getFileExtension(imageFile.originalFilename);
-		String fileName = fileNameNoExt+ext
+		String fileName = fileNameNoExt+ext.toLowerCase()
 		String fileNameLarge = fileNameNoExt+"_L"
 		String fileNameThumb = fileNameNoExt+"_T"
 
