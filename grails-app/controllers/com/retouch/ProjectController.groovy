@@ -62,7 +62,7 @@ class ProjectController {
 			redirect(action: "upload")
 			return
 		}
-        taskService.triggerConfirmation(springSecurityService.getCurrentUser())
+        //taskService.triggerConfirmation(springSecurityService.getCurrentUser())
         if(projectInstance.task.payment && projectInstance.task.payment.status == org.grails.paypal.Payment.COMPLETE){
             redirect(controller: "notfound")
         }
