@@ -6,8 +6,76 @@
 
 </head>
 <div role="main" class="main" id="home">
+<div class="slider-container">
+    <div class="slider" id="revolutionSlider" data-plugin-revolution-slider data-plugin-options='{"startheight": 500}'>
+        <ul>
+            <li data-slotamount="7" data-masterspeed="1000" data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7">
+                <asset:image class="img-responsive" src="img/slides/dark-cover.jpg"  alt="dark" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"/>
+                <div class="tp-caption tp-fade fadeout fullscreenvideo"
+                     data-x="0"
+                     data-y="0"
+                     data-speed="1000"
+                     data-start="100"
+                     data-easing="Power4.easeOut"
+                     data-elementdelay="0.01"
+                     data-endelementdelay="0.1"
+                     data-endspeed="1500"
+                     data-endeasing="Power4.easeIn"
+                     data-autoplay="true"
+                     data-autoplayonlyfirsttime="false"
+                     data-nextslideatend="true"
+                     data-volume="mute"
+                     data-forceCover="1"
+                     data-aspectratio="16:9"
+                     data-forcerewind="on">
 
-	<div class="slider-container slider-container-fullscreen">
+                    <video preload="none" width="100%" height="100%" poster="img/slides/dark-cover.jpg">
+                        <source src="video/dark.mp4" type="video/mp4" />
+                        <source src="video/dark.ogv" type="video/ogg">
+                    </video>
+
+                </div>
+
+                <div class="tp-caption sft stb visible-lg"
+                     data-x="177"
+                     data-y="180"
+                     data-speed="300"
+                     data-start="1000"
+                     data-easing="easeOutExpo"><img src="img/slides/slide-title-border.png" alt=""></div>
+
+                <div class="tp-caption top-label lfl stl"
+                     data-x="227"
+                     data-y="180"
+                     data-speed="300"
+                     data-start="500"
+                     data-easing="easeOutExpo">DO YOU NEED A NEW</div>
+
+                <div class="tp-caption sft stb visible-lg"
+                     data-x="477"
+                     data-y="180"
+                     data-speed="300"
+                     data-start="1000"
+                     data-easing="easeOutExpo"><img src="img/slides/slide-title-border.png" alt=""></div>
+
+                <div class="tp-caption main-label sft stb"
+                     data-x="135"
+                     data-y="210"
+                     data-speed="300"
+                     data-start="1500"
+                     data-easing="easeOutExpo">WEB DESIGN?</div>
+
+                <div class="tp-caption bottom-label sft stb"
+                     data-x="185"
+                     data-y="280"
+                     data-speed="500"
+                     data-start="2000"
+                     data-easing="easeOutExpo">Check out our options and features.</div>
+
+            </li>
+        </ul>
+    </div>
+</div>
+	%{--<div class="slider-container slider-container-fullscreen">
 		<div class="slider" id="revolutionSliderFullScreen"
 			data-plugin-revolution-slider
 			data-plugin-options='{"fullScreen": "on"}'>
@@ -94,7 +162,7 @@
 					</div></li>
 			</ul>
 		</div>
-	</div>
+	</div>--}%
 	<section class="highlight top">
 		<div class="container">
 			<div class="row" id="techniques">

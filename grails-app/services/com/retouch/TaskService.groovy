@@ -2,6 +2,7 @@ package com.retouch
 
 import grails.converters.JSON
 import grails.transaction.Transactional
+import spock.lang.Issue
 
 @Transactional
 class TaskService {
@@ -28,6 +29,7 @@ class TaskService {
                 def retouchers = UserRole.findAllByRole(recoucherRole).user
                 println retouchers
                 mailService.sendMail {
+                    async true
                     bcc retouchers.email.toArray()
                     subject "New Task"
                     html "New retouch task is available. " //TODO add detailed email
@@ -36,6 +38,47 @@ class TaskService {
             }
 
 
+        }catch(e){
+            log.error(e)
+        }
+    }
+
+    def triggerConfirmation(User user){
+        IssuedCoupon newCoupon = generateCoupon(user)
+        if(newCoupon){
+            sendConfirmationMailWithCoupon(user,newCoupon)
+        }
+
+    }
+
+
+    IssuedCoupon generateCoupon(User user){
+        Coupon activeCoupon = Coupon.findByActive(true)
+        if(activeCoupon){
+            IssuedCoupon newCoupon = new IssuedCoupon(activeCoupon,user)
+            if(newCoupon.save(flush: true)){
+                return newCoupon
+            }else{
+                return null
+            }
+        }
+    }
+
+
+    def sendConfirmationMailWithCoupon(User user,IssuedCoupon coupon){
+        try{
+            if(user){
+                mailService.sendMail {
+                    async true
+                    to user.email
+                    subject "New Task"
+                    html "Hey ${user.firstname}, <br><br>" +
+                            "Thank you for your order. We are happy to have you as a customer." +
+                            " We hope you enjoyed our services and as a thank you, we are giving you a free discount coupon." +
+                            " Your discount code is ${coupon.code} which will give you a discount of ${coupon.discountPercent}%" +
+                            " on your next service purchase." //TODO add detailed email
+                }
+            }
         }catch(e){
             log.error(e)
         }

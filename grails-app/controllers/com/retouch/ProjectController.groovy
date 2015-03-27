@@ -53,6 +53,7 @@ class ProjectController {
     }
 
     @Secured(["ROLE_USER"])
+    @Transactional
 	def technique(String id){
 		def projectInstance = Project.findByProjectId(id)
 		if(!projectInstance){
@@ -61,6 +62,7 @@ class ProjectController {
 			redirect(action: "upload")
 			return
 		}
+        taskService.triggerConfirmation(springSecurityService.getCurrentUser())
         if(projectInstance.task.payment && projectInstance.task.payment.status == org.grails.paypal.Payment.COMPLETE){
             redirect(controller: "notfound")
         }
