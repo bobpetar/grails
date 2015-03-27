@@ -7,9 +7,9 @@
         function showTecniqueBlock(eleSelector){
             $(".techniqueBlock").hide();
             if(!eleSelector){
-                $(".techniqueBlock").first().fadeIn();
+                $(".techniqueBlock").first().fadeIn(2000);
             }else{
-                $(eleSelector).fadeIn();
+                $(eleSelector).fadeIn(2000);
             }
 
         }
