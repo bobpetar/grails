@@ -73,6 +73,7 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.11.1"
         compile ":burning-image:0.5.2"
         compile ":paypal:0.6.8"
+/*        compile ':hashids:0.2.0'*/
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
         //compile ":less-asset-pipeline:1.10.0"

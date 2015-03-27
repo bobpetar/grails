@@ -7,8 +7,10 @@ import grails.plugin.springsecurity.annotation.Secured
 class PublicController {
 
     def index() {
+        def Random randomGenerator = new Random()
+        int videoNumber = randomGenerator.nextInt(5)
         def techniqueInstanceList = Technique.list()
         Set uniqueGroep = techniqueInstanceList.groep
-        [techniqueInstaneList:techniqueInstanceList, uniqueGroep:uniqueGroep]
+        [techniqueInstaneList:techniqueInstanceList, uniqueGroep:uniqueGroep,videoNumber:videoNumber]
     }
 }

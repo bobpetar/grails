@@ -1,9 +1,9 @@
 package com.retouch
 import groovy.time.TimeCategory
+import org.hashids.Hashids
 
 class IssuedCoupon {
 
-    def hashGeneratorService
     String code
     String projectId
     String couponName
@@ -21,7 +21,6 @@ class IssuedCoupon {
     }
 
     public IssuedCoupon(Coupon couponTemplate,User user){
-        this.code = code
         this.discountPercent = couponTemplate.discountPercent
         this.couponName = couponTemplate.name
         this.user = user
@@ -38,10 +37,16 @@ class IssuedCoupon {
     def beforeValidate() {
         if (id == null) {
             def lastIssue = last()
-            def nextId  = lastIssue.id + 1
+            def nextId  = (lastIssue ? lastIssue.id:0) + 1
             // registeredDate = new Date()
-            code = "1HR-"+hashGeneratorService.generateUniqueCode(nextId)+ nextId
+            code = "1HR-"+generateCouponCode(nextId)+ nextId
+            println "CODE:::"  + code
             dateIssued = new Date()
         }
+    }
+
+    def generateCouponCode(input){
+        Hashids hashids = new Hashids("1HR-RETOUCH-SALT",5);
+        return  hashids.encode(input);
     }
 }
