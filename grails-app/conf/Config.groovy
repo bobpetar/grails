@@ -88,8 +88,9 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        retouch.imageUploadPath = "/opt/lampp/htdocs/retouch/"
+        retouch.imageUploadPath = "C:\\wamp\\www\\retouch\\"
         retouch.imageServer= "http://localhost/retouch/"
+        salt = "1HR-RETOUCH-SALT"
         grails.paypal.server="https://www.sandbox.paypal.com/cgi-bin/webscr"
         grails.paypal.email="sachit.nep-facilitator@gmail.com"
         grails.serverURL = "http://localhost:8080/retouch"
@@ -150,7 +151,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/user/show/**':				  ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_RETOUCHER'],
 	'/user/edit/**':				  ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_RETOUCHER'],
     '/paypal/**':                     ['ROLE_USER'],
-    '/paypal/notifyPaypal':           ['permitAll']
+    '/paypal/notifyPaypal':           ['permitAll'],
+	'/project/myTasks':				  ['ROLE_RETOUCHER'],
 ]
 
 grails {

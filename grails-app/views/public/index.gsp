@@ -29,9 +29,9 @@
                      data-aspectratio="16:9"
                      data-forcerewind="on">
 
-                    <video preload="none" width="100%" height="100%" poster="img/slides/dark-cover.jpg">
-                        <source src="video/dark.mp4" type="video/mp4" />
-                        <source src="video/dark.ogv" type="video/ogg">
+                    <video preload="none" width="100%" height="100%" poster="${assetPath(src:'img/slides/dark-cover.jpg')}">
+                        <source src="${assetPath(src: 'video/dark.mp4')}" type="video/mp4" />
+                        <source src="${assetPath(src: 'video/dark.ogv')}" type="video/ogg">
                     </video>
 
                 </div>
@@ -41,7 +41,7 @@
                      data-y="180"
                      data-speed="300"
                      data-start="1000"
-                     data-easing="easeOutExpo"><img src="img/slides/slide-title-border.png" alt=""></div>
+                     data-easing="easeOutExpo"><asset:image src="img/slides/slide-title-border.png" alt=""/></div>
 
                 <div class="tp-caption top-label lfl stl"
                      data-x="227"
@@ -55,7 +55,7 @@
                      data-y="180"
                      data-speed="300"
                      data-start="1000"
-                     data-easing="easeOutExpo"><img src="img/slides/slide-title-border.png" alt=""></div>
+                     data-easing="easeOutExpo"><asset:image src="img/slides/slide-title-border.png" alt=""/></div>
 
                 <div class="tp-caption main-label sft stb"
                      data-x="135"
