@@ -47,7 +47,7 @@
                 <label class="col-md-3 control-label">File Upload</label>
 
                 <div class="col-md-8">
-                    <input type="file" name="beforeafterfile" accept='image/*'>
+                    <input type="file" name="beforeafterimage" accept='image/*'>
                 </div>
 
             </div>
