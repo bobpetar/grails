@@ -47,20 +47,7 @@
                 <label class="col-md-3 control-label">File Upload</label>
 
                 <div class="col-md-8">
-                    <div data-provides="fileupload" class="fileupload fileupload-new">
-                        <div class="input-append">
-                            <div class="uneditable-input">
-                                <i class="fa fa-file fileupload-exists"></i>
-                                <span class="fileupload-preview"></span>
-                            </div>
-                            <span class="btn btn-default btn-file">
-                                <span class="fileupload-exists">Change</span>
-                                <span class="fileupload-new">Select file</span>
-                                <input type="file" name="beforeafterimage" required="required" accept='image/*'>
-                            </span>
-                            <a data-dismiss="fileupload" class="btn btn-default fileupload-exists" href="#">Remove</a>
-                        </div>
-                    </div>
+                    <input type="file" name="beforeafterfile" accept='image/*'>
                 </div>
 
             </div>
