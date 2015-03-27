@@ -104,8 +104,6 @@
         <h2>Techniques</h2>
 
         <div class="row">
-    %{--        <ul data-sort-id="portfolio" class="portfolio-list sort-destination"
-                style="position: relative; height: 100px;">--}%
                 <g:each in="${uniqueGroep}" status="i" var="groepInstance">
                     <div class="col-md-12 col-sm-12 col-xs-12  techniqueBlock ${groepInstance.replaceAll(" ","_")}" id="${groepInstance.replaceAll(" ","_")}">
                         <div class="owl-carousel owl-carousel-spaced"
@@ -160,25 +158,16 @@
                         </div>
                     </div>
                 </g:each>
-       %{--     </ul>--}%
         </div>
         <ul class="nav nav-pills">
             <g:each in="${uniqueGroep}" status="i" var="groepInstance">
                 <li>
-                    <a class="btn btn-default" href="javascript:void(0);" onclick="showTecniqueBlock('#${groepInstance}')">
+                    <a class="btn-dark text-capitalize" href="javascript:void(0);" onclick="showTecniqueBlock('#${groepInstance}')">
                         ${groepInstance}
                     </a>
                 </li>
             </g:each>
         </ul>
-       %{-- <ul data-option-key="filter" data-sort-id="portfolio"
-            class="nav nav-pills sort-source text-capitalize">
-            --}%%{-- <g:each in="${uniqueGroep}" status="i" var="groepInstance">
-                 <li data-option-value=".${groepInstance}"><a class="btn-dark" href="#">
-                     ${groepInstance}
-                 </a></li>
-             </g:each>--}%%{--
-        </ul>--}%
 
     </div>
 </section>
