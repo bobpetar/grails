@@ -186,7 +186,7 @@
 <div class="container">
 
     <div class="row featured-boxes">
-        <div class="col-md-4">
+        <div class="col-md-4" data-appear-animation="fadeInLeft">
             <div class="featured-box featured-box-secundary">
                 <div class="box-content">
                     <center>
@@ -199,7 +199,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4" data-appear-animation="fadeInUp">
             <div class="featured-box featured-box-tertiary">
                 <div class="box-content">
                     <center>
@@ -212,7 +212,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4" data-appear-animation="fadeInRight">
             <div class="featured-box featured-box-quartenary">
                 <div class="box-content">
                     <center>
