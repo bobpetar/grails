@@ -2,12 +2,14 @@ package com.retouch
 
 import grails.converters.JSON
 import grails.transaction.Transactional
-import spock.lang.Issue
+import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
 
 @Transactional
 class TaskService {
 
     def mailService
+    def grailsApplication
+   // def grailsLinkGenerator
 
     def getImageTagJSON(ImageTag tag) {
         return ["x1":tag.posX,"y1":tag.posY,"height":tag.height,"width":tag.width,"note":tag.note,note_id:tag.id]
@@ -24,7 +26,10 @@ class TaskService {
 
     def notifyRetouchers(Task task){
         def recoucherRole=  Role.findByAuthority("ROLE_RETOUCHER")
+        def serverURL = grailsApplication.config.grails.serverURL
+        def claimPageURl = serverURL + "/task/show/${task.project.id}"
         try{
+
             if(recoucherRole){
                 def retouchers = UserRole.findAllByRole(recoucherRole).user
                 println retouchers
@@ -32,7 +37,9 @@ class TaskService {
                     async true
                     bcc retouchers.email.toArray()
                     subject "New Task"
-                    html "New retouch task is available. " //TODO add detailed email
+                    html "Hi Retoucher,<br><br>" +
+                            "New retouch task is available. Please click on following link to claim the task.<br><br>"+
+                            "<a href='${claimPageURl}'>Claim</a> " //TODO add detailed email
                 }
 
             }
