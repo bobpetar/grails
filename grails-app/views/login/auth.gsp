@@ -10,14 +10,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<ul class="breadcrumb">
-						<li><a href="#">Home</a></li>
-						<li class="active">Pages</li>
-					</ul>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
 					<h1>Login</h1>
 				</div>
 			</div>
@@ -59,7 +51,7 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label>Username or E-mail Address</label> <input
+												<label>Username</label> <input
 													name="j_username" id="username"
 													class="form-control input-lg">
 											</div>
