@@ -11,7 +11,7 @@
     <!-- Basic -->
     <meta charset="utf-8">
     <title>Porto - Responsive HTML5 Template 3.7.0</title>
-    <meta name="keywords" content="HTML5 Template" />
+    <meta name="keywords" content="HTML5 Template"/>
     <meta name="description" content="Porto - Responsive HTML5 Template">
     <meta name="author" content="okler.net">
 
@@ -25,91 +25,91 @@
 
     <!-- Vendor CSS -->
 
-    <asset:stylesheet src="vendor/bootstrap/bootstrap.css" />
-    <asset:stylesheet src="vendor/fontawesome/css/font-awesome.css" />
-    <asset:stylesheet src="vendor/owlcarousel/owl.carousel.min.css" />
-    <asset:stylesheet src="vendor/owlcarousel/owl.theme.default.min.css" />
-    <asset:stylesheet src="vendor/magnific-popup/magnific-popup.css" />
+    <asset:stylesheet src="vendor/bootstrap/bootstrap.css"/>
+    <asset:stylesheet src="vendor/fontawesome/css/font-awesome.css"/>
+    <asset:stylesheet src="vendor/owlcarousel/owl.carousel.min.css"/>
+    <asset:stylesheet src="vendor/owlcarousel/owl.theme.default.min.css"/>
+    <asset:stylesheet src="vendor/magnific-popup/magnific-popup.css"/>
 
     <!-- Theme CSS -->
 
-    <asset:stylesheet src="css/theme.css" />
-    <asset:stylesheet src="css/theme-elements.css" />
-    <asset:stylesheet src="css/theme-blog.css" />
-    <asset:stylesheet src="css/theme-shop.css" />
-    <asset:stylesheet src="css/theme-animate.css" />
+    <asset:stylesheet src="css/theme.css"/>
+    <asset:stylesheet src="css/theme-elements.css"/>
+    <asset:stylesheet src="css/theme-blog.css"/>
+    <asset:stylesheet src="css/theme-shop.css"/>
+    <asset:stylesheet src="css/theme-animate.css"/>
 
 
     <!-- Current Page CSS -->
-    <asset:stylesheet src="vendor/rs-plugin/css/settings.css" />
-    <asset:stylesheet src="vendor/circle-flip-slideshow/css/component.css" />
+    <asset:stylesheet src="vendor/rs-plugin/css/settings.css"/>
+    <asset:stylesheet src="vendor/circle-flip-slideshow/css/component.css"/>
 
     <!-- Admin Extension Specific Page Vendor CSS -->
     <asset:stylesheet
-            src="admin/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+            src="admin/assets/vendor/bootstrap-datepicker/css/datepicker3.css"/>
     <asset:stylesheet
-            src="admin/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
-    <asset:stylesheet src="admin/assets/vendor/select2/select2.css" />
+            src="admin/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css"/>
+    <asset:stylesheet src="admin/assets/vendor/select2/select2.css"/>
     <asset:stylesheet
-            src="admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+            src="admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css"/>
     <asset:stylesheet
-            src="admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+            src="admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css"/>
     <asset:stylesheet
-            src="admin/assets/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.css" />
+            src="admin/assets/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.css"/>
     <asset:stylesheet
-            src="admin/assets/vendor/bootstrap-timepicker/css/bootstrap-timepicker.css" />
-    <asset:stylesheet src="admin/assets/vendor/dropzone/css/basic.css" />
-    <asset:stylesheet src="admin/assets/vendor/dropzone/css/dropzone.css" />
+            src="admin/assets/vendor/bootstrap-timepicker/css/bootstrap-timepicker.css"/>
+    <asset:stylesheet src="admin/assets/vendor/dropzone/css/basic.css"/>
+    <asset:stylesheet src="admin/assets/vendor/dropzone/css/dropzone.css"/>
     <asset:stylesheet
-            src="admin/assets/vendor/bootstrap-markdown/css/bootstrap-markdown.min.css" />
-    <asset:stylesheet src="admin/assets/vendor/summernote/summernote.css" />
+            src="admin/assets/vendor/bootstrap-markdown/css/bootstrap-markdown.min.css"/>
+    <asset:stylesheet src="admin/assets/vendor/summernote/summernote.css"/>
     <asset:stylesheet
-            src="admin/assets/vendor/summernote/summernote-bs3.css" />
+            src="admin/assets/vendor/summernote/summernote-bs3.css"/>
     <asset:stylesheet
-            src="admin/assets/vendor/codemirror/lib/codemirror.css" />
-    <asset:stylesheet src="admin/assets/vendor/codemirror/theme/monokai.css" />
+            src="admin/assets/vendor/codemirror/lib/codemirror.css"/>
+    <asset:stylesheet src="admin/assets/vendor/codemirror/theme/monokai.css"/>
     <asset:stylesheet
-            src="admin/assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css" />
+            src="admin/assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css"/>
 
     <!-- Admin Extension CSS -->
     <asset:stylesheet
-            src="admin/assets/stylesheets/theme-admin-extension.css" />
+            src="admin/assets/stylesheets/theme-admin-extension.css"/>
 
     <!-- Admin Extension Skin CSS -->
-    <asset:stylesheet src="admin/assets/stylesheets/skins/extension.css" />
+    <asset:stylesheet src="admin/assets/stylesheets/skins/extension.css"/>
 
     <!-- Skin CSS -->
-    <asset:stylesheet src="css/skins/default.css" />
+    <asset:stylesheet src="css/skins/default.css"/>
 
     <!-- Theme Custom CSS -->
-    <asset:stylesheet src="css/custom.css" />
+    <asset:stylesheet src="css/custom.css"/>
 
     <!-- Head Libs -->
-    <asset:javascript src="vendor/modernizr/modernizr.js" />
+    <asset:javascript src="vendor/modernizr/modernizr.js"/>
 
     <!--[if IE]>
     <asset:stylesheet src="css/ie.css"/>
     <![endif]-->
 
-    <asset:javascript src="vendor/jquery/jquery.js" />
+    <asset:javascript src="vendor/jquery/jquery.js"/>
     <!--[if lte IE 8]>
     <asset:javascript src="vendor/respond/respond.js"/>
     <asset:javascript src="vendor/excanvas/excanvas.js"/>
     <![endif]-->
 
     %{--Admin--}%
-    <asset:stylesheet src="admin/assets/vendor/pnotify/pnotify.custom.css" />
+    <asset:stylesheet src="admin/assets/vendor/pnotify/pnotify.custom.css"/>
     <asset:stylesheet
-            src="admin/assets/vendor/font-awesome/css/font-awesome.css" />
+            src="admin/assets/vendor/font-awesome/css/font-awesome.css"/>
 
 
 
     <!--  Custome CSS -->
-    <asset:stylesheet src="custom.css" />
-    <asset:stylesheet src="css/admin.css" />
+    <asset:stylesheet src="custom.css"/>
+    <asset:stylesheet src="css/admin.css"/>
 
     <script>
-        $( document ).ready(function() {
+        $(document).ready(function () {
             <g:if test="${flash.message}">
             new PNotify({
                 title: 'Info',
@@ -128,234 +128,544 @@
         });
     </script>
 
-    <g:layoutHead />
+    <g:layoutHead/>
 </head>
 
 <body class="one-page" data-target=".single-menu" data-spy="scroll"
       data-offset="200">
 <g:set var="loggedUserId">
-    <sec:loggedInUserInfo field="id" />
+    <sec:loggedInUserInfo field="id"/>
 </g:set>
 
 <div class="body">
-    <header id="header" class="single-menu flat-menu">
+%{--<header id="header" class="single-menu flat-menu">
+    <div class="container">
+        <div class="logo">
+            <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
+                                                           width="65" height="80" data-sticky-width="41"
+                                                           data-sticky-height="50" src="img/logo.png" />
+            </a>
+        </div>
+        <button class="btn btn-responsive-nav btn-inverse"
+                data-toggle="collapse" data-target=".nav-main-collapse">
+            <i class="fa fa-bars"></i>
+        </button>
+    </div>
+    <div class="navbar-collapse nav-main-collapse collapse">
         <div class="container">
-            <div class="logo">
-                <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
-                                                               width="65" height="80" data-sticky-width="41"
-                                                               data-sticky-height="50" src="img/logo.png" />
-                </a>
-            </div>
-            <button class="btn btn-responsive-nav btn-inverse"
-                    data-toggle="collapse" data-target=".nav-main-collapse">
-                <i class="fa fa-bars"></i>
-            </button>
-        </div>
-        <div class="navbar-collapse nav-main-collapse collapse">
-            <div class="container">
-                <ul class="social-icons">
-                    <li class="facebook"><a href="http://www.facebook.com/"
-                                            target="_blank" title="Facebook">Facebook</a></li>
-                    <li class="twitter"><a href="http://www.twitter.com/"
-                                           target="_blank" title="Twitter">Twitter</a></li>
-                    <li class="linkedin"><a href="http://www.linkedin.com/"
-                                            target="_blank" title="Linkedin">Linkedin</a></li>
-                </ul>
-                <nav class="nav-main">
-                    <ul class="nav nav-pills nav-main" id="mainMenu">
-                        <li><a href="${createLink(uri:'/')}#home">Home</a></li>
-                        <sec:ifAllGranted roles="ROLE_USER">
-                            <li><a href="${createLink(uri:'/upload') }">Upload</a></li>
-                            <li><a href="${createLink(uri:'/projects') }">My Orders</a></li>
-                        </sec:ifAllGranted>
-                        <sec:ifAllGranted roles="ROLE_ADMIN">
-                            <li><a href="${createLink(uri:'/user') }">User</a></li>
-                            <li><a href="${createLink(action: 'index',controller: 'project') }">Projects</a></li>
-                            <li><a href="${createLink(uri:'/technique') }">Techniques</a></li>
-                        </sec:ifAllGranted>
-                        <sec:ifAllGranted roles="ROLE_RETOUCHER">
-                            <li><a href="${createLink(uri:'/tasks') }">My Tasks
-                                <g:if test="${incompleteTaskCount!=null}">
-                                    <span class="badge">${incompleteTaskCount}</span>
-                                </g:if>
-                            </a></li>
-                            <li><a href="${createLink(uri:'/new-tasks') }">New Tasks
-                                <g:if test="${newTaskCount!=null}">
-                                    <span class="badge">${newTaskCount}</span>
-                                </g:if>
-                                </a>
-                            </li>
-                        </sec:ifAllGranted>
-
-                        <sec:ifNotLoggedIn>
-                            <li><a href="${createLink(uri:'/')}#techniques">Techniques</a></li>
-                            <li><a href="${createLink(uri:'/login') }">Login</a></li>
-                        </sec:ifNotLoggedIn>
-                        <sec:ifLoggedIn>
-                            <li class="dropdown active"><a data-hash
-                                                           class="dropdown-toggle" href="${createLink(uri:'/')}#home"> <i class="fa fa-user"></i>
-                                <sec:username /> <i class="fa fa-angle-down"></i>
+            <ul class="social-icons">
+                <li class="facebook"><a href="http://www.facebook.com/"
+                                        target="_blank" title="Facebook">Facebook</a></li>
+                <li class="twitter"><a href="http://www.twitter.com/"
+                                       target="_blank" title="Twitter">Twitter</a></li>
+                <li class="linkedin"><a href="http://www.linkedin.com/"
+                                        target="_blank" title="Linkedin">Linkedin</a></li>
+            </ul>
+            <nav class="nav-main">
+                <ul class="nav nav-pills nav-main" id="mainMenu">
+                    <li><a href="${createLink(uri:'/')}#home">Home</a></li>
+                    <sec:ifAllGranted roles="ROLE_USER">
+                        <li><a href="${createLink(uri:'/upload') }">Upload</a></li>
+                        <li><a href="${createLink(uri:'/projects') }">My Orders</a></li>
+                    </sec:ifAllGranted>
+                    <sec:ifAllGranted roles="ROLE_ADMIN">
+                        <li><a href="${createLink(uri:'/user') }">User</a></li>
+                        <li><a href="${createLink(action: 'index',controller: 'project') }">Projects</a></li>
+                        <li><a href="${createLink(uri:'/technique') }">Techniques</a></li>
+                    </sec:ifAllGranted>
+                    <sec:ifAllGranted roles="ROLE_RETOUCHER">
+                        <li><a href="${createLink(uri:'/tasks') }">My Tasks
+                            <g:if test="${incompleteTaskCount!=null}">
+                                <span class="badge">${incompleteTaskCount}</span>
+                            </g:if>
+                        </a></li>
+                        <li><a href="${createLink(uri:'/new-tasks') }">New Tasks
+                            <g:if test="${newTaskCount!=null}">
+                                <span class="badge">${newTaskCount}</span>
+                            </g:if>
                             </a>
-                                <ul class="dropdown-menu">
-                                    <li><g:link controller="user" action="show" id="${loggedUserId}">My Account</g:link></li>
-                                    <li><a href="${createLink(uri:'/logout')}">Log Out</a></li>
-                                </ul></li>
-                        </sec:ifLoggedIn>
+                        </li>
+                    </sec:ifAllGranted>
+
+                    <sec:ifNotLoggedIn>
+                        <li><a href="${createLink(uri:'/')}#techniques">Techniques</a></li>
+                        <li><a href="${createLink(uri:'/login') }">Login</a></li>
+                    </sec:ifNotLoggedIn>
+                    <sec:ifLoggedIn>
+                        <li class="dropdown active"><a data-hash
+                                                       class="dropdown-toggle" href="${createLink(uri:'/')}#home"> <i class="fa fa-user"></i>
+                            <sec:username /> <i class="fa fa-angle-down"></i>
+                        </a>
+                            <ul class="dropdown-menu">
+                                <li><g:link controller="user" action="show" id="${loggedUserId}">My Account</g:link></li>
+                                <li><a href="${createLink(uri:'/logout')}">Log Out</a></li>
+                            </ul></li>
+                    </sec:ifLoggedIn>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>--}%
+<header id="header">
+<div class="container">
+    <div class="logo">
+        <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
+                                                       width="65" height="80" data-sticky-width="41"
+                                                       data-sticky-height="50" src="img/logo.png" />
+        </a>
+    </div>
+    <div class="search">
+     %{--   <form id="searchForm" action="page-search-results.html" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>--}%
+    </div>
+    <ul class="social-icons">
+        <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
+        <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
+        <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+    </ul>
+    <nav>
+        <ul class="nav nav-pills nav-top">
+           %{-- <li>
+                <a href="about-us.html"><i class="fa fa-angle-right"></i>About Us</a>
+            </li>
+            <li>
+                <a href="contact-us.html"><i class="fa fa-angle-right"></i>Contact Us</a>
+            </li>--}%
+            <li class="phone">
+                <span><i class="fa fa-phone"></i>0031 (0)622752205</span>
+            </li>
+        </ul>
+    </nav>
+    <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+        <i class="fa fa-bars"></i>
+    </button>
+</div>
+  %{--  <div class="container">
+        <div class="logo">
+            <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
+                                                           width="65" height="80" data-sticky-width="41"
+                                                           data-sticky-height="50" src="img/logo.png" />
+            </a>
+        </div>
+
+       --}%%{-- <div class="search">
+            <form id="searchForm" action="page-search-results.html" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>--}%%{--
+
+        <nav>
+            <ul class="nav nav-pills nav-top">
+              --}%%{--  <li>
+                    <a href="about-us.html"><i class="fa fa-angle-right"></i>About Us</a>
+                </li>
+                <li>
+                    <a href="contact-us.html"><i class="fa fa-angle-right"></i>Contact Us</a>
+                </li>--}%%{--
+                <li class="phone">
+                    <span><i class="fa fa-phone"></i>0031 (0)622752205</span>
+                </li>
+            </ul>
+
+        </nav>
+
+        <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+            <i class="fa fa-bars"></i>
+        </button>
+    </div>--}%
+
+    <div class="navbar-collapse nav-main-collapse collapse">
+        <div class="container">
+
+            <nav class="nav-main mega-menu">
+                <ul class="nav nav-pills nav-main" id="mainMenu">
+                    <li><a href="${createLink(uri:'/')}">Home</a></li>
+                    <sec:ifAllGranted roles="ROLE_USER">
+                        <li><a href="${createLink(uri:'/upload') }">Upload</a></li>
+                        <li><a href="${createLink(uri:'/projects') }">My Orders</a></li>
+                    </sec:ifAllGranted>
+                    <sec:ifAllGranted roles="ROLE_ADMIN">
+                        <li><a href="${createLink(uri:'/user') }">User</a></li>
+                        <li><a href="${createLink(action: 'index',controller: 'project') }">Projects</a></li>
+                        <li><a href="${createLink(uri:'/technique') }">Techniques</a></li>
+                    </sec:ifAllGranted>
+                    <sec:ifAllGranted roles="ROLE_RETOUCHER">
+                        <li><a href="${createLink(uri:'/tasks') }">My Tasks
+                            <g:if test="${incompleteTaskCount!=null}">
+                                <span class="badge">${incompleteTaskCount}</span>
+                            </g:if>
+                        </a></li>
+                        <li><a href="${createLink(uri:'/new-tasks') }">New Tasks
+                            <g:if test="${newTaskCount!=null}">
+                                <span class="badge">${newTaskCount}</span>
+                            </g:if>
+                        </a>
+                        </li>
+                    </sec:ifAllGranted>
+
+                    <sec:ifNotLoggedIn>
+                        <li><a href="${createLink(uri:'/')}#techniques">Techniques</a></li>
+                        %{--<li><a href="${createLink(uri:'/login') }">Login</a></li>--}%
+
+                        %{----}%
+
+                        <li class="dropdown mega-menu-item mega-menu-signin signin" id="headerAccount">
+                            <a class="dropdown-toggle" href="${createLink(uri:'/login') }">
+                                <i class="fa fa-user"></i> Sign In
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="mega-menu-content">
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                <div class="signin-form">
+
+                                                    <span class="mega-menu-sub-title">Sign In</span>
+
+                                                    <form action="${postUrl}" id="loginForm" method="post"
+                                                          name="loginForm" autocomplete='off'>
+                                                        <g:if test='${flash.message}'>
+                                                            <div class="alert alert-danger">
+                                                                ${flash.message}
+                                                            </div>
+                                                        </g:if>
+
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <div class="col-md-12">
+                                                                    <label>Username</label> <input
+                                                                        name="j_username" id="username"
+                                                                        class="form-control input-lg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <div class="col-md-12">
+                                                                    <g:link controller="register" action="forgotPassword"
+                                                                            class="pull-right">(Lost Password?)</g:link>
+                                                                    <label>Password</label> <input type="password"
+                                                                                                   name="j_password" id="passwordMenu"
+                                                                                                   class="form-control input-lg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="  margin-top: 6px;">
+                                                            <div class="col-md-6">
+                                                                <span class="remember-box checkbox"> <label
+                                                                        for="remembememenu"> <input type="checkbox"
+                                                                                                 name="${rememberMeParameter}" id="remembememenu"
+                                                                                                 name="rememberme">Remember Me
+                                                                </label>
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="submit" value="Login"
+                                                                       class="btn btn-primary pull-right push-bottom"
+                                                                       data-loading-text="Loading...">
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <div class="col-md-12">
+                                                                    <p class="sign-up-info">
+                                                                        Don't have an account yet?
+                                                                        <g:link controller="register">Sign
+													Up</g:link>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                   %{-- <form action="" id="" method="post">
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <div class="col-md-12">
+                                                                    <label>Username or E-mail Address</label>
+                                                                    <input type="text" value="" class="form-control input-lg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <div class="col-md-12">
+                                                                    <a class="pull-right" id="headerRecover" href="#">(Lost Password?)</a>
+                                                                    <label>Password</label>
+                                                                    <input type="password" value="" class="form-control input-lg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <span class="remember-box checkbox">
+                                                                    <label for="rememberme">
+                                                                        <input type="checkbox" id="rememberme" name="rememberme">Remember Me
+                                                                    </label>
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="submit" value="Login" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                    <p class="sign-up-info">Don't have an account yet? <a href="#" id="headerSignUp">Sign Up</a></p>
+--}%
+                                                </div>
+
+                                                <div class="signup-form">
+                                                    <span class="mega-menu-sub-title">Create Account</span>
+
+                                                    <form action="" id="" method="post">
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <div class="col-md-12">
+                                                                    <label>E-mail Address</label>
+                                                                    <input type="text" value="" class="form-control input-lg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <div class="col-md-6">
+                                                                    <label>Password</label>
+                                                                    <input type="password" value="" class="form-control input-lg">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label>Re-enter Password</label>
+                                                                    <input type="password" value="" class="form-control input-lg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <input type="submit" value="Create Account" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                    <p class="log-in-info">Already have an account? <a href="#" id="headerSignIn">Log In</a></p>
+                                                </div>
+
+                                                <div class="recover-form">
+                                                    <span class="mega-menu-sub-title">Reset My Password</span>
+                                                    <p>Complete the form below to receive an email with the authorization code needed to reset your password.</p>
+
+                                                    <form action="" id="" method="post">
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <div class="col-md-12">
+                                                                    <label>E-mail Address</label>
+                                                                    <input type="text" value="" class="form-control input-lg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <input type="submit" value="Submit" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                    <p class="log-in-info">Already have an account? <a href="#" id="headerRecoverCancel">Log In</a></p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        %{----}%
+                    </sec:ifNotLoggedIn>
+                    <sec:ifLoggedIn>
+                        <li class="dropdown active"><a data-hash
+                                                       class="dropdown-toggle" href="${createLink(uri:'/')}#home"> <i class="fa fa-user"></i>
+                            <sec:username /> <i class="fa fa-angle-down"></i>
+                        </a>
+                            <ul class="dropdown-menu">
+                                <li><g:link controller="user" action="show" id="${loggedUserId}">My Account</g:link></li>
+                                <li><a href="${createLink(uri:'/logout')}">Log Out</a></li>
+                            </ul></li>
+                    </sec:ifLoggedIn>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<g:layoutBody/>
+
+
+<footer class="short" id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>About Porto</h4>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Donec eu pulvinar magna. Phasellus semper scelerisque purus, et
+                semper nisl lacinia sit amet. Praesent venenatis turpis vitae
+                purus semper, eget sagittis velit venenatis. Class aptent taciti
+                sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos...</p>
+                <hr class="light">
+            </div>
+
+            <div class="col-md-3 col-md-offset-1">
+                <h5 class="short">Contact Us</h5>
+                <span class="phone">0031 (0)622752205</span>
+
+                <p class="short">Kanaalpark 157</p>
+
+                <p class="short">2321 JW Leiden</p>
+                <ul class="list icons list-unstyled">
+                    <li><i class="fa fa-envelope"></i> <a
+                            href="mailto:info@1hretouch.com">info@1hretouch.com</a></li>
+                </ul>
+
+                <div class="social-icons">
+                    <ul class="social-icons">
+                        <li class="facebook"><a href="http://www.facebook.com/"
+                                                target="_blank" data-placement="bottom" data-tooltip
+                                                title="Facebook">Facebook</a></li>
+                        <li class="twitter"><a href="http://www.twitter.com/"
+                                               target="_blank" data-placement="bottom" data-tooltip
+                                               title="Twitter">Twitter</a></li>
+                        <li class="linkedin"><a href="http://www.linkedin.com/"
+                                                target="_blank" data-placement="bottom" data-tooltip
+                                                title="Linkedin">Linkedin</a></li>
                     </ul>
-                </nav>
+                </div>
             </div>
         </div>
-    </header>
+    </div>
 
-    <g:layoutBody />
-
-
-    <footer class="short" id="footer">
+    <div class="footer-copyright">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <h4>About Porto</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec eu pulvinar magna. Phasellus semper scelerisque purus, et
-                    semper nisl lacinia sit amet. Praesent venenatis turpis vitae
-                    purus semper, eget sagittis velit venenatis. Class aptent taciti
-                    sociosqu ad litora torquent per conubia nostra, per inceptos
-                    himenaeos...</p>
-                    <hr class="light">
+                <div class="col-md-1">
+                    <a href="index.html" class="logo"><asset:image
+                            alt="Porto Website Template" class="img-responsive"
+                            src="img/logo-footer.png"/>
+                    </a>
                 </div>
-                <div class="col-md-3 col-md-offset-1">
-                    <h5 class="short">Contact Us</h5>
-                    <span class="phone">0031 (0)622752205</span>
-                    <p class="short">Kanaalpark 157</p>
-                    <p class="short">2321 JW Leiden</p>
-                    <ul class="list icons list-unstyled">
-                        <li><i class="fa fa-envelope"></i> <a
-                                href="mailto:info@1hretouch.com">info@1hretouch.com</a></li>
-                    </ul>
-                    <div class="social-icons">
-                        <ul class="social-icons">
-                            <li class="facebook"><a href="http://www.facebook.com/"
-                                                    target="_blank" data-placement="bottom" data-tooltip
-                                                    title="Facebook">Facebook</a></li>
-                            <li class="twitter"><a href="http://www.twitter.com/"
-                                                   target="_blank" data-placement="bottom" data-tooltip
-                                                   title="Twitter">Twitter</a></li>
-                            <li class="linkedin"><a href="http://www.linkedin.com/"
-                                                    target="_blank" data-placement="bottom" data-tooltip
-                                                    title="Linkedin">Linkedin</a></li>
-                        </ul>
-                    </div>
+
+                <div class="col-md-11">
+                    <p>© Copyright 2015. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-1">
-                        <a href="index.html" class="logo"> <asset:image
-                                alt="Porto Website Template" class="img-responsive"
-                                src="img/logo-footer.png" />
-                        </a>
-                    </div>
-                    <div class="col-md-11">
-                        <p>© Copyright 2015. All Rights Reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
 </div>
 
 <!-- Vendor -->
 
-<asset:javascript src="vendor/jquery.appear/jquery.appear.js" />
-<asset:javascript src="vendor/jquery.easing/jquery.easing.js" />
-<asset:javascript src="vendor/jquery-cookie/jquery-cookie.js" />
-<asset:javascript src="vendor/bootstrap/bootstrap.js" />
-<asset:javascript src="vendor/common/common.js" />
-<asset:javascript src="vendor/jquery.validation/jquery.validation.js" />
-<asset:javascript src="vendor/jquery.stellar/jquery.stellar.js" />
+<asset:javascript src="vendor/jquery.appear/jquery.appear.js"/>
+<asset:javascript src="vendor/jquery.easing/jquery.easing.js"/>
+<asset:javascript src="vendor/jquery-cookie/jquery-cookie.js"/>
+<asset:javascript src="vendor/bootstrap/bootstrap.js"/>
+<asset:javascript src="vendor/common/common.js"/>
+<asset:javascript src="vendor/jquery.validation/jquery.validation.js"/>
+<asset:javascript src="vendor/jquery.stellar/jquery.stellar.js"/>
 <asset:javascript
-        src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js" />
-<asset:javascript src="vendor/jquery.gmap/jquery.gmap.js" />
-<asset:javascript src="vendor/isotope/jquery.isotope.js" />
-<asset:javascript src="vendor/owlcarousel/owl.carousel.js" />
-<asset:javascript src="vendor/jflickrfeed/jflickrfeed.js" />
-<asset:javascript src="vendor/magnific-popup/jquery.magnific-popup.js" />
-<asset:javascript src="vendor/vide/vide.js" />
+        src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js"/>
+<asset:javascript src="vendor/jquery.gmap/jquery.gmap.js"/>
+<asset:javascript src="vendor/isotope/jquery.isotope.js"/>
+<asset:javascript src="vendor/owlcarousel/owl.carousel.js"/>
+<asset:javascript src="vendor/jflickrfeed/jflickrfeed.js"/>
+<asset:javascript src="vendor/magnific-popup/jquery.magnific-popup.js"/>
+<asset:javascript src="vendor/vide/vide.js"/>
 
 
 %{--Admin--}%
 
-<asset:javascript src="admin/assets/vendor/pnotify/pnotify.custom.js" />
+<asset:javascript src="admin/assets/vendor/pnotify/pnotify.custom.js"/>
 
 <!-- Theme Base, Components and Settings -->
-<asset:javascript src="js/theme.js" />
+<asset:javascript src="js/theme.js"/>
 
 <!-- Specific Page Vendor and Views -->
 <asset:javascript
-        src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js" />
+        src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"/>
 <asset:javascript
-        src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js" />
+        src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"/>
 <asset:javascript
-        src="vendor/circle-flip-slideshow/js/jquery.flipshow.js" />
-<asset:javascript src="js/views/view.home.js" />
+        src="vendor/circle-flip-slideshow/js/jquery.flipshow.js"/>
+<asset:javascript src="js/views/view.home.js"/>
 
 <!-- Theme Custom -->
-<asset:javascript src="js/custom.js" />
+<asset:javascript src="js/custom.js"/>
 
 <!-- Theme Initialization Files -->
-<asset:javascript src="js/theme.init.js" />
+<asset:javascript src="js/theme.init.js"/>
 
 
 <!-- Admin Extension Specific Page Vendor -->
 <asset:javascript
-        src="admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js" />
+        src="admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"/>
 <asset:javascript
-        src="admin/assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js" />
+        src="admin/assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"/>
 <asset:javascript
-        src="admin/assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js" />
-<asset:javascript src="admin/assets/vendor/select2/select2.js" />
+        src="admin/assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"/>
+<asset:javascript src="admin/assets/vendor/select2/select2.js"/>
 <asset:javascript
-        src="admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js" />
+        src="admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"/>
 <asset:javascript
-        src="admin/assets/vendor/jquery-maskedinput/jquery.maskedinput.js" />
+        src="admin/assets/vendor/jquery-maskedinput/jquery.maskedinput.js"/>
 <asset:javascript
-        src="admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js" />
+        src="admin/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js"/>
 <asset:javascript
-        src="admin/assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js" />
+        src="admin/assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js"/>
 <asset:javascript
-        src="admin/assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js" />
-<asset:javascript src="admin/assets/vendor/fuelux/js/spinner.js" />
-<asset:javascript src="admin/assets/vendor/dropzone/dropzone.js" />
+        src="admin/assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"/>
+<asset:javascript src="admin/assets/vendor/fuelux/js/spinner.js"/>
+<asset:javascript src="admin/assets/vendor/dropzone/dropzone.js"/>
 <asset:javascript
-        src="admin/assets/vendor/bootstrap-markdown/js/markdown.js" />
+        src="admin/assets/vendor/bootstrap-markdown/js/markdown.js"/>
 <asset:javascript
-        src="admin/assets/vendor/bootstrap-markdown/js/to-markdown.js" />
+        src="admin/assets/vendor/bootstrap-markdown/js/to-markdown.js"/>
 <asset:javascript
-        src="admin/assets/vendor/bootstrap-markdown/js/bootstrap-markdown.js" />
+        src="admin/assets/vendor/bootstrap-markdown/js/bootstrap-markdown.js"/>
 <asset:javascript
-        src="admin/assets/vendor/codemirror/lib/codemirror.js" />
+        src="admin/assets/vendor/codemirror/lib/codemirror.js"/>
 <asset:javascript
-        src="admin/assets/vendor/codemirror/addon/selection/active-line.js" />
+        src="admin/assets/vendor/codemirror/addon/selection/active-line.js"/>
 <asset:javascript
-        src="admin/assets/vendor/codemirror/addon/edit/matchbrackets.js" />
+        src="admin/assets/vendor/codemirror/addon/edit/matchbrackets.js"/>
 <asset:javascript
-        src="admin/assets/vendor/codemirror/mode/javascript/javascript.js" />
-<asset:javascript src="admin/assets/vendor/codemirror/mode/xml/xml.js" />
+        src="admin/assets/vendor/codemirror/mode/javascript/javascript.js"/>
+<asset:javascript src="admin/assets/vendor/codemirror/mode/xml/xml.js"/>
 <asset:javascript
-        src="admin/assets/vendor/codemirror/mode/htmlmixed/htmlmixed.js" />
-<asset:javascript src="admin/assets/vendor/codemirror/mode/css/css.js" />
-<asset:javascript src="admin/assets/vendor/summernote/summernote.js" />
+        src="admin/assets/vendor/codemirror/mode/htmlmixed/htmlmixed.js"/>
+<asset:javascript src="admin/assets/vendor/codemirror/mode/css/css.js"/>
+<asset:javascript src="admin/assets/vendor/summernote/summernote.js"/>
 <asset:javascript
-        src="admin/assets/vendor/bootstrap-maxlength/bootstrap-maxlength.js" />
+        src="admin/assets/vendor/bootstrap-maxlength/bootstrap-maxlength.js"/>
 <asset:javascript
-        src="admin/assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js" />
-<asset:javascript src="admin/assets/vendor/ios7-switch/ios7-switch.js" />
+        src="admin/assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"/>
+<asset:javascript src="admin/assets/vendor/ios7-switch/ios7-switch.js"/>
 
 <!-- Admin Extension -->
 <asset:javascript
-        src="admin/assets/javascripts/theme.admin.extension.js" />
+        src="admin/assets/javascripts/theme.admin.extension.js"/>
 
 <!-- Admin Extension Examples -->
 %{--

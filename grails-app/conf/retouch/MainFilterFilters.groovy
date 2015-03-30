@@ -8,6 +8,7 @@ import grails.plugin.springsecurity.SpringSecurityUtils
 class MainFilterFilters {
     def springSecurityService
 
+
     def filters = {
         all(controller:'*', action:'*') {
             before = {
@@ -21,7 +22,9 @@ class MainFilterFilters {
                     model?.siteParams = SiteParams.list()
                     model?.incompleteTaskCount = incompleteTaskCount
                 }
-
+                def config = SpringSecurityUtils.securityConfig
+                model?.postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+                model?.rememberMeParameter= config.rememberMe.parameter
             }
             afterView = { Exception e ->
 

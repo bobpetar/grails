@@ -60,18 +60,18 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<g:link controller="register" action="forgotPassword"
+												<g:link controller="register" action="forgotPassword" tabindex="3"
 													class="pull-right">(Lost Password?)</g:link>
-												<label>Password</label> <input type="password"
+												<label>Password</label> <input type="password" tabindex="2"
 													name="j_password" id="password"
 													class="form-control input-lg">
 											</div>
 										</div>
 									</div>
-									<div class="row">
+									<div class="row" style="  margin-top: 6px;">
 										<div class="col-md-6">
 											<span class="remember-box checkbox"> <label
-												for="rememberme"> <input type="checkbox"
+												for="remember_me"> <input type="checkbox"
 													name="${rememberMeParameter}" id="remember_me"
 													name="rememberme">Remember Me
 											</label>
