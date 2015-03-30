@@ -1,6 +1,7 @@
 package retouch
 
 import com.retouch.Task
+import com.retouch.User
 import org.grails.paypal.Payment
 
 class PurchaseFilters {
@@ -33,6 +34,7 @@ class PurchaseFilters {
                 def payment = request.payment
                 if(payment && payment.status == Payment.COMPLETE) {
                     def task = Task.findByPayment(payment)
+                    taskService.triggerConfirmation(task.project.client)
                     task.project.status = "Paid"
                     task.project.save()
                     taskService.notifyRetouchers(task)
