@@ -1,6 +1,7 @@
 package retouch
 
 import com.retouch.Project
+import com.retouch.SiteParams
 import com.retouch.User
 import grails.plugin.springsecurity.SpringSecurityUtils
 
@@ -17,6 +18,7 @@ class MainFilterFilters {
                     def newTaskCount = Project.countByAssignedTo(null)
                     def incompleteTaskCount = Project.countByStatusNotEqualAndAssignedTo("Complete",(User)springSecurityService.getCurrentUser())
                     model?.newTaskCount = newTaskCount
+                    model?.siteParams = SiteParams.list()
                     model?.incompleteTaskCount = incompleteTaskCount
                 }
 
