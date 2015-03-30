@@ -1,3 +1,5 @@
+import liquibase.util.SystemUtils
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -88,7 +90,11 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        retouch.imageUploadPath = "C:\\wamp\\www\\retouch\\"
+        if(SystemUtils.IS_OS_LINUX){
+            retouch.imageUploadPath = "/opt/lampp/htdocs/retouch/"
+        } else {
+            retouch.imageUploadPath = "C:\\wamp\\www\\retouch\\"
+        }
         retouch.imageServer= "http://localhost/retouch/"
         salt = "1HR-RETOUCH-SALT"
         grails.paypal.server="https://www.sandbox.paypal.com/cgi-bin/webscr"

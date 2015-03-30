@@ -10,14 +10,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<ul class="breadcrumb">
-						<li><a href="#">Home</a></li>
-						<li class="active">Pages</li>
-					</ul>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
 					<h1>Login</h1>
 				</div>
 			</div>
@@ -59,7 +51,7 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label>Username or E-mail Address</label> <input tabindex="1"
+												<label>Username</label> <input
 													name="j_username" id="username"
 													class="form-control input-lg">
 											</div>
@@ -68,15 +60,15 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<g:link controller="register" action="forgotPassword" tabindex="3"
+												<g:link controller="register" action="forgotPassword"
 													class="pull-right">(Lost Password?)</g:link>
-												<label>Password</label> <input type="password" tabindex="2"
+												<label>Password</label> <input type="password"
 													name="j_password" id="password"
 													class="form-control input-lg">
 											</div>
 										</div>
 									</div>
-									<div class="row" style="  margin-top: 6px;">
+									<div class="row">
 										<div class="col-md-6">
 											<span class="remember-box checkbox"> <label
 												for="rememberme"> <input type="checkbox"
@@ -118,7 +110,6 @@
 <script>
 $(document).ready(function() {
 	$('#username').focus();
-
 });
 
 <s2ui:initCheckboxes/>
