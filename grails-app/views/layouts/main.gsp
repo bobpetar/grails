@@ -225,9 +225,9 @@
         </form>--}%
     </div>
     <ul class="social-icons">
-        <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
-        <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
-        <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+        <li class="facebook"><a href="${siteParams.FACEBOOK}" target="_blank" title="Facebook">Facebook</a></li>
+        <li class="twitter"><a href="${siteParams.TWITTER}" target="_blank" title="Twitter">Twitter</a></li>
+        <li class="linkedin"><a href="${siteParams.LINKEDIN}" target="_blank" title="Linkedin">Linkedin</a></li>
     </ul>
     <nav>
         <ul class="nav nav-pills nav-top">
@@ -524,7 +524,7 @@
                 semper nisl lacinia sit amet. Praesent venenatis turpis vitae
                 purus semper, eget sagittis velit venenatis. Class aptent taciti
                 sociosqu ad litora torquent per conubia nostra, per inceptos
-                himenaeos...</p>
+                himenaeos..</p>
                 <hr class="light">
             </div>
 
