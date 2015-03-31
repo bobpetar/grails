@@ -67,7 +67,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="row">
+										<div class="row" style="  margin-top: 6px;">
 											<div class="col-md-12">
 												<input type="submit" value="Update my password"
 													class="btn btn-primary pull-right push-bottom"
