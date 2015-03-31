@@ -115,7 +115,7 @@
                                             <a class="thumb-info lightbox"
                                                href="#popupProject${techniqueInstance.id}"
                                                data-plugin-options='{"type":"inline", preloader: false}'>
-                                                <img src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getLargeImageName()}"
+                                                <img src="${grailsApplication.config.retouch.techniqueImageServer}${techniqueInstance.getLargeImageName()}"
                                                      class="img-responsive" alt="">
                                                 <span
                                                         class="thumb-info-title"><span
@@ -131,7 +131,7 @@
                                         <div id="popupProject${techniqueInstance.id}" class="popup-inline-content">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getLargeImageName()}"
+                                                    <img src="${grailsApplication.config.retouch.techniqueImageServer}${techniqueInstance.getLargeImageName()}"
                                                          class="img-thumbnail img-responsive" alt="">
                                                 </div>
 

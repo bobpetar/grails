@@ -23,7 +23,7 @@
                             style="position: absolute; left: 0px; top: 0px;">
                             <div class="portfolio-item img-thumbnail">
                                 <g:link class="thumb-info" action="show" id="${techniqueInstance.id}">
-                                    <img src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getThumbnailImageName()}"
+                                    <img src="${grailsApplication.config.retouch.techniqueImageServer}${techniqueInstance.getThumbnailImageName()}"
                                          class="img-responsive" alt="">
                                     <span class="thumb-info-title">
                                         <span class="thumb-info-inner">${fieldValue(bean: techniqueInstance, field: "groep")}</span>

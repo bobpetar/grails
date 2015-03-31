@@ -92,10 +92,13 @@ environments {
         grails.logging.jul.usebridge = true
         if(SystemUtils.IS_OS_LINUX){
             retouch.imageUploadPath = "/opt/lampp/htdocs/retouch/"
+            retouch.techniqueImageUploadPath = "/opt/lampp/htdocs/retouch/techniques/"
         } else {
             retouch.imageUploadPath = "C:\\wamp\\www\\retouch\\"
+            retouch.techniqueImageUploadPath = "C:\\wamp\\www\\retouch\\"
         }
         retouch.imageServer= "http://localhost/retouch/"
+        retouch.techniqueImageServer= "http://localhost/retouch/techniques/"
         salt = "1HR-RETOUCH-SALT"
         grails.paypal.server="https://www.sandbox.paypal.com/cgi-bin/webscr"
         grails.paypal.email="sachit.nep-facilitator@gmail.com"
@@ -104,7 +107,9 @@ environments {
     production {
         grails.logging.jul.usebridge = false
         retouch.imageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/"
+        retouch.techniqueImageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/techniques/"
         retouch.imageServer= "http://1hretouch.com/retouch/"
+        retouch.techniqueImageServer= "http://1hretouch.com/retouch/techniques/"
         grails.paypal.server="https://www.sandbox.paypal.com/cgi-bin/webscr"
         grails.paypal.email="sachit.nep-facilitator@gmail.com"
         grails.serverURL = "http://1hretouch.com:8090"

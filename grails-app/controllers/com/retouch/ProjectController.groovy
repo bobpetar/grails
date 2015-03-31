@@ -60,7 +60,6 @@ class ProjectController {
             redirect(controller: "notfound")
 			return
 		}
-        //taskService.triggerConfirmation(springSecurityService.getCurrentUser())
         if(projectInstance.task.payment && projectInstance.task.payment.status == org.grails.paypal.Payment.COMPLETE){
             redirect(controller: "notfound")
            return
@@ -69,9 +68,20 @@ class ProjectController {
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
 		def techniques = Technique.list()
         def techniqueInvoiceList = projectInstance.task.techniques.toList()
-        def sumInvoiceTechnique = techniqueInvoiceList.ratePerTechnique.sum()
+        def sumTechnique = techniqueInvoiceList.ratePerTechnique.sum()
+        def discountWhenMax = 0.0
+        def maxamount
+        if(!SiteParams.findByParameterName('MAXAMOUNT')){
+            maxamount=10.0
+        } else{
+            maxamount=Double.valueOf(SiteParams.findByParameterName('MAXAMOUNT').parameterValue)
+        }
+
+        if(sumTechnique>maxamount){
+            discountWhenMax = sumTechnique - maxamount
+        }
         Set uniqueTechniques = techniques.groep
-		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique, taskInstance: projectInstance.task]
+		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumTechnique:sumTechnique, discountWhenMax:discountWhenMax, taskInstance: projectInstance.task]
 	}
 
     @Secured(["ROLE_USER"])
@@ -361,7 +371,18 @@ class ProjectController {
             def taskInstance = Task.get(task.id)
             def techniqueList = taskInstance.techniques
             def sumTechnique = techniqueList.ratePerTechnique.sum()
-            render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance:taskInstance])
+            def discountWhenMax = 0.0
+            def maxamount
+            if(!SiteParams.findByParameterName('MAXAMOUNT')){
+                maxamount=10.0
+            } else{
+                maxamount=Double.valueOf(SiteParams.findByParameterName('MAXAMOUNT').parameterValue)
+            }
+
+            if(sumTechnique>maxamount){
+                discountWhenMax = sumTechnique - maxamount
+            }
+            render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance:taskInstance, discountWhenMax:discountWhenMax])
         }
 	}
 
@@ -376,7 +397,18 @@ class ProjectController {
             task.removeFromTechniques(technique)
             def techniqueList = task.techniques.findAll()
             def sumTechnique = techniqueList.ratePerTechnique.sum()
-            render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance: task])
+            def discountWhenMax = 0.0
+            def maxamount
+            if(!SiteParams.findByParameterName('MAXAMOUNT')){
+                maxamount=10.0
+            } else{
+                maxamount=Double.valueOf(SiteParams.findByParameterName('MAXAMOUNT').parameterValue)
+            }
+
+            if(sumTechnique>maxamount){
+                discountWhenMax = sumTechnique - maxamount
+            }
+            render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, discountWhenMax:discountWhenMax, taskInstance: task])
         }
     }
 

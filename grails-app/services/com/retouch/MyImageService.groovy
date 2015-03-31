@@ -10,10 +10,10 @@ class MyImageService {
 	def springSecurityService
 	def burningImageService
 
-	public void deleteImage( String imageName){
+	public void deleteImage( String imageName, String imageUploadPath){
 		try{
 			if(imageName && imageName!=""){
-				def String productImagePath = grailsApplication.config.retouch.imageUploadPath+imageName
+				def String productImagePath = imageUploadPath+imageName
 				File imageFile = new File(productImagePath)
 				imageFile.delete()
 			}
@@ -35,16 +35,17 @@ class MyImageService {
 	 return fileName
 	 }*/
 	public void deleteImagePackage(ReImage imageDomain){
-		deleteImage( imageDomain.getLargeImageName())
-		deleteImage( imageDomain.getThumbnailImageName())
-		deleteImage( imageDomain.getImagePath())
-		//imageDomain.delete(flush: true)
+        String imageUploadPath = grailsApplication.config.retouch.imageUploadPath
+		deleteImage( imageDomain.getLargeImageName(), imageUploadPath)
+		deleteImage( imageDomain.getThumbnailImageName(), imageUploadPath)
+		deleteImage( imageDomain.getImagePath(), imageUploadPath)
 	}
 
     public void deleteTechniqueImage(Technique techniqueInstance){
-        deleteImage(techniqueInstance.getLargeImageName())
-        deleteImage(techniqueInstance.getThumbnailImageName())
-        deleteImage(techniqueInstance.getBeforeafterimage())
+        String techniqueImageUploadPath = grailsApplication.config.retouch.techniqueImageUploadPath
+        deleteImage(techniqueInstance.getLargeImageName(), techniqueImageUploadPath)
+        deleteImage(techniqueInstance.getThumbnailImageName(), techniqueImageUploadPath)
+        deleteImage(techniqueInstance.getBeforeafterimage(), techniqueImageUploadPath)
     }
 
 
@@ -96,9 +97,9 @@ class MyImageService {
 		String fileNameLarge = fileNameNoExt+"_L"
 		String fileNameThumb = fileNameNoExt+"_T"
 
-		def String productImagePath = grailsApplication.config.retouch.imageUploadPath+fileName
+		def String productImagePath = grailsApplication.config.retouch.techniqueImageUploadPath+fileName
 
-		burningImageService.doWith(imageFile, grailsApplication.config.retouch.imageUploadPath).execute (fileNameLarge, {
+		burningImageService.doWith(imageFile, grailsApplication.config.retouch.techniqueImageUploadPath).execute (fileNameLarge, {
 			it.scaleApproximate(447, 447)
 		})
 		.execute (fileNameThumb, {

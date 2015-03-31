@@ -41,7 +41,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="${grailsApplication.config.retouch.imageServer}${techniqueInstance.getLargeImageName()}"
+                        <img src="${grailsApplication.config.retouch.techniqueImageServer}${techniqueInstance.getLargeImageName()}"
                              class="img-responsive" alt="">
                     </div>
 

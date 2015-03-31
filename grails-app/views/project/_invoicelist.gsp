@@ -27,6 +27,10 @@
             </td>
         </tr>
     </g:each>
-    <tr><td>Total</td></td><td>$${sumInvoiceTechnique}${sumTechnique}</td><td></td></tr>
+    <g:if test="${sumTechnique}">
+    <tr><td>Total</td></td><td>$${sumTechnique}</td><td></td></tr>
+    <tr><td>Discount</td></td><td>$${discountWhenMax}</td><td></td></tr>
+    <tr><td>You Pay</td></td><td>$${sumTechnique-discountWhenMax}</td><td></td></tr>
+    </g:if>
     </tbody>
 </table>
