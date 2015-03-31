@@ -13,7 +13,7 @@ class TechniqueController {
 	static allowedMethods = [save: "POST", delete: "DELETE"]
 
 	def index(Integer max) {
-		params.max = Math.min(max ?: 10, 100)
+		params.max = Math.min(max ?: 100, 100)
         def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
 		respond Technique.list(params), model:[techniqueInstanceCount: Technique.count(), uniqueTechniques:uniqueTechniques]
 	}
