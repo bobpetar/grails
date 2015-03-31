@@ -57,14 +57,13 @@ class ProjectController {
 	def technique(String id){
 		def projectInstance = Project.findByProjectId(id)
 		if(!projectInstance){
-			println "NO Project" + id
-			flash.message = "This project does not exist."
-			redirect(action: "upload")
+            redirect(controller: "notfound")
 			return
 		}
         //taskService.triggerConfirmation(springSecurityService.getCurrentUser())
         if(projectInstance.task.payment && projectInstance.task.payment.status == org.grails.paypal.Payment.COMPLETE){
             redirect(controller: "notfound")
+           return
         }
 
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
@@ -74,6 +73,19 @@ class ProjectController {
         Set uniqueTechniques = techniques.groep
 		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique, taskInstance: projectInstance.task]
 	}
+
+    @Secured(["ROLE_USER"])
+    def review(String id){
+        def projectInstance = Project.findByProjectId(id)
+        println(projectInstance)
+        if(!projectInstance || projectInstance.task.payment.status != org.grails.paypal.Payment.COMPLETE){
+          //  redirect(controller: "notfound")
+          //  return
+        }
+
+        respond projectInstance
+
+    }
 
     @Secured(["ROLE_USER", "ROLE_ADMIN"])
     def orderdetails(String id){

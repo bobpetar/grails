@@ -346,7 +346,7 @@
                                                         <div class="row">
                                                             <div class="form-group">
                                                                 <div class="col-md-12">
-                                                                    <label>Username</label> <input
+                                                                    <label>Username</label> <input tabindex="1"
                                                                         name="j_username" id="username"
                                                                         class="form-control input-lg">
                                                                 </div>
@@ -355,9 +355,9 @@
                                                         <div class="row">
                                                             <div class="form-group">
                                                                 <div class="col-md-12">
-                                                                    <g:link controller="register" action="forgotPassword"
+                                                                    <g:link controller="register" action="forgotPassword" tabindex="3"
                                                                             class="pull-right">(Lost Password?)</g:link>
-                                                                    <label>Password</label> <input type="password"
+                                                                    <label>Password</label> <input type="password" tabindex="2"
                                                                                                    name="j_password" id="passwordMenu"
                                                                                                    class="form-control input-lg">
                                                                 </div>
@@ -496,7 +496,7 @@
                         %{----}%
                     </sec:ifNotLoggedIn>
                     <sec:ifLoggedIn>
-                        <li class="dropdown active"><a data-hash
+                        <li class="dropdown"><a data-hash
                                                        class="dropdown-toggle" href="${createLink(uri:'/')}#home"> <i class="fa fa-user"></i>
                             <sec:username /> <i class="fa fa-angle-down"></i>
                         </a>
