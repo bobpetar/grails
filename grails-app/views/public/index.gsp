@@ -98,7 +98,7 @@
     </div>
 </div>
 
-<section class="highlight top">
+<section class="highlight top" id="techniques">
     <div class="container">
 
         <h2>Techniques</h2>

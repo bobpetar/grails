@@ -169,7 +169,7 @@
 
             <nav class="nav-main mega-menu">
                 <ul class="nav nav-pills nav-main" id="mainMenu">
-                    <li><a href="${createLink(uri:'/')}">Home</a></li>
+                    <li><a href="${createLink(uri:'/')}#home">Home</a></li>
                     <sec:ifAllGranted roles="ROLE_USER">
                         <li><a href="${createLink(uri:'/upload') }">Upload</a></li>
                         <li><a href="${createLink(uri:'/projects') }">My Orders</a></li>
