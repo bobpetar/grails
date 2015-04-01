@@ -138,74 +138,6 @@
 </g:set>
 
 <div class="body">
-%{--<header id="header" class="single-menu flat-menu">
-    <div class="container">
-        <div class="logo">
-            <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
-                                                           width="65" height="80" data-sticky-width="41"
-                                                           data-sticky-height="50" src="img/logo.png" />
-            </a>
-        </div>
-        <button class="btn btn-responsive-nav btn-inverse"
-                data-toggle="collapse" data-target=".nav-main-collapse">
-            <i class="fa fa-bars"></i>
-        </button>
-    </div>
-    <div class="navbar-collapse nav-main-collapse collapse">
-        <div class="container">
-            <ul class="social-icons">
-                <li class="facebook"><a href="http://www.facebook.com/"
-                                        target="_blank" title="Facebook">Facebook</a></li>
-                <li class="twitter"><a href="http://www.twitter.com/"
-                                       target="_blank" title="Twitter">Twitter</a></li>
-                <li class="linkedin"><a href="http://www.linkedin.com/"
-                                        target="_blank" title="Linkedin">Linkedin</a></li>
-            </ul>
-            <nav class="nav-main">
-                <ul class="nav nav-pills nav-main" id="mainMenu">
-                    <li><a href="${createLink(uri:'/')}#home">Home</a></li>
-                    <sec:ifAllGranted roles="ROLE_USER">
-                        <li><a href="${createLink(uri:'/upload') }">Upload</a></li>
-                        <li><a href="${createLink(uri:'/projects') }">My Orders</a></li>
-                    </sec:ifAllGranted>
-                    <sec:ifAllGranted roles="ROLE_ADMIN">
-                        <li><a href="${createLink(uri:'/user') }">User</a></li>
-                        <li><a href="${createLink(action: 'index',controller: 'project') }">Projects</a></li>
-                        <li><a href="${createLink(uri:'/technique') }">Techniques</a></li>
-                    </sec:ifAllGranted>
-                    <sec:ifAllGranted roles="ROLE_RETOUCHER">
-                        <li><a href="${createLink(uri:'/tasks') }">My Tasks
-                            <g:if test="${incompleteTaskCount!=null}">
-                                <span class="badge">${incompleteTaskCount}</span>
-                            </g:if>
-                        </a></li>
-                        <li><a href="${createLink(uri:'/new-tasks') }">New Tasks
-                            <g:if test="${newTaskCount!=null}">
-                                <span class="badge">${newTaskCount}</span>
-                            </g:if>
-                            </a>
-                        </li>
-                    </sec:ifAllGranted>
-
-                    <sec:ifNotLoggedIn>
-                        <li><a href="${createLink(uri:'/')}#techniques">Techniques</a></li>
-                        <li><a href="${createLink(uri:'/login') }">Login</a></li>
-                    </sec:ifNotLoggedIn>
-                    <sec:ifLoggedIn>
-                        <li class="dropdown active"><a data-hash
-                                                       class="dropdown-toggle" href="${createLink(uri:'/')}#home"> <i class="fa fa-user"></i>
-                            <sec:username /> <i class="fa fa-angle-down"></i>
-                        </a>
-                            <ul class="dropdown-menu">
-                                <li><g:link controller="user" action="show" id="${loggedUserId}">My Account</g:link></li>
-                                <li><a href="${createLink(uri:'/logout')}">Log Out</a></li>
-                            </ul></li>
-                    </sec:ifLoggedIn>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>--}%
 <header id="header">
 <div class="container">
     <div class="logo">
@@ -215,14 +147,6 @@
         </a>
     </div>
     <div class="search">
-     %{--   <form id="searchForm" action="page-search-results.html" method="get">
-            <div class="input-group">
-                <input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                </span>
-            </div>
-        </form>--}%
     </div>
     <ul class="social-icons">
         <li class="facebook"><a href="${siteParams.FACEBOOK}" target="_blank" title="Facebook">Facebook</a></li>
@@ -231,12 +155,6 @@
     </ul>
     <nav>
         <ul class="nav nav-pills nav-top">
-           %{-- <li>
-                <a href="about-us.html"><i class="fa fa-angle-right"></i>About Us</a>
-            </li>
-            <li>
-                <a href="contact-us.html"><i class="fa fa-angle-right"></i>Contact Us</a>
-            </li>--}%
             <li class="phone">
                 <span><i class="fa fa-phone"></i>0031 (0)622752205</span>
             </li>
@@ -246,46 +164,7 @@
         <i class="fa fa-bars"></i>
     </button>
 </div>
-  %{--  <div class="container">
-        <div class="logo">
-            <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
-                                                           width="65" height="80" data-sticky-width="41"
-                                                           data-sticky-height="50" src="img/logo.png" />
-            </a>
-        </div>
-
-       --}%%{-- <div class="search">
-            <form id="searchForm" action="page-search-results.html" method="get">
-                <div class="input-group">
-                    <input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                    </span>
-                </div>
-            </form>
-        </div>--}%%{--
-
-        <nav>
-            <ul class="nav nav-pills nav-top">
-              --}%%{--  <li>
-                    <a href="about-us.html"><i class="fa fa-angle-right"></i>About Us</a>
-                </li>
-                <li>
-                    <a href="contact-us.html"><i class="fa fa-angle-right"></i>Contact Us</a>
-                </li>--}%%{--
-                <li class="phone">
-                    <span><i class="fa fa-phone"></i>0031 (0)622752205</span>
-                </li>
-            </ul>
-
-        </nav>
-
-        <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
-            <i class="fa fa-bars"></i>
-        </button>
-    </div>--}%
-
-    <div class="navbar-collapse nav-main-collapse collapse">
+     <div class="navbar-collapse nav-main-collapse collapse">
         <div class="container">
 
             <nav class="nav-main mega-menu">
@@ -299,6 +178,7 @@
                         <li><a href="${createLink(uri:'/user') }">User</a></li>
                         <li><a href="${createLink(action: 'index',controller: 'project') }">Projects</a></li>
                         <li><a href="${createLink(uri:'/technique') }">Techniques</a></li>
+                        <li><a href="${createLink(uri:'/siteParams') }">Site Params</a></li>
                     </sec:ifAllGranted>
                     <sec:ifAllGranted roles="ROLE_RETOUCHER">
                         <li><a href="${createLink(uri:'/tasks') }">My Tasks
@@ -316,9 +196,6 @@
 
                     <sec:ifNotLoggedIn>
                         <li><a href="${createLink(uri:'/')}#techniques">Techniques</a></li>
-                        %{--<li><a href="${createLink(uri:'/login') }">Login</a></li>--}%
-
-                        %{----}%
 
                         <li class="dropdown mega-menu-item mega-menu-signin signin" id="headerAccount">
                             <a class="dropdown-toggle" href="${createLink(uri:'/login') }">
@@ -393,40 +270,6 @@
                                                         </div>
                                                     </form>
 
-                                                   %{-- <form action="" id="" method="post">
-                                                        <div class="row">
-                                                            <div class="form-group">
-                                                                <div class="col-md-12">
-                                                                    <label>Username or E-mail Address</label>
-                                                                    <input type="text" value="" class="form-control input-lg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="form-group">
-                                                                <div class="col-md-12">
-                                                                    <a class="pull-right" id="headerRecover" href="#">(Lost Password?)</a>
-                                                                    <label>Password</label>
-                                                                    <input type="password" value="" class="form-control input-lg">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <span class="remember-box checkbox">
-                                                                    <label for="rememberme">
-                                                                        <input type="checkbox" id="rememberme" name="rememberme">Remember Me
-                                                                    </label>
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input type="submit" value="Login" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-
-                                                    <p class="sign-up-info">Don't have an account yet? <a href="#" id="headerSignUp">Sign Up</a></p>
---}%
                                                 </div>
 
                                                 <div class="signup-form">
