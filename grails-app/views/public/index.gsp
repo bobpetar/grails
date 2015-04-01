@@ -93,6 +93,20 @@
                      data-start="2000"
                      data-easing="easeOutExpo">Check out our options and features.</div>
 
+                <sec:ifNotGranted roles="ROLE_ADMIN, ROLE_RETOUCHER">
+                    <a class="tp-caption customin btn btn-lg btn-primary main-button"
+                       href="${createLink(uri: '/upload')}"
+                       data-x="center" data-hoffset="0"
+                       data-y="350"
+                       data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                       data-speed="800"
+                       data-start="1700"
+                       data-easing="Back.easeInOut"
+                       data-endspeed="300">
+                        Upload Image!
+                    </a>
+                </sec:ifNotGranted>
+
             </li>
         </ul>
     </div>
