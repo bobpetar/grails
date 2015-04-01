@@ -6,6 +6,6 @@ class SiteParams {
 
     static constraints = {
         parameterName(unique: true, nullable:false,blank:false)
-        parameterValue(nullable:false,blank:false)
+        parameterValue(nullable:false,blank:false, maxSize: 500)
     }
 }

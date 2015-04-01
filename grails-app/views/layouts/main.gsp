@@ -156,7 +156,7 @@
     <nav>
         <ul class="nav nav-pills nav-top">
             <li class="phone">
-                <span><i class="fa fa-phone"></i>0031 (0)622752205</span>
+                <span><i class="fa fa-phone"></i>${siteParams.PHONENUMBER}</span>
             </li>
         </ul>
     </nav>
@@ -360,38 +360,33 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h4>About Porto</h4>
+                <h4>About 1hretouch</h4>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Donec eu pulvinar magna. Phasellus semper scelerisque purus, et
-                semper nisl lacinia sit amet. Praesent venenatis turpis vitae
-                purus semper, eget sagittis velit venenatis. Class aptent taciti
-                sociosqu ad litora torquent per conubia nostra, per inceptos
-                himenaeos..</p>
+                <p>${siteParams.ABOUTUS}</p>
                 <hr class="light">
             </div>
 
             <div class="col-md-3 col-md-offset-1">
                 <h5 class="short">Contact Us</h5>
-                <span class="phone">0031 (0)622752205</span>
+                <span class="phone">${siteParams.PHONENUMBER}</span>
 
-                <p class="short">Kanaalpark 157</p>
+                <p class="short">${siteParams.ADDRESS1}</p>
 
-                <p class="short">2321 JW Leiden</p>
+                <p class="short">${siteParams.ADDRESS2}</p>
                 <ul class="list icons list-unstyled">
                     <li><i class="fa fa-envelope"></i> <a
-                            href="mailto:info@1hretouch.com">info@1hretouch.com</a></li>
+                            href="mailto:${siteParams.EMAIL}">${siteParams.EMAIL}</a></li>
                 </ul>
 
                 <div class="social-icons">
                     <ul class="social-icons">
-                        <li class="facebook"><a href="http://www.facebook.com/"
+                        <li class="facebook"><a href="${siteParams.FACEBOOK}"
                                                 target="_blank" data-placement="bottom" data-tooltip
                                                 title="Facebook">Facebook</a></li>
-                        <li class="twitter"><a href="http://www.twitter.com/"
+                        <li class="twitter"><a href="${siteParams.TWITTER}"
                                                target="_blank" data-placement="bottom" data-tooltip
                                                title="Twitter">Twitter</a></li>
-                        <li class="linkedin"><a href="http://www.linkedin.com/"
+                        <li class="linkedin"><a href="${siteParams.LINKEDIN}"
                                                 target="_blank" data-placement="bottom" data-tooltip
                                                 title="Linkedin">Linkedin</a></li>
                     </ul>
@@ -411,7 +406,7 @@
                 </div>
 
                 <div class="col-md-11">
-                    <p>© Copyright 2015. All Rights Reserved.</p>
+                    <p>${siteParams.COPYRIGHT}</p>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import com.retouch.Role
+import com.retouch.SiteParams
 import com.retouch.User
 import com.retouch.UserRole;
 
@@ -44,6 +45,18 @@ class BootStrap {
         }
         catch (e) {
             println(e)
+        }
+
+        if(SiteParams.count()==0){
+            new SiteParams(parameterName: 'FACEBOOK', parameterValue: 'http://www.facebook.com/1hretouch').save(flush: true)
+            new SiteParams(parameterName: 'TWITTER', parameterValue: 'http://www.twitter.com/1hretouch').save(flush: true)
+            new SiteParams(parameterName: 'MAXAMOUNT', parameterValue: '10').save(flush: true)
+            new SiteParams(parameterName: 'PHONENUMBER', parameterValue: '0031 (0)622752205').save(flush: true)
+            new SiteParams(parameterName: 'COPYRIGHT', parameterValue: '© Copyright 2015. All Rights Reserved.').save(flush: true)
+            new SiteParams(parameterName: 'EMAIL', parameterValue: 'info@1hretouch.com').save(flush: true)
+            new SiteParams(parameterName: 'ADDRESS1', parameterValue: 'Kanaalpark 157').save(flush: true)
+            new SiteParams(parameterName: 'ADDRESS2', parameterValue: '2321 JW Leiden').save(flush: true)
+            new SiteParams(parameterName: 'ABOUTUS', parameterValue: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.').save(flush: true)
         }
     }
 
