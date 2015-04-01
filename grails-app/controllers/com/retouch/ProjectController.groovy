@@ -69,7 +69,7 @@ class ProjectController {
 		def techniques = Technique.list()
         def techniqueInvoiceList = projectInstance.task.techniques.toList()
         def sumTechnique = techniqueInvoiceList.ratePerTechnique.sum()
-        def discountWhenMax = 0.0
+
         def maxamount
         if(!SiteParams.findByParameterName('MAXAMOUNT')){
             maxamount=10.0
@@ -77,11 +77,19 @@ class ProjectController {
             maxamount=Double.valueOf(SiteParams.findByParameterName('MAXAMOUNT').parameterValue)
         }
 
+        def cashDiscount = 0.0
         if(sumTechnique>maxamount){
-            discountWhenMax = sumTechnique - maxamount
+            cashDiscount = sumTechnique - maxamount
         }
+
+        def couponDiscount = 0.0
+        if(IssuedCoupon.findByProjectId(projectInstance.id)  && sumTechnique){
+            couponDiscount = (sumTechnique - cashDiscount) * IssuedCoupon.findByProjectId(projectInstance.id).discountPercent / 100
+        }
+
         Set uniqueTechniques = techniques.groep
-		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumTechnique:sumTechnique, discountWhenMax:discountWhenMax, taskInstance: projectInstance.task]
+
+		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumTechnique:sumTechnique, cashDiscount:cashDiscount, couponDiscount:couponDiscount, taskInstance: projectInstance.task]
 	}
 
     @Secured(["ROLE_USER"])
@@ -371,7 +379,7 @@ class ProjectController {
             def taskInstance = Task.get(task.id)
             def techniqueList = taskInstance.techniques
             def sumTechnique = techniqueList.ratePerTechnique.sum()
-            def discountWhenMax = 0.0
+
             def maxamount
             if(!SiteParams.findByParameterName('MAXAMOUNT')){
                 maxamount=10.0
@@ -379,10 +387,17 @@ class ProjectController {
                 maxamount=Double.valueOf(SiteParams.findByParameterName('MAXAMOUNT').parameterValue)
             }
 
+            def cashDiscount = 0.0
             if(sumTechnique>maxamount){
-                discountWhenMax = sumTechnique - maxamount
+                cashDiscount = sumTechnique - maxamount
             }
-            render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, taskInstance:taskInstance, discountWhenMax:discountWhenMax])
+
+            def couponDiscount = 0.0
+            if(IssuedCoupon.findByProjectId(task.projectId)  && sumTechnique){
+                couponDiscount = (sumTechnique - cashDiscount) * IssuedCoupon.findByProjectId(task.projectId).discountPercent / 100
+            }
+
+            render (template: 'invoicelist', model:[techniqueList:techniqueList, taskInstance:taskInstance, sumTechnique:sumTechnique, cashDiscount:cashDiscount, couponDiscount:couponDiscount])
         }
 	}
 
@@ -397,7 +412,7 @@ class ProjectController {
             task.removeFromTechniques(technique)
             def techniqueList = task.techniques.findAll()
             def sumTechnique = techniqueList.ratePerTechnique.sum()
-            def discountWhenMax = 0.0
+
             def maxamount
             if(!SiteParams.findByParameterName('MAXAMOUNT')){
                 maxamount=10.0
@@ -405,10 +420,54 @@ class ProjectController {
                 maxamount=Double.valueOf(SiteParams.findByParameterName('MAXAMOUNT').parameterValue)
             }
 
+            def cashDiscount = 0.0
             if(sumTechnique>maxamount){
-                discountWhenMax = sumTechnique - maxamount
+                cashDiscount = sumTechnique - maxamount
             }
-            render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, discountWhenMax:discountWhenMax, taskInstance: task])
+
+            def couponDiscount = 0.0
+            if(IssuedCoupon.findByProjectId(task.projectId)  && sumTechnique){
+                couponDiscount = (sumTechnique - cashDiscount) * IssuedCoupon.findByProjectId(task.projectId).discountPercent / 100
+            }
+
+            render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, cashDiscount:cashDiscount, couponDiscount:couponDiscount, taskInstance: task])
+        }
+    }
+
+    @Transactional
+    @Secured(["ROLE_USER","ROLE_ADMIN"])
+    def applyCoupon() {
+        Date now = new Date()
+
+        def couponInstance = IssuedCoupon.findByCodeAndExpiresOnGreaterThan(params.couponcode, now)
+        def currentUser = Project.get(params.projectInstance)
+
+        if(currentUser.client !=springSecurityService.getCurrentUser()){
+            render([message: "Coupon code \"" + params.couponcode + "\" not found!"] as JSON)
+            return
+        }
+
+        if (couponInstance) {
+           def projectInstance = Project.get(couponInstance.projectId)
+            if (!projectInstance) {
+                couponInstance?.projectId = params.projectInstance
+                couponInstance.save flush: true
+                render([message: "Congratulations, you will receive \"" + couponInstance.discountPercent + "%\" discount on final amount!"] as JSON)
+            } else if (!projectInstance.task.payment) {
+                couponInstance?.projectId = params.projectInstance
+                couponInstance.save flush: true
+                render([message: "Congratulations, you will receive \"" + couponInstance.discountPercent + "%\" discount on final amount!"] as JSON)
+            } else if (projectInstance.task.payment.status != 'COMPLETE') {
+                couponInstance?.projectId = params.projectInstance
+                couponInstance.save flush: true
+                render([message: "Congratulations, you will receive \"" + couponInstance.discountPercent + "%\" discount on final amount!"] as JSON)
+            } else {
+                render([message: "Coupon code \"" + params.couponcode + "\" already used!"] as JSON)
+                return
+            }
+        } else {
+            render([message: "Coupon code \"" + params.couponcode + "\" not found!"] as JSON)
+            return
         }
     }
 

@@ -5,11 +5,13 @@ import org.grails.paypal.PaymentItem
 
 class PaypalController extends org.grails.paypal.PaypalController {
 
+    def invoiceService
+
     def buyImage() {
         def taskInstance = Task.get(params.taskInstance)
         def itemName = taskInstance.project.projectId
         def itemNumber = taskInstance.project.projectId
-        def amount = taskInstance.techniques.ratePerTechnique.sum()
+        def amount = invoiceService.calculateAmount(taskInstance)
         def buyerId = taskInstance.project.client.id
 
         def payment

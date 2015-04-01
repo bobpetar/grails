@@ -35,6 +35,11 @@
         %{--disableonload1()--}%
         %{--}--}%
 
+        function update(data){
+            $('#couponstatus').html(data.message);
+            $('#couponcode').value('');
+        }
+
     </script>
 </head>
 
@@ -72,6 +77,18 @@
                 <div class="col-md-12">
                     <h3>Invoice</h3>
                     <hr>
+                    <g:formRemote name="couponform" onSuccess="update(data)" url="[controller:'project', action:'applyCoupon']">
+                        <div class="col-md-12">
+                            <h4>Promo Code</h4>
+                            <input name="projectInstance" value="${projectInstance.id}" type="hidden"/>
+                            <input type="text" name="couponcode" id="couponcode" class="form-control" placeholder="Enter code">
+                            <div id="couponstatus" class="text-warning"></div>
+                            <input type="submit" value="Apply" class="btn btn-primary push-top push-bottom">
+                        </div>
+                    </g:formRemote>
+
+
+
                     <!-- Invoice block start -->
                     <div id="techniqueList">
                         <g:render template="invoicelist"/>

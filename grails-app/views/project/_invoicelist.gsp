@@ -11,9 +11,11 @@
         <tr>
             <td>${techniqueInstance.name} (${techniqueInstance.groep})</td>
             <td>$${techniqueInstance.ratePerTechnique}</td>
-            <g:if test="${projectInstance.status=='New'}">
+            <g:if test="${projectInstance.status == 'New'}">
                 <td>
-                    <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" params="[taskparams:taskInstance?.id, techniqueparams: techniqueInstance.id]" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" > Delete </g:remoteLink>
+                    <g:remoteLink name="removeTechniqueInvoice" update="techniqueList"
+                                  params="[taskparams: taskInstance?.id, techniqueparams: techniqueInstance.id]"
+                                  action="removeTechniqueInvoice" class="btn btn-xs btn-danger">Delete</g:remoteLink>
                 </td>
             </g:if>
         </tr>
@@ -23,14 +25,17 @@
             <td>${techniqueInstance.name} (${techniqueInstance.groep})</td>
             <td>$${techniqueInstance.ratePerTechnique}</td>
             <td>
-                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" action="removeTechniqueInvoice" class="btn btn-xs btn-danger" params="[taskparams:taskInstance?.id, techniqueparams:techniqueInstance?.id]" > Delete </g:remoteLink>
+                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" action="removeTechniqueInvoice"
+                              class="btn btn-xs btn-danger"
+                              params="[taskparams: taskInstance?.id, techniqueparams: techniqueInstance?.id]">Delete</g:remoteLink>
             </td>
         </tr>
     </g:each>
     <g:if test="${sumTechnique}">
-    <tr><td>Total</td></td><td>$${sumTechnique}</td><td></td></tr>
-    <tr><td>Discount</td></td><td>$${discountWhenMax}</td><td></td></tr>
-    <tr><td>You Pay</td></td><td>$${sumTechnique-discountWhenMax}</td><td></td></tr>
+        <tr><td>Total</td></td><td>$${sumTechnique}</td><td></td></tr>
+        <tr><td>Cash Discount</td></td><td>$${cashDiscount}</td><td></td></tr>
+        <tr><td>Coupon Discount</td></td><td>$${couponDiscount}</td><td></td></tr>
+        <tr><td>You Pay:</td><td>$${sumTechnique - cashDiscount - couponDiscount}</td><td></td></tr>
     </g:if>
     </tbody>
 </table>
