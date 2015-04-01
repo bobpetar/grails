@@ -50,6 +50,7 @@ class BootStrap {
         if(SiteParams.count()==0){
             new SiteParams(parameterName: 'FACEBOOK', parameterValue: 'http://www.facebook.com/1hretouch').save(flush: true)
             new SiteParams(parameterName: 'TWITTER', parameterValue: 'http://www.twitter.com/1hretouch').save(flush: true)
+            new SiteParams(parameterName: 'LINKEDIN', parameterValue: 'http://www.linkedin.com/1hretouch').save(flush: true)
             new SiteParams(parameterName: 'MAXAMOUNT', parameterValue: '10').save(flush: true)
             new SiteParams(parameterName: 'PHONENUMBER', parameterValue: '0031 (0)622752205').save(flush: true)
             new SiteParams(parameterName: 'COPYRIGHT', parameterValue: '© Copyright 2015. All Rights Reserved.').save(flush: true)
