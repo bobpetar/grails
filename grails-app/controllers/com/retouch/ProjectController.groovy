@@ -437,6 +437,12 @@ class ProjectController {
     @Transactional
     @Secured(["ROLE_USER","ROLE_ADMIN"])
     def applyCoupon() {
+
+        if(!params.couponcode){
+            render([message: "Please submit coupon code."] as JSON)
+            return
+        }
+
         Date now = new Date()
 
         def couponInstance = IssuedCoupon.findByCodeAndExpiresOnGreaterThan(params.couponcode, now)
