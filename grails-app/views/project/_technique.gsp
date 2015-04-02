@@ -64,10 +64,11 @@
                                         <p>${fieldValue(bean: techniqueInstance, field: "description")}</p>
 
                                         <g:formRemote name="selectTechnique" update="techniqueList"
+                                                      onSuccess="disable(${fieldValue(bean: techniqueInstance, field: 'id')});"
                                                       url="[controller: 'project', action: 'addTechniqueInvoice', id: projectInstance.taskId]">
                                             <input type="hidden" name="technique"
                                                    value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
-                                            <input id="chooseTechnique2${fieldValue(bean: techniqueInstance, field: 'id')}" type="submit" class="btn btn-primary ${techniqueInvoiceList.id.contains(techniqueInstance.id) ? 'disabled' : 'enable'} " value="${fieldValue(bean: techniqueInstance, field: "name")}" onclick="disable(${fieldValue(bean: techniqueInstance, field: 'id')});"/>
+                                            <input id="chooseTechnique2${fieldValue(bean: techniqueInstance, field: 'id')}" type="submit" class="btn btn-primary ${techniqueInvoiceList.id.contains(techniqueInstance.id) ? 'disabled' : 'enable'} " value="${fieldValue(bean: techniqueInstance, field: "name")}" />
                                             <span class="arrow hlb"></span>
                                         </g:formRemote>
                                     </div>
