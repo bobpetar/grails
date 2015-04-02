@@ -13,6 +13,11 @@ class PaypalController extends org.grails.paypal.PaypalController {
         def itemNumber = taskInstance.project.projectId
         def amount = invoiceService.calculateAmount(taskInstance)
         def buyerId = taskInstance.project.client.id
+        if(!amount){
+            println(amount)
+            flash.message = "Please Choose Techniques!!"
+            return
+        }
 
         def payment
 
