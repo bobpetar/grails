@@ -40,7 +40,7 @@
                                     <input type="hidden" name="technique"
                                            value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
                                     <input type="submit" id="chooseTechnique1${fieldValue(bean: techniqueInstance, field: 'id')}"
-                                           class="btn btn-block btn-warning ${techniqueInvoiceList.id.contains(techniqueInstance.id) ? 'disabled' : ''}"
+                                           class="btn btn-block btn-warning"
                                            value="${fieldValue(bean: techniqueInstance, field: "name")}"/>
                                 </g:formRemote>
 
@@ -68,7 +68,7 @@
                                                       url="[controller: 'project', action: 'addTechniqueInvoice', id: projectInstance.taskId]">
                                             <input type="hidden" name="technique"
                                                    value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
-                                            <input id="chooseTechnique2${fieldValue(bean: techniqueInstance, field: 'id')}" type="submit" class="btn btn-primary ${techniqueInvoiceList.id.contains(techniqueInstance.id) ? 'disabled' : 'enable'} " value="${fieldValue(bean: techniqueInstance, field: "name")}" />
+                                            <input id="chooseTechnique2${fieldValue(bean: techniqueInstance, field: 'id')}" type="submit" class="btn btn-primary" value="${fieldValue(bean: techniqueInstance, field: "name")}" />
                                             <span class="arrow hlb"></span>
                                         </g:formRemote>
                                     </div>

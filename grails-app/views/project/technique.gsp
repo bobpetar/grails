@@ -23,6 +23,19 @@
             $('#couponstatus').html(data.message);
             $('#couponcode').value('');
         }
+        function disableonload(i){
+            if(${techniques.id.containsAll(techniqueInvoiceList.id)}){
+                var invoiceList = ${techniqueInvoiceList.id
+                }
+                        invoiceList.forEach(function(data){
+                            disable(data);
+                        });
+
+            }
+        }
+        window.onload = function(){
+            disableonload()
+        }
 
     </script>
 </head>
