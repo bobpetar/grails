@@ -133,9 +133,6 @@
 
 <body class="one-page" data-target=".single-menu" data-spy="scroll"
       data-offset="200">
-<g:set var="loggedUserId">
-    <sec:loggedInUserInfo field="id"/>
-</g:set>
 
 <div class="body">
 <header id="header">
@@ -339,12 +336,13 @@
                         %{----}%
                     </sec:ifNotLoggedIn>
                     <sec:ifLoggedIn>
+
                         <li class="dropdown"><a data-hash
                                                        class="dropdown-toggle" href="${createLink(uri:'/')}#home"> <i class="fa fa-user"></i>
                             <sec:username /> <i class="fa fa-angle-down"></i>
                         </a>
                             <ul class="dropdown-menu">
-                                <li><g:link controller="user" action="show" id="${loggedUserId}">My Account</g:link></li>
+                                <li><g:link controller="user" action="show" id="${sec.loggedInUserInfo(field: 'id')}">My Account</g:link></li>
                                 <li><a href="${createLink(uri:'/logout')}">Log Out</a></li>
                             </ul></li>
                     </sec:ifLoggedIn>
