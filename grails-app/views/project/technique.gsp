@@ -25,8 +25,7 @@
         }
         function disableonload(i){
             if(${techniques.id.containsAll(techniqueInvoiceList.id)}){
-                var invoiceList = ${techniqueInvoiceList.id
-                }
+                var invoiceList = ${techniqueInvoiceList.id}
                         invoiceList.forEach(function(data){
                             disable(data);
                         });
