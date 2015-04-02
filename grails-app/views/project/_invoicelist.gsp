@@ -14,6 +14,7 @@
             <g:if test="${projectInstance.status == 'New'}">
                 <td>
                     <g:remoteLink name="removeTechniqueInvoice" update="techniqueList"
+                                  onSuccess="enable(${fieldValue(bean: techniqueInstance, field: 'id')});"
                                   params="[taskparams: taskInstance?.id, techniqueparams: techniqueInstance.id]"
                                   action="removeTechniqueInvoice" class="btn btn-xs btn-danger">Delete</g:remoteLink>
                 </td>
