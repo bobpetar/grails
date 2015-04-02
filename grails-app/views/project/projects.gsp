@@ -27,6 +27,41 @@
     </section>
 
     <div class="container">
+        <nav class="nav-main mega-menu pull-right">
+            <ul class="nav nav-pills nav-main text-uppercase" id="statusMenu">
+                <li>
+                    <g:remoteLink action="projectsUploaded" id="projectUploaded" name="New" update="projectFilterList"
+                                  class="dropdown-toggle notification-icon">
+                        Uploaded
+                        <span class="badge">${allProjectInstance.status.count('Paid') + allProjectInstance.status.count('New')}</span>
+                    </g:remoteLink>
+                </li>
+                <li>
+                    <g:remoteLink action="projectsStatusList" id="In Progress" update="projectFilterList"
+                                  class="dropdown-toggle notification-icon">
+                        In Editing Progress
+                        <span class="badge">${allProjectInstance.status.count('In Progress')}</span>
+                    </g:remoteLink>
+                </li>
+                <li>
+                    <g:remoteLink action="projectsStatusList" id="In Review" update="projectFilterList"
+                                  class="dropdown-toggle notification-icon">
+                        Client Reviewing
+                        <span class="badge">${allProjectInstance.status.count('In Review')}</span>
+                    </g:remoteLink>
+                </li>
+                <li>
+                    <g:remoteLink action="projectsStatusList" id="Complete" update="projectFilterList"
+                                  class="dropdown-toggle notification-icon">
+                        Client Reviewing
+                        <span class="badge">${allProjectInstance.status.count('Complete')}</span>
+                    </g:remoteLink>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container" id="projectFilterList">
         <div class="col-md-12">
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
