@@ -21,6 +21,10 @@
             $("#removeTechnique2"+i).attr("disabled",true);
         }
 
+        function disableRemoveButton(i){
+            $("#removeTechnique2"+i).attr("disabled",true);
+        }
+
         function update(data){
             $('#couponstatus').html(data.message);
             $('#couponcode').value('');
@@ -35,6 +39,10 @@
             }
         }
         window.onload = function(){
+            var techniqueList = ${techniques.id}
+                    techniqueList.forEach(function(technique){
+                disableRemoveButton(technique);
+            });
             disableonload()
         }
 
