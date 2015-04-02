@@ -43,3 +43,12 @@
     </g:if>
     </tbody>
 </table>
+
+<g:if test="${sumTechnique}">
+    <div class="col-md-12">
+        <g:form controller="paypal" action="buyImage" >
+            <input name="taskInstance" value="${taskInstance.id}" type="hidden"/>
+            <input type="submit" value="Checkout" class="btn btn-primary btn-lg pull-right push-top">
+        </g:form>
+    </div>
+</g:if>

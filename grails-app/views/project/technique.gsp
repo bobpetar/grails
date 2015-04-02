@@ -83,8 +83,6 @@
                         </div>
                     </g:formRemote>
 
-
-
                     <!-- Invoice block start -->
                     <div id="techniqueList">
                         <g:render template="invoicelist"/>
@@ -92,14 +90,6 @@
                     <!-- Invoice block end -->
                 </div>
 
-                <g:if test="${projectInstance.status=='New'}">
-                    <div class="col-md-12">
-                        <g:form controller="paypal" action="buyImage" >
-                            <input name="taskInstance" value="${taskInstance.id}" type="hidden"/>
-                            <input type="submit" value="Checkout" class="btn btn-primary btn-lg pull-right push-top">
-                        </g:form>
-                    </div>
-                </g:if>
             </div>
         </div>
 
