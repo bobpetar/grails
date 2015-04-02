@@ -53,7 +53,7 @@
                 <li>
                     <g:remoteLink action="projectsStatusList" id="Complete" update="projectFilterList"
                                   class="dropdown-toggle notification-icon">
-                        Client Reviewing
+                        Complete
                         <span class="badge">${allProjectInstance.status.count('Complete')}</span>
                     </g:remoteLink>
                 </li>
