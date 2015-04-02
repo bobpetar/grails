@@ -29,7 +29,7 @@
 
                                     <span class="thumb-info-action">
                                         <span title="Universal" class="thumb-info-action-icon">
-                                            <i class="fa fa-link"></i>
+                                            <i class="fa fa-trash-o"></i>
                                         </span>
                                     </span>
                                 </a>
@@ -42,6 +42,7 @@
                                     <input type="submit" id="chooseTechnique1${fieldValue(bean: techniqueInstance, field: 'id')}"
                                            class="btn btn-block btn-warning"
                                            value="${fieldValue(bean: techniqueInstance, field: "name")}"/>
+
                                 </g:formRemote>
 
                             </div>
@@ -70,6 +71,13 @@
                                                    value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
                                             <input id="chooseTechnique2${fieldValue(bean: techniqueInstance, field: 'id')}" type="submit" class="btn btn-primary" value="${fieldValue(bean: techniqueInstance, field: "name")}" />
                                             <span class="arrow hlb"></span>
+                                            <g:remoteLink name="removeTechniqueInvoice"
+                                                          update="techniqueList"
+                                                          action="removeTechniqueInvoice"
+                                                          class="btn btn-danger"
+                                                          id="removeTechnique2${techniqueInstance.id}"
+                                                          onSuccess="enable(${fieldValue(bean: techniqueInstance, field: 'id')});"
+                                                          params="[taskparams: taskInstance?.id, techniqueparams: techniqueInstance?.id]"><i class="fa fa-trash-o"> Remove Me!</i></g:remoteLink>
                                         </g:formRemote>
                                     </div>
 

@@ -67,8 +67,8 @@ class ProjectController {
 
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
 		def techniques = Technique.list()
-        def techniqueInvoiceList = projectInstance.task.techniques.toList()
-        def sumTechnique = techniqueInvoiceList.ratePerTechnique.sum()
+        def techniqueList = projectInstance.task.techniques.toList()
+        def sumTechnique = techniqueList.ratePerTechnique.sum()
 
         def maxamount
         if(!SiteParams.findByParameterName('MAXAMOUNT')){
@@ -89,7 +89,7 @@ class ProjectController {
 
         Set uniqueTechniques = techniques.groep
 
-		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueInvoiceList:techniqueInvoiceList, sumTechnique:sumTechnique, cashDiscount:cashDiscount, couponDiscount:couponDiscount, taskInstance: projectInstance.task]
+		[projectInstance:projectInstance,imageTagsJson:imageTagsJson,techniques:techniques, uniqueTechniques:uniqueTechniques, techniqueList:techniqueList, sumTechnique:sumTechnique, cashDiscount:cashDiscount, couponDiscount:couponDiscount, taskInstance: projectInstance.task]
 	}
 
     @Secured(["ROLE_USER"])

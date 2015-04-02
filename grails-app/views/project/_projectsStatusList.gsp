@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <span class="btn btn-group-xs
+                    <span class="tag label
                             <g:if test="${projectInstance.status == 'New'}">btn-danger</g:if>
                     <g:if test="${projectInstance.status == 'Paid'}">btn-warning</g:if>
                     <g:if test="${projectInstance.status == 'In Progress'}">btn-info</g:if>
