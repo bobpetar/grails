@@ -35,12 +35,13 @@
                                 </a>
                                 <g:formRemote name="selectTechnique" id="selectTechnique"
                                               update="techniqueList"
+                                              onSuccess="disable(${fieldValue(bean: techniqueInstance, field: 'id')});"
                                               url="[controller: 'project', action: 'addTechniqueInvoice', id: projectInstance.taskId]">
                                     <input type="hidden" name="technique"
                                            value="${fieldValue(bean: techniqueInstance, field: 'id')}"/>
                                     <input type="submit" id="chooseTechnique1${fieldValue(bean: techniqueInstance, field: 'id')}"
                                            class="btn btn-block btn-warning ${techniqueInvoiceList.id.contains(techniqueInstance.id) ? 'disabled' : ''}"
-                                           value="${fieldValue(bean: techniqueInstance, field: "name")}" onclick="disable(${fieldValue(bean: techniqueInstance, field: 'id')});"/>
+                                           value="${fieldValue(bean: techniqueInstance, field: "name")}"/>
                                 </g:formRemote>
 
                             </div>

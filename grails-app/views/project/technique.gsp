@@ -9,31 +9,15 @@
                       args="[entityName]"/></title>
 
     <script type="application/javascript" >
-        function disable1(i){
+        function disable(i){
             $("#chooseTechnique1"+i).prop("disabled",true);
             $("#chooseTechnique2"+i).prop("disabled",true);
         }
 
-        function enable1(i){
-            alert(i)
+        function enable(i){
             $("#chooseTechnique1"+i).prop("disabled",false);
             $("#chooseTechnique2"+i).prop("disabled",false);
         }
-
-        %{--function disableonload(i){--}%
-        %{--if(${techniques.id.containsAll(techniqueInvoiceList.id)}){--}%
-        %{--var list = ${techniqueInvoiceList.id}--}%
-
-        %{--} else {--}%
-        %{--alert("nothing")--}%
-        %{--alert(${techniqueInvoiceList.id})--}%
-        %{--alert(${techniques.id})--}%
-        %{--}--}%
-        %{--}--}%
-
-        %{--window.onload = function(){--}%
-        %{--disableonload1()--}%
-        %{--}--}%
 
         function update(data){
             $('#couponstatus').html(data.message);

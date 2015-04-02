@@ -25,8 +25,11 @@
             <td>${techniqueInstance.name} (${techniqueInstance.groep})</td>
             <td>$${techniqueInstance.ratePerTechnique}</td>
             <td>
-                <g:remoteLink name="removeTechniqueInvoice" update="techniqueList" action="removeTechniqueInvoice"
+                <g:remoteLink name="removeTechniqueInvoice"
+                              update="techniqueList"
+                              action="removeTechniqueInvoice"
                               class="btn btn-xs btn-danger"
+                              onSuccess="enable(${fieldValue(bean: techniqueInstance, field: 'id')});"
                               params="[taskparams: taskInstance?.id, techniqueparams: techniqueInstance?.id]">Delete</g:remoteLink>
             </td>
         </tr>
