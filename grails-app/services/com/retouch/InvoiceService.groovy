@@ -9,6 +9,10 @@ class InvoiceService {
 
         def sumTechnique = task.techniques.ratePerTechnique.sum()
 
+        if(!sumTechnique){
+            return
+        }
+
         def maxamount
 
         if(!SiteParams.findByParameterName('MAXAMOUNT')){
