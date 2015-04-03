@@ -21,6 +21,7 @@ class TaskController {
     def claimTask(Project projectInstance){
         if(projectInstance && !projectInstance.assignedTo){
             projectInstance.assignedTo  = (User)springSecurityService.getCurrentUser()
+            projectInstance.status  = "In Progress"
             if(projectInstance.save(flush: true)){
                 flash.message = "Task has been successfully claimed"
                 redirect(action: "show",id:projectInstance.id )
