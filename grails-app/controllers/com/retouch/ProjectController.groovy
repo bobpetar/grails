@@ -119,12 +119,6 @@ class ProjectController {
             return
         }
 
-        if(!projectInstance){
-            println "NO Project" + id
-            flash.message = "This project does not exist."
-            redirect(action: "upload")
-            return
-        }
         def techniqueInvoiceList = projectInstance.task.techniques.toList()
         def sumInvoiceTechnique = techniqueInvoiceList.ratePerTechnique.sum()
         [projectInstance:projectInstance, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique]
@@ -196,8 +190,6 @@ class ProjectController {
     @Transactional
     def addTask(){
         def project
-        println params.id
-        println params.projectInstance
         if(params.id){
             project  = Project.findByProjectId(params.id)
             if(!project){
@@ -218,10 +210,8 @@ class ProjectController {
             def image = new ReImage(imagePath: fileName)
             def task = new Task(originalImage: image)
             project?.task=task
-           // image.save(flush:true)
             if(!project.save(flush:true)){
                 myImageService.deleteImagePackage(image)
-                println project.errors
                 flash.message = "Action Failed!!! Please try again"
                 redirect(action: "upload")
             }else{
@@ -240,12 +230,10 @@ class ProjectController {
         if (params.id) {
             project = Project.findByProjectId(params.id)
             if (!project) {
-                println("Inside project Instance")
                 project = new Project(client: springSecurityService.getCurrentUser(), projectId: params.id, createdDate: new Date())
                 project.save(flush: true)
             }
         }
-        println("id "+ params.id)
 
         if (params.file) {
             request.getFileNames().each { name ->
@@ -259,9 +247,7 @@ class ProjectController {
                     try {
                         projectInstance.save(flush: true)
                     } catch (Exception e){
-                        println(e)
                         myImageService.deleteImagePackage(image)
-                        println projectInstance.errors
                     }
                 }
             }
