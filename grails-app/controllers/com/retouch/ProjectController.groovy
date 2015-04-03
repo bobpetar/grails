@@ -56,10 +56,13 @@ class ProjectController {
     @Transactional
 	def technique(String id){
 		def projectInstance = Project.findByProjectId(id)
-		if(!projectInstance){
-            redirect(controller: "notfound")
-			return
-		}
+
+        if(!projectInstance || projectInstance?.client!=springSecurityService.getCurrentUser()){
+            flash.message = "This project does not exist."
+            redirect(action: "upload")
+            return
+        }
+
         if(projectInstance.task.payment && projectInstance.task.payment.status == org.grails.paypal.Payment.COMPLETE){
             redirect(controller: "notfound")
            return
@@ -107,7 +110,14 @@ class ProjectController {
 
     @Secured(["ROLE_USER", "ROLE_ADMIN"])
     def orderdetails(String id){
+
         def projectInstance = Project.findByProjectId(id)
+
+        if(!projectInstance || projectInstance?.client!=springSecurityService.getCurrentUser()){
+            flash.message = "This project does not exist."
+            redirect(action: "upload")
+            return
+        }
 
         if(!projectInstance){
             println "NO Project" + id
