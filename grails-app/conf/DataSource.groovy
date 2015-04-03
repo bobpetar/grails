@@ -20,7 +20,7 @@ environments {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/retouch?zeroDateTimeBehavior=convertToNull"
             username = "root"
-            password = "43301083"
+            password = ""
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
             logSql = false
         }
@@ -38,7 +38,7 @@ environments {
             username = "root"
             password = "root"
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
-            logSql = true
+            logSql = false
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true
