@@ -176,14 +176,17 @@ class ProjectController {
 
     @Secured(["ROLE_USER","ROLE_ADMIN"])
     def projectsStatusList(){
-        def projectInstanceList = Project.findAllByClientAndStatus(springSecurityService.getCurrentUser(), params.id)
-        render(template: 'projectsStatusList', model:[projectInstanceList:projectInstanceList])
-    }
-
-    @Secured(["ROLE_USER","ROLE_ADMIN"])
-    def projectsUploaded(){
-        def projectInstanceList = Project.findAllByClientAndStatusInList(springSecurityService.getCurrentUser(),['New', 'Paid'])
-        render(template: 'projectsStatusList', model:[projectInstanceList:projectInstanceList])
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        def projectInstanceList
+        def projectInstanceCount
+        if(params.id=='projectUploaded'){
+            projectInstanceList = Project.findAllByClientAndStatusInList(springSecurityService.getCurrentUser(),['New', 'Paid'], params)
+            projectInstanceCount= Project.countByClientAndStatusInList(springSecurityService.getCurrentUser(),['New', 'Paid'])
+        } else{
+            projectInstanceList = Project.findAllByClientAndStatus(springSecurityService.getCurrentUser(), params.id, params)
+            projectInstanceCount = Project.countByClientAndStatus(springSecurityService.getCurrentUser(), params.id)
+        }
+        render(template: 'projectsStatusList', model:[projectInstanceList:projectInstanceList, projectInstanceCount:projectInstanceCount, id:params.id])
     }
 
     @Secured(["ROLE_USER"])

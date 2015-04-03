@@ -72,4 +72,8 @@
         </div>
         <hr class="tall" />
     </g:each>
+    <ul class="pagination pull-right">
+    <util:remotePaginate controller="project" action="projectsStatusList" total="${projectInstanceCount}"
+                         update="projectFilterList" id="${id}"/>
+        </ul>
 </div>

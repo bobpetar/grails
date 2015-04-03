@@ -30,7 +30,7 @@
         <nav class="nav-main mega-menu pull-right">
             <ul class="nav nav-pills nav-main text-uppercase" id="statusMenu">
                 <li>
-                    <g:remoteLink action="projectsUploaded" id="projectUploaded" name="New" update="projectFilterList"
+                    <g:remoteLink action="projectsStatusList" id="projectUploaded" name="New" update="projectFilterList"
                                   class="dropdown-toggle notification-icon">
                         Uploaded
                         <span class="badge">${allProjectInstance.status.count('Paid') + allProjectInstance.status.count('New')}</span>
