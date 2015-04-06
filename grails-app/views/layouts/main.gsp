@@ -140,9 +140,13 @@
 <header id="header">
 <div class="container">
     <div class="logo">
+     %{--   <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
+                                                       width="411" height="80" data-sticky-width="257"
+                                                       data-sticky-height="50" src="img/logosmall.png" />
+        </a>--}%
         <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
-                                                       width="65" height="80" data-sticky-width="41"
-                                                       data-sticky-height="50" src="img/logo.png" />
+                                                       width="257" height="50" data-sticky-width="206"
+                                                       data-sticky-height="40" src="img/logosmall.png" />
         </a>
     </div>
     <div class="search">
@@ -392,14 +396,14 @@
     <div class="footer-copyright">
         <div class="container">
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <a href="index.html" class="logo"><asset:image
                             alt="Porto Website Template" class="img-responsive"
-                            src="img/logo-footer.png"/>
+                            src="img/logogrey.png"/>
                     </a>
                 </div>
 
-                <div class="col-md-11">
+                <div class="col-md-10">
                     <p>${siteParams?.COPYRIGHT}</p>
                 </div>
             </div>
