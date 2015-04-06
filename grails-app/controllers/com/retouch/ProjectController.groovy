@@ -58,10 +58,13 @@ class ProjectController {
     @Transactional
 	def technique(String id){
 		def projectInstance = Project.findByProjectId(id)
-		if(!projectInstance){
-            redirect(controller: "notfound")
-			return
-		}
+
+        if(!projectInstance || projectInstance?.client!=springSecurityService.getCurrentUser()){
+            flash.message = "This project does not exist."
+            redirect(action: "upload")
+            return
+        }
+
         if(projectInstance.task.payment && projectInstance.task.payment.status == org.grails.paypal.Payment.COMPLETE){
             redirect(controller: "notfound")
            return
@@ -109,14 +112,15 @@ class ProjectController {
 
     @Secured(["ROLE_USER", "ROLE_ADMIN"])
     def orderdetails(String id){
+
         def projectInstance = Project.findByProjectId(id)
 
-        if(!projectInstance){
-            println "NO Project" + id
+        if(!projectInstance || projectInstance?.client!=springSecurityService.getCurrentUser()){
             flash.message = "This project does not exist."
             redirect(action: "upload")
             return
         }
+
         def techniqueInvoiceList = projectInstance.task.techniques.toList()
         def sumInvoiceTechnique = techniqueInvoiceList.ratePerTechnique.sum()
         [projectInstance:projectInstance, techniqueInvoiceList:techniqueInvoiceList, sumInvoiceTechnique:sumInvoiceTechnique]
@@ -174,22 +178,23 @@ class ProjectController {
 
     @Secured(["ROLE_USER","ROLE_ADMIN"])
     def projectsStatusList(){
-        def projectInstanceList = Project.findAllByClientAndStatus(springSecurityService.getCurrentUser(), params.id)
-        render(template: 'projectsStatusList', model:[projectInstanceList:projectInstanceList])
-    }
-
-    @Secured(["ROLE_USER","ROLE_ADMIN"])
-    def projectsUploaded(){
-        def projectInstanceList = Project.findAllByClientAndStatusInList(springSecurityService.getCurrentUser(),['New', 'Paid'])
-        render(template: 'projectsStatusList', model:[projectInstanceList:projectInstanceList])
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        def projectInstanceList
+        def projectInstanceCount
+        if(params.id=='projectUploaded'){
+            projectInstanceList = Project.findAllByClientAndStatusInList(springSecurityService.getCurrentUser(),['New', 'Paid'], params)
+            projectInstanceCount= Project.countByClientAndStatusInList(springSecurityService.getCurrentUser(),['New', 'Paid'])
+        } else{
+            projectInstanceList = Project.findAllByClientAndStatus(springSecurityService.getCurrentUser(), params.id, params)
+            projectInstanceCount = Project.countByClientAndStatus(springSecurityService.getCurrentUser(), params.id)
+        }
+        render(template: 'projectsStatusList', model:[projectInstanceList:projectInstanceList, projectInstanceCount:projectInstanceCount, id:params.id])
     }
 
     @Secured(["ROLE_USER"])
     @Transactional
     def addTask(){
         def project
-        println params.id
-        println params.projectInstance
         if(params.id){
             project  = Project.findByProjectId(params.id)
             if(!project){
@@ -210,10 +215,8 @@ class ProjectController {
             def image = new ReImage(imagePath: fileName)
             def task = new Task(originalImage: image)
             project?.task=task
-           // image.save(flush:true)
             if(!project.save(flush:true)){
                 myImageService.deleteImagePackage(image)
-                println project.errors
                 flash.message = "Action Failed!!! Please try again"
                 redirect(action: "upload")
             }else{
@@ -232,12 +235,10 @@ class ProjectController {
         if (params.id) {
             project = Project.findByProjectId(params.id)
             if (!project) {
-                println("Inside project Instance")
                 project = new Project(client: springSecurityService.getCurrentUser(), projectId: params.id, createdDate: new Date())
                 project.save(flush: true)
             }
         }
-        println("id "+ params.id)
 
         if (params.file) {
             request.getFileNames().each { name ->
@@ -251,9 +252,7 @@ class ProjectController {
                     try {
                         projectInstance.save(flush: true)
                     } catch (Exception e){
-                        println(e)
                         myImageService.deleteImagePackage(image)
-                        println projectInstance.errors
                     }
                 }
             }

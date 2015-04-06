@@ -148,14 +148,14 @@
     <div class="search">
     </div>
     <ul class="social-icons">
-        <li class="facebook"><a href="${siteParams.FACEBOOK}" target="_blank" title="Facebook">Facebook</a></li>
-        <li class="twitter"><a href="${siteParams.TWITTER}" target="_blank" title="Twitter">Twitter</a></li>
-        <li class="linkedin"><a href="${siteParams.LINKEDIN}" target="_blank" title="Linkedin">Linkedin</a></li>
+        <li class="facebook"><a href="${siteParams?.FACEBOOK}" target="_blank" title="Facebook">Facebook</a></li>
+        <li class="twitter"><a href="${siteParams?.TWITTER}" target="_blank" title="Twitter">Twitter</a></li>
+        <li class="linkedin"><a href="${siteParams?.LINKEDIN}" target="_blank" title="Linkedin">Linkedin</a></li>
     </ul>
     <nav>
         <ul class="nav nav-pills nav-top">
             <li class="phone">
-                <span><i class="fa fa-phone"></i>${siteParams.PHONENUMBER}</span>
+                <span><i class="fa fa-phone"></i>${siteParams?.PHONENUMBER}</span>
             </li>
         </ul>
     </nav>
@@ -356,31 +356,31 @@
             <div class="col-md-8">
                 <h4>About 1hretouch</h4>
 
-                <p>${siteParams.ABOUTUS}</p>
+                <p>${siteParams?.ABOUTUS}</p>
                 <hr class="light">
             </div>
 
             <div class="col-md-3 col-md-offset-1">
                 <h5 class="short">Contact Us</h5>
-                <span class="phone">${siteParams.PHONENUMBER}</span>
+                <span class="phone">${siteParams?.PHONENUMBER}</span>
 
-                <p class="short">${siteParams.ADDRESS1}</p>
+                <p class="short">${siteParams?.ADDRESS1}</p>
 
-                <p class="short">${siteParams.ADDRESS2}</p>
+                <p class="short">${siteParams?.ADDRESS2}</p>
                 <ul class="list icons list-unstyled">
                     <li><i class="fa fa-envelope"></i> <a
-                            href="mailto:${siteParams.EMAIL}">${siteParams.EMAIL}</a></li>
+                            href="mailto:${siteParams?.EMAIL}">${siteParams?.EMAIL}</a></li>
                 </ul>
 
                 <div class="social-icons">
                     <ul class="social-icons">
-                        <li class="facebook"><a href="${siteParams.FACEBOOK}"
+                        <li class="facebook"><a href="${siteParams?.FACEBOOK}"
                                                 target="_blank" data-placement="bottom" data-tooltip
                                                 title="Facebook">Facebook</a></li>
-                        <li class="twitter"><a href="${siteParams.TWITTER}"
+                        <li class="twitter"><a href="${siteParams?.TWITTER}"
                                                target="_blank" data-placement="bottom" data-tooltip
                                                title="Twitter">Twitter</a></li>
-                        <li class="linkedin"><a href="${siteParams.LINKEDIN}"
+                        <li class="linkedin"><a href="${siteParams?.LINKEDIN}"
                                                 target="_blank" data-placement="bottom" data-tooltip
                                                 title="Linkedin">Linkedin</a></li>
                     </ul>
@@ -400,7 +400,7 @@
                 </div>
 
                 <div class="col-md-11">
-                    <p>${siteParams.COPYRIGHT}</p>
+                    <p>${siteParams?.COPYRIGHT}</p>
                 </div>
             </div>
         </div>
