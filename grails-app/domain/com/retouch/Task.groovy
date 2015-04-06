@@ -6,7 +6,7 @@ class Task {
     ReImage originalImage
     Payment payment
 
-    static hasMany = [tags:ImageTag,techniques:Technique]
+    static hasMany = [tags:ImageTag,techniques:Technique, comments:Comment]
     static belongsTo = [project:Project]
 
 

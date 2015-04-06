@@ -141,12 +141,12 @@
                 <div class="col-sm-12">
                     <g:each in="${projectInstance?.task?.techniques}" >
                         <div class="feature-box">
-                            <div class="feature-box-icon">
+                            %{--<div class="feature-box-icon">
                                 <i class="fa fa-check"></i>
-                            </div>
+                            </div>--}%
                             <div class="feature-box-info">
-                                <h4 class="shorter">${it.name}</h4>
-                                <p class="tall">${it.description}</p>
+                                <h5 class="shorter"><i class="fa fa-check"></i> ${it.name}</h5>
+                               %{-- <p class="tall">${it.description}</p>--}%
                             </div>
                         </div>
 
@@ -180,6 +180,32 @@
 
                 </div>
             </g:if>
+
+
+            <div class="row isotope-item document col-md-11">
+                <hr class="tall">
+
+                <section class="panel">
+
+                    <header class="panel-heading">
+                        <div class="panel-actions">
+                            <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                            %{--                <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>--}%
+                        </div>
+
+                        <h2 class="panel-title"><i class="fa fa-comment"></i>  Messages </h2>
+                    </header>
+                    <div class="panel-body" id="messageHolder" ic-get-from="${createLink(action: 'getMessageThread',controller:'project',id:projectInstance.task.id)}" ic-trigger-on="load">
+                        <div class="panel-body loading-overlay-showing" data-loading-overlay="" data-loading-overlay-options="{ &quot;startShowing&quot;: true }" style="min-height: 150px; position: relative;">
+                            Content.
+                            <div class="loading-overlay" style="border-radius: 0px 0px 5px 5px; background-color: rgb(253, 253, 253);"><div class="loader black"></div></div></div>
+
+
+                    </div>
+                </section>
+
+            </div>
+
 
         </div>
     </div>

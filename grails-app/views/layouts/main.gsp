@@ -131,8 +131,10 @@
     <g:layoutHead/>
 </head>
 
-<body class="one-page" data-target=".single-menu" data-spy="scroll"
-      data-offset="200">
+<body class="one-page" data-target=".single-menu" data-spy="scroll"  data-offset="200" data-loading-overlay="data-loading-overlay">
+<span class="loading-overlay light">
+    <span class="loader black"></span>
+</span>
 
 <div class="body">
 <header id="header">
@@ -211,12 +213,6 @@
 
                                                     <form action="${postUrl}" id="loginForm" method="post"
                                                           name="loginForm" autocomplete='off'>
-                                                        <g:if test='${flash.message}'>
-                                                            <div class="alert alert-danger">
-                                                                ${flash.message}
-                                                            </div>
-                                                        </g:if>
-
                                                         <div class="row">
                                                             <div class="form-group">
                                                                 <div class="col-md-12">
@@ -473,6 +469,7 @@
 <asset:javascript
         src="admin/assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"/>
 <asset:javascript src="admin/assets/vendor/fuelux/js/spinner.js"/>
+<asset:javascript src="admin/assets/vendor/intercooler/intercooler-0.4.8.js"/>
 <asset:javascript src="admin/assets/vendor/dropzone/dropzone.js"/>
 <asset:javascript
         src="admin/assets/vendor/bootstrap-markdown/js/markdown.js"/>

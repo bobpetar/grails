@@ -1,6 +1,7 @@
 package com.retouch
 
 import grails.converters.JSON
+import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.springsecurity.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
@@ -12,6 +13,7 @@ class ProjectController {
 	def myImageService
 	def springSecurityService
 	def taskService
+    def messagingService
 
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -487,6 +489,38 @@ class ProjectController {
             render([message: "Coupon code \"" + params.couponcode + "\" not found!"] as JSON)
             return
         }
+    }
+
+
+    @Secured(["ROLE_USER","ROLE_ADMIN","ROLE_RETOUCHER"])
+    def getMessageThread(Task task){
+        User currentUser = (User)springSecurityService.getCurrentUser()
+        if(task.project.client == currentUser|| task.project.assignedTo == currentUser){
+           def messages = task.comments.sort{it.id}
+            return [messages:messages,task:task,currentUser:currentUser]
+        }else{
+            return [messages:[]]
+        }
+    }
+
+    @Transactional
+    @Secured(["ROLE_USER","ROLE_ADMIN","ROLE_RETOUCHER"])
+    def saveTaskMessage(Task task){
+        def role = "USER"
+        def currentUser = (User)springSecurityService.getCurrentUser()
+        if(SpringSecurityUtils.ifAllGranted("ROLE_RETOUCHER")){
+            role = "RETOUCHER"
+        }
+
+        if(task.project.client == currentUser || task.project.assignedTo == currentUser){
+            def comment  = new Comment(message: params.message,user: currentUser,role: role)
+            task.addToComments(comment)
+            task.save(flush: true)
+            messagingService.sendMessageMail(comment,currentUser)
+        }
+
+        redirect(action:'getMessageThread',params: [id:task.id] )
+
     }
 
 	protected void notFound() {

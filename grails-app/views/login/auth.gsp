@@ -51,7 +51,7 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label>Username</label> <input
+												<label>Username</label> <input tabindex="1"
 													name="j_username" id="username"
 													class="form-control input-lg">
 											</div>
@@ -71,7 +71,7 @@
 									<div class="row" style="  margin-top: 6px;">
 										<div class="col-md-6">
 											<span class="remember-box checkbox"> <label
-												for="remember_me"> <input type="checkbox"
+												for="remember_me"> <input type="checkbox" tabindex="4"
 													name="${rememberMeParameter}" id="remember_me"
 													name="rememberme">Remember Me
 											</label>
