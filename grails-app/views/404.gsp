@@ -10,14 +10,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<ul class="breadcrumb">
-							<li><a href="#">Home</a></li>
-							<li class="active">Pages</li>
-						</ul>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
 						<h1>404 - Page Not Found</h1>
 					</div>
 				</div>
@@ -36,14 +28,6 @@
 							<p>We're sorry, but the page you were looking for doesn't
 								exist.</p>
 						</div>
-					</div>
-					<div class="col-md-4">
-						<h4>Here are some useful links</h4>
-						<ul class="nav nav-list primary">
-							<li><a href="${createLink(uri:'/')}">Home</a></li>
-							<li><a href="${createLink(uri:'/faq')}">FAQ's</a></li>
-							<li><a href="${createLink(uri:'/contactus')}">Contact Us</a></li>
-						</ul>
 					</div>
 				</div>
 			</section>
