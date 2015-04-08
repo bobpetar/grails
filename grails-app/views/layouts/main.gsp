@@ -397,7 +397,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    <a href="index.html" class="logo"><asset:image
+                    <a href="${createLink(uri:'/')}" class="logo"><asset:image
                             alt="Porto Website Template" class="img-responsive"
                             src="img/logogrey.png"/>
                     </a>
