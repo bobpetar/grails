@@ -33,7 +33,7 @@
                 <div class="col-md-7">
                     <h3>#${projectInstance.projectId}</h3>
                     <hr>
-                    <img id="uploadedImage" class="img-rounded img-responsive" src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getThumbnailImageName()}">
+                    <img id="uploadedImage" class="img-rounded img-responsive" src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getLargeImageName()}">
                 </div>
 
                 <div class="col-md-5">
