@@ -24,6 +24,16 @@
                         <i class="fa fa-envelope"></i>
                         <g:fieldValue bean="${userInstance}" field="email"/>
                     </div>
+                    <sec:ifAllGranted roles="ROLE_ADMIN">
+                        <div class="col-md-12 col-sm-12">
+                            <i class="fa fa-thumbs-up"></i>
+                            <g:each in="${userInstance.authorities}" status="j" var="roleInstance">
+                                <span class="tag label btn-danger">
+                                    ${roleInstance}
+                                </span>
+                            </g:each>
+                        </div>
+                    </sec:ifAllGranted>
                     <hr class="tall"/>
                 </div>
             </section>
