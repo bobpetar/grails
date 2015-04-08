@@ -70,7 +70,7 @@
                      data-y="180"
                      data-speed="300"
                      data-start="500"
-                     data-easing="easeOutExpo">DO YOU NEED A NEW</div>
+                     data-easing="easeOutExpo">${siteParams?.VIDEOCONTENT1}</div>
 
                 <div class="tp-caption sft stb visible-lg"
                      data-x="477"
@@ -84,14 +84,14 @@
                      data-y="210"
                      data-speed="300"
                      data-start="1500"
-                     data-easing="easeOutExpo">WEB DESIGN?</div>
+                     data-easing="easeOutExpo">${siteParams?.VIDEOCONTENT2}</div>
 
                 <div class="tp-caption bottom-label sft stb"
                      data-x="185"
                      data-y="280"
                      data-speed="500"
                      data-start="2000"
-                     data-easing="easeOutExpo">Check out our options and features.</div>
+                     data-easing="easeOutExpo">${siteParams?.VIDEOCONTENT3}</div>
 
                 <sec:ifNotGranted roles="ROLE_ADMIN, ROLE_RETOUCHER">
                     <a class="tp-caption customin btn btn-lg btn-primary main-button"

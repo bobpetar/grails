@@ -58,6 +58,9 @@ class BootStrap {
             new SiteParams(parameterName: 'ADDRESS1', parameterValue: 'Kanaalpark 157').save(flush: true)
             new SiteParams(parameterName: 'ADDRESS2', parameterValue: '2321 JW Leiden').save(flush: true)
             new SiteParams(parameterName: 'ABOUTUS', parameterValue: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.').save(flush: true)
+            new SiteParams(parameterName: 'VIDEOCONTENT1', parameterValue: 'DO YOU NEED A NEW').save(flush: true)
+            new SiteParams(parameterName: 'VIDEOCONTENT2', parameterValue: 'WEB DESIGN?').save(flush: true)
+            new SiteParams(parameterName: 'VIDEOCONTENT3', parameterValue: 'Parameter Value Check out our options and features.').save(flush: true)
         }
     }
 
