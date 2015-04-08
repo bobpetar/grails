@@ -61,6 +61,17 @@
                                      required="" value="${userInstance?.lastname}"/>
                     </div>
                 </div>
+
+                <sec:ifAllGranted roles="ROLE_ADMIN">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="lastname">Email</label>
+
+                        <div class="col-md-8">
+                            <g:textField name="email" id="email" class="form-control"
+                                         required="" value="${userInstance?.email}"/>
+                        </div>
+                    </div>
+                </sec:ifAllGranted>
             </fieldset>
             <sec:ifAnyGranted roles="ROLE_ADMIN">
                 <hr class="dotted tall">
