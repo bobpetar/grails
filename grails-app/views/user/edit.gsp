@@ -29,7 +29,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h1>
-							<g:message code="default.edit.label" args="[entityName]" />
+							User Profile
 						</h1>
 					</div>
 				</div>
