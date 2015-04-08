@@ -11,9 +11,7 @@
 
                     <div class="col-md-12 col-sm-12">
                         <i class="fa fa-user"></i>
-                        <g:link class="edit" action="show" resource="${userInstance}">
                             <g:fieldValue bean="${userInstance}" field="username"/>
-                        </g:link>
                     </div>
 
                     <div class="col-md-12 col-sm-12">

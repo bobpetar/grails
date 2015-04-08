@@ -140,11 +140,7 @@
 <header id="header">
 <div class="container">
     <div class="logo">
-     %{--   <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
-                                                       width="411" height="80" data-sticky-width="257"
-                                                       data-sticky-height="50" src="img/logosmall.png" />
-        </a>--}%
-        <a href="${createLink(uri:'/')}"> <asset:image alt="Porto"
+        <a href="${createLink(uri:'/')}"> <asset:image alt="1hRetouch"
                                                        width="257" height="50" data-sticky-width="206"
                                                        data-sticky-height="40" src="img/logosmall.png" />
         </a>
@@ -342,7 +338,7 @@
                             <sec:username /> <i class="fa fa-angle-down"></i>
                         </a>
                             <ul class="dropdown-menu">
-                                <li><g:link controller="user" action="show" id="${sec.loggedInUserInfo(field: 'id')}">My Account</g:link></li>
+                                <li><g:link controller="user" action="edit" id="${sec.loggedInUserInfo(field: 'id')}">My Account</g:link></li>
                                 <li><a href="${createLink(uri:'/logout')}">Log Out</a></li>
                             </ul></li>
                     </sec:ifLoggedIn>

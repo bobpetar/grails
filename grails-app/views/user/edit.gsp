@@ -20,6 +20,8 @@
 								<li class="active"><a
 									href="${createLink(uri:'/user/create') }"><g:message
 											code="default.create.label" args="[entityName]" /></a></li>
+                                <li class="active"><g:link class="edit" action="show" resource="${userInstance}">
+                                            <g:message code="default.show.label" args="[entityName]" /></g:link></li>
 							</ul>
 						</div>
 					</sec:ifAnyGranted>
