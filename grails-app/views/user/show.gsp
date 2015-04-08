@@ -44,10 +44,9 @@
 
     <div class="container">
         <div class="row show-grid">
+            <h4 class="page-header">User Information</h4>
             <div class="col-md-3">
                 <section>
-                    <h4 class="page-header">User Information</h4>
-
                     <div class="row fontawesome-icon-list">
                         <div class="col-md-12 col-sm-12">
                             <i class="fa fa-user"></i>
@@ -66,13 +65,33 @@
                             <i class="fa fa-envelope"></i>
                             <g:fieldValue bean="${userInstance}" field="email"/>
                         </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <i class="fa fa-thumbs-up"></i>
+                            <g:each in="${userInstance.authorities}" status="j" var="roleInstance">
+                                <span class="tag label btn-danger">
+                                    ${roleInstance}
+                                </span>
+                            </g:each>
+                        </div>
                         <hr class="tall"/>
                     </div>
                 </section>
             </div>
 
             <div class="col-md-9">
+                <sec:ifAllGranted roles="ROLE_ADMIN">
+                <g:form url="[resource:userInstance, action:'delete']" method="DELETE">
+                    <g:link action="edit" class="btn btn-primary btn-icon" resource="${userInstance}"><i class="fa fa-external-link"></i>Edit Me! </g:link>
+                    <span data-appear-animation-delay="800" data-appear-animation="rotateInUpLeft"
+                          class="arrow hlb appear-animation rotateInUpLeft appear-animation-visible"
+                          style="animation-delay: 800ms;"></span>
+                    <g:actionSubmit class="btn btn-danger btn-icon" action="delete" value="Delete Me!" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                </g:form>
+                </sec:ifAllGranted>
+                <g:if test="${userProjects}">
                 <h4 class="page-header">Project List: Uploaded</h4>
+                </g:if>
                 <table class="table table-striped">
                     <tbody>
                     <g:each in="${userProjects}">
