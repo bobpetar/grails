@@ -59,6 +59,8 @@
 									<g:sortableColumn property="email"
 										title="${message(code: 'user.email.label', default: 'Email')}" />
 
+                                    <th>Role</th>
+
 									<g:sortableColumn property="accountExpired"
 										title="${message(code: 'user.accountExpired.label', default: 'Account Enabled')}" />
 
@@ -80,6 +82,18 @@
 										<td>
 											${fieldValue(bean: userInstance, field: "email")}
 										</td>
+
+                                        <td>
+                                            <g:each in="${userInstance.authorities}" status="j" var="roleInstance">
+                                                <span class="tag label btn-danger
+                                                <g:if test="${roleInstance == 'ROLE_ADMIN'}">btn-danger</g:if>
+                                                <g:if test="${roleInstance == 'ROLE_USER'}">btn-warning</g:if>
+                                                <g:if test="${roleInstance == 'ROLE_RETOUCHER'}">btn-info</g:if> ">
+                                                    ${roleInstance}
+                                                </span>
+                                            </g:each>
+
+                                        </td>
 
 										<td><g:formatBoolean
 												boolean="${userInstance.enabled}" /></td>
