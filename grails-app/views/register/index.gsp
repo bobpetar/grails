@@ -115,11 +115,13 @@
 													<g:link controller="login">Log In</g:link>
 												</p>
 											</div>
-											<div class="col-md-6">
-												<input type="submit" value="Register"
-													class="btn btn-primary pull-right push-bottom"
-													data-loading-text="Loading...">
-											</div>
+                                        <div class="row" style="  margin-top: 6px;">
+                                            <div class="col-md-6">
+                                                <input type="submit" value="Register"
+                                                       class="btn btn-primary pull-right push-bottom"
+                                                       data-loading-text="Loading...">
+                                            </div>
+                                        </div>
 									</g:else>
 							</div>
 							</g:form>
