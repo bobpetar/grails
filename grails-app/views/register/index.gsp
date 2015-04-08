@@ -55,14 +55,14 @@
 													<s2ui:textFieldRow name='firstname'
 														labelCode='user.firstname.label' bean="${command}"
 														labelCodeDefault='Firstname' value="${command.firstname}"
-														class="form-control input-lg" />
+														class="form-control input-lg" required="true"/>
 												</div>
 
 												<div class="col-md-6">
 													<s2ui:textFieldRow name='lastname'
 														labelCode='user.lastname.label' bean="${command}"
 														labelCodeDefault='Lastname' value="${command.lastname}"
-														class="form-control input-lg" />
+														class="form-control input-lg" required="true" />
 
 												</div>
 											</div>
@@ -73,7 +73,7 @@
 													<s2ui:textFieldRow name='username'
 														labelCode='user.username.label' bean="${command}"
 														labelCodeDefault='Username' value="${command.username}"
-														class="form-control input-lg" />
+														class="form-control input-lg" required="true"/>
 												</div>
 											</div>
 										</div>
@@ -85,7 +85,7 @@
 														value="${command.email}" size='40'
 														labelCode='user.email.label'
 														labelCodeDefault='E-mail Address'
-														class="form-control input-lg" />
+														class="form-control input-lg" required="true"/>
 												</div>
 											</div>
 										</div>
@@ -96,14 +96,14 @@
 													<s2ui:passwordFieldRow name='password'
 														labelCode='user.password.label' bean="${command}"
 														size='40' labelCodeDefault='Password'
-														value="${command.password}" class="form-control input-lg" />
+														value="${command.password}" class="form-control input-lg" required="true"/>
 												</div>
 
 												<div class="col-md-6">
 													<s2ui:passwordFieldRow name='password2'
 														labelCode='user.password2.label' bean="${command}"
 														size='40' labelCodeDefault='Password (again)'
-														value="${command.password2}" class="form-control input-lg" />
+														value="${command.password2}" class="form-control input-lg" required="true"/>
 
 												</div>
 											</div>

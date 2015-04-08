@@ -53,7 +53,7 @@
                                                     <label>Enter your username and we'll send a link to
                                                     reset your password to the address we have for your
                                                     account.</label> <input name="username" id="username"
-                                                                            class="form-control input-lg">
+                                                                            class="form-control input-lg" required="true">
                                                 </div>
                                             </div>
                                         </div>

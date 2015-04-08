@@ -53,7 +53,7 @@
 											<div class="col-md-12">
 												<label>Username</label> <input tabindex="1"
 													name="j_username" id="username"
-													class="form-control input-lg">
+													class="form-control input-lg" required="true">
 											</div>
 										</div>
 									</div>
@@ -64,7 +64,7 @@
 													class="pull-right">(Lost Password?)</g:link>
 												<label>Password</label> <input type="password" tabindex="2"
 													name="j_password" id="password"
-													class="form-control input-lg">
+													class="form-control input-lg" required="true">
 											</div>
 										</div>
 									</div>

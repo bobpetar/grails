@@ -55,7 +55,7 @@
 											<div class="form-group">
 												<div class="col-md-12">
 														<s2ui:passwordFieldRow name='password' labelCode='resetPasswordCommand.password.label' bean="${command}"
-                             labelCodeDefault='Password' value="${command?.password}" class="form-control input-lg"/>
+                             labelCodeDefault='Password' value="${command?.password}" class="form-control input-lg" required="true"/>
 												</div>
 											</div>
 										</div>
@@ -63,7 +63,7 @@
 											<div class="form-group">
 												<div class="col-md-12">
 													<s2ui:passwordFieldRow name='password2' labelCode='resetPasswordCommand.password2.label' bean="${command}"
-                             labelCodeDefault='Password (again)' value="${command?.password2}" class="form-control input-lg"/>
+                             labelCodeDefault='Password (again)' value="${command?.password2}" class="form-control input-lg" required="true"/>
 												</div>
 											</div>
 										</div>
