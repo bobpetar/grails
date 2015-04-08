@@ -15,7 +15,7 @@
         }
 
         $(document).ready(function(){
-           showTecniqueBlock();
+            showTecniqueBlock();
         });
 
 
@@ -24,100 +24,100 @@
 </head>
 
 <div role="main" class="main" id="home">
-<div class="slider-container">
-    <div class="slider" id="revolutionSlider" data-plugin-revolution-slider
-         data-plugin-options='{"startheight": 500}'>
-        <ul>
-            <li data-slotamount="7" data-masterspeed="1000" data-fstransition="fade" data-fsmasterspeed="1000"
-                data-fsslotamount="7">
-                <asset:image class="img-responsive" src="img/slides/dark-cover.jpg" alt="dark"
-                             data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"/>
-                <div class="tp-caption tp-fade fadeout fullscreenvideo"
-                     data-x="0"
-                     data-y="0"
-                     data-speed="1000"
-                     data-start="100"
-                     data-easing="Power4.easeOut"
-                     data-elementdelay="0.01"
-                     data-endelementdelay="0.1"
-                     data-endspeed="1500"
-                     data-endeasing="Power4.easeIn"
-                     data-autoplay="true"
-                     data-autoplayonlyfirsttime="false"
-                     data-nextslideatend="true"
-                     data-volume="mute"
-                     data-forceCover="1"
-                     data-aspectratio="16:9"
-                     data-forcerewind="on">
+    <div class="slider-container">
+        <div class="slider" id="revolutionSlider" data-plugin-revolution-slider
+             data-plugin-options='{"startheight": 500}'>
+            <ul>
+                <li data-slotamount="7" data-masterspeed="1000" data-fstransition="fade" data-fsmasterspeed="1000"
+                    data-fsslotamount="7">
+                    <asset:image class="img-responsive" src="img/slides/dark-cover.jpg" alt="dark"
+                                 data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"/>
+                    <div class="tp-caption tp-fade fadeout fullscreenvideo"
+                         data-x="0"
+                         data-y="0"
+                         data-speed="1000"
+                         data-start="100"
+                         data-easing="Power4.easeOut"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1500"
+                         data-endeasing="Power4.easeIn"
+                         data-autoplay="true"
+                         data-autoplayonlyfirsttime="false"
+                         data-nextslideatend="true"
+                         data-volume="mute"
+                         data-forceCover="1"
+                         data-aspectratio="16:9"
+                         data-forcerewind="on">
 
-                    <video preload="none" width="100%" height="100%"
-                           poster="${assetPath(src: 'img/slides/dark-cover.jpg')}">
-                        <source src="${assetPath(src: 'video/dark.mp4')}" type="video/mp4"/>
-                        <source src="${assetPath(src: 'video/dark.ogv')}" type="video/ogg">
-                    </video>
+                        <video preload="none" width="100%" height="100%"
+                               poster="${assetPath(src: 'img/slides/dark-cover.jpg')}">
+                            <source src="${assetPath(src: 'video/dark.mp4')}" type="video/mp4"/>
+                            <source src="${assetPath(src: 'video/dark.ogv')}" type="video/ogg">
+                        </video>
 
-                </div>
+                    </div>
 
-                <div class="tp-caption sft stb visible-lg"
-                     data-x="177"
-                     data-y="180"
-                     data-speed="300"
-                     data-start="1000"
-                     data-easing="easeOutExpo"><asset:image src="img/slides/slide-title-border.png" alt=""/></div>
+                    <div class="tp-caption sft stb visible-lg"
+                         data-x="177"
+                         data-y="180"
+                         data-speed="300"
+                         data-start="1000"
+                         data-easing="easeOutExpo"><asset:image src="img/slides/slide-title-border.png" alt=""/></div>
 
-                <div class="tp-caption top-label lfl stl"
-                     data-x="227"
-                     data-y="180"
-                     data-speed="300"
-                     data-start="500"
-                     data-easing="easeOutExpo">${siteParams?.VIDEOCONTENT1}</div>
+                    <div class="tp-caption top-label lfl stl"
+                         data-x="227"
+                         data-y="180"
+                         data-speed="300"
+                         data-start="500"
+                         data-easing="easeOutExpo">${siteParams?.VIDEOCONTENT1}</div>
 
-                <div class="tp-caption sft stb visible-lg"
-                     data-x="477"
-                     data-y="180"
-                     data-speed="300"
-                     data-start="1000"
-                     data-easing="easeOutExpo"><asset:image src="img/slides/slide-title-border.png" alt=""/></div>
+                    <div class="tp-caption sft stb visible-lg"
+                         data-x="477"
+                         data-y="180"
+                         data-speed="300"
+                         data-start="1000"
+                         data-easing="easeOutExpo"><asset:image src="img/slides/slide-title-border.png" alt=""/></div>
 
-                <div class="tp-caption main-label sft stb"
-                     data-x="135"
-                     data-y="210"
-                     data-speed="300"
-                     data-start="1500"
-                     data-easing="easeOutExpo">${siteParams?.VIDEOCONTENT2}</div>
+                    <div class="tp-caption main-label sft stb"
+                         data-x="135"
+                         data-y="210"
+                         data-speed="300"
+                         data-start="1500"
+                         data-easing="easeOutExpo">${siteParams?.VIDEOCONTENT2}</div>
 
-                <div class="tp-caption bottom-label sft stb"
-                     data-x="185"
-                     data-y="280"
-                     data-speed="500"
-                     data-start="2000"
-                     data-easing="easeOutExpo">${siteParams?.VIDEOCONTENT3}</div>
+                    <div class="tp-caption bottom-label sft stb"
+                         data-x="185"
+                         data-y="280"
+                         data-speed="500"
+                         data-start="2000"
+                         data-easing="easeOutExpo">${siteParams?.VIDEOCONTENT3}</div>
 
-                <sec:ifNotGranted roles="ROLE_ADMIN, ROLE_RETOUCHER">
-                    <a class="tp-caption customin btn btn-lg btn-primary main-button"
-                       href="${createLink(uri: '/upload')}"
-                       data-x="center" data-hoffset="0"
-                       data-y="350"
-                       data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                       data-speed="800"
-                       data-start="1700"
-                       data-easing="Back.easeInOut"
-                       data-endspeed="300">
-                        Upload Image!
-                    </a>
-                </sec:ifNotGranted>
+                    <sec:ifNotGranted roles="ROLE_ADMIN, ROLE_RETOUCHER">
+                        <a class="tp-caption customin btn btn-lg btn-primary main-button"
+                           href="${createLink(uri: '/upload')}"
+                           data-x="center" data-hoffset="0"
+                           data-y="350"
+                           data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                           data-speed="800"
+                           data-start="1700"
+                           data-easing="Back.easeInOut"
+                           data-endspeed="300">
+                            Upload Image!
+                        </a>
+                    </sec:ifNotGranted>
 
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 
-<section class="highlight top" id="techniques">
-    <div class="container">
+    <section class="highlight top" id="techniques">
+        <div class="container">
 
-        <h2>Techniques</h2>
+            <h2>Techniques</h2>
 
-        <div class="row">
+            <div class="row">
                 <g:each in="${uniqueGroep}" status="i" var="groepInstance">
                     <div class="col-md-12 col-sm-12 col-xs-12  techniqueBlock ${groepInstance.replaceAll(" ","_")}" id="${groepInstance.replaceAll(" ","_")}">
                         <div class="owl-carousel owl-carousel-spaced"
@@ -172,63 +172,117 @@
                         </div>
                     </div>
                 </g:each>
-        </div>
-        <ul class="nav nav-pills">
-            <g:each in="${uniqueGroep}" status="i" var="groepInstance">
-                <li>
-                    <a class="btn-dark text-capitalize" href="javascript:void(0);" onclick="showTecniqueBlock('#${groepInstance}')">
-                        ${groepInstance}
-                    </a>
-                </li>
-            </g:each>
-        </ul>
+            </div>
+            <ul class="nav nav-pills">
+                <g:each in="${uniqueGroep}" status="i" var="groepInstance">
+                    <li>
+                        <a class="btn-dark text-capitalize" href="javascript:void(0);" onclick="showTecniqueBlock('#${groepInstance}')">
+                            ${groepInstance}
+                        </a>
+                    </li>
+                </g:each>
+            </ul>
 
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div class="row featured-boxes">
+            <div class="col-md-4" data-appear-animation="fadeInLeft">
+                <div class="featured-box featured-box-secundary">
+                    <div class="box-content">
+                        <center>
+                            <asset:image class="img-responsive" src="img/front/money_back_guarantee.png"/>
+                            <h4>Money Back Guarantee</h4>
+
+                            <p>If you are not happy you can send request for update or request your money back!</p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-appear-animation="fadeInUp">
+                <div class="featured-box featured-box-tertiary">
+                    <div class="box-content">
+                        <center>
+                            <asset:image class="img-responsive" src="img/front/1hrdelivery.png"/>
+                            <h4>1 HR Delivery</h4>
+
+                            <p>Upload your image now and we'll deliver your retouched images within an hour!</p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-appear-animation="fadeInRight">
+                <div class="featured-box featured-box-quartenary">
+                    <div class="box-content">
+                        <center>
+                            <asset:image class="img-responsive" src="img/front/reviews.png"/>
+                            <h4>Reviews</h4>
+
+                            <p>We are recommended by professional photographers and a lot of customers. Check our reviews or give one yourself after we retouched your images.</p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
 
-<div class="container">
-
-    <div class="row featured-boxes">
-        <div class="col-md-4" data-appear-animation="fadeInLeft">
-            <div class="featured-box featured-box-secundary">
-                <div class="box-content">
-                    <center>
-                        <asset:image class="img-responsive" src="img/front/money_back_guarantee.png"/>
-                        <h4>Money Back Guarantee</h4>
-
-                        <p>If you are not happy you can send request for update or request your money back!</p>
-                    </center>
+    <div class="map-section">
+        <section class="featured footer map">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2><strong>What</strong> Client’s Say</h2>
+                        <div class="row">
+                            <div class="owl-carousel push-bottom" data-plugin-options='{"items": 1}'>
+                                <g:each in="${testimonialCustomerList}" status="i" var="testimonialCustomer">
+                                    <div>
+                                        <div class="col-md-12">
+                                            <blockquote class="testimonial">
+                                                <p>${testimonialCustomer?.testimonial}</p>
+                                            </blockquote>
+                                            <div class="testimonial-arrow-down"></div>
+                                            <div class="testimonial-author">
+                                                <div class="img-thumbnail img-thumbnail-small">
+                                                    <asset:image src="img/clients/client-1.jpg" alt="" />
+                                                </div>
+                                                <p><strong>${testimonialCustomer?.fullName}</strong><span>${testimonialCustomer?.customerPosition}</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </g:each>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2><strong>What</strong> Retoucher’s Say</h2>
+                        <div class="row">
+                            <div class="owl-carousel push-bottom" data-plugin-options='{"items": 1}'>
+                                <g:each in="${testimonialRetoucherList}" status="i" var="testimonialRetoucher">
+                                    <div>
+                                        <div class="col-md-12">
+                                            <blockquote class="testimonial">
+                                                <p>${testimonialRetoucher?.testimonial}</p>
+                                            </blockquote>
+                                            <div class="testimonial-arrow-down"></div>
+                                            <div class="testimonial-author">
+                                                <div class="img-thumbnail img-thumbnail-small">
+                                                    <asset:image src="img/clients/client-1.jpg" alt="" />
+                                                </div>
+                                                <p><strong>${testimonialRetoucher?.fullName}</strong><span>${testimonialRetoucher?.customerPosition}</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </g:each>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-4" data-appear-animation="fadeInUp">
-            <div class="featured-box featured-box-tertiary">
-                <div class="box-content">
-                    <center>
-                        <asset:image class="img-responsive" src="img/front/1hrdelivery.png"/>
-                        <h4>1 HR Delivery</h4>
-
-                        <p>Upload your image now and we'll deliver your retouched images within an hour!</p>
-                    </center>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4" data-appear-animation="fadeInRight">
-            <div class="featured-box featured-box-quartenary">
-                <div class="box-content">
-                    <center>
-                        <asset:image class="img-responsive" src="img/front/reviews.png"/>
-                        <h4>Reviews</h4>
-
-                        <p>We are recommended by professional photographers and a lot of customers. Check our reviews or give one yourself after we retouched your images.</p>
-                    </center>
-                </div>
-            </div>
-        </div>
+        </section>
     </div>
-</div>
-
 </div>
 </html>
