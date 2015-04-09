@@ -28,10 +28,6 @@
         </div>
     </section>
     <div id="create-testimonial" class="content scaffold-create container" role="main">
-    %{--    <h1><g:message code="default.create.label" args="[entityName]" /></h1>
-        <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-        </g:if>--}%
         <g:hasErrors bean="${testimonialInstance}">
             <ul class="errors" role="alert">
                 <g:eachError bean="${testimonialInstance}" var="error">
@@ -43,9 +39,9 @@
         <fieldset class="form">
             <g:render template="form"/>
         </fieldset>
-        <fieldset class="buttons">
-            <g:submitButton name="create" class="mb-xs mt-xs mr-xs btn btn-sm btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-        </fieldset>
+            <div class="col-md-9 col-md-offset-3 push-top">
+                <g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+            </div>
         </g:form>
     </div>
 </div>

@@ -31,10 +31,6 @@
     </section>
 
     <div id="edit-testimonial" class="content scaffold-edit container" role="main">
-        %{--<h1><g:message code="default.edit.label" args="[entityName]" /></h1>--}%
-        %{-- <g:if test="${flash.message}">
-             <div class="message" role="status">${flash.message}</div>
-         </g:if>--}%
         <div class="panel">
             <g:hasErrors bean="${testimonialInstance}">
                 <ul class="errors" role="alert">
@@ -48,9 +44,9 @@
             <fieldset class="form">
                 <g:render template="form"/>
             </fieldset>
-            <fieldset class="buttons">
-                <g:actionSubmit class="mb-xs mt-xs mr-xs btn btn-sm btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-            </fieldset>
+                <div class="col-md-9 col-md-offset-3 push-top">
+                    <g:actionSubmit class="btn btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                </div>
             </g:form>
         </div>
 

@@ -1,5 +1,3 @@
-
-
 <%@ page import="com.retouch.Testimonial" %>
 <!DOCTYPE html>
 <html>
@@ -35,13 +33,9 @@
 		</section>
 
 		<div class="container">
-			<div class="alert alert-info">Change Text</div>
 
 			<div class="panel-body">
 				<div class="table-responsive">
-				%{--	<g:if test="${flash.message}">
-						<div class="message" role="status">${flash.message}</div>
-					</g:if>--}%
 					<table
 						class="table table-bordered table-striped table-condensed mb-none">
 						<thead>
@@ -54,9 +48,7 @@
 						<g:sortableColumn property="testimonial" title="${message(code: 'testimonial.testimonial.label', default: 'Testimonial')}" />
 					
 						<g:sortableColumn property="userType" title="${message(code: 'testimonial.userType.label', default: 'User Type')}" />
-					
-						<g:sortableColumn property="photo" title="${message(code: 'testimonial.photo.label', default: 'Photo')}" />
-					
+
 							</tr>
 						</thead>
 						<tbody>
@@ -71,9 +63,6 @@
 									<td>${fieldValue(bean: testimonialInstance, field: "testimonial")}</td>
 								
 									<td>${fieldValue(bean: testimonialInstance, field: "userType")}</td>
-								
-									<td>${fieldValue(bean: testimonialInstance, field: "photo")}</td>
-								
 
 								</tr>
 							</g:each>
