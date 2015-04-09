@@ -113,7 +113,8 @@ class TaskController {
             params.sort = "id"
             params.order = "desc"
         }
-        respond Project.findAllByAssignedTo(null,params), model: [projectInstanceCount: Project.countByAssignedTo(null)]
+        println("new task" + params)
+        respond Project.findAllByStatus("New",params), model: [projectInstanceCount: Project.countByStatus("New")]
 
     }
 
