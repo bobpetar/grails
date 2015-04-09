@@ -246,11 +246,13 @@
                                             </blockquote>
                                             <div class="testimonial-arrow-down"></div>
                                             <div class="testimonial-author">
-                                                <div class="img-thumbnail img-thumbnail-small">
-                                                    <asset:image src="img/clients/client-1.jpg" alt="" />
-                                                    %{--<img src="${grailsApplication.config.retouch.techniqueImageServer}${testimonialCustomer?.getThumbnailImageName()}"--}%
-                                                         %{--class="img-responsive" alt="">--}%
-                                                </div>
+                                                <g:if test="${testimonialCustomer.photo}">
+                                                    <div class="img-thumbnail img-thumbnail-small">
+                                                        <img src="${grailsApplication?.config?.retouch?.techniqueImageServer}${testimonialCustomer?.getThumbnailImageName()}"
+                                                             class="img-responsive" alt="">
+
+                                                    </div>
+                                                </g:if>
                                                 <p><strong>${testimonialCustomer?.fullName}</strong><span>${testimonialCustomer?.customerPosition}</span></p>
                                             </div>
                                         </div>
@@ -271,9 +273,13 @@
                                             </blockquote>
                                             <div class="testimonial-arrow-down"></div>
                                             <div class="testimonial-author">
-                                                <div class="img-thumbnail img-thumbnail-small">
-                                                    <asset:image src="img/clients/client-1.jpg" alt="" />
-                                                </div>
+                                                <g:if test="${testimonialRetoucher.photo}">
+                                                    <div class="img-thumbnail img-thumbnail-small">
+                                                        <img src="${grailsApplication?.config?.retouch?.techniqueImageServer}${testimonialRetoucher?.getThumbnailImageName()}"
+                                                             class="img-responsive" alt="">
+
+                                                    </div>
+                                                </g:if>
                                                 <p><strong>${testimonialRetoucher?.fullName}</strong><span>${testimonialRetoucher?.customerPosition}</span></p>
                                             </div>
                                         </div>
