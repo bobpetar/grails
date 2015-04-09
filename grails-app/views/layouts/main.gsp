@@ -178,6 +178,7 @@
                         <li><a href="${createLink(action: 'index',controller: 'project') }">Projects</a></li>
                         <li><a href="${createLink(uri:'/technique') }">Techniques</a></li>
                         <li><a href="${createLink(uri:'/siteParams') }">Site Params</a></li>
+                        <li><a href="${createLink(uri:'/testimonial') }">Testimonial</a></li>
                     </sec:ifAllGranted>
                     <sec:ifAllGranted roles="ROLE_RETOUCHER">
                         <li><a href="${createLink(uri:'/tasks') }">My Tasks
