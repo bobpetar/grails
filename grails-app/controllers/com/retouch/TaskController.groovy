@@ -114,7 +114,7 @@ class TaskController {
             params.order = "desc"
         }
         println("new task" + params)
-        respond Project.findAllByStatus("New",params), model: [projectInstanceCount: Project.countByStatus("New")]
+        respond Project.findAllByStatus("Paid",params), model: [projectInstanceCount: Project.countByStatus("Paid")]
 
     }
 
@@ -126,6 +126,11 @@ class TaskController {
 
     @Secured(["ROLE_RETOUCHER","ROLE_ADMIN"])
     def show(Project projectInstance) {
+        println(projectInstance.status)
+        if(projectInstance.status == 'New'){
+            redirect(action: "newTasks")
+        }
+
         if(!projectInstance.assignedTo || projectInstance.assignedTo == springSecurityService.getCurrentUser()){
             respond projectInstance
         }else{
