@@ -48,6 +48,18 @@ class MyImageService {
         deleteImage(techniqueInstance.getBeforeafterimage(), techniqueImageUploadPath)
     }
 
+    public void deleteTestimonialImage(Testimonial testimonialInstance){
+        try{
+            String techniqueImageUploadPath = grailsApplication.config.retouch.techniqueImageUploadPath
+            deleteImage(testimonialInstance.getLargeImageName(), techniqueImageUploadPath)
+            deleteImage(testimonialInstance.getThumbnailImageName(), techniqueImageUploadPath)
+            deleteImage(testimonialInstance.getPhoto(), techniqueImageUploadPath)
+        }
+        catch (Exception e){
+            return
+        }
+    }
+
 
 	public String saveImagePackage(imageFile){
 		def date = new Date()

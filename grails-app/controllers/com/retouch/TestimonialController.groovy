@@ -9,7 +9,7 @@ class TestimonialController {
 
     def myImageService
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -75,6 +75,24 @@ class TestimonialController {
         if (testimonialInstance.hasErrors()) {
             respond testimonialInstance.errors, view: 'edit'
             return
+        }
+
+        def photo
+
+        if(params.photofile){
+            photo = request.getFile('photofile')
+        }
+
+        def testimonialImage
+
+        if(photo && !photo.empty){
+            testimonialImage = myImageService.saveTechniqueImage(photo)
+            myImageService.deleteTestimonialImage(testimonialInstance)
+            testimonialInstance?.photo=testimonialImage
+            testimonialInstance?.fullName=params.fullName
+            testimonialInstance?.testimonial=params.testimonial
+            testimonialInstance?.userType=params.userType
+            testimonialInstance?.customerPosition=params.customerPosition
         }
 
         testimonialInstance.save flush: true

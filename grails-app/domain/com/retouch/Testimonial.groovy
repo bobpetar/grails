@@ -40,6 +40,6 @@ class Testimonial {
     }
 
     def beforeDelete() {
-        myImageService.deleteTechniqueImage(this)
+        myImageService.deleteTestimonialImage(this)
     }
 }
