@@ -14,6 +14,7 @@ class MyImageService {
 		try{
 			if(imageName && imageName!=""){
 				def String productImagePath = imageUploadPath+imageName
+                println("Image Path" + productImagePath)
 				File imageFile = new File(productImagePath)
 				imageFile.delete()
 			}
@@ -50,10 +51,12 @@ class MyImageService {
 
     public void deleteTestimonialImage(Testimonial testimonialInstance){
         try{
+            println("Inside deleteTestimonialImage")
             String techniqueImageUploadPath = grailsApplication.config.retouch.techniqueImageUploadPath
-            deleteImage(testimonialInstance.getLargeImageName(), techniqueImageUploadPath)
-            deleteImage(testimonialInstance.getThumbnailImageName(), techniqueImageUploadPath)
-            deleteImage(testimonialInstance.getPhoto(), techniqueImageUploadPath)
+            println("testimonial Image " + techniqueImageUploadPath)
+            deleteImage(testimonialInstance?.getLargeImageName(), techniqueImageUploadPath)
+            deleteImage(testimonialInstance?.getThumbnailImageName(), techniqueImageUploadPath)
+            deleteImage(testimonialInstance?.getPhoto(), techniqueImageUploadPath)
         }
         catch (Exception e){
             println("Testimonial Image deletion problem.")
