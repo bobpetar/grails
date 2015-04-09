@@ -35,7 +35,7 @@
                 </g:eachError>
             </ul>
         </g:hasErrors>
-        <g:form url="[resource:testimonialInstance, action:'save']" >
+        <g:form enctype="multipart/form-data" url="[resource:testimonialInstance, action:'save']" >
         <fieldset class="form">
             <g:render template="form"/>
         </fieldset>

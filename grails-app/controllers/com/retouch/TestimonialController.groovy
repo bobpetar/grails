@@ -7,6 +7,8 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class TestimonialController {
 
+    def myImageService
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -32,6 +34,20 @@ class TestimonialController {
         if (testimonialInstance.hasErrors()) {
             respond testimonialInstance.errors, view: 'create'
             return
+        }
+
+        def photo
+        def testimonialImage
+
+        println(params)
+
+        if(params.photofile){
+            photo = request.getFile('photofile')
+        }
+
+        if(photo && !photo.empty){
+            testimonialImage = myImageService.saveTechniqueImage(photo)
+            testimonialInstance = new Testimonial(photo: testimonialImage, fullName: params.fullName, testimonial: params.testimonial, userType: params.userType, customerPosition:params.customerPosition)
         }
 
         testimonialInstance.save flush: true

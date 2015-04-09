@@ -248,6 +248,8 @@
                                             <div class="testimonial-author">
                                                 <div class="img-thumbnail img-thumbnail-small">
                                                     <asset:image src="img/clients/client-1.jpg" alt="" />
+                                                    %{--<img src="${grailsApplication.config.retouch.techniqueImageServer}${testimonialCustomer?.getThumbnailImageName()}"--}%
+                                                         %{--class="img-responsive" alt="">--}%
                                                 </div>
                                                 <p><strong>${testimonialCustomer?.fullName}</strong><span>${testimonialCustomer?.customerPosition}</span></p>
                                             </div>

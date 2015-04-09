@@ -40,8 +40,10 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="${grailsApplication.config.retouch.techniqueImageServer}}"
-                             class="img-responsive" alt="">
+                        <g:if test="${testimonialInstance.photo}">
+                            <img src="${grailsApplication?.config?.retouch?.techniqueImageServer}${testimonialInstance?.getLargeImageName()}"
+                                 class="img-responsive" alt="">
+                        </g:if>
                     </div>
 
                     <div class="col-md-6">
@@ -49,13 +51,13 @@
                         <ul class="portfolio-details">
                             <li>
                                 <ul class="list list-skills icons list-unstyled list-inline text-uppercase">
-                                    <li><i class="fa fa-check-circle"></i> ${testimonialInstance.customerPosition}</li>
-                                    <li><i class="fa fa-check-circle"></i> ${testimonialInstance.userType}</li>
+                                    <li><i class="fa fa-check-circle"></i> ${testimonialInstance?.customerPosition}</li>
+                                    <li><i class="fa fa-check-circle"></i> ${testimonialInstance?.userType}</li>
                                 </ul>
                             </li>
                         </ul>
 
-                        <p class="taller"> ${testimonialInstance.testimonial}</p>
+                        <p class="taller"> ${testimonialInstance?.testimonial}</p>
 
 
 

@@ -4,7 +4,7 @@
     <div class="row show-grid">
 
         <div class="col-md-12">
-            <h4 class="page-header text-capitalize">${testimonialInstance.fullName}</h4>
+            <h4 class="page-header text-capitalize">${testimonialInstance?.fullName}</h4>
 
             <div class="form-group">
                 <label class="col-md-3 control-label" for="fullName">Full Name</label>
@@ -26,7 +26,7 @@
                 <label class="col-md-3 control-label" for="userType">User Type</label>
 
                 <div class="col-md-9">
-                    <g:select name="userType" class="form-control" from="${testimonialInstance.constraints.userType.inList}" required="" value="${testimonialInstance?.userType}" valueMessagePrefix="testimonial.userType"/>
+                    <g:select name="userType" class="form-control" from="${testimonialInstance?.constraints.userType.inList}" required="" value="${testimonialInstance?.userType}" valueMessagePrefix="testimonial.userType"/>
                 </div>
             </div>
 
