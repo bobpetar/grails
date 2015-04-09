@@ -113,8 +113,13 @@ class TestimonialController {
             notFound()
             return
         }
-
-        testimonialInstance.delete flush: true
+        try {
+            myImageService.deleteTestimonialImage(testimonialInstance)
+            testimonialInstance.delete flush: true
+        } catch (Exception e){
+            render(view: 'show')
+            return
+        }
 
         request.withFormat {
             form multipartForm {

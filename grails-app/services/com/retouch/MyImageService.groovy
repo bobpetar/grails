@@ -56,6 +56,7 @@ class MyImageService {
             deleteImage(testimonialInstance.getPhoto(), techniqueImageUploadPath)
         }
         catch (Exception e){
+            println("Testimonial Image deletion problem.")
             return
         }
     }
