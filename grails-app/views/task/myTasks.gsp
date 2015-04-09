@@ -33,53 +33,70 @@
         </div>
     </section>
 
-    <div class="container">
+    <div class="container" id="projectFilterList">
+        <div class="col-md-12">
+            <g:if test="${flash.message}">
+                <div class="message" role="status">${flash.message}</div>
+            </g:if>
 
-        <div class="row  show-grid">
-            <div class="col-md-12">
-                <div id="list-project" class="content scaffold-list" role="main">
-
-                    <table class="table table-striped mb-none  table-bordered">
-                        <thead>
-                        <tr>
-                            <th>Original File</th>
-                            <g:sortableColumn property="projectId" title="${message(code: 'project.projectId.label', default: 'Project Id')}" />
-
-                  %{--          <th><g:message code="project.originalImage.label" default="Original Image" /></th>--}%
-                            <th><g:message code="project.status.label" default="Status" /></th>
-                            <th><g:message code="project.createdDate.label" default="Date Created" /></th>
-                            <th><g:message code="project.lastUpdated.label" default="Last Updated" /></th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <g:each in="${projectInstanceList}" status="i" var="projectInstance">
-                            <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-<td>
-    %{--<div class="thumbnail">--}%
-                    <img id="uploadedImage" class="img-rounded img-responsive" style="width: 40px;" src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getThumbnailImageName()}">
-    %{--</div>--}%
-</td>
-                                <td><g:link action="show" id="${projectInstance.id}">${fieldValue(bean: projectInstance, field: "projectId")}</g:link></td>
-                              %{--  <td>${fieldValue(bean: projectInstance, field: "originalImage")}</td>--}%
-                                <td>${fieldValue(bean: projectInstance, field: "status")}</td>
-                                <td>${fieldValue(bean: projectInstance, field: "createdDate")}</td>
-                                <td>${fieldValue(bean: projectInstance, field: "lastUpdated")}</td>
-
-  %{--                              <td>${fieldValue(bean: projectInstance, field: "finalImage")}</td>--}%
-
-                            </tr>
-                        </g:each>
-                        </tbody>
-                    </table>
-                    <ul class="pagination">
-                        <retouch:paginate total="${projectInstanceCount ?: 0}" />
-                    </ul>
+            <div class="col-md-9 pull-right bold">
+                <div class="col-md-3">
+                    Project Id
+                </div>
+                <div class="col-md-3">
+                    Date Created
+                </div>
+                <div class="col-md-3">
+                    Last Updated
+                </div>
+                <div class="col-md-3">
+                    Status
                 </div>
             </div>
+
+            <g:each in="${projectInstanceList}" status="i" var="projectInstance">
+                <div class="col-md-12 push-top">
+
+                    <div class="col-md-3">
+                        <g:link action="show" id="${projectInstance.id}">
+                            <img id="uploadedImage1" class="img-rounded img-responsive"
+                                 src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getLargeImageName()}">
+                        </g:link>
+                    </div>
+
+                    <br>
+                    <div class="well col-md-9 center">
+                        <div class="col-md-3">
+                            <g:link action="show" id="${projectInstance.id}">${fieldValue(bean: projectInstance, field: "projectId")}</g:link>
+                        </div>
+
+                        <div class="col-md-3">
+                            <prettytime:display date="${projectInstance.createdDate}"/>
+                        </div>
+
+                        <div class="col-md-3">
+                            <prettytime:display date="${projectInstance.lastUpdated}"/>
+                        </div>
+
+                        <div class="col-md-3">
+                            <span class="tag label
+                            <g:if test="${projectInstance.status == 'New'}">btn-danger</g:if>
+                            <g:if test="${projectInstance.status == 'Paid'}">btn-warning</g:if>
+                            <g:if test="${projectInstance.status == 'In Progress'}">btn-info</g:if>
+                            <g:if test="${projectInstance.status == 'In Review'}">btn-dark</g:if>
+                            <g:if test="${projectInstance.status == 'Complete'}">btn-success</g:if> ">
+                                ${fieldValue(bean: projectInstance, field: "status")}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="tall" />
+            </g:each>
+            <ul class="pagination pull-right">
+                <retouch:paginate total="${projectInstanceCount ?: 0}"/>
+            </ul>
         </div>
-        <hr class="tall">
-   </div>
+    </div>
 
 
 
