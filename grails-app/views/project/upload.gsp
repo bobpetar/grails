@@ -20,14 +20,6 @@
 
     <section class="page-top">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li class="active">Upload</li>
-                    </ul>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-md-12">
@@ -38,12 +30,6 @@
     </section>
 
     <div class="container">
-
-        <div class="row center">
-            <div class="col-md-12">
-                <g:render template="flow"/>
-            </div>
-        </div>
 
         <div class="row center">
             <div class="col-md-12">
@@ -64,7 +50,7 @@
                     </div>
                     <br>
                     <fieldset class="buttons">
-                        <g:submitButton name="upload" class="btn btn-primary btn-lg" value="Upload"/>
+                        <g:submitButton name="upload" class="btn btn-primary btn-lg" value="Upload Image!"/>
                     </fieldset>
                 </g:form>
             </div>
