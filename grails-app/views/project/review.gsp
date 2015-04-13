@@ -176,6 +176,7 @@
 
                     <div class="form-group" style="float: right">
                         <a type="button" class="mb-xs mt-xs mr-xs btn btn-primary" href="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.toString()}" target="_blank"><i class="fa fa-download"></i> Download</a>
+                        <a type="button" class="mb-xs mt-xs mr-xs btn btn-primary" href="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.toString()}" target="_blank"><i class="fa fa-download"></i> Approve</a>
                     </div>
 
                 </div>

@@ -70,6 +70,11 @@ class ProjectController {
            return
         }
 
+        if(projectInstance.status == "In Review" || projectInstance.status == "Complete" ){
+            redirect(action: "review",id:projectInstance.projectId)
+            return
+        }
+
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
 		def techniques = Technique.list()
         def techniqueList = projectInstance.task.techniques.toList()
@@ -101,10 +106,10 @@ class ProjectController {
     def review(String id){
         def projectInstance = Project.findByProjectId(id)
         println(projectInstance)
-        if(!projectInstance || projectInstance.task.payment.status != org.grails.paypal.Payment.COMPLETE){
-          //  redirect(controller: "notfound")
-          //  return
-        }
+       /* if(!projectInstance || projectInstance.task.payment.status != org.grails.paypal.Payment.COMPLETE){
+            redirect(controller: "notfound")
+            return
+        }*/
 
         respond projectInstance
 
@@ -118,6 +123,11 @@ class ProjectController {
         if(!projectInstance || projectInstance?.client!=springSecurityService.getCurrentUser()){
             flash.message = "This project does not exist."
             redirect(action: "upload")
+            return
+        }
+
+        if(projectInstance.status == "In Review" || projectInstance.status == "Complete" ){
+            redirect(action: "review",id:projectInstance.projectId)
             return
         }
 
@@ -149,6 +159,7 @@ class ProjectController {
         }
     }
 
+/*
     @Secured(["ROLE_USER","ROLE_ADMIN"])
     def service(String id){
         def projectInstance = Project.findByProjectId(id)
@@ -165,6 +176,7 @@ class ProjectController {
         [projectInstance:projectInstance]
 
     }
+*/
 
     @Secured(["ROLE_USER","ROLE_ADMIN"])
     def projects(Integer max){
@@ -342,7 +354,7 @@ class ProjectController {
         }
     }
 
-    @Transactional
+/*    @Transactional
     def addImageNote(Task task) {
 
             if(!task || task.project.client!=springSecurityService.getCurrentUser()){
@@ -361,8 +373,8 @@ class ProjectController {
                     render false
                 }
             }
-    }
-    @Transactional
+    }*/
+/*    @Transactional
     def removeImageNote(ImageTag imageTag){
         if(!imageTag || imageTag?.task?.project?.client!=springSecurityService.getCurrentUser()){
             render false
@@ -375,7 +387,7 @@ class ProjectController {
                 render false
             }
         }
-    }
+    }*/
 
 	@Transactional
     @Secured(["ROLE_USER","ROLE_ADMIN"])
@@ -413,6 +425,38 @@ class ProjectController {
             render (template: 'invoicelist', model:[techniqueList:techniqueList, taskInstance:taskInstance, sumTechnique:sumTechnique, cashDiscount:cashDiscount, couponDiscount:couponDiscount])
         }
 	}
+
+    @Secured(["ROLE_USER","ROLE_ADMIN"])
+    def getInvoice(Task task){
+        if(!task || task?.project?.client!=springSecurityService.getCurrentUser()){
+            redirect(controller: "notfound")
+            return
+        }
+        println "HELLO"
+        def taskInstance = Task.get(task.id)
+        def techniqueList = taskInstance.techniques
+        def sumTechnique = techniqueList.ratePerTechnique.sum()
+
+        def maxamount
+        if(!SiteParams.findByParameterName('MAXAMOUNT')){
+            maxamount=10.0
+        } else{
+            maxamount=Double.valueOf(SiteParams.findByParameterName('MAXAMOUNT').parameterValue)
+        }
+
+        def cashDiscount = 0.0
+        if(sumTechnique>maxamount){
+            cashDiscount = sumTechnique - maxamount
+        }
+
+        def couponDiscount = 0.0
+        if(IssuedCoupon.findByProjectId(task.projectId)  && sumTechnique){
+            couponDiscount = (sumTechnique - cashDiscount) * IssuedCoupon.findByProjectId(task.projectId).discountPercent / 100
+        }
+
+        render (template: 'invoicelist', model:[techniqueList:techniqueList, sumTechnique:sumTechnique, cashDiscount:cashDiscount, couponDiscount:couponDiscount, taskInstance: task])
+
+    }
 
     @Transactional
     @Secured(["ROLE_USER","ROLE_ADMIN"])
@@ -460,6 +504,11 @@ class ProjectController {
 
         def couponInstance = IssuedCoupon.findByCodeAndExpiresOnGreaterThan(params.couponcode, now)
         def currentUser = Project.get(params.projectInstance)
+        def oldCouponInstance = IssuedCoupon.findByProjectId(params.projectInstance)
+        if(oldCouponInstance && oldCouponInstance!=couponInstance){
+            oldCouponInstance.projectId = null
+            oldCouponInstance.save()
+        }
 
         if(currentUser.client !=springSecurityService.getCurrentUser()){
             render([message: "Coupon code \"" + params.couponcode + "\" not found!"] as JSON)

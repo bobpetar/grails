@@ -27,11 +27,12 @@ class InvoiceService {
         }
 
         def couponDiscount = 0.0
-        if(IssuedCoupon.findByProjectId(task.project.id)  && sumTechnique){
-            couponDiscount = (sumTechnique - cashDiscount) * IssuedCoupon.findByProjectId(task.project.id).discountPercent / 100
+      /*  def issuedCoupon = IssuedCoupon.findByProjectId(task.project.id)
+        if( issuedCoupon && sumTechnique){
+            couponDiscount = (sumTechnique - cashDiscount) * issuedCoupon.discountPercent / 100
         }
-
-        Double totalAmount = sumTechnique - cashDiscount - couponDiscount
+*/
+        Double totalAmount = sumTechnique - cashDiscount //- couponDiscount
 
         return totalAmount
     }

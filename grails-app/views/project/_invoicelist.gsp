@@ -1,28 +1,28 @@
 <div id="showInvoice" class="popup-inline-content mfp-hide" style="max-width: 600px;">
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Name (Group)</th>
-        <th>Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    <g:each in="${techniqueList}" status="i" var="techniqueInstance">
+    <table class="table table-striped">
+        <thead>
         <tr>
-            <td>${techniqueInstance.name} (${techniqueInstance.groep})</td>
-            <td>$${techniqueInstance.ratePerTechnique}</td>
+            <th>Name (Group)</th>
+            <th>Price</th>
         </tr>
-    </g:each>
+        </thead>
+        <tbody>
+        <g:each in="${techniqueList}" status="i" var="techniqueInstance">
+            <tr>
+                <td>${techniqueInstance.name} (${techniqueInstance.groep})</td>
+                <td>$${techniqueInstance.ratePerTechnique}</td>
+            </tr>
+        </g:each>
 
-    <g:if test="${sumTechnique}">
-        <tr><td>Total</td></td><td>$${sumTechnique}</td></tr>
+        <g:if test="${sumTechnique}">
+            <tr><td>Total</td></td><td>$${sumTechnique}</td></tr>
         <tr><td>Cash Discount</td></td><td>$${cashDiscount}</td></tr>
         <tr><td>Coupon Discount</td></td><td>$${couponDiscount}</td></tr>
-        <tr><td>You Pay:</td><td>$${sumTechnique - cashDiscount - couponDiscount}</td></tr>
-    </g:if>
+            <tr><td>You Pay:</td><td>$${sumTechnique - cashDiscount - couponDiscount}</td></tr>
+        </g:if>
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
 </div>
 <g:if test="${sumTechnique}">
     <table class="table table-striped">
