@@ -29,7 +29,7 @@
 
                                     <span class="thumb-info-action">
                                         <span title="Universal" class="thumb-info-action-icon">
-                                            <i class="fa fa-trash-o"></i>
+                                            <i class="fa fa-info"></i>
                                         </span>
                                     </span>
                                 </a>
