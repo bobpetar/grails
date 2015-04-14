@@ -30,10 +30,17 @@
         <nav class="nav-main mega-menu pull-right">
             <ul class="nav nav-pills nav-main text-uppercase" id="statusMenu">
                 <li>
-                    <g:remoteLink action="projectsStatusList" id="projectUploaded" name="New" update="projectFilterList"
+                    <g:remoteLink action="projectsStatusList" id="New" name="New" update="projectFilterList"
                                   class="dropdown-toggle notification-icon">
                         Uploaded
-                        <span class="badge">${allProjectInstance.status.count('Paid') + allProjectInstance.status.count('New')}</span>
+                        <span class="badge">${allProjectInstance.status.count('New')}</span>
+                    </g:remoteLink>
+                </li>
+                <li>
+                    <g:remoteLink action="projectsStatusList" id="Paid" update="projectFilterList"
+                                  class="dropdown-toggle notification-icon">
+                        Paid
+                        <span class="badge">${allProjectInstance.status.count('Paid')}</span>
                     </g:remoteLink>
                 </li>
                 <li>
@@ -76,10 +83,7 @@
                     <br>
                     <div class="well col-md-8 center">
                         <div class="col-md-4">
-                            <g:if test="${projectInstance?.task?.payment?.status == 'COMPLETE'}"><a
-                                    href="${createLink(uri: '/project/orderdetails')}/${projectInstance.projectId}">#${fieldValue(bean: projectInstance, field: "projectId")}</a></g:if>
-                            <g:else><a
-                                    href="${createLink(uri: '/project/technique')}/${projectInstance.projectId}#eyes">#${fieldValue(bean: projectInstance, field: "projectId")}</a></g:else>
+                            <a href="${createLink(uri: '/project/technique')}/${projectInstance.projectId}#eyes">#${fieldValue(bean: projectInstance, field: "projectId")}</a>
                         </div>
 
                         <div class="col-md-4">

@@ -70,6 +70,11 @@ class ProjectController {
            return
         }
 
+        if(projectInstance.status == "Paid" || projectInstance.status == "Complete" ){
+            redirect(action: "orderdetails",id:projectInstance.projectId)
+            return
+        }
+
         if(projectInstance.status == "In Review" || projectInstance.status == "Complete" ){
             redirect(action: "review",id:projectInstance.projectId)
             return
@@ -193,13 +198,8 @@ class ProjectController {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         def projectInstanceList
         def projectInstanceCount
-        if(params.id=='projectUploaded'){
-            projectInstanceList = Project.findAllByClientAndStatusInList(springSecurityService.getCurrentUser(),['New', 'Paid'], params)
-            projectInstanceCount= Project.countByClientAndStatusInList(springSecurityService.getCurrentUser(),['New', 'Paid'])
-        } else{
-            projectInstanceList = Project.findAllByClientAndStatus(springSecurityService.getCurrentUser(), params.id, params)
-            projectInstanceCount = Project.countByClientAndStatus(springSecurityService.getCurrentUser(), params.id)
-        }
+        projectInstanceList = Project.findAllByClientAndStatus(springSecurityService.getCurrentUser(), params.id, params)
+        projectInstanceCount = Project.countByClientAndStatus(springSecurityService.getCurrentUser(), params.id)
         render(template: 'projectsStatusList', model:[projectInstanceList:projectInstanceList, projectInstanceCount:projectInstanceCount, id:params.id])
     }
 

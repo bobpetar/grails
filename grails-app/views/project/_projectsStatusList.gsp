@@ -12,10 +12,7 @@
             <br>
             <div class="well col-md-8 center">
                 <div class="col-md-4">
-                    <g:if test="${projectInstance?.task?.payment?.status == 'COMPLETE'}"><a
-                            href="${createLink(uri: '/project/orderdetails')}/${projectInstance.projectId}">#${fieldValue(bean: projectInstance, field: "projectId")}</a></g:if>
-                    <g:else><a
-                            href="${createLink(uri: '/project/technique')}/${projectInstance.projectId}#eyes">#${fieldValue(bean: projectInstance, field: "projectId")}</a></g:else>
+                    <a href="${createLink(uri: '/project/technique')}/${projectInstance.projectId}#eyes">#${fieldValue(bean: projectInstance, field: "projectId")}</a>
                 </div>
 
                 <div class="col-md-4">
