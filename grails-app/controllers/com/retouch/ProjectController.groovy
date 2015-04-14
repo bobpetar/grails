@@ -571,6 +571,21 @@ class ProjectController {
 
     }
 
+
+    @Transactional
+    @Secured(["ROLE_USER","ROLE_ADMIN"])
+    def approveProject(Project project){
+        println project
+        if(project.client == (User)springSecurityService.getCurrentUser()){
+            project.status = "Complete"
+            project.save(flush: true)
+            redirect( action: 'review',id:project.projectId)
+        }else{
+            notFound()
+        }
+
+    }
+
 	protected void notFound() {
 		request.withFormat {
 			form multipartForm {
