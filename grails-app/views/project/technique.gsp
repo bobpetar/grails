@@ -27,8 +27,17 @@
 
         function update(data){
             $('#couponstatus').html(data.message);
-            $('#couponcode').value('');
+            console.log(data)
+            $('#couponcode').val('');
+            updateInvoice();
         }
+
+        function updateInvoice(){
+            $.get("${createLink(action: 'getInvoice',controller: 'project',id:projectInstance.task.id)}", function(data, status){
+                $('#techniqueList').html(data);
+            });
+        }
+
         function disableonload(i){
             if(${techniques.id.containsAll(techniqueList.id)}){
                 var invoiceList = ${techniqueList.id}

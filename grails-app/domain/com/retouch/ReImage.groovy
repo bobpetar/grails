@@ -20,6 +20,10 @@ class ReImage {
        return getSubName(imagePath,"_L")
     }
 
+    String getWaterMarkedImageName(){
+        return getSubName(imagePath,"33")
+    }
+
     String getThumbnailImageName(){
         return getSubName(imagePath,"_T")
     }

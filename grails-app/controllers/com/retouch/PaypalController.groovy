@@ -13,9 +13,15 @@ class PaypalController extends org.grails.paypal.PaypalController {
         def itemNumber = taskInstance.project.projectId
         def amount = invoiceService.calculateAmount(taskInstance)
         def buyerId = taskInstance.project.client.id
+        def couponDiscount = 0.0
+        def issuedCoupon = IssuedCoupon.findByProjectId(taskInstance.project.id)
+        if( issuedCoupon && amount>0){
+            couponDiscount = (amount) * issuedCoupon.discountPercent / 100
+        }
+
         if(!amount){
             println(amount)
-            flash.message = "Please Choose Techniques!!"
+            flash.message = "Please Select Some Techniques!!"
             return
         }
 
@@ -63,8 +69,8 @@ class PaypalController extends org.grails.paypal.PaypalController {
             url << "item_number=${itemNumber}&"
             url << "quantity=${payment.paymentItems[0].quantity}&"
             url << "amount=${amount}&"
-            if (payment.paymentItems[0].discountAmount > 0) {
-                url << "discount_amount=${payment.paymentItems[0].discountAmount}&"
+            if (couponDiscount > 0) {
+                url << "discount_amount=${couponDiscount}&"
             }
             url << "tax=${payment.tax}&"
             url << "currency_code=${payment.currency}&"
@@ -75,6 +81,7 @@ class PaypalController extends org.grails.paypal.PaypalController {
             url << "cancel_return=${cancelURL}"
 
             log.debug "Redirection to PayPal with URL: $url"
+            println "Redirection to PayPal with URL: $url"
 
             redirect(url: url)
         }

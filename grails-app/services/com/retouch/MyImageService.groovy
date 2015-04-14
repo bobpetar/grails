@@ -38,6 +38,7 @@ class MyImageService {
 	public void deleteImagePackage(ReImage imageDomain){
         String imageUploadPath = grailsApplication.config.retouch.imageUploadPath
 		deleteImage( imageDomain.getLargeImageName(), imageUploadPath)
+		deleteImage( imageDomain.getWaterMarkedImageName(), imageUploadPath)
 		deleteImage( imageDomain.getThumbnailImageName(), imageUploadPath)
 		deleteImage( imageDomain.getImagePath(), imageUploadPath)
 	}
@@ -74,13 +75,18 @@ class MyImageService {
 		String ext =  getFileExtension(imageFile.originalFilename);
 		String fileName = fileNameNoExt+ext.toLowerCase()
 		String fileNameLarge = fileNameNoExt+"_L"
+		String fileNameLargeWithWatermark = fileNameNoExt+"33"
 		String fileNameThumb = fileNameNoExt+"_T"
 
 		def String productImagePath = grailsApplication.config.retouch.imageUploadPath+fileName
-
+        def orginalFileName
+        println grailsApplication.mainContext.servletContext.getRealPath('/data/transactions/foobar')
 		burningImageService.doWith(imageFile, grailsApplication.config.retouch.imageUploadPath).execute (fileNameLarge, {
 			it.scaleApproximate(800, 800)
-		})
+		}).execute (fileNameLargeWithWatermark, {
+            it.scaleApproximate(800, 800)
+            orginalFileName = it.watermark(grailsApplication.mainContext.servletContext.getRealPath('/images/logo.png'))
+        })
 		.execute (fileNameThumb, {
 			it.scaleApproximate(400, 400)
 		})
