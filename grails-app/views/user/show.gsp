@@ -6,6 +6,13 @@
     <g:set var="entityName"
            value="${message(code: 'user.label', default: 'User')}"/>
     <title><g:message code="default.show.label" args="[entityName]"/></title>
+    <script type="application/javascript">
+        window.onload = function(){
+            <g:if test="${userProjects}">
+            $("#deleteme").prop("disabled",true);
+            </g:if>
+        }
+    </script>
 </head>
 
 <body>
@@ -87,7 +94,7 @@
                     <span data-appear-animation-delay="800" data-appear-animation="rotateInUpLeft"
                           class="arrow hlb appear-animation rotateInUpLeft appear-animation-visible"
                           style="animation-delay: 800ms;"></span>
-                    <g:actionSubmit class="btn btn-danger btn-icon" action="delete" value="Delete Me!" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                    <g:actionSubmit class="btn btn-danger btn-icon" id="deleteme" action="delete" value="Delete Me!" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
                 </g:form>
                 </sec:ifAllGranted>
                 <g:if test="${userProjects}">
