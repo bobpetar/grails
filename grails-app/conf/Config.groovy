@@ -112,7 +112,7 @@ environments {
         retouch.techniqueImageServer= "http://1hretouch.com/retouch/techniques/"
         grails.paypal.server="https://www.sandbox.paypal.com/cgi-bin/webscr"
         grails.paypal.email="sachit.nep-facilitator@gmail.com"
-        grails.serverURL = "http://1hretouch.com:8090"
+        grails.serverURL = "http://1hretouch.com"
     }
 }
 
