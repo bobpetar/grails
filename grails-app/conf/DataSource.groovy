@@ -35,8 +35,8 @@ environments {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/retouch?zeroDateTimeBehavior=convertToNull"
-            username = "root"
-            password = "root"
+            username = "retouchadmin"
+            password = "^Gdh&1234"
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
             logSql = false
             properties {
