@@ -81,7 +81,7 @@ class ProjectController {
         }
 
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
-		def techniques = Technique.list()
+		def techniques = Technique.findAllByIsDeleted(false)
         def techniqueList = projectInstance.task.techniques.toList()
         def sumTechnique = techniqueList.ratePerTechnique.sum()
 
