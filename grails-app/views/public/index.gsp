@@ -234,6 +234,7 @@
         <section class="featured footer map">
             <div class="container">
                 <div class="row">
+                    <div class="col-md-8">
                     <div class="col-md-6">
                         <h2><strong>What</strong> Client’s Say</h2>
                         <div class="row">
@@ -285,6 +286,58 @@
                                         </div>
                                     </div>
                                 </g:each>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Pricing...</h2>
+
+                        <div id="accordion" class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a href="#collapseOne" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle" aria-expanded="true">
+                                            <i class="fa fa-usd"></i>
+                                            Regular
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="accordion-body collapse in" id="collapseOne" aria-expanded="true" style="">
+                                    <div class="panel-body">
+                                        Our regular pricing is as low as 50 cent per technique. Our techniques are priced according to time it takes to do the technique. We work with the latest tools and photoshop actions to speed up all our techniques and continue to do so when new techniques come out.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a href="#collapseTwo" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false">
+                                            <i class="fa fa-usd"></i>
+                                            Standard
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="accordion-body collapse" id="collapseTwo" aria-expanded="false" style="height: 0px;">
+                                    <div class="panel-body">
+                                        Our maximum pricing is 10 dollars. For customers who want to use the best techniques and create the most beautiful image we wanted to give a special price. So our pricing model will never exceed 10 dollars, no matter how many techniques you chose on your photo.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a href="#collapseThree" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false">
+                                            <i class="fa fa-usd"></i>
+                                            Special
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="accordion-body collapse" id="collapseThree" aria-expanded="false" style="height: 0px;">
+                                    <div class="panel-body">
+                                        We have the option to edit bulk images for photographers who do regular photoshoots and deliver more than a few images at a time. Although our model is not directly made for it, we do get these requests and are welcome to help out. Also for special changes that are not possible with our model you can ask by contacting us <a href="mailto:special@1hretouch.com">special@1hretouch.com</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
