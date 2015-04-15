@@ -35,6 +35,14 @@
             </div>
 
             <div class="form-group">
+                <label class="col-md-3 control-label" for="name">Rate Technique</label>
+
+                <div class="col-md-8">
+                    <g:textField name="ratePerTechnique" class="form-control" required="" value="0.5"/>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label class="col-md-3 control-label" for="description">Description</label>
 
                 <div class="col-md-8">
@@ -43,11 +51,13 @@
                 </div>
             </div>
 
+            <input name="isDeleted" id="isDeleted" type="hidden" value="${techniqueInstance?.isDeleted}" />
+
             <div class="form-group">
                 <label class="col-md-3 control-label">File Upload</label>
 
                 <div class="col-md-8">
-                    <input type="file" name="beforeafterimage" accept='image/*'>
+                    <input type="file" required="true" name="beforeafterimage" accept='image/*'>
                 </div>
 
             </div>
