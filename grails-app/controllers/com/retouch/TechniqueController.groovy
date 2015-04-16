@@ -15,10 +15,15 @@ class TechniqueController {
 	def index(Integer max) {
 		params.max = Math.min(max ?: 100, 100)
         def uniqueTechniques = Technique.executeQuery("select distinct a.groep from Technique a")
-		respond Technique.list(params), model:[techniqueInstanceCount: Technique.count(), uniqueTechniques:uniqueTechniques]
+
+		respond Technique.findAllByIsDeleted(false, params), model:[techniqueInstanceCount: Technique.findAllByIsDeleted(false), uniqueTechniques:uniqueTechniques]
 	}
 
 	def show(Technique techniqueInstance) {
+        if(techniqueInstance.isDeleted){
+            redirect(action: 'index')
+            return
+        }
 		respond techniqueInstance
 	}
 
@@ -43,10 +48,8 @@ class TechniqueController {
 			techniqueImage = myImageService.saveTechniqueImage(beforeAfterImage)
 		}
 
-		println "Technique Image Name:: " + techniqueImage
-
 		if(techniqueImage){
-			techniqueInstance = new Technique(beforeafterimage:techniqueImage, name:params.name, description:params.description, groep:params.groep, ratePerTechnique: 0.5)
+			techniqueInstance = new Technique(beforeafterimage:techniqueImage, name:params.name, description:params.description, groep:params.groep, ratePerTechnique: params.ratePerTechnique.toDouble(), isDeleted: params.isDeleted)
 		}
 
 		if(!techniqueInstance.save(flush:true)){
@@ -96,7 +99,7 @@ class TechniqueController {
             techniqueInstance?.name=params.name
             techniqueInstance?.groep=params.groep
             techniqueInstance?.description=params.description
-            techniqueInstance?.ratePerTechnique=0.5
+            techniqueInstance?.ratePerTechnique=params.ratePerTechnique.toDouble()
         }
 
 		techniqueInstance.save(flush:true)
@@ -121,8 +124,9 @@ class TechniqueController {
 			return
 		}
         try {
-            myImageService.deleteTechniqueImage(techniqueInstance)
-            techniqueInstance.delete(flush:true)
+//            myImageService.deleteTechniqueImage(techniqueInstance)
+//            techniqueInstance.delete(flush:true)
+            techniqueInstance?.isDeleted = true
         } catch (Exception e){
             render(view: 'show')
             return

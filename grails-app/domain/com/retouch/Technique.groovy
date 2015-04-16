@@ -6,6 +6,7 @@ class Technique {
     String groep
 	String beforeafterimage
     Double ratePerTechnique
+    boolean isDeleted = false
 
     def myImageService
 

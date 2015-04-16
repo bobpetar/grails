@@ -37,6 +37,14 @@
             </div>
 
             <div class="form-group">
+                <label class="col-md-3 control-label" for="name">Rate Technique</label>
+
+                <div class="col-md-8">
+                    <g:textField name="ratePerTechnique" class="form-control" required="" value="${techniqueInstance?.ratePerTechnique}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label class="col-md-3 control-label" for="description">Description</label>
 
                 <div class="col-md-8">

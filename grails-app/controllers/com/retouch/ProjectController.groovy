@@ -65,12 +65,7 @@ class ProjectController {
             return
         }
 
-        if(projectInstance.task.payment && projectInstance.task.payment.status == org.grails.paypal.Payment.COMPLETE){
-            redirect(controller: "notfound")
-           return
-        }
-
-        if(projectInstance.status == "Paid" || projectInstance.status == "Complete" ){
+        if(projectInstance.status == "Paid" || projectInstance.status == "In Progress" || projectInstance.status == "Complete" ){
             redirect(action: "orderdetails",id:projectInstance.projectId)
             return
         }
@@ -81,7 +76,7 @@ class ProjectController {
         }
 
 		def imageTagsJson = taskService.getImageTagJSON(projectInstance.task)
-		def techniques = Technique.list()
+		def techniques = Technique.findAllByIsDeleted(false)
         def techniqueList = projectInstance.task.techniques.toList()
         def sumTechnique = techniqueList.ratePerTechnique.sum()
 

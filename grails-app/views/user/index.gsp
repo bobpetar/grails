@@ -95,8 +95,11 @@
 
                                         </td>
 
-										<td><g:formatBoolean
-												boolean="${userInstance.enabled}" /></td>
+                                        <td><span class="tag label
+                                            <g:if test="${userInstance.enabled}">btn-primary</g:if>
+                                            <g:else>btn-danger</g:else>">
+                                            <g:formatBoolean boolean="${userInstance.enabled}" />
+                                        </span></td>
 
 
 									</tr>
