@@ -550,9 +550,20 @@ class ProjectController {
     @Secured(["ROLE_USER","ROLE_ADMIN","ROLE_RETOUCHER"])
     def saveTaskMessage(Task task){
         def role = "USER"
+        println params
+        println "TESTETSTSETSETSETSET*******************************"
         def currentUser = (User)springSecurityService.getCurrentUser()
         if(SpringSecurityUtils.ifAllGranted("ROLE_RETOUCHER")){
             role = "RETOUCHER"
+        }else{
+            if(params.approval =="YES") {
+                def project = task.project
+                if (project.client == (User) springSecurityService.getCurrentUser()) {
+                    project.status = "Complete"
+                    project.save(flush: true)
+                }
+                println params
+            }
         }
 
         if(task.project.client == currentUser || task.project.assignedTo == currentUser){

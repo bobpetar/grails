@@ -36,11 +36,20 @@
     <g:if test="${task}">
         <div class="">
             <g:formRemote name="myForm" on404="alert('not found!')" update="messageHolder" url="[controller: 'project', action:'saveTaskMessage',id:task.id]">
-                <textarea class="form-control" name="message" rows="3" data-plugin-maxlength="500" maxlength="500"></textarea>
+                <textarea class="form-control" name="message" rows="3" data-plugin-maxlength="500" maxlength="500"/>
+                <div id="approveValueHolder"><g:hiddenField id="approvalField" name="approval" value="no"/></div>
                 <p>
                     <code>max</code> 500 characters.
                 </p>
-                <g:submitButton class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="Send"/>
+%{--
+                <g:submitButton class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="Send" />
+--}%
+                <button type="submit" class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="approve" id="submit" onclick="applyApproval();">
+                    <i class="fa fa-thumbs-o-up"></i> Approve
+                </button>
+                <button type="submit" class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="reject">
+                    <i class="fa fa-thumbs-o-down"></i> Reject
+                </button>
             </g:formRemote>
         </div>
     </g:if>

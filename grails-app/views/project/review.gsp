@@ -5,6 +5,11 @@
 <head>
     <meta name="layout" content="main">
     <title>Order Details</title>
+    <script>
+        function applyApproval(){
+$("#approvalField").val("YES");
+        }
+    </script>
 </head>
 <body>
 
