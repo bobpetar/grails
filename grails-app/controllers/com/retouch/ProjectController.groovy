@@ -562,7 +562,8 @@ class ProjectController {
                     project.status = "Complete"
                     project.save(flush: true)
                 }
-                println params
+                redirect(action:'review',params: [id:project.projectId] )
+                return
             }
         }
 
