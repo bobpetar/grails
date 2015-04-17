@@ -55,12 +55,12 @@
                 <g:if test="${projectInstance.status=='Complete'}">
                     <a class="img-thumbnail lightbox pull-left"	href="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getLargeImageName()}" data-plugin-options='{"type":"image"}'>
 
-                    <img class="img-responsive"  src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getLargeImageName()}"/>
+                    <img style="width: 100%;" class="img-responsive"  src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getLargeImageName()}"/>
 
                 </g:if><g:else>
                 <a style="width: 100%;" class="img-thumbnail lightbox pull-left"	href="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getWaterMarkedImageName()}" data-plugin-options='{"type":"image"}'>
 
-                <img class="img-responsive" src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getWaterMarkedImageName()}"/>
+                <img style="width: 100%;" class="img-responsive" src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getWaterMarkedImageName()}"/>
 
             </g:else>
 
