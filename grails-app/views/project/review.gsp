@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page expressionCodec="none" %>
 <html>
 <head>
     <meta name="layout" content="main">
@@ -11,9 +10,9 @@
     <script>
         function applyApproval(){
             $("#approvalField").val("YES");
+            $("#myForm").removeAttr('onsubmit');
         }
     </script>
-
 </head>
 
 <body>
@@ -34,7 +33,7 @@
         <div class="col-md-8">
         <!-- Technique list template -->
             <g:if test="${projectInstance?.task?.finalImage}">
-                <div class="isotope-item document col-md-12"">
+                <div class="isotope-item document col-md-12">
                     <h3>Retouched Image</h3>
 
                 <div class="col-md-12 push-bottom">
@@ -119,9 +118,16 @@
 
                 <div class="col-md-12 push-bottom">
                     <h4>#${projectInstance.projectId}</h4>
-                    <img alt="${projectInstance.task.originalImage.getLargeImageName()}"
+
+                    <a class="img-thumbnail lightbox pull-left"	href="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getLargeImageName()}" data-plugin-options='{"type":"image"}'>
+                        <img class="img-responsive" style="width: 100%;" width="215" src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.originalImage?.getThumbnailImageName()}">
+                        <span class="zoom">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </a>
+        %{--            <img alt="${projectInstance.task.originalImage.getLargeImageName()}"
                          class="img-responsive img-thumbnail"
-                         src="${grailsApplication.config.retouch.imageServer}${projectInstance.task.originalImage.getLargeImageName()}"/>
+                         src="${grailsApplication.config.retouch.imageServer}${projectInstance.task.originalImage.getLargeImageName()}"/>--}%
                 </div>
 
 
