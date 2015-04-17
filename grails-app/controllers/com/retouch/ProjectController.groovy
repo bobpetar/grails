@@ -106,12 +106,13 @@ class ProjectController {
     def review(String id){
         def projectInstance = Project.findByProjectId(id)
         println(projectInstance)
-       /* if(!projectInstance || projectInstance.task.payment.status != org.grails.paypal.Payment.COMPLETE){
-            redirect(controller: "notfound")
-            return
-        }*/
 
-        respond projectInstance
+        def techniqueList = projectInstance.task.techniques.toList()
+        def sumTechnique = techniqueList.ratePerTechnique.sum()
+        def cashDiscount = 0.0
+        def couponDiscount = 0.0
+        def paypalFlag = 1
+        [projectInstance:projectInstance, techniqueList:techniqueList, sumTechnique:sumTechnique, cashDiscount:cashDiscount, couponDiscount:couponDiscount, paypalFlag:paypalFlag]
 
     }
 

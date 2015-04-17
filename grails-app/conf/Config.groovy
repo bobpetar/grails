@@ -166,20 +166,31 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/project/myTasks':				  ['ROLE_RETOUCHER'],
 ]
 
+//grails {
+//	mail {
+//		host = "smtp.gmail.com"
+//		port = 465
+//		username = "retouch.null@gmail.com"
+//		password = "iam@codeharmony"
+//		props = ["mail.smtp.auth":"true",
+//				"mail.smtp.socketFactory.port":"465",
+//				"mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+//				"mail.smtp.socketFactory.fallback":"false"]
+//	}
+//}
+
 grails {
-	mail {
-		host = "smtp.gmail.com"
-		port = 465
-		username = "retouch.null@gmail.com"
-		password = "iam@codeharmony"
-		props = ["mail.smtp.auth":"true",
-				"mail.smtp.socketFactory.port":"465",
-				"mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-				"mail.smtp.socketFactory.fallback":"false"]
-	}
+    mail {
+        host = "smtp.office365.com"
+        port = 587
+        username = "info@1hretouch.com"
+        password = "Wachtwoord1!"
+        props = ["mail.smtp.starttls.enable":"true",
+                 "mail.smtp.port":"587"]
+    }
 }
 
-grails.mail.default.from = "1hRetouch <retouch.null@gmail.com>"
+grails.mail.default.from = "1hRetouch <info@1hretouch.com>"
 grails.plugins.remotepagination.enableBootstrap=true
 
 imageUpload {
