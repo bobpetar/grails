@@ -41,15 +41,28 @@
                 <p>
                     <code>max</code> 500 characters.
                 </p>
-%{--
-                <g:submitButton class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="Send" />
---}%
-                <button type="submit" class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="approve" id="submit" onclick="applyApproval();">
-                    <i class="fa fa-thumbs-o-up"></i> Approve
-                </button>
-                <button type="submit" class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="reject">
-                    <i class="fa fa-thumbs-o-down"></i> Reject
-                </button>
+            %{--
+                            <g:submitButton class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="Send" />
+            --}%
+                <sec:ifAllGranted roles="ROLE_RETOUCHER">
+                    <g:submitButton class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="Send" />
+                </sec:ifAllGranted>
+                <sec:ifAllGranted roles="ROLE_USER">
+                    <g:if test="${task.project.status=='Complete'}" >
+                        <g:submitButton class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="Send" />
+
+                    </g:if>
+                    <g:else>
+                        <button type="submit" class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="approve" id="submit" onclick="applyApproval();">
+                            <i class="fa fa-thumbs-o-up"></i> Approve
+                        </button>
+                        <button type="submit" class="mb-xs mt-xs mr-xs btn btn-primary col-md-3" style="float:right" name="submit" value="reject">
+                            <i class="fa fa-thumbs-o-down"></i> Reject
+                        </button>
+                    </g:else>
+                </sec:ifAllGranted>
+
+
             </g:formRemote>
         </div>
     </g:if>
