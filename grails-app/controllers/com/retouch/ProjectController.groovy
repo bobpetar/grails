@@ -65,12 +65,7 @@ class ProjectController {
             return
         }
 
-        if(projectInstance.status == "Paid" || projectInstance.status == "In Progress" || projectInstance.status == "Complete" ){
-            redirect(action: "orderdetails",id:projectInstance.projectId)
-            return
-        }
-
-        if(projectInstance.status == "In Review" || projectInstance.status == "Complete" ){
+        if(projectInstance.status == "Paid" || projectInstance.status == "In Progress" || projectInstance.status == "In Review" || projectInstance.status == "Complete" ){
             redirect(action: "review",id:projectInstance.projectId)
             return
         }
