@@ -137,7 +137,9 @@ log4j.main = {
            'net.sf.ehcache.hibernate'
 }
 
-
+//For spring sec email
+grails.plugin.springsecurity.ui.register.emailFrom = 'info@1hretouch.com'
+grails.plugin.springsecurity.ui.forgotPassword.emailFrom = 'info@1hretouch.com'
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.password.bcrypt.logrounds = 15
 grails.plugin.springsecurity.logout.postOnly = false
@@ -189,6 +191,8 @@ grails {
                  "mail.smtp.port":"587"]
     }
 }
+
+
 
 grails.mail.default.from = "1hRetouch <info@1hretouch.com>"
 grails.plugins.remotepagination.enableBootstrap=true

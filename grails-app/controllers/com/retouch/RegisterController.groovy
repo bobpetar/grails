@@ -22,7 +22,9 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
         println command.errors*/
         command.username = command.email
         command.validate()
- /*       println "***************************"
+        //println  SpringSecurityUtils.securityConfig
+/*        println  SpringSecurityUtils.securityConfig.ui.register.emailFrom
+        println "***************************"
         println command.hasErrors()
         println command.errors*/
         if (command.hasErrors()) {
@@ -50,6 +52,7 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
         if (body.contains('$')) {
             body = evaluate(body, [user: user, url: url])
         }
+        println conf.ui.register.emailFrom
         mailService.sendMail {
             to command.email
             from conf.ui.register.emailFrom
@@ -86,7 +89,6 @@ class RegisterCommand {
     }
 
     def beforeValidate(){
-        println "CAOLLING******************"
         if(!username || username==""){
             username = email
         }

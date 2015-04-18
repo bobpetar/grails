@@ -55,12 +55,12 @@
                     <a class="img-thumbnail lightbox pull-left"	href="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getLargeImageName()}" data-plugin-options='{"type":"image"}'>
 
                     <img style="width: 100%;" class="img-responsive"  src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getLargeImageName()}"/>
-
+                    </a>
                 </g:if><g:else>
                 <a style="width: 100%;" class="img-thumbnail lightbox pull-left"	href="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getWaterMarkedImageName()}" data-plugin-options='{"type":"image"}'>
 
                 <img style="width: 100%;" class="img-responsive" src="${grailsApplication.config.retouch.imageServer}${projectInstance?.task?.finalImage?.getWaterMarkedImageName()}"/>
-
+                </a>
             </g:else>
 
                 <span class="zoom">

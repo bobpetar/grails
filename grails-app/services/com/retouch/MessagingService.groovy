@@ -28,4 +28,20 @@ class MessagingService {
                 log.error(e)
             }
     }
+
+    def sendApprovedMessage(message,task){
+        try{
+            if(task){
+                mailService.sendMail {
+                    async true
+                    to receiver
+                    subject "Great job! your retouch was approved"
+                    html "${comment.message} <br><br>"
+
+                }
+            }
+        }catch(e){
+            log.error(e)
+        }
+    }
 }
