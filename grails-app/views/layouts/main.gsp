@@ -145,20 +145,6 @@
                                                        data-sticky-height="40" src="img/logosmall.png" />
         </a>
     </div>
-    <div class="search">
-    </div>
-    <ul class="social-icons">
-        <li class="facebook"><a href="${siteParams?.FACEBOOK}" target="_blank" title="Facebook">Facebook</a></li>
-        <li class="twitter"><a href="${siteParams?.TWITTER}" target="_blank" title="Twitter">Twitter</a></li>
-        <li class="linkedin"><a href="${siteParams?.LINKEDIN}" target="_blank" title="Linkedin">Linkedin</a></li>
-    </ul>
-    <nav>
-        <ul class="nav nav-pills nav-top">
-            <li class="phone">
-                <span><i class="fa fa-phone"></i>${siteParams?.PHONENUMBER}</span>
-            </li>
-        </ul>
-    </nav>
     <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
         <i class="fa fa-bars"></i>
     </button>
