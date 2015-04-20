@@ -36,6 +36,12 @@ class User {
 		encodePassword()
 	}
 
+    def beforeValidate(){
+        if(!username || username==""){
+            username = email
+        }
+    }
+
 	def beforeUpdate() {
 		if (isDirty('password')) {
 			encodePassword()

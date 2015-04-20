@@ -59,7 +59,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="row">
+										%{--<div class="row">
 											<div class="form-group">
 												<div class="col-md-12">
 													<s2ui:textFieldRow name='username'
@@ -68,7 +68,7 @@
 														class="form-control input-lg" required="true"/>
 												</div>
 											</div>
-										</div>
+										</div>--}%
 
 										<div class="row">
 											<div class="form-group">
@@ -78,6 +78,15 @@
 														labelCode='user.email.label'
 														labelCodeDefault='E-mail Address'
 														class="form-control input-lg" required="true"/>
+                                                    <g:hasErrors bean="${command}">
+                                                        <span class="s2ui_error">
+                                                            <g:eachError bean="${command}" var="error">
+                                                                <g:if test="${error.field== 'username'}">
+                                                                    <g:message error="${error}"/>
+                                                                </g:if>
+                                                            </g:eachError>
+                                                        </span>
+                                                    </g:hasErrors>
 												</div>
 											</div>
 										</div>
