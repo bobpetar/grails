@@ -68,10 +68,6 @@
                             <g:fieldValue bean="${userInstance}" field="lastname"/>
                         </div>
 
-                        <div class="col-md-12 col-sm-12">
-                            <i class="fa fa-envelope"></i>
-                            <g:fieldValue bean="${userInstance}" field="email"/>
-                        </div>
                         <sec:ifAllGranted roles="ROLE_ADMIN">
                             <div class="col-md-12 col-sm-12">
                                 <i class="fa fa-thumbs-up"></i>
