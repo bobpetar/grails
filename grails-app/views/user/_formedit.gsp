@@ -20,10 +20,6 @@
                         <g:fieldValue bean="${userInstance}" field="lastname"/>
                     </div>
 
-                    <div class="col-md-12 col-sm-12">
-                        <i class="fa fa-envelope"></i>
-                        <g:fieldValue bean="${userInstance}" field="email"/>
-                    </div>
                     <sec:ifAllGranted roles="ROLE_ADMIN">
                         <div class="col-md-12 col-sm-12">
                             <i class="fa fa-thumbs-up"></i>
@@ -62,16 +58,6 @@
                     </div>
                 </div>
 
-                <sec:ifAllGranted roles="ROLE_ADMIN">
-                    <div class="form-group">
-                        <label class="col-md-3 control-label" for="lastname">Email</label>
-
-                        <div class="col-md-8">
-                            <g:textField name="email" id="email" class="form-control"
-                                         required="" value="${userInstance?.email}"/>
-                        </div>
-                    </div>
-                </sec:ifAllGranted>
             </fieldset>
             <sec:ifAnyGranted roles="ROLE_ADMIN">
                 <hr class="dotted tall">

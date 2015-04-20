@@ -56,9 +56,6 @@
 									<g:sortableColumn property="username"
 										title="${message(code: 'user.username.label', default: 'Username')}" />
 
-									<g:sortableColumn property="email"
-										title="${message(code: 'user.email.label', default: 'Email')}" />
-
                                     <th>Role</th>
 
 									<g:sortableColumn property="accountExpired"
@@ -77,10 +74,6 @@
 
 										<td>
 											${fieldValue(bean: userInstance, field: "username")}
-										</td>
-
-										<td>
-											${fieldValue(bean: userInstance, field: "email")}
 										</td>
 
                                         <td>

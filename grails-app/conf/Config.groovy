@@ -168,6 +168,20 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/project/myTasks':				  ['ROLE_RETOUCHER'],
 ]
 
+
+grails.plugin.springsecurity.ui.register.emailBody = '''\
+Hi $user.username,<br/>
+<br/>
+We are happy to see you choose for 1hretouch. Your registration is almost complete.
+click&nbsp;<a href="$url">here</a> to finish your registration and upload your first Image.
+<br/><br/>
+If you need any support call 0031622752205 or use the chat function on our website.
+<br/><br/>
+Regards,
+<br/>
+Support Team 1hretouch
+'''
+
 //grails {
 //	mail {
 //		host = "smtp.gmail.com"
