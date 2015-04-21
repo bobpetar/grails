@@ -18,7 +18,6 @@
             showTecniqueBlock();
         });
 
-
     </script>
 
 </head>
@@ -121,7 +120,7 @@
                 <g:each in="${uniqueGroep}" status="i" var="groepInstance">
                     <div class="col-md-12 col-sm-12 col-xs-12  techniqueBlock ${groepInstance.replaceAll(" ","_")}" id="${groepInstance.replaceAll(" ","_")}">
                         <div class="owl-carousel owl-carousel-spaced"
-                             data-plugin-options='{"items": 4}'>
+                             data-plugin-options='{"items": 3, "singleItem": false}'>
                             <g:each in="${techniqueInstaneList}" status="j" var="techniqueInstance">
                                 <g:if test="${groepInstance == techniqueInstance.groep}">
                                     <div>
@@ -131,15 +130,12 @@
                                                data-plugin-options='{"type":"inline", preloader: false}'>
                                                 <img src="${grailsApplication.config.retouch.techniqueImageServer}${techniqueInstance.getLargeImageName()}"
                                                      class="img-responsive" alt="">
-                                                <span
-                                                        class="thumb-info-title"><span
-                                                        class="thumb-info-inner">${techniqueInstance.groep}</span>
-                                                    <span class="thumb-info-type">${techniqueInstance.name}</span>
-                                                </span> <span class="thumb-info-action"><span title="Universal"
-                                                                                              class="thumb-info-action-icon"><i
-                                                        class="fa fa-link"></i></span>
-                                            </span>
+                                                <span class="thumb-info-action">
+                                                    <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                                </span>
+                                                <span class="btn btn-block btn-warning">${fieldValue(bean: techniqueInstance, field: "name")}</span>
                                             </a>
+
                                         </div>
 
                                         <div id="popupProject${techniqueInstance.id}" class="popup-inline-content">
