@@ -38,8 +38,10 @@ class TaskService {
                     bcc retouchers.email.toArray()
                     subject "New Task"
                     html "Hi Retoucher,<br><br>" +
-                            "New retouch task is available. Please click on following link to claim the task.<br><br>"+
-                            "<a href='${claimPageURl}'>Claim</a> " //TODO add detailed email
+                            "A new retouch task is available. You can check out the task and see if you want to claim it.<br>"+
+                            "Remember if you claim the task it will be yours and you should work on it immediately. You have 1 hour to complete the task. <br><br>" +
+                            "Please click on following link to see the task:<br><br>" +
+                            "<a href='${claimPageURl}'>go to new task now</a> "
                 }
 
             }
