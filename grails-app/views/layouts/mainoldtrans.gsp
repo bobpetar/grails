@@ -79,7 +79,7 @@
     <asset:stylesheet src="admin/assets/stylesheets/skins/extension.css"/>
 
     <!-- Skin CSS -->
-    <asset:stylesheet src="css/skins/default.css"/>
+%{--    <asset:stylesheet src="css/skins/default.css"/>--}%
 
     <!-- Theme Custom CSS -->
     <asset:stylesheet src="css/custom.css"/>
@@ -137,7 +137,7 @@
 </span>
 
 <div class="body">
-<header id="header">
+<header id="header" class="narrow" data-plugin-options='{ "stickyWithGap": false, "stickyChangeLogoSize": false}'>
     <div class="container">
         <div class="logo">
             <a href="${createLink(uri:'/')}"> <asset:image alt="1hRetouch"
