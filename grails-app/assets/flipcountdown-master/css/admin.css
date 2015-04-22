@@ -336,3 +336,9 @@ body .ui-pnotify.icon-nb .notification .ui-pnotify-icon > span {
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+
+/*
+.graybg{
+    background-color: #443C38 !important;
+    border-color: #443C38 !important;
+}*/

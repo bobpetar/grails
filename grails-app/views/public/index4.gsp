@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="layout" content="main"/>
+    <meta name="layout" content="maintransparent"/>
     <title>Welcome to 1hRetouch !!!</title>
     <script>
         function showTecniqueBlock(eleSelector){
@@ -19,13 +19,14 @@
         });
 
     </script>
-
+    <!-- Skin CSS -->
+    <asset:stylesheet src="css/skins/default_faded_blue.css"/>
 </head>
 
 <div role="main" class="main" id="home">
-    <div class="slider-container">
-        <div class="slider" id="revolutionSlider" data-plugin-revolution-slider
-             data-plugin-options='{"startheight": 500}'>
+    <div class="slider-container slider-container-fullscreen">
+        <div class="slider" id="revolutionSliderFullScreen" data-plugin-revolution-slider
+             data-plugin-options='{"fullScreen": "on"}'>
             <ul>
                 <li data-slotamount="7" data-masterspeed="1000" data-fstransition="fade" data-fsmasterspeed="1000"
                     data-fsslotamount="7">
@@ -111,8 +112,7 @@
         </div>
     </div>
 
-    <section class="highlight top " id="techniques" style="  background-color: #443C38 !important;
-    border-color: #443C38 !important;">
+    <section class="highlight top" id="techniques">
         <div class="container">
 
             <h2>Techniques</h2>
