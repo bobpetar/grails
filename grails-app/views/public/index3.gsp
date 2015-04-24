@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="layout" content="mainoldtrans"/>
-    <title>Welcome to 1hRetouch !!!</title>
+    <meta name="layout" content="maintrans"/>
+    <title>Welcome to 1hRetouch!</title>
     <script>
         function showTecniqueBlock(eleSelector){
             $(".techniqueBlock").hide();

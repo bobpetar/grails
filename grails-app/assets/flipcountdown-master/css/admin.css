@@ -337,6 +337,17 @@ body .ui-pnotify.icon-nb .notification .ui-pnotify-icon > span {
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
+@media (min-width: 992px) {
+    #header.font-color-light nav.nav-main ul.nav-main > li.active > a:hover ,
+    #header.font-color-light nav.nav-main ul.nav-main > li > a:hover  {
+        color: #E5E5E5 !important;
+    }
+}
+
+.highlightfix {
+    background-color: #fff !important;
+}
+
 /*
 .graybg{
     background-color: #443C38 !important;
