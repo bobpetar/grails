@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="layout" content="maintransparent"/>
+    <meta name="layout" content="main"/>
     <title>Welcome to 1hRetouch !!!</title>
     <script>
         function showTecniqueBlock(eleSelector){
@@ -20,7 +20,7 @@
 
     </script>
     <!-- Skin CSS -->
-    <asset:stylesheet src="css/skins/default_faded_blue.css"/>
+
 </head>
 
 <div role="main" class="main" id="home">

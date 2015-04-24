@@ -121,7 +121,7 @@
                 <g:each in="${uniqueGroep}" status="i" var="groepInstance">
                     <div class="col-md-12 col-sm-12 col-xs-12  techniqueBlock ${groepInstance.replaceAll(" ","_")}" id="${groepInstance.replaceAll(" ","_")}">
                         <div class="owl-carousel owl-carousel-spaced"
-                             data-plugin-options='{"items": 3, "singleItem": false}'>
+                             data-plugin-options='{"items": 2, "singleItem": true}'>
                             <g:each in="${techniqueInstaneList}" status="j" var="techniqueInstance">
                                 <g:if test="${groepInstance == techniqueInstance.groep}">
                                     <div>
