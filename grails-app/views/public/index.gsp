@@ -119,7 +119,7 @@
             <div class="row">
                 <g:each in="${uniqueGroep}" status="i" var="groepInstance">
                     <div class="col-md-12 col-sm-12 col-xs-12  techniqueBlock ${groepInstance.replaceAll(" ","_")}" id="${groepInstance.replaceAll(" ","_")}">
-                        <div class="owl-carousel push-bottom" data-plugin-options='{"items": 3, "responsive": {"1199": {"items": 3}}, "autoplay": true, "autoplayTimeout": 6000}'>
+                        <div class="owl-carousel owl-carousel-spaced" data-plugin-options='{"items": 3, "responsive": {"1199": {"items": 3}}, "autoplay": true, "autoplayTimeout": 6000}'>
                             <g:each in="${techniqueInstaneList}" status="j" var="techniqueInstance">
                                 <g:if test="${groepInstance == techniqueInstance.groep}">
                                     <div>
@@ -232,7 +232,7 @@
                 <div class="col-md-4">
                     <div class="plan">
                         <h3>Custom<span>50&cent;</span></h3>
-                        <a href="#" class="btn btn-lg btn-primary">Upload Image</a>
+                        <a href="${createLink(uri: '/upload')}" class="btn btn-lg btn-primary">Upload Image</a>
                         <ul>
                             <li>Per technique</li>
                             <li>Automatically applies</li>
@@ -246,7 +246,7 @@
                             <div class="plan-ribbon">Unlimited</div>
                         </div>
                         <h3>Unlimited<span>$10</span></h3>
-                        <a href="#" class="btn btn-lg btn-primary">Upload Image</a>
+                        <a href="${createLink(uri: '/upload')}" class="btn btn-lg btn-primary">Upload Image</a>
                         <ul>
                             <li>Unlimited techniques</li>
                             <li>Automatically applies</li>
