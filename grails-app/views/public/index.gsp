@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="layout" content="main"/>
+    <meta name="layout" content="maintrans"/>
     <title>Welcome to 1hRetouch !!!</title>
     <script>
         function showTecniqueBlock(eleSelector){
@@ -111,8 +111,7 @@
         </div>
     </div>
 
-    <section class="highlight top " id="techniques" style="  background-color: #443C38 !important;
-    border-color: #443C38 !important;">
+    <section class="highlight top " id="techniques" style="  background-color: #eee !important;  border-color: #eee !important;">
         <div class="container">
 
             <h2>Techniques</h2>
