@@ -186,6 +186,7 @@
 
         <sec:ifNotLoggedIn>
             <li><a href="${createLink(uri:'/')}#techniques">Techniques</a></li>
+            <li><a href="${createLink(uri:'/')}#pricing">Pricing</a></li>
 
             <li class="dropdown mega-menu-item mega-menu-signin signin" id="headerAccount">
                 <a class="dropdown-toggle" href="${createLink(uri:'/login') }">

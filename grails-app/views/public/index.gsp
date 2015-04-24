@@ -114,7 +114,7 @@
     <section class="highlight top " id="techniques" style="  background-color: #eee !important;  border-color: #eee !important;">
         <div class="container">
 
-            <h2>Techniques</h2>
+            <h3><strong>Techniques</strong></h3>
 
             <div class="row">
                 <g:each in="${uniqueGroep}" status="i" var="groepInstance">
@@ -226,8 +226,8 @@
     %{--</div>--}%
 
     <div class="container" id="pricing">
+        <h3><strong>Pricing</strong> Plans</h3>
         <div class="row">
-            <h3><strong>Pricing</strong> Plans</h3>
             <div class="pricing-table">
                 <div class="col-md-4">
                     <div class="plan">
