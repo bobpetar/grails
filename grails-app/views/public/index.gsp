@@ -24,8 +24,8 @@
 
 <div role="main" class="main" id="home">
     <div class="slider-container">
-        <div class="slider" id="revolutionSlider" data-plugin-revolution-slider
-             data-plugin-options='{"startheight": 500}'>
+        <div class="slider" id="revolutionSliderFullScreen" data-plugin-revolution-slider
+             data-plugin-options='{"fullScreen": "on"}'>
             <ul>
                 <li data-slotamount="7" data-masterspeed="1000" data-fstransition="fade" data-fsmasterspeed="1000"
                     data-fsslotamount="7">
