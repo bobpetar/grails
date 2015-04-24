@@ -182,49 +182,49 @@
         </div>
     </section>
 
-    <div class="container">
+    %{--<div class="container">--}%
 
-        <div class="row featured-boxes">
-            <div class="col-md-4" data-appear-animation="fadeInLeft">
-                <div class="featured-box featured-box-secundary">
-                    <div class="box-content">
-                        <center>
-                            <asset:image class="img-responsive" src="img/front/money_back_guarantee.png"/>
-                            <h4>Money Back Guarantee</h4>
+        %{--<div class="row featured-boxes">--}%
+            %{--<div class="col-md-4" data-appear-animation="fadeInLeft">--}%
+                %{--<div class="featured-box featured-box-secundary">--}%
+                    %{--<div class="box-content">--}%
+                        %{--<center>--}%
+                            %{--<asset:image class="img-responsive" src="img/front/money_back_guarantee.png"/>--}%
+                            %{--<h4>Money Back Guarantee</h4>--}%
 
-                            <p>If you are not happy you can send request for update or request your money back!</p>
-                        </center>
-                    </div>
-                </div>
-            </div>
+                            %{--<p>If you are not happy you can send request for update or request your money back!</p>--}%
+                        %{--</center>--}%
+                    %{--</div>--}%
+                %{--</div>--}%
+            %{--</div>--}%
 
-            <div class="col-md-4" data-appear-animation="fadeInUp">
-                <div class="featured-box featured-box-tertiary">
-                    <div class="box-content">
-                        <center>
-                            <asset:image class="img-responsive" src="img/front/1hrdelivery.png"/>
-                            <h4>1 HR Delivery</h4>
+            %{--<div class="col-md-4" data-appear-animation="fadeInUp">--}%
+                %{--<div class="featured-box featured-box-tertiary">--}%
+                    %{--<div class="box-content">--}%
+                        %{--<center>--}%
+                            %{--<asset:image class="img-responsive" src="img/front/1hrdelivery.png"/>--}%
+                            %{--<h4>1 HR Delivery</h4>--}%
 
-                            <p>Upload your image now and we'll deliver your retouched images within an hour!</p>
-                        </center>
-                    </div>
-                </div>
-            </div>
+                            %{--<p>Upload your image now and we'll deliver your retouched images within an hour!</p>--}%
+                        %{--</center>--}%
+                    %{--</div>--}%
+                %{--</div>--}%
+            %{--</div>--}%
 
-            <div class="col-md-4" data-appear-animation="fadeInRight">
-                <div class="featured-box featured-box-quartenary">
-                    <div class="box-content">
-                        <center>
-                            <asset:image class="img-responsive" src="img/front/reviews.png"/>
-                            <h4>Reviews</h4>
+            %{--<div class="col-md-4" data-appear-animation="fadeInRight">--}%
+                %{--<div class="featured-box featured-box-quartenary">--}%
+                    %{--<div class="box-content">--}%
+                        %{--<center>--}%
+                            %{--<asset:image class="img-responsive" src="img/front/reviews.png"/>--}%
+                            %{--<h4>Reviews</h4>--}%
 
-                            <p>We are recommended by professional photographers and a lot of customers. Check our reviews or give one yourself after we retouched your images.</p>
-                        </center>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                            %{--<p>We are recommended by professional photographers and a lot of customers. Check our reviews or give one yourself after we retouched your images.</p>--}%
+                        %{--</center>--}%
+                    %{--</div>--}%
+                %{--</div>--}%
+            %{--</div>--}%
+        %{--</div>--}%
+    %{--</div>--}%
 
     <div class="container" id="pricing">
         <div class="row">
@@ -270,6 +270,22 @@
 
         </div>
     </div>
+
+    <section class="page-top">
+        <div class="container">
+            <div class="row center">
+                <div class="col-md-4">
+                    <asset:image alt="" src="img/logos/logo-1.png" class="img-responsive" />
+                </div>
+                <div class="col-md-4">
+                    <asset:image alt="" src="img/logos/logo-2.png" class="img-responsive" />
+                </div>
+                <div class="col-md-4">
+                    <asset:image alt="" src="img/logos/logo-3.png" class="img-responsive" />
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="map-section">
         <section class="featured footer map">
