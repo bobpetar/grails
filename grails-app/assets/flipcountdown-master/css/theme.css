@@ -1127,12 +1127,14 @@ body #header nav.mega-menu .mega-menu-signin ul.dropdown-menu li a, body #header
 @media (min-width: 992px) {
 	#header.font-color-light nav.nav-main ul.nav-main > li.active > a,
 	#header.font-color-light nav.nav-main ul.nav-main > li > a {
-		color: #FFF;
+		/*color: #FFF;*/
+		color: #AEAEAE;
 	}
 
 	body.sticky-menu-active #header.font-color-light nav.nav-main ul.nav-main > li.active > a,
 	body.sticky-menu-active #header.font-color-light nav.nav-main ul.nav-main > li > a {
-		color: #777;
+		/*color: #777;*/
+		color: #AEAEAE;
 	}
 
 	#header.font-color-dark nav.nav-main ul.nav-main > li.active > a,
