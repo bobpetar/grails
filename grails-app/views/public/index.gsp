@@ -227,11 +227,56 @@
         </div>
     </div>
 
+    <div class="container" id="pricing">
+        <div class="row">
+            <h3><strong>Pricing</strong> Plans</h3>
+            <div class="pricing-table">
+                <div class="col-md-4">
+                    <div class="plan">
+                        <h3>Custom<span>50&cent;</span></h3>
+                        <a href="#" class="btn btn-lg btn-primary">Upload Image</a>
+                        <ul>
+                            <li>Per technique</li>
+                            <li>Automatically applies</li>
+                            <li>For simple image</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="plan most-popular">
+                        <div class="plan-ribbon-wrapper">
+                            <div class="plan-ribbon">Unlimited</div>
+                        </div>
+                        <h3>Unlimited<span>$10</span></h3>
+                        <a href="#" class="btn btn-lg btn-primary">Upload Image</a>
+                        <ul>
+                            <li>Unlimited techniques</li>
+                            <li>Automatically applies</li>
+                            <li>For full retouch</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="plan">
+                        <h3>Special<span>$?</span></h3>
+                        <a href="mailto:${siteParams?.EMAIL}" class="btn btn-lg btn-primary">Price Quote</a>
+                        <ul>
+                            <li>For bulk images</li>
+                            <li>Via coupon code</li>
+                            <li>For big projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="map-section">
         <section class="featured footer map">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                     <div class="col-md-6">
                         <h2><strong>What</strong> Client’s Say</h2>
                         <div class="row">
@@ -287,57 +332,7 @@
                         </div>
                     </div>
                     </div>
-                    <div class="col-md-4">
-                        <h2>Pricing...</h2>
 
-                        <div id="accordion" class="panel-group">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a href="#collapseOne" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle" aria-expanded="true">
-                                            <i class="fa fa-usd"></i>
-                                            Regular
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div class="accordion-body collapse in" id="collapseOne" aria-expanded="true" style="">
-                                    <div class="panel-body">
-                                        Our regular pricing is as low as 50 cent per technique. Our techniques are priced according to time it takes to do the technique. We work with the latest tools and photoshop actions to speed up all our techniques and continue to do so when new techniques come out.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a href="#collapseTwo" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false">
-                                            <i class="fa fa-usd"></i>
-                                            Standard
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div class="accordion-body collapse" id="collapseTwo" aria-expanded="false" style="height: 0px;">
-                                    <div class="panel-body">
-                                        Our maximum pricing is 10 dollars. For customers who want to use the best techniques and create the most beautiful image we wanted to give a special price. So our pricing model will never exceed 10 dollars, no matter how many techniques you chose on your photo.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a href="#collapseThree" data-parent="#accordion" data-toggle="collapse" class="accordion-toggle collapsed" aria-expanded="false">
-                                            <i class="fa fa-usd"></i>
-                                            Special
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div class="accordion-body collapse" id="collapseThree" aria-expanded="false" style="height: 0px;">
-                                    <div class="panel-body">
-                                        We have the option to edit bulk images for photographers who do regular photoshoots and deliver more than a few images at a time. Although our model is not directly made for it, we do get these requests and are welcome to help out. Also for special changes that are not possible with our model you can ask by contacting us <a href="mailto:special@1hretouch.com">special@1hretouch.com</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
