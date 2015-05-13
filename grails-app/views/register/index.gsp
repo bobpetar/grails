@@ -25,20 +25,30 @@
 </div>
 
 <div class="container">
-    <div class="row center">
-        <div class="col-md-12">
-            <h4>
-                Let's get started!<br>
-                First, tell us what you're looking for.<hr class="tall"/>
-            </h4>
+
+    <g:if test='${emailSent}'>
+        <div class="box-content">
+            <br />
+            <g:message code='spring.security.ui.register.sent' />
         </div>
-        <div class="col-md-5">
-            <a href="${createLink(uri:'/register/customer')}" class="btn btn-block btn-primary">I want to hire a retoucher</a>
+    </g:if>
+
+    <g:else>
+        <div class="row center">
+            <div class="col-md-12">
+                <h4>
+                    Let's get started!<br>
+                    First, tell us what you're looking for.<hr class="tall"/>
+                </h4>
+            </div>
+            <div class="col-md-5">
+                <a href="${createLink(uri:'/register/customer')}" class="btn btn-block btn-primary">I want to hire a retoucher</a>
+            </div>
+            <div class="col-md-2">OR</div>
+            <div class="col-md-5">
+                <a href="${createLink(uri: '/register/retoucher')}" class="btn btn-block btn-primary">I am looking for online retouching work</a>
+            </div>
         </div>
-        <div class="col-md-2">OR</div>
-        <div class="col-md-5">
-            <a href="${createLink(uri: '/register/retoucher')}" class="btn btn-block btn-primary">I am looking for online retouching work</a>
-        </div>
-    </div>
+    </g:else>
 </div>
 </html>
