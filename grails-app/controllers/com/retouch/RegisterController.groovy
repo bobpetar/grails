@@ -16,19 +16,22 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
         [command: new RegisterCommand(copy)]
     }
 
+    def retoucher() {
+        def copy = [:] + (flash.chainedParams ?: [:])
+        copy.remove 'controller'
+        copy.remove 'action'
+        [command: new RegisterCommand(copy)]
+    }
+
     def register(RegisterCommand command) {
-/*        println command
-        println command.hasErrors()
-        println command.errors*/
         command.username = command.email
         command.validate()
-        //println  SpringSecurityUtils.securityConfig
-/*        println  SpringSecurityUtils.securityConfig.ui.register.emailFrom
-        println "***************************"
-        println command.hasErrors()
-        println command.errors*/
         if (command.hasErrors()) {
-            render view: 'index', model: [command: command]
+            if(params.retoucher){
+                render view: 'retoucher', model: [command: command]
+            } else {
+                render view: 'index', model: [command: command]
+            }
             return
         }
 
@@ -45,14 +48,23 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
             return
         }
 
-        String url = generateLink('verifyRegistration', [t: registrationCode.token])
+        println(params)
+
+        String url
+
+        if(params.retoucher){
+            url = generateLink('verifyRegistration', [t: registrationCode.token, r:'true'])
+        } else {
+            url = generateLink('verifyRegistration', [t: registrationCode.token])
+        }
+
+        println("url " + url)
 
         def conf = SpringSecurityUtils.securityConfig
         def body = conf.ui.register.emailBody
         if (body.contains('$')) {
             body = evaluate(body, [user: user, url: url])
         }
-        println conf.ui.register.emailFrom
         mailService.sendMail {
             to command.email
             from conf.ui.register.emailFrom
@@ -60,6 +72,57 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
             html body.toString()
         }
         render view: 'index', model: [emailSent: true]
+    }
+
+    def verifyRegistration() {
+
+        def conf = SpringSecurityUtils.securityConfig
+        String defaultTargetUrl = conf.successHandler.defaultTargetUrl
+
+        String token = params.t
+        String retoucherFlag = params.r
+
+        def registrationCode = token ? RegistrationCode.findByToken(token) : null
+        if (!registrationCode) {
+            flash.error = message(code: 'spring.security.ui.register.badCode')
+            redirect uri: defaultTargetUrl
+            return
+        }
+
+        def user
+        // TODO to ui service
+        RegistrationCode.withTransaction { status ->
+            String usernameFieldName = SpringSecurityUtils.securityConfig.userLookup.usernamePropertyName
+            user = lookupUserClass().findWhere((usernameFieldName): registrationCode.username)
+            if (!user) {
+                return
+            }
+            user.accountLocked = false
+            user.save(flush:true)
+            def UserRole = lookupUserRoleClass()
+            def Role = lookupRoleClass()
+
+            if(retoucherFlag){
+                UserRole.create user, Role.findByAuthority('ROLE_RETOUCHER')
+            } else {
+                for (roleName in conf.ui.register.defaultRoleNames) {
+                    UserRole.create user, Role.findByAuthority(roleName)
+                }
+            }
+
+            registrationCode.delete()
+        }
+
+        if (!user) {
+            flash.error = message(code: 'spring.security.ui.register.badCode')
+            redirect uri: defaultTargetUrl
+            return
+        }
+
+        springSecurityService.reauthenticate user.username
+
+        flash.message = message(code: 'spring.security.ui.register.complete')
+        redirect uri: conf.ui.register.postRegisterUrl ?: defaultTargetUrl
     }
 }
 
