@@ -9,7 +9,11 @@ import groovy.text.SimpleTemplateEngine
 
 class RegisterController extends grails.plugin.springsecurity.ui.RegisterController {
 
-    def index() {
+    def index(){
+
+    }
+
+    def customer() {
         def copy = [:] + (flash.chainedParams ?: [:])
         copy.remove 'controller'
         copy.remove 'action'
@@ -30,7 +34,7 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
             if(params.retoucher){
                 render view: 'retoucher', model: [command: command]
             } else {
-                render view: 'index', model: [command: command]
+                render view: 'customer', model: [command: command]
             }
             return
         }
