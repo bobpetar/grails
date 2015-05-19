@@ -179,6 +179,8 @@
                             </g:if>
                         </a>
                         </li>
+                        <li><a href="${createLink(uri:'/earning') }">My Earnings</a>
+                        </li>
                     </sec:ifAllGranted>
 
                     <sec:ifNotLoggedIn>

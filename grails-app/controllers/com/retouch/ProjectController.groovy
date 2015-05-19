@@ -14,6 +14,7 @@ class ProjectController {
 	def springSecurityService
 	def taskService
     def messagingService
+    def invoiceService
 
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -579,9 +580,10 @@ class ProjectController {
     @Secured(["ROLE_USER","ROLE_ADMIN"])
     def approveProject(Project project){
         println project
-        if(project.client == (User)springSecurityService.getCurrentUser()){
+        if(project.client == (User)springSecurityService.getCurrentUser() && project.status!='Complete'){
             project.status = "Complete"
             project.save(flush: true)
+            invoiceService.registerEarning(project)
             redirect( action: 'review',id:project.projectId)
         }else{
             notFound()

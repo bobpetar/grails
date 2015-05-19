@@ -95,7 +95,7 @@ environments {
             retouch.techniqueImageUploadPath = "/opt/lampp/htdocs/retouch/techniques/"
         } else {
             retouch.imageUploadPath = "C:\\wamp\\www\\retouch\\"
-            retouch.techniqueImageUploadPath = "C:\\wamp\\www\\retouch\\"
+            retouch.techniqueImageUploadPath = "C:\\wamp\\www\\retouch\\techniques\\"
         }
         retouch.imageServer= "http://localhost/retouch/"
         retouch.techniqueImageServer= "http://localhost/retouch/techniques/"

@@ -35,5 +35,9 @@ class Project {
         return (new Date()).time.toString()
     }
 
+    String toString(){
+        return projectId
+    }
+
 
 }

@@ -111,7 +111,7 @@
         </div>
     </div>
 
-    <section class="highlight top " id="techniques" style="  background-color: #eee !important;  border-color: #eee !important;">
+    <section class="highlight top " id="techniques" style="  background-color: #eee !important; 	/*background-image: url(${assetPath(src: 'img/tempbck1.jpg')});*/ border-color: #eee !important;">
         <div class="container">
 
             <h3><strong>Techniques</strong></h3>

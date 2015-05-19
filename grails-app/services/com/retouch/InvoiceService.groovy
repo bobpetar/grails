@@ -36,4 +36,34 @@ class InvoiceService {
 
         return totalAmount
     }
+
+    def registerEarning(Project project){
+
+        def registeredEarning = Earning.findByProject(project)
+        println "REGISTERING EARNING FOR "+registeredEarning
+        println "REGISTERING EARNING FOR "+ project.assignedTo
+        println "REGISTERING EARNING FOR "+ project.status
+        //TODO consider using status 'In Review' instead of 'complete'
+        if(project.status=="Complete" && !registeredEarning && project.assignedTo){
+            println "REGISTERING EARNING FOR "+ project.assignedTo
+            def techniqueList = project.task.techniques.toList()
+
+            //TODO Add support for multiple tasks
+            def paymentItems = project.task.payment.paymentItems
+            def sumTechnique = paymentItems.amount.sum()
+            println sumTechnique
+            def percent = 10
+            def amountEarned = (percent*sumTechnique)/100
+            def earning = new Earning(project: project,amount: amountEarned,retoucher:project.assignedTo )
+            earning.save(flush: true)
+        }
+
+    }
+
+
+
+
+    
+
+
 }
