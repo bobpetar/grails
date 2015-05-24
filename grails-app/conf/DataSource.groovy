@@ -41,6 +41,9 @@ environments {
             url = "jdbc:mysql://localhost:3306/retouch?zeroDateTimeBehavior=convertToNull"
             username = "retouchadmin"
             password = "^Gdh&1234"
+            pooled = true
+            jmxExport = true
+            driverClassName = "com.mysql.jdbc.Driver"
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
             logSql = false
             properties {
