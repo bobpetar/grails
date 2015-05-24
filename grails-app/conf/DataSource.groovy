@@ -1,8 +1,5 @@
 dataSource {
-    pooled = true
-    jmxExport = true
-    driverClassName = "com.mysql.jdbc.Driver"
-    dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -23,12 +20,19 @@ environments {
             password = ""
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
             logSql = false
+            pooled = true
+            jmxExport = true
+            driverClassName = "com.mysql.jdbc.Driver"
+            dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
         }
     }
     test {
         dataSource {
             dbCreate = "update"
             url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            pooled = true
+            jmxExport = true
+            driverClassName = "org.h2.Driver"
         }
     }
     production {
