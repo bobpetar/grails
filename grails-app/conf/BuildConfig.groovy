@@ -74,6 +74,7 @@ grails.project.dependency.resolution = {
         compile ":burning-image:0.5.2"
         compile ":paypal:0.6.8"
         compile ":remote-pagination:0.4.8"
+        test ":code-coverage:2.0.3-3"
 /*        compile ':hashids:0.2.0'*/
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
