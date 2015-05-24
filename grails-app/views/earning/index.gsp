@@ -36,6 +36,37 @@
 
     <div class="container">
 
+        <div class="row show-grid">
+            <div class="col-md-3">
+                <section>
+                    <h4 class="page-header">Account Information</h4>
+
+                    <div class="row fontawesome-icon-list">
+
+                        <div class="col-md-12 col-sm-12">
+                            <i class="fa fa-check-square-o"></i>
+                            Projects Completed : totalProjects
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <i class="fa fa-smile-o"></i>
+                            Available Balance :
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <i class="fa fa-smile-o"></i>
+                            Total Earned : totalEarned
+                        </div>
+
+
+                        <hr class="tall"/>
+                    </div>
+                </section>
+            </div>
+
+
+
+            <div class="col-md-8">
         <div class="panel-body">
             <div class="table-responsive">
                 %{--	<g:if test="${flash.message}">
@@ -81,6 +112,8 @@
                 </ul>
 
             </div>
+        </div>
+                </div>
         </div>
     </div>
 </div>

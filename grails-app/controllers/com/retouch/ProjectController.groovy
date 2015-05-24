@@ -584,6 +584,7 @@ class ProjectController {
             project.status = "Complete"
             project.save(flush: true)
             invoiceService.registerEarning(project)
+            messagingService.sendApprovedMessage(project.task)
             redirect( action: 'review',id:project.projectId)
         }else{
             notFound()

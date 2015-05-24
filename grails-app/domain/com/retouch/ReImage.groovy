@@ -34,7 +34,7 @@ class ReImage {
          if (lastIndexOf == -1) {
              return fullFileName + part; // empty extension
          }
-         return  fullFileName.substring(0,lastIndexOf) + part + fullFileName.substring(lastIndexOf);
+         return  fullFileName.substring(0,lastIndexOf) + part + ".jpg";
     }
 
     def beforeDelete() {

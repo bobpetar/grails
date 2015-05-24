@@ -52,7 +52,7 @@ class InvoiceService {
             def paymentItems = project.task.payment.paymentItems
             def sumTechnique = paymentItems.amount.sum()
             println sumTechnique
-            def percent = 10
+            def percent = 90
             def amountEarned = (percent*sumTechnique)/100
             def earning = new Earning(project: project,amount: amountEarned,retoucher:project.assignedTo )
             earning.save(flush: true)

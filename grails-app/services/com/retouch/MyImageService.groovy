@@ -1,8 +1,8 @@
 package com.retouch
 
 
-/*import javax.imageio.ImageIO
- import java.awt.image.BufferedImage*/
+import javax.imageio.ImageIO
+import java.awt.image.BufferedImage
 
 class MyImageService {
 
@@ -65,6 +65,14 @@ class MyImageService {
         }
     }
 
+    public String convertRawToJPEG(File imageFile,String destinationPath){
+        //File file = new File("DSC1234.NEF");
+        println "TESTING IMAGE CONVERSIONS"+destinationPath
+        BufferedImage image = ImageIO.read(imageFile);
+        ImageIO.write(image, "jpg", new File(destinationPath));
+return destinationPath
+    }
+
 
 	public String saveImagePackage(imageFile){
 		def date = new Date()
@@ -80,8 +88,18 @@ class MyImageService {
 
 		def String productImagePath = grailsApplication.config.retouch.imageUploadPath+fileName
         def orginalFileName
+
+        //Write Original File
+        def File uploadedImage = new File(productImagePath)
+        println productImagePath
+        imageFile.transferTo(uploadedImage) //Writing Original File
+
+        println ext.toLowerCase()
+        if(ext.toLowerCase()!='.jpg'  && ext.toLowerCase()!='.jpeg' ){
+            productImagePath = convertRawToJPEG(uploadedImage,grailsApplication.config.retouch.imageUploadPath+fileNameNoExt+".jpg")
+        }
         println grailsApplication.mainContext.servletContext.getRealPath('/data/transactions/foobar')
-		burningImageService.doWith(imageFile, grailsApplication.config.retouch.imageUploadPath).execute (fileNameLarge, {
+		burningImageService.doWith(productImagePath, grailsApplication.config.retouch.imageUploadPath).execute (fileNameLarge, {
 			it.scaleApproximate(800, 800)
 		}).execute (fileNameLargeWithWatermark, {
             it.scaleApproximate(800, 800)
@@ -92,10 +110,7 @@ class MyImageService {
 		})
 
 
-		//Write Original File
-		def File uploadedImage = new File(productImagePath)
-		println productImagePath
-		imageFile.transferTo(uploadedImage) //Writing Original File
+
 
 		return fileName
 	}

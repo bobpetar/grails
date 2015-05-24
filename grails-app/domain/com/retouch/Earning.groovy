@@ -7,6 +7,7 @@ class Earning {
     User retoucher
 
     static constraints = {
+        project(unique:true)
     }
 
     def beforeValidate() {

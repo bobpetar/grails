@@ -6,29 +6,36 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-//@Secured(["ROLE_ADMIN"])
-@Secured(['permitAll'])
+@Secured(["ROLE_RETOUCHER"])
+//TODO FiX ROLE!!!
+//@Secured(['permitAll'])
 class EarningController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def springSecurityService
-
     def invoiceService
+
+    def accountService
+
     @Transactional
     def index(Integer max) {
         println "TEST"
         params.max = Math.min(max ?: 10, 100)
+        def retoucher = springSecurityService.getCurrentUser()
 
-        def earnings = Earning.findAllByRetoucher(springSecurityService.getCurrentUser(),params)
-        def earningInstanceCount = Earning.countByRetoucher(springSecurityService.getCurrentUser())
+        def earnings = Earning.findAllByRetoucher(retoucher,params)
+        def earningInstanceCount = Earning.countByRetoucher(retoucher)
         //test
        // invoiceService.registerEarning(Project.get(13))
-        println earnings
+        println "TESTINGNNG"
+        println accountService.getTotalEarned(retoucher)
+        def totalEarned =  accountService.getTotalEarned(retoucher)
+        def totalProjects =  accountService.getTotalProjectsCompleted(retoucher)
         if(!earnings)
             earnings=[]
 
-        respond earnings, model: [earningInstanceCount: earningInstanceCount]
+        respond earnings, model: [earningInstanceCount: earningInstanceCount,totalEarned : totalEarned,totalProjects:totalProjects ]
     }
 
  /*   def show(Earning earningInstance) {
