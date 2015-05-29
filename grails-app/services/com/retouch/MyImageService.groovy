@@ -1,7 +1,5 @@
 package com.retouch
 
-import com.codeharmony.Jdcraw
-import net.sf.ij_plugins.dcraw.DCRawReader
 
 import javax.imageio.ImageIO
 import java.awt.image.BufferedImage
@@ -66,11 +64,11 @@ class MyImageService {
             return
         }
     }
-
+/*
     public String convertRawToTIff(imageFile, destinationPath){
        Jdcraw converter = new Jdcraw();
         return converter.convertRawToTIff(imageFile,destinationPath);
-    }
+    }*/
 
     public String convertRawToJPEG(File imageFile,String destinationPath){
        // convertRawToTIff(imageFile, destinationPath)
