@@ -250,3 +250,20 @@ body > .loading-overlay {
     position: fixed;
     z-index: 999999;
 }
+
+.thumb-info .thumb-info-action {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+    bottom: 0;
+    color: #FFF;
+    filter: alpha(opacity=0);
+    height: 100%;
+    left: 0;
+    opacity: 0.0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}

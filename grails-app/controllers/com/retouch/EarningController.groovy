@@ -31,11 +31,33 @@ class EarningController {
         println "TESTINGNNG"
         println accountService.getTotalEarned(retoucher)
         def totalEarned =  accountService.getTotalEarned(retoucher)
+        def availableBalance =  accountService.getAvailableBalance(retoucher)
         def totalProjects =  accountService.getTotalProjectsCompleted(retoucher)
+        def redeemLimit = accountService.getRedeemLimit()
         if(!earnings)
             earnings=[]
 
-        respond earnings, model: [earningInstanceCount: earningInstanceCount,totalEarned : totalEarned,totalProjects:totalProjects ]
+        respond earnings, model: [earningInstanceCount: earningInstanceCount,totalEarned : totalEarned,totalProjects:totalProjects, availableBalance:availableBalance ,redeemLimit:redeemLimit]
+    }
+
+    @Transactional
+    def redeem(){
+        User retoucher = (User)springSecurityService.getCurrentUser()
+        println params.redeemAmount
+        BigDecimal redeemAmt = 0
+        try{
+            redeemAmt = new BigDecimal(params.redeemAmount)
+        }catch(e){
+            redeemAmt = 0
+        }
+
+        if( accountService.redeemAmount(retoucher,redeemAmt)){
+            flash.message = "Redeem Successful"
+        }else{
+            flash.error = "Redeem Failed! Please check the amount you are trying to redeem"
+        }
+
+        redirect(action:'index' )
     }
 
  /*   def show(Earning earningInstance) {

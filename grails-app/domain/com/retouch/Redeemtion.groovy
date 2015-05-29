@@ -8,4 +8,10 @@ class Redeemtion {
 
     static constraints = {
     }
+
+    def beforeValidate() {
+        if (id == null) {
+            createdDate = new Date()
+        }
+    }
 }
