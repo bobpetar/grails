@@ -22,6 +22,7 @@ class PaypalService {
 
 
     public PayoutBatch createSynchronousSinglePayout() {
+
         // ###Payout
         // A resource representing a payout
         Payout payout = new Payout();
@@ -39,7 +40,7 @@ class PaypalService {
         Random random = new Random();
         senderBatchHeader.setSenderBatchId(
                 new Double(random.nextDouble()).toString()).setEmailSubject(
-                "You have a Payout!");
+                "You have a pay sachit");
 
         // ### Currency
         Currency amount = new Currency();
@@ -51,7 +52,7 @@ class PaypalService {
         PayoutItem senderItem = new PayoutItem();
         senderItem.setRecipientType("Email")
                 .setNote("Thanks for your patronage")
-                .setReceiver("shirt-supplier-one@gmail.com")
+                .setReceiver("test-personal1@1hretouch.com")
                 .setSenderItemId("201404324234").setAmount(amount);
 
         List<PayoutItem> items = new ArrayList<PayoutItem>();

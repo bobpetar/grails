@@ -210,6 +210,7 @@ grails {
 
 grails.mail.default.from = "1hRetouch <info@1hretouch.com>"
 grails.plugins.remotepagination.enableBootstrap=true
+grails.config.locations = ["classpath:sdk_config.properties"]
 
 imageUpload {
     temporaryFile = '/tmp/uploaded.file' // Path to where files will be uploaded

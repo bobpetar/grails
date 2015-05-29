@@ -6,6 +6,7 @@ import com.retouch.UserRole;
 class BootStrap {
 
     def init = { servletContext ->
+//        setPropertiesData()
         def users = User.count()
         if (users == 0) {
             def adminRole = Role.findByAuthority('ROLE_ADMIN')
@@ -65,5 +66,24 @@ class BootStrap {
     }
 
     def destroy = {
+    }
+
+    void setPropertiesData()
+    {
+        String key="city"
+        String value="delhi"
+        String propertyFileName="sdk_config.properties"
+        File file = new File(propertyFileName)
+        Properties prop = new Properties();
+        try
+        {
+            prop.setProperty(key, value);
+            prop.store(new FileOutputStream(file), null);
+            log.debug"key:"+key+" has value:"+value+" in "+propertyFileName
+        }
+        catch (IOException e)
+        {
+            log.debug"exception occured while saving properties file :"+e
+        }
     }
 }

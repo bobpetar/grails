@@ -3,9 +3,12 @@ package com.retouch
 import org.grails.paypal.Payment
 import org.grails.paypal.PaymentItem
 
+//TODO FiX ROLE!!!
+//@Secured(['permitAll'])
 class PaypalController extends org.grails.paypal.PaypalController {
 
     def invoiceService
+    def paypalService
 
     def buyImage() {
         def taskInstance = Task.get(params.taskInstance)
@@ -116,4 +119,28 @@ class PaypalController extends org.grails.paypal.PaypalController {
             response.sendError 403
         }
     }
+
+    def getPropertiesData={
+        String key="clientId"
+        String propertyFileName="sdk_config.properties"
+        Properties prop = new Properties();
+        try
+        {
+            FileInputStream inputStream = new FileInputStream(propertyFileName)
+            prop.load(inputStream);
+            String cityName = prop.getProperty(key);
+            log.debug"key:"+key+" has value:"+cityName
+            println("key:"+key+" has value:"+cityName)
+        }
+        catch (IOException e)
+        {
+            log.debug"Exception occured while reading properties file :"+e
+        }
+    }
+
+    def adaptiveService(){
+        println("Inside adaptive service")
+        paypalService.createSynchronousSinglePayout();
+    }
+
 }
