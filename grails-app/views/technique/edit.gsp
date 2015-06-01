@@ -16,14 +16,8 @@
                     <ul class="breadcrumb">
                         <li class="active"><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
                         <li class="active"><g:link class="list" action="create"><g:message code="default.create.label" args="[entityName]" /></g:link></li>
+                        <li><g:message code="default.edit.label" args="[entityName]" /></li>
                     </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>
-                        <g:message code="default.create.label" args="[entityName]" />
-                    </h1>
                 </div>
             </div>
         </div>

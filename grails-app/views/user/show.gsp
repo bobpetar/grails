@@ -33,19 +33,13 @@
                             <li class="active"> <g:link class="edit" action="edit" resource="${userInstance}">
                                 <g:message code="default.edit.label" args="[entityName]"/>
                             </g:link></li>
+                            <li><g:message code="default.show.label" args="[entityName]"/></li>
 
                         </ul>
                     </div>
                 </sec:ifAnyGranted>
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>
-                        <g:message code="default.show.label" args="[entityName]"/>
-                    </h1>
-                </div>
-            </div>
         </div>
     </section>
 
