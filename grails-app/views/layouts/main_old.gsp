@@ -10,10 +10,10 @@
 
     <!-- Basic -->
     <meta charset="utf-8">
-    <title>Porto - Responsive HTML5 Template 3.7.0</title>
-    <meta name="keywords" content="HTML5 Template"/>
-    <meta name="description" content="Porto - Responsive HTML5 Template">
-    <meta name="author" content="okler.net">
+    <title>1hRetouch</title>
+    <meta name="keywords" content="1hretouch"/>
+    <meta name="description" content="Retouching was never better">
+    <meta name="author" content="code-harmony.com">
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -380,7 +380,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <a href="${createLink(uri:'/')}" class="logo"><asset:image
-                            alt="Porto Website Template" class="img-responsive"
+                            alt="1hretouch" class="img-responsive"
                             src="img/logogrey.png"/>
                     </a>
                 </div>

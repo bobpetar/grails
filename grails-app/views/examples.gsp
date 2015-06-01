@@ -61,7 +61,7 @@
 							<a href="portfolio-single-project.html" class="thumb-info"> <asset:image
 								alt="" class="img-responsive" src="img/projects/project-1.jpg" />
 								<span class="thumb-info-title"> <span
-									class="thumb-info-inner">Okler</span> <span
+									class="thumb-info-inner">1hretouch</span> <span
 									class="thumb-info-type">Brand</span>
 							</span> <span class="thumb-info-action"> <span title="Universal"
 									class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
@@ -126,7 +126,7 @@
 							<a href="portfolio-single-project.html" class="thumb-info"> <asset:image
 								alt="" class="img-responsive" src="img/projects/project-1.jpg" />
 								<span class="thumb-info-title"> <span
-									class="thumb-info-inner">Okler</span> <span
+									class="thumb-info-inner">1hretouch</span> <span
 									class="thumb-info-type">Brand</span>
 							</span> <span class="thumb-info-action"> <span title="Universal"
 									class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
