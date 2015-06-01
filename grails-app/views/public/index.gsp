@@ -273,8 +273,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p class="mb-none">“I still had those leftover wedding images which needed some fixing and 1hretouch is really great for this.”</p>
-                    <p><span class="colorRed">Selena Gomez</span></p>
+                    <g:each in="${testimonialInstance}" status="i" var="testimonial">
+                    <p class="mb-none">“${testimonial?.testimonial}”</p>
+                    <p><span class="colorRed">${testimonial?.fullName}</span></p>
+                        </g:each>
                 </div>
             </div>
         </div>
