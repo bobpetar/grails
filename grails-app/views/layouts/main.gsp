@@ -18,7 +18,7 @@
     <!-- Basic -->
     <meta charset="utf-8">
     <title>1hretouch</title>
-    <meta name="keywords" content="HTML5 Template"/>
+    <meta name="keywords" content="Online retouching"/>
     <meta name="description" content="1hretouch - Retouching was never better.">
     <meta name="author" content="code-harmony.com">
 
@@ -171,7 +171,7 @@
 
         <div class="container">
             <div class="logo">
-                <a href="index.html">
+                <a href="${createLink(uri:'/')}">
                     <asset:image alt="1hretouch" width="200" height="41" data-sticky-width="170" data-sticky-height="35"
                                  src="logo.png"/>
                 </a>
