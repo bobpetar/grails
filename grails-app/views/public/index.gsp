@@ -211,7 +211,7 @@
                                     <g:if test="${groepInstance == techniqueInstance.groep}">
                                         <div>
                                             <div class="portfolio-item img-thumbnail">
-                                                <a class="thumb-info lightbox"
+                                                <a class="thumb-info lightbox" style="text-decoration: none;"
                                                    href="#popupProject${techniqueInstance.id}"
                                                    data-plugin-options='{"type":"inline", preloader: false}'>
                                                     <img src="${grailsApplication.config.retouch.techniqueImageServer}${techniqueInstance.getLargeImageName()}"
@@ -219,7 +219,7 @@
                                                     <span class="thumb-info-action">
                                                         <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
                                                     </span>
-                                                    <span class="btn btn-block btn-warning">${fieldValue(bean: techniqueInstance, field: "name")}</span>
+                                                    <span class="btn btn-block btn-primary">${fieldValue(bean: techniqueInstance, field: "name")}</span>
                                                 </a>
 
                                             </div>
