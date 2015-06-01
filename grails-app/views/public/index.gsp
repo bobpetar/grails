@@ -102,7 +102,7 @@
                         <asset:image src="img/slides/slide-bg.jpg" data-bgfit="cover" data-bgposition="left top"
                                      data-bgrepeat="no-repeat" alt=""/>
                         <div class="tp-caption top-label lfl stl textFirst"
-                             data-x="155"
+                             data-x="125"
                              data-y="195"
                              data-speed="300"
                              data-start="500"
@@ -110,42 +110,42 @@
 
 
                         <div class="tp-caption main-label sft stb"
-                             data-x="150"
+                             data-x="100"
                              data-y="210"
                              data-speed="300"
                              data-start="1500"
                              data-easing="easeOutExpo">1H Retouch</div>
 
                         <div class="tp-caption bottom-label sft stb secText"
-                             data-x="155"
+                             data-x="120"
                              data-y="265"
                              data-speed="500"
                              data-start="2000"
                              data-easing="easeOutExpo">Retouching was never better.</div>
 
                         <div class="tp-caption randomrotate"
-                             data-x="650"
+                             data-x="600"
                              data-y="248"
                              data-speed="500"
                              data-start="2500"
                              data-easing="easeOutBack"><asset:image src="img/slides/img01.png" alt="" /></div>
 
                         <div class="tp-caption sfb"
-                             data-x="600"
+                             data-x="500"
                              data-y="175"
                              data-speed="400"
                              data-start="3000"
                              data-easing="easeOutBack"><asset:image src="img/slides/img02.png" alt="" /></div>
 
                         <div class="tp-caption sfb"
-                             data-x="750"
+                             data-x="700"
                              data-y="74"
                              data-speed="700"
                              data-start="3150"
                              data-easing="easeOutBack"><asset:image src="img/slides/img03.png" alt="" /></div>
 
                         <div class="tp-caption sfb"
-                             data-x="975"
+                             data-x="925"
                              data-y="165"
                              data-speed="1000"
                              data-start="3250"
