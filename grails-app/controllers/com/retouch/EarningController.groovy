@@ -18,18 +18,12 @@ class EarningController {
 
     def accountService
 
-    @Transactional
     def index(Integer max) {
-        println "TEST"
         params.max = Math.min(max ?: 10, 100)
         def retoucher = springSecurityService.getCurrentUser()
 
         def earnings = Earning.findAllByRetoucher(retoucher,params)
         def earningInstanceCount = Earning.countByRetoucher(retoucher)
-        //test
-       // invoiceService.registerEarning(Project.get(13))
-        println "TESTINGNNG"
-        println accountService.getTotalEarned(retoucher)
         def totalEarned =  accountService.getTotalEarned(retoucher)
         def availableBalance =  accountService.getAvailableBalance(retoucher)
         def totalProjects =  accountService.getTotalProjectsCompleted(retoucher)
@@ -38,6 +32,22 @@ class EarningController {
             earnings=[]
 
         respond earnings, model: [earningInstanceCount: earningInstanceCount,totalEarned : totalEarned,totalProjects:totalProjects, availableBalance:availableBalance ,redeemLimit:redeemLimit]
+    }
+
+    def redeemHistory(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        def retoucher = springSecurityService.getCurrentUser()
+
+        def redeemtions = Redeemtion.findAllByRetoucher(retoucher,params)
+        def redeemtionInstanceCount = Redeemtion.countByRetoucher(retoucher)
+        def totalEarned =  accountService.getTotalEarned(retoucher)
+        def availableBalance =  accountService.getAvailableBalance(retoucher)
+        def totalProjects =  accountService.getTotalProjectsCompleted(retoucher)
+        def redeemLimit = accountService.getRedeemLimit()
+
+        if(!redeemtions)
+            redeemtions=[]
+        [redeemtions:redeemtions , redeemtionInstanceCount: redeemtionInstanceCount,totalEarned : totalEarned,totalProjects:totalProjects, availableBalance:availableBalance ,redeemLimit:redeemLimit]
     }
 
     @Transactional
@@ -57,7 +67,7 @@ class EarningController {
             flash.error = "Redeem Failed! Please check the amount you are trying to redeem"
         }
 
-        redirect(action:'index' )
+        redirect(action:'redeemHistory' )
     }
 
  /*   def show(Earning earningInstance) {

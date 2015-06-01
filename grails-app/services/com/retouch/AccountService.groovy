@@ -49,7 +49,7 @@ class AccountService {
     def redeemAmount(User retoucher, BigDecimal amount){
         def balance = getAvailableBalance(retoucher)
         if(amount<=balance && amount>=REDEEM_LIMIT){
-            def red  = new Redeemtion(status:"PENDING",retoucher:retoucher,amount:amount,createdDate: new Date())
+            def red  = new Redeemtion(redeemId: (new Date()).time.toString(),status:"Pending",retoucher:retoucher,amount:amount,createdDate: new Date())
             return red.save(flush:true)
         }else{
             return null

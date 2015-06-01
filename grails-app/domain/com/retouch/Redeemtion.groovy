@@ -5,8 +5,10 @@ class Redeemtion {
     BigDecimal amount
     User retoucher
     String status
+    String redeemId
 
     static constraints = {
+        redeemId(unique: true)
     }
 
     def beforeValidate() {

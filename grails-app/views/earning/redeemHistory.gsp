@@ -6,7 +6,7 @@
 <head>
     <meta name="layout" content="main">
     <g:set var="entityName"
-           value="${message(code: 'earning.label', default: 'Earning')}" />
+           value="${message(code: 'redeemtion.label', default: 'Redeem History')}" />
     <title><g:message code="default.list.label" args="[entityName]" /></title>
 </head>
 <body>
@@ -20,15 +20,15 @@
                     <ul class="breadcrumb">
                         <li><a class="home" href="${createLink(uri: '/')}"><g:message
                                 code="default.home.label" /></a></li>
-                        <li><a class="home" href="${createLink(action:'redeemHistory')}">Redeem History</a></li>
-                        <li>My Earnings</li>
+                        <li><a class="home" href="${createLink(action:'index')}">My Earnings</a></li>
+                        <li>Redeem History</li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <h1>
-                        My Earnings
+                        Redeem History
                     </h1>
                 </div>
             </div>
@@ -41,6 +41,7 @@
             <g:render template="accountInfo"/>
 
 
+
             <div class="col-md-8">
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -51,39 +52,25 @@
                                 class="table table-bordered table-striped table-condensed mb-none">
                             <thead>
                             <tr>
-
-
-                                <th><g:message code="earning.project.label" default="Project" /></th>
-                                <g:sortableColumn property="createdDate" title="${message(code: 'earning.createdDate.label', default: 'Date')}" />
-                                <g:sortableColumn property="amount" title="${message(code: 'earning.amount.label', default: 'Amount')}" />
-
-
+                                <th><g:message code="redeemtion.project.label" default="#" /></th>
+                                <g:sortableColumn property="createdDate" title="${message(code: 'redeemtion.createdDate.label', default: 'Date')}" />
+                                <g:sortableColumn property="amount" title="${message(code: 'redeemtion.amount.label', default: 'Amount')}" />
                                 %{--						<th><g:message code="earning.retoucher.label" default="Retoucher" /></th>--}%
-
                             </tr>
                             </thead>
                             <tbody>
-                            <g:each in="${earningInstanceList}" status="i"
-                                    var="earningInstance">
+                            <g:each in="${redeemtions}" status="i"  var="redeem">
                                 <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-
-                                    <td>${fieldValue(bean: earningInstance, field: "project")}</td>
-                                    <td><prettytime:display date="${earningInstance.createdDate}"/></td>
-                                    <td>$${fieldValue(bean: earningInstance, field: "amount")} </td>
-
-
-
-
-                                    %{--
-                                                                <td>${fieldValue(bean: earningInstance, field: "retoucher")}</td>--}%
-
-
+                                    <td>${fieldValue(bean: redeem, field: "redeemId")}</td>
+                                    <td><prettytime:display date="${redeem.createdDate}"/></td>
+                                    <td>$${fieldValue(bean: redeem, field: "amount")} </td>
+                                    %{-- <td>${fieldValue(bean: earningInstance, field: "retoucher")}</td>--}%
                                 </tr>
                             </g:each>
                             </tbody>
                         </table>
                         <ul class="pagination">
-                            <retouch:paginate total="${earningInstanceCount ?: 0}" />
+                            <retouch:paginate total="${redeemtionInstanceCount ?: 0}" />
                         </ul>
 
                     </div>

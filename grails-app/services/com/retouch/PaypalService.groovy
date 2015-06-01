@@ -39,8 +39,7 @@ class PaypalService {
         // #### Batch Header Instance
         Random random = new Random();
         senderBatchHeader.setSenderBatchId(
-                new Double(random.nextDouble()).toString()).setEmailSubject(
-                "You have a pay sachit");
+                new Double(random.nextDouble()).toString()).setEmailSubject("You have a pay sachit");
 
         // ### Currency
         Currency amount = new Currency();
