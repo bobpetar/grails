@@ -23,13 +23,16 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Upload</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="${createLink(uri: '/')}">Home</a></li>
+                        <li class="active">Upload</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="container">
+    <div class="container push-top">
 
         <div class="row center">
             <div class="col-md-12">

@@ -20,14 +20,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="${createLink(uri: '/')}">Home</a></li>
                         <li class="active">Service</li>
                     </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Service</h1>
                 </div>
             </div>
         </div>
