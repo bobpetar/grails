@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: bkpandey
+  Date: 6/1/15
+  Time: 10:24 AM
+--%>
+
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
@@ -10,10 +17,14 @@
 
     <!-- Basic -->
     <meta charset="utf-8">
-    <title>Porto - Responsive HTML5 Template 3.7.0</title>
+    <title>1hretouch</title>
     <meta name="keywords" content="HTML5 Template"/>
-    <meta name="description" content="Porto - Responsive HTML5 Template">
-    <meta name="author" content="okler.net">
+    <meta name="description" content="1hretouch - Retouching was never better.">
+    <meta name="author" content="code-harmony.com">
+
+    <!-- Favicon -->
+    <asset:link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <asset:link rel="apple-touch-icon" href="favicon.ico"/>
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,8 +90,8 @@
     <asset:stylesheet src="admin/assets/stylesheets/skins/extension.css"/>
 
     <!-- Skin CSS -->
-    <asset:stylesheet src="css/skins/default_faded_blue.css"/>
-%{--    <asset:stylesheet src="css/skins/default.css"/>--}%
+    <asset:stylesheet src="css/skins/default.css"/>
+    %{--    <asset:stylesheet src="css/skins/default.css"/>--}%
 
     <!-- Theme Custom CSS -->
     <asset:stylesheet src="css/custom.css"/>
@@ -132,269 +143,319 @@
     <g:layoutHead/>
 </head>
 
-<body class="one-page" data-target=".single-menu" data-spy="scroll"  data-offset="200" data-loading-overlay="data-loading-overlay">
+<body class="one-page" data-target=".single-menu" data-spy="scroll" data-offset="200"
+      data-loading-overlay="data-loading-overlay">
 <span class="loading-overlay light">
     <span class="loader black"></span>
 </span>
 
 <div class="body">
-<header id="header" class="narrow" data-plugin-options='{ "stickyWithGap": false, "stickyChangeLogoSize": false}'>
-    <div class="container">
-        <div class="logo">
-            <a href="${createLink(uri:'/')}"> <asset:image alt="1hRetouch"
-                                                           width="257" height="50" data-sticky-width="206"
-                                                           data-sticky-height="40" src="img/logosmall_faded.png" />
-            </a>
+    <header id="header" class="flat-menu clean-top">
+        <div class="header-top">
+            <div class="container">
+                <p>
+                    Get in touch! <span><i class="fa fa-phone"></i>${siteParams?.PHONENUMBER}</span> | <a
+                        href="mailto:${siteParams?.EMAIL}">${siteParams?.EMAIL}</a>
+                </p>
+
+                <ul class="social-icons">
+                    <li class="facebook"><a href="${siteParams.FACEBOOK}" target="_blank"
+                                            title="Facebook">Facebook</a></li>
+                    <li class="twitter"><a href="${siteParams.TWITTER}" target="_blank" title="Twitter">Twitter</a>
+                    </li>
+                    <li class="linkedin"><a href="${siteParams.LINKEDIN}" target="_blank" title="Linkedin">Linkedin</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
-            <i class="fa fa-bars"></i>
-        </button>
-    </div>
-    <div class="navbar-collapse nav-main-collapse collapse">
+
         <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <asset:image alt="1hretouch" width="200" height="41" data-sticky-width="170" data-sticky-height="35"
+                                 src="logo.png"/>
+                </a>
+            </div>
+            <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
 
-            <nav class="nav-main mega-menu">
-                <ul class="nav nav-pills nav-main" id="mainMenu">
-                    <li><a href="${createLink(uri:'/')}#home">Home</a></li>
-                    <sec:ifAllGranted roles="ROLE_USER">
-                        <li><a href="${createLink(uri:'/upload') }">Upload</a></li>
-                        <li><a href="${createLink(uri:'/projects') }">My Orders</a></li>
-                    </sec:ifAllGranted>
-                    <sec:ifAllGranted roles="ROLE_ADMIN">
-                        <li><a href="${createLink(uri:'/user') }">User</a></li>
-                        <li><a href="${createLink(action: 'index',controller: 'project') }">Projects</a></li>
-                        <li><a href="${createLink(uri:'/technique') }">Techniques</a></li>
-                        <li><a href="${createLink(uri:'/siteParams') }">Site Params</a></li>
-                        <li><a href="${createLink(uri:'/testimonial') }">Testimonial</a></li>
-                    </sec:ifAllGranted>
-                    <sec:ifAllGranted roles="ROLE_RETOUCHER">
-                        <li><a href="${createLink(uri:'/tasks') }">My Tasks
-                            <g:if test="${incompleteTaskCount!=null}">
-                                <span class="badge">${incompleteTaskCount}</span>
-                            </g:if>
-                        </a></li>
-                        <li><a href="${createLink(uri:'/new-tasks') }">New Tasks
-                            <g:if test="${newTaskCount!=null}">
-                                <span class="badge">${newTaskCount}</span>
-                            </g:if>
-                        </a>
-                        </li>
-                        <li><a href="${createLink(uri:'/earning') }">My Earnings</a>
-                        </li>
-                    </sec:ifAllGranted>
-
-                    <sec:ifNotLoggedIn>
-                        <li><a href="${createLink(uri:'/')}#techniques">Techniques</a></li>
-
-                        <li class="dropdown mega-menu-item mega-menu-signin signin" id="headerAccount">
-                            <a class="dropdown-toggle" href="${createLink(uri:'/login') }">
-                                <i class="fa fa-user"></i> Sign In
-                                <i class="fa fa-angle-down"></i>
+        <div class="navbar-collapse nav-main-collapse collapse">
+            <div class="container">
+                <nav class="nav-main mega-menu">
+                    <ul class="nav nav-pills nav-main" id="mainMenu">
+                        <li><a href="${createLink(uri: '/')}#home">Home</a></li>
+                        <sec:ifAllGranted roles="ROLE_USER">
+                            <li><a href="${createLink(uri: '/upload')}">Upload</a></li>
+                            <li><a href="${createLink(uri: '/projects')}">My Orders</a></li>
+                        </sec:ifAllGranted>
+                        <sec:ifAllGranted roles="ROLE_ADMIN">
+                            <li><a href="${createLink(uri: '/user')}">User</a></li>
+                            <li><a href="${createLink(action: 'index', controller: 'project')}">Projects</a></li>
+                            <li><a href="${createLink(uri: '/technique')}">Techniques</a></li>
+                            <li><a href="${createLink(uri: '/siteParams')}">Site Params</a></li>
+                            <li><a href="${createLink(uri: '/testimonial')}">Testimonial</a></li>
+                        </sec:ifAllGranted>
+                        <sec:ifAllGranted roles="ROLE_RETOUCHER">
+                            <li><a href="${createLink(uri: '/tasks')}">My Tasks
+                                <g:if test="${incompleteTaskCount != null}">
+                                    <span class="badge">${incompleteTaskCount}</span>
+                                </g:if>
+                            </a></li>
+                            <li><a href="${createLink(uri: '/new-tasks')}">New Tasks
+                                <g:if test="${newTaskCount != null}">
+                                    <span class="badge">${newTaskCount}</span>
+                                </g:if>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="mega-menu-content">
-                                        <div class="row">
-                                            <div class="col-md-12">
+                            </li>
+                            <li><a href="${createLink(uri: '/earning')}">My Earnings</a>
+                            </li>
+                        </sec:ifAllGranted>
+                        <sec:ifNotLoggedIn>
+                            <li class="dropdown mega-menu-item mega-menu-signin signin" id="headerAccount">
+                                <a class="dropdown-toggle" href="#">
+                                    <i class="fa fa-user"></i> Sign In
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="mega-menu-content">
+                                            <div class="row">
+                                                <div class="col-md-12">
 
-                                                <div class="signin-form">
+                                                    <div class="signin-form">
 
-                                                    <span class="mega-menu-sub-title">Sign In</span>
+                                                        <span class="mega-menu-sub-title">Sign In</span>
 
-                                                    <form action="${postUrl}" id="loginForm" method="post"
-                                                          name="loginForm" autocomplete='off'>
-                                                        <div class="row">
-                                                            <div class="form-group">
-                                                                <div class="col-md-12">
-                                                                    <label>Username</label> <input tabindex="1"
-                                                                                                   name="j_username" id="username"
-                                                                                                   class="form-control input-lg" required="true">
+                                                        <form action="${postUrl}" id="loginForm" method="post"
+                                                              name="loginForm" autocomplete='off'>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <label>Username</label> <input tabindex="1"
+                                                                                                       name="j_username"
+                                                                                                       id="username"
+                                                                                                       class="form-control input-lg"
+                                                                                                       required="true">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="form-group">
-                                                                <div class="col-md-12">
-                                                                    <g:link controller="register" action="forgotPassword" tabindex="3" style="background-color:#fff"
-                                                                            class="pull-right highlightfix">(Lost Password?)</g:link>
-                                                                    <label>Password</label> <input type="password" tabindex="2"
-                                                                                                   name="j_password" id="passwordMenu"
-                                                                                                   class="form-control input-lg" required="true">
+
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <g:link controller="register"
+                                                                                action="forgotPassword" tabindex="3"
+                                                                                style="background-color:#fff"
+                                                                                class="pull-right highlightfix">(Lost Password?)</g:link>
+                                                                        <label>Password</label> <input type="password"
+                                                                                                       tabindex="2"
+                                                                                                       name="j_password"
+                                                                                                       id="passwordMenu"
+                                                                                                       class="form-control input-lg"
+                                                                                                       required="true">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row" style="  margin-top: 6px;">
-                                                            <div class="col-md-6">
-                                                                <span class="remember-box checkbox"> <label
-                                                                        for="remembememenu"> <input type="checkbox"
-                                                                                                    name="${rememberMeParameter}" id="remembememenu"
-                                                                                                    name="rememberme">Remember Me
-                                                                </label>
-                                                                </span>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input type="submit" value="Login"
-                                                                       class="btn btn-primary pull-right push-bottom"
-                                                                       data-loading-text="Loading...">
+
+                                                            <div class="row" style="  margin-top: 6px;">
+                                                                <div class="col-md-6">
+                                                                    <span class="remember-box checkbox"><label
+                                                                            for="remembememenu"><input type="checkbox"
+                                                                                                       name="${rememberMeParameter}"
+                                                                                                       id="remembememenu"
+                                                                                                       name="rememberme">Remember Me
+                                                                    </label>
+                                                                    </span>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <input type="submit" value="Login"
+                                                                           class="btn btn-primary pull-right push-bottom"
+                                                                           data-loading-text="Loading...">
+                                                                </div>
+
                                                             </div>
 
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="form-group">
-                                                                <div class="col-md-12">
-                                                                    <p class="sign-up-info">
-                                                                        Don't have an account yet?
-                                                                        <g:link controller="register">Sign
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <p class="sign-up-info">
+                                                                            Don't have an account yet?
+                                                                            <g:link controller="register">Sign
 													Up</g:link>
-                                                                    </p>
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </form>
+                                                        </form>
 
-                                                </div>
+                                                    </div>
 
-                                                <div class="signup-form">
-                                                    <span class="mega-menu-sub-title">Create Account</span>
+                                                    <div class="signup-form">
+                                                        <span class="mega-menu-sub-title">Create Account</span>
 
-                                                    <form action="" id="" method="post">
-                                                        <div class="row">
-                                                            <div class="form-group">
+                                                        <form action="" id="" method="post">
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <label>E-mail Address</label>
+                                                                        <input type="text" value=""
+                                                                               class="form-control input-lg">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <label>Password</label>
+                                                                        <input type="password" value=""
+                                                                               class="form-control input-lg">
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <label>Re-enter Password</label>
+                                                                        <input type="password" value=""
+                                                                               class="form-control input-lg">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <label>E-mail Address</label>
-                                                                    <input type="text" value="" class="form-control input-lg">
+                                                                    <input type="submit" value="Create Account"
+                                                                           class="btn btn-primary pull-right push-bottom"
+                                                                           data-loading-text="Loading...">
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="form-group">
-                                                                <div class="col-md-6">
-                                                                    <label>Password</label>
-                                                                    <input type="password" value="" class="form-control input-lg">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label>Re-enter Password</label>
-                                                                    <input type="password" value="" class="form-control input-lg">
+                                                        </form>
+
+                                                        <p class="log-in-info">Already have an account? <a href="#"
+                                                                                                           id="headerSignIn">Log In</a>
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="recover-form">
+                                                        <span class="mega-menu-sub-title">Reset My Password</span>
+
+                                                        <p>Complete the form below to receive an email with the authorization code needed to reset your password.</p>
+
+                                                        <form action="" id="" method="post">
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <label>E-mail Address</label>
+                                                                        <input type="text" value=""
+                                                                               class="form-control input-lg">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <input type="submit" value="Create Account" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
-                                                            </div>
-                                                        </div>
-                                                    </form>
 
-                                                    <p class="log-in-info">Already have an account? <a href="#" id="headerSignIn">Log In</a></p>
-                                                </div>
-
-                                                <div class="recover-form">
-                                                    <span class="mega-menu-sub-title">Reset My Password</span>
-                                                    <p>Complete the form below to receive an email with the authorization code needed to reset your password.</p>
-
-                                                    <form action="" id="" method="post">
-                                                        <div class="row">
-                                                            <div class="form-group">
+                                                            <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <label>E-mail Address</label>
-                                                                    <input type="text" value="" class="form-control input-lg">
+                                                                    <input type="submit" value="Submit"
+                                                                           class="btn btn-primary pull-right push-bottom"
+                                                                           data-loading-text="Loading...">
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <input type="submit" value="Submit" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
-                                                            </div>
-                                                        </div>
-                                                    </form>
+                                                        </form>
 
-                                                    <p class="log-in-info">Already have an account? <a href="#" id="headerRecoverCancel">Log In</a></p>
+                                                        <p class="log-in-info">Already have an account? <a href="#"
+                                                                                                           id="headerRecoverCancel">Log In</a>
+                                                        </p>
+                                                    </div>
+
                                                 </div>
-
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                    %{----}%
-                    </sec:ifNotLoggedIn>
-                    <sec:ifLoggedIn>
-
-                        <li class="dropdown"><a data-hash class="dropdown-toggle" href="${createLink(uri:'/')}#home"> <i class="fa fa-user"></i>
-                            <sec:username /> <i class="fa fa-angle-down"></i>
-                        </a>
-                            <ul class="dropdown-menu">
-                                <li><g:link controller="user" action="edit" id="${sec.loggedInUserInfo(field: 'id')}">My Account</g:link></li>
-                                <li><a href="${createLink(uri:'/logout')}">Log Out</a></li>
-                            </ul></li>
-                    </sec:ifLoggedIn>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
-<g:layoutBody/>
-
-
-<footer class="short" id="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h4>About 1hretouch</h4>
-
-                <p>${siteParams?.ABOUTUS}</p>
-                <hr class="light">
-            </div>
-
-            <div class="col-md-3 col-md-offset-1">
-                <h5 class="short">Contact Us</h5>
-                <span class="phone">${siteParams?.PHONENUMBER}</span>
-
-                <p class="short">${siteParams?.ADDRESS1}</p>
-
-                <p class="short">${siteParams?.ADDRESS2}</p>
-                <ul class="list icons list-unstyled">
-                    <li><i class="fa fa-envelope"></i> <a
-                            href="mailto:${siteParams?.EMAIL}">${siteParams?.EMAIL}</a></li>
-                </ul>
-
-                <div class="social-icons">
-                    <ul class="social-icons">
-                        <li class="facebook"><a href="${siteParams?.FACEBOOK}"
-                                                target="_blank" data-placement="bottom" data-tooltip
-                                                title="Facebook">Facebook</a></li>
-                        <li class="twitter"><a href="${siteParams?.TWITTER}"
-                                               target="_blank" data-placement="bottom" data-tooltip
-                                               title="Twitter">Twitter</a></li>
-                        <li class="linkedin"><a href="${siteParams?.LINKEDIN}"
-                                                target="_blank" data-placement="bottom" data-tooltip
-                                                title="Linkedin">Linkedin</a></li>
+                                    </li>
+                                </ul>
+                            </li>
+                        </sec:ifNotLoggedIn>
+                        <sec:ifLoggedIn>
+                            <li class="dropdown" id="profileMenu">
+                                <a class="dropdown-toggle" href="#">
+                                    <i class="fa fa-user"></i> <sec:username/>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><g:link controller="user" action="edit"
+                                                id="${sec.loggedInUserInfo(field: 'id')}">My Account</g:link></li>
+                                    <li><a href="${createLink(uri: '/logout')}">Log Out</a></li>
+                                </ul>
+                            </li>
+                        </sec:ifLoggedIn>
                     </ul>
-                </div>
+                </nav>
             </div>
         </div>
-    </div>
+    </header>
+    <g:layoutBody/>
 
-    <div class="footer-copyright">
+
+    <footer id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
-                    <a href="${createLink(uri:'/')}" class="logo"><asset:image
-                            alt="Porto Website Template" class="img-responsive"
-                            src="img/logogrey.png"/>
-                    </a>
+
+                <div class="col-md-5">
+                    <div class="popCatagories">
+                        <h1>Popular Categories</h1>
+                        <ul class="footerlist">
+                            <li><i class="fa fa-caret-right"></i>Wedding Photo Post-Production</li>
+                            <li><i class="fa fa-caret-right"></i>Portrait Photo Retouching</li>
+                            <li><i class="fa fa-caret-right"></i>Product Photo Editing</li>
+                            <li><i class="fa fa-caret-right"></i>Fashion Photo Post-Production</li>
+                            <li><i class="fa fa-caret-right"></i>Old Photo Restoration</li>
+                        </ul>
+
+                    </div>
+
                 </div>
 
-                <div class="col-md-10">
-                    <p>${siteParams?.COPYRIGHT}</p>
+                <div class="col-md-4">
+                    <div class="popCatagories">
+                        <h1>About 1hretouch</h1>
+
+                        <p>${siteParams?.ABOUTUS}</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="contact">
+                        <h1>Contact Us</h1>
+                        <ul class="footerlist">
+
+                            <li>Call Us at: ${siteParams?.PHONENUMBER}</li>
+                            <li>${siteParams?.ADDRESS1}</li>
+                            <li>${siteParams?.ADDRESS2}</li>
+                            <li><a href="mailto:${siteParams?.EMAIL}">${siteParams?.EMAIL}</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1">
+                        <a href="index.html" class="logo">
+                            <asset:image alt="1hretouch" class="" src="logo-footer.png"/>
+                        </a>
+                    </div>
+
+                    <div class="col-md-11">
+                        <p>${siteParams?.COPYRIGHT}</p>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
 </div>
 
 <!-- Vendor -->

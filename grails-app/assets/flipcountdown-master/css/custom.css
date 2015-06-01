@@ -1,1 +1,99 @@
 /* Add here all your CSS customizations */
+h1 {  font-size:1.8em;
+   color:#ed1d24!important; font-weight: 500; margin:0 0 15px 0 }
+a {color:#ed1d24}
+.colorRed {color:#ed1d24;}
+.phone { float:left; font-size:11px;}
+.phone span { color:#dc3642; }
+.clear { clear:both;}
+/*ul#mainMenu{ margin:0;}*/
+.topSection { padding:5px 20px;}
+.social { float:right;}
+.socialOther { box-shadow:none!important;position:relative;top:5px}
+/*.LogoMain { float:left;}
+.menuMain { float:right;}*/
+.nav-pills > li > a { border-radius:0!important;}
+.btn-lg, .btn-group-lg > .btn {border-radius:0!important;}
+
+
+html .retoucher .btn-retoucher {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #98bb8e;
+	border-color: #98bb8e #98bb8e #6aae56;
+}
+
+html .retoucher .btn-retoucher:hover {
+	border-color: #80c06e #80c06e #7ac066;
+	background-color: #80c06e;
+}
+
+html .retoucher .btn-retoucher:active,
+html .retoucher .btn-retoucher:focus {
+	border-color: #80c06e #80c06e #7ac066;
+	background-color: #80c06e;
+}
+
+.home-price { background:#1b1b1b; padding:20px 0 0 0; }
+.home-price p {color:#FFFFFF;font-size:24px; font-weight:100; line-height:20px;}
+.home-price .price-color { color:#ed1d24; }
+.home-intro { background:#FFFFFF!important; margin:0;}
+
+
+.home-intro .upLoad {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	position: relative;
+	text-align: right;
+}
+.home-intro .retoucher {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	position: relative;
+	text-align: left;
+}
+
+.home-intro .upLoad .btn, .home-intro .retoucher .btn {
+	position: relative;
+	z-index: 1;
+}
+
+.home-intro .upLoad .btn i, .home-intro .retoucher .btn i {
+	font-size: 1.1em;
+	font-weight: normal;
+	margin-left: 5px;
+}
+
+.home-intro .upLoad a, .home-intro .retoucher a {
+	color: #FFF;
+}
+
+.home-intro .upLoad a:not(.btn), .home-intro .retoucher a:not(.btn) {
+	color: #777777;
+}
+#header.flat-menu nav ul.nav-main li a { margin-right: 5px!important;}
+.mb-sm { margin:10px 0 0 0;}
+.lead { font-size:18px;}
+.sliderSmall { }
+.testParallex p { font-size:20px; line-height:35px;  }
+section.section { padding:40px 0}
+#footer {padding-top:20px;}
+#footer h1 { font-size:1.8em;
+   color:#ed1d24!important; font-weight: 500;}
+#footer .footer-copyright { background:#FFFFFF!important;}
+#footer .container .row > div { margin:0;}
+#footer .footer-copyright {padding:14px 0 10px;}
+.feature-box-info { padding:1px 10px; margin:-3px 0;}
+.feature-box .feature-box-icon { border-radius:0px; background:#999897; width:40px; height:40px; line-height:40px;}
+.feature-box .feature-box-info {padding:3px 0 0 40px;}
+
+.feature-box-info p{ background:#f8f8f8; padding:8px 10px; margin:2px 0 0 0; height:40px;}
+ul.footerlist { margin:0; padding:0;}
+ul.footerlist li  { list-style:none; padding:0; font-size:14px; line-height:30px;}
+ul.footerlist li i { padding:0 10px 0 0;}
+.slider-container .main-label {color:#ea0515; font-size:50px;}
+.textFirst { color:#000000!important; font-size:23px; text-transform:uppercase; font-weight:500!important;}
+.secText {color:#000000!important; font-size:23px; font-weight:500!important;}
+#header nav ul.nav-main .dropdown > ul.dropdown-menu {border-top-color:#ed1d24!important;}
+
+
