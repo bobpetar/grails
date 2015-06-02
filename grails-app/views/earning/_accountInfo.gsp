@@ -1,6 +1,6 @@
 <div class="col-md-3">
     <section>
-        <h4 class="page-header">Account Information</h4>
+        <h1>Account Information</h1>
 
         <div class="row fontawesome-icon-list">
 
@@ -20,7 +20,7 @@
             </div>
         </div>
         <g:if test="${availableBalance>redeemLimit}">
-            <h4 class="page-header">Redeem</h4>
+            <h1>Redeem</h1>
             <div class="form-group">
                 <g:form action="redeem" enctype="multipart/form-data">
                     <div class="col-md-12">
@@ -44,9 +44,6 @@
             </div>
 
         </g:if>
-
-
-        <hr class="tall"/>
 
     </section>
 </div>
