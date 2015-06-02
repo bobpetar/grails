@@ -8,11 +8,14 @@
 
 	<section class="page-top">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h1>Create Account</h1>
-				</div>
-			</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="${createLink(uri: '/')}">Home</a></li>
+                        <li class="active">Create Account</li>
+                    </ul>
+                </div>
+            </div>
 		</div>
 	</section>
 

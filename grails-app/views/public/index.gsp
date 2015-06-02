@@ -35,7 +35,7 @@
     </script>
 
 </head>
-    <div role="main" class="main">
+    <div role="main" class="main" id="home">
         <div class="slider-container">
             <div class="slider" id="revolutionSlider" data-plugin-revolution-slider data-plugin-options='{"startheight": 500}'>
                 <ul>
@@ -45,7 +45,7 @@
                              data-bgrepeat="no-repeat" alt="" />
 
                         <div class="tp-caption top-label lfl stl textFirst"
-                             data-x="155"
+                             data-x="125"
                              data-y="195"
                              data-speed="300"
                              data-start="500"
@@ -53,42 +53,42 @@
 
 
                         <div class="tp-caption main-label sft stb"
-                             data-x="150"
+                             data-x="100"
                              data-y="210"
                              data-speed="300"
                              data-start="1500"
                              data-easing="easeOutExpo">1H Retouch</div>
 
                         <div class="tp-caption bottom-label sft stb secText"
-                             data-x="155"
+                             data-x="120"
                              data-y="265"
                              data-speed="500"
                              data-start="2000"
                              data-easing="easeOutExpo">Retouching was never better.</div>
 
                         <div class="tp-caption randomrotate"
-                             data-x="650"
+                             data-x="600"
                              data-y="248"
                              data-speed="500"
                              data-start="2500"
                              data-easing="easeOutBack"><asset:image src="img/slides/img01.png" alt="" /></div>
 
                         <div class="tp-caption sfb"
-                             data-x="600"
+                             data-x="500"
                              data-y="175"
                              data-speed="400"
                              data-start="3000"
                              data-easing="easeOutBack"><asset:image src="img/slides/img02.png" alt="" /></div>
 
                         <div class="tp-caption sfb"
-                             data-x="750"
+                             data-x="700"
                              data-y="74"
                              data-speed="700"
                              data-start="3150"
                              data-easing="easeOutBack"><asset:image src="img/slides/img03.png" alt="" /></div>
 
                         <div class="tp-caption sfb"
-                             data-x="975"
+                             data-x="925"
                              data-y="165"
                              data-speed="1000"
                              data-start="3250"
@@ -102,7 +102,7 @@
                         <asset:image src="img/slides/slide-bg.jpg" data-bgfit="cover" data-bgposition="left top"
                                      data-bgrepeat="no-repeat" alt=""/>
                         <div class="tp-caption top-label lfl stl textFirst"
-                             data-x="155"
+                             data-x="125"
                              data-y="195"
                              data-speed="300"
                              data-start="500"
@@ -110,42 +110,42 @@
 
 
                         <div class="tp-caption main-label sft stb"
-                             data-x="150"
+                             data-x="100"
                              data-y="210"
                              data-speed="300"
                              data-start="1500"
                              data-easing="easeOutExpo">1H Retouch</div>
 
                         <div class="tp-caption bottom-label sft stb secText"
-                             data-x="155"
+                             data-x="120"
                              data-y="265"
                              data-speed="500"
                              data-start="2000"
                              data-easing="easeOutExpo">Retouching was never better.</div>
 
                         <div class="tp-caption randomrotate"
-                             data-x="650"
+                             data-x="600"
                              data-y="248"
                              data-speed="500"
                              data-start="2500"
                              data-easing="easeOutBack"><asset:image src="img/slides/img01.png" alt="" /></div>
 
                         <div class="tp-caption sfb"
-                             data-x="600"
+                             data-x="500"
                              data-y="175"
                              data-speed="400"
                              data-start="3000"
                              data-easing="easeOutBack"><asset:image src="img/slides/img02.png" alt="" /></div>
 
                         <div class="tp-caption sfb"
-                             data-x="750"
+                             data-x="700"
                              data-y="74"
                              data-speed="700"
                              data-start="3150"
                              data-easing="easeOutBack"><asset:image src="img/slides/img03.png" alt="" /></div>
 
                         <div class="tp-caption sfb"
-                             data-x="975"
+                             data-x="925"
                              data-y="165"
                              data-speed="1000"
                              data-start="3250"
@@ -193,7 +193,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="techniques">
 
         <div class="row center">
             <div class="col-md-12">
@@ -269,7 +269,7 @@
 
     </div>
 
-    <section class="section section-text-light section-background section-center testParallex" style="background-image: url(${assetPath(src: 'img/testimonial.jpg')});">
+    <section id="why-us" class="section section-text-light section-background section-center testParallex" style="background-image: url(${assetPath(src: 'img/testimonial.jpg')});">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -334,7 +334,7 @@
 
             </div>
             <div class="col-md-5">
-                <h1>YouTube</h1>
+                <h1>Take a tour</h1>
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe frameborder="0" allowfullscreen="" src="https://www.youtube.com/embed/qjILMmlYsr4?showinfo=0&amp;wmode=opaque"></iframe>
                 </div>

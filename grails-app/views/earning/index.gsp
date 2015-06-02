@@ -25,13 +25,6 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>
-                        My Earnings
-                    </h1>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -44,22 +37,13 @@
             <div class="col-md-8">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        %{--	<g:if test="${flash.message}">
-                                <div class="message" role="status">${flash.message}</div>
-                            </g:if>--}%
                         <table
                                 class="table table-bordered table-striped table-condensed mb-none">
                             <thead>
                             <tr>
-
-
                                 <th><g:message code="earning.project.label" default="Project" /></th>
                                 <g:sortableColumn property="createdDate" title="${message(code: 'earning.createdDate.label', default: 'Date')}" />
                                 <g:sortableColumn property="amount" title="${message(code: 'earning.amount.label', default: 'Amount')}" />
-
-
-                                %{--						<th><g:message code="earning.retoucher.label" default="Retoucher" /></th>--}%
-
                             </tr>
                             </thead>
                             <tbody>
@@ -70,14 +54,6 @@
                                     <td>${fieldValue(bean: earningInstance, field: "project")}</td>
                                     <td><prettytime:display date="${earningInstance.createdDate}"/></td>
                                     <td>$${fieldValue(bean: earningInstance, field: "amount")} </td>
-
-
-
-
-                                    %{--
-                                                                <td>${fieldValue(bean: earningInstance, field: "retoucher")}</td>--}%
-
-
                                 </tr>
                             </g:each>
                             </tbody>

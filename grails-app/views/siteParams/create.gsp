@@ -18,20 +18,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>
-                        <g:message code="default.list.label" args="[entityName]" />
-                    </h1>
-                </div>
-            </div>
         </div>
     </section>
     <div id="create-siteParams" class="content scaffold-create container" role="main">
-    %{--    <h1><g:message code="default.create.label" args="[entityName]" /></h1>
-        <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-        </g:if>--}%
         <g:hasErrors bean="${siteParamsInstance}">
             <ul class="errors" role="alert">
                 <g:eachError bean="${siteParamsInstance}" var="error">

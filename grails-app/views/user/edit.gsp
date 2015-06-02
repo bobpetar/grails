@@ -25,13 +25,17 @@
 							</ul>
 						</div>
 					</sec:ifAnyGranted>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<h1>
-							User Profile
-						</h1>
-					</div>
+                    <sec:ifAnyGranted roles="ROLE_RETOUCHER, ROLE_USER">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="breadcrumb">
+                                    <li><a class="home" href="${createLink(uri: '/')}"><g:message
+                                            code="default.home.label" /></a></li>
+                                    <li>My Profile</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </sec:ifAnyGranted>
 				</div>
 			</div>
 		</section>

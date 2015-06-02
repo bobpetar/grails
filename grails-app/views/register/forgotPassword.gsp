@@ -10,7 +10,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Password Reset</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="${createLink(uri: '/')}">Home</a></li>
+                        <li class="active">Password Reset</li>
+                    </ul>
                 </div>
             </div>
         </div>

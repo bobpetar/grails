@@ -13,13 +13,8 @@
 					<div class="col-md-12">
 						<ul class="breadcrumb">
 							<li><a href="#">Home</a></li>
-							<li class="active">Pages</li>
+							<li class="active">500 - Internal Server Error</li>
 						</ul>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<h1>500 - Internal Server Error</h1>
 					</div>
 				</div>
 			</div>

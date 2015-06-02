@@ -22,14 +22,8 @@
 							<li class="active"><a
 								href="${createLink(uri:'/user/create') }"><g:message
 										code="default.create.label" args="[entityName]" /></a></li>
+                            <li><g:message code="default.list.label" args="[entityName]" /></li>
 						</ul>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<h1>
-							<g:message code="default.list.label" args="[entityName]" />
-						</h1>
 					</div>
 				</div>
 			</div>

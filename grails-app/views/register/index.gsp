@@ -17,7 +17,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Create Account</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="${createLink(uri: '/')}">Home</a></li>
+                        <li class="active">Create Account</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -36,17 +39,30 @@
     <g:else>
         <div class="row center">
             <div class="col-md-12">
-                <h4>
+                <p>
                     Let's get started!<br>
                     First, tell us what you're looking for.<hr class="tall"/>
-                </h4>
+                </p>
             </div>
-            <div class="col-md-5">
-                <a href="${createLink(uri:'/register/customer')}" class="btn btn-block btn-primary">I want to hire a retoucher</a>
-            </div>
-            <div class="col-md-2">OR</div>
-            <div class="col-md-5">
-                <a href="${createLink(uri: '/register/retoucher')}" class="btn btn-block btn-primary">I am looking for online retouching work</a>
+        </div>
+        <div class="home-intro" id="home-intro">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="upLoad">
+                            <a href="${createLink(uri:'/register/customer')}" class="btn btn-lg btn-primary">Upload your photo</a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="retoucher">
+                            <a href="${createLink(uri: '/register/retoucher')}" class="btn btn-lg btn-retoucher">Become a retoucher</a>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </g:else>

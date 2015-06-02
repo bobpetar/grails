@@ -4,7 +4,6 @@
     <div class="row show-grid">
 
         <div class="col-md-12">
-            <h4 class="page-header text-capitalize">${testimonialInstance?.fullName}</h4>
 
             <div class="form-group">
                 <label class="col-md-3 control-label" for="fullName">Full Name</label>

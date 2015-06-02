@@ -21,13 +21,8 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li><a href="#">Home</a></li>
-                        <li class="active">Projects</li>
+                        <li class="active">New Tasks</li>
                     </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h1><g:message code="default.list.label" args="[entityName]" /></h1>
                 </div>
             </div>
         </div>
