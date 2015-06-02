@@ -20,21 +20,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>
-                        <g:message code="default.list.label" args="[entityName]" />
-                    </h1>
-                </div>
-            </div>
         </div>
     </section>
 
     <div id="edit-siteParams" class="content scaffold-edit container" role="main">
-        %{--<h1><g:message code="default.edit.label" args="[entityName]" /></h1>--}%
-        %{-- <g:if test="${flash.message}">
-             <div class="message" role="status">${flash.message}</div>
-         </g:if>--}%
         <div class="panel">
             <g:hasErrors bean="${siteParamsInstance}">
                 <ul class="errors" role="alert">

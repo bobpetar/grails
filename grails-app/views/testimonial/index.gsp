@@ -23,13 +23,6 @@
 						</ul>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<h1>
-							<g:message code="default.list.label" args="[entityName]" />
-						</h1>
-					</div>
-				</div>
 			</div>
 		</section>
 

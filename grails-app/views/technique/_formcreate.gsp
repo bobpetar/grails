@@ -4,7 +4,6 @@
     <div class="row show-grid">
         <div class="col-md-3">
             <section>
-                <h4 class="page-header">Happy Retouching!!!</h4>
 
                 <div class="row fontawesome-icon-list">
                     <div class="col-md-12 col-sm-12">
@@ -15,8 +14,6 @@
         </div>
 
         <div class="col-md-8">
-            <h4 class="page-header">Technique Information</h4>
-
             <div class="form-group">
                 <label class="col-md-3 control-label" for="name">Technique Name</label>
 

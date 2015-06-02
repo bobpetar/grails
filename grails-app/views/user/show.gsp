@@ -45,7 +45,7 @@
 
     <div class="container">
         <div class="row show-grid">
-            <h4 class="page-header">User Information</h4>
+            %{--<h4 class="page-header">User Information</h4>--}%
             <div class="col-md-3">
                 <section>
                     <div class="row fontawesome-icon-list">
@@ -80,11 +80,25 @@
             <div class="col-md-9">
                 <sec:ifAllGranted roles="ROLE_ADMIN">
                 <g:form url="[resource:userInstance, action:'delete']" method="DELETE">
-                    <g:link action="edit" class="btn btn-primary btn-icon" resource="${userInstance}"><i class="fa fa-external-link"></i>Edit Me! </g:link>
-                    <span data-appear-animation-delay="800" data-appear-animation="rotateInUpLeft"
-                          class="arrow hlb appear-animation rotateInUpLeft appear-animation-visible"
-                          style="animation-delay: 800ms;"></span>
-                    <g:actionSubmit class="btn btn-danger btn-icon" id="deleteme" action="delete" value="Delete Me!" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                    <div class="home-intro">
+                        <div class="container">
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="retoucher">
+                                        <g:link action="edit" class="btn btn-lg btn-retoucher" resource="${userInstance}"><i class="fa fa-external-link"></i>Edit Me! </g:link>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="upLoad">
+                                        <g:actionSubmit class="btn btn-lg btn-primary" id="deleteme" action="delete" value="Delete Me!" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
                 </g:form>
                 </sec:ifAllGranted>
                 <g:if test="${userProjects}">
