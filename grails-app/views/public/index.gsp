@@ -35,7 +35,7 @@
     </script>
 
 </head>
-    <div role="main" class="main">
+    <div role="main" class="main" id="home">
         <div class="slider-container">
             <div class="slider" id="revolutionSlider" data-plugin-revolution-slider data-plugin-options='{"startheight": 500}'>
                 <ul>
@@ -193,7 +193,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="techniques">
 
         <div class="row center">
             <div class="col-md-12">
@@ -269,7 +269,7 @@
 
     </div>
 
-    <section class="section section-text-light section-background section-center testParallex" style="background-image: url(${assetPath(src: 'img/testimonial.jpg')});">
+    <section id="why-us" class="section section-text-light section-background section-center testParallex" style="background-image: url(${assetPath(src: 'img/testimonial.jpg')});">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -334,7 +334,7 @@
 
             </div>
             <div class="col-md-5">
-                <h1>YouTube</h1>
+                <h1>Take a tour</h1>
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe frameborder="0" allowfullscreen="" src="https://www.youtube.com/embed/qjILMmlYsr4?showinfo=0&amp;wmode=opaque"></iframe>
                 </div>

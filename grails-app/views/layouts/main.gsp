@@ -186,6 +186,10 @@
                 <nav class="nav-main mega-menu">
                     <ul class="nav nav-pills nav-main" id="mainMenu">
                         <li><a href="${createLink(uri: '/')}#home">Home</a></li>
+                        <sec:ifNotGranted roles="ROLE_ADMIN">
+                        <li><a href="${createLink(uri: '/')}#techniques">Techniques</a></li>
+                        </sec:ifNotGranted>
+                        <li><a href="${createLink(uri: '/')}#why-us">Why Us</a></li>
                         <sec:ifAllGranted roles="ROLE_USER">
                             <li><a href="${createLink(uri: '/upload')}">Upload</a></li>
                             <li><a href="${createLink(uri: '/projects')}">My Orders</a></li>
