@@ -1,5 +1,6 @@
 package com.retouch
 
+import com.codeharmony.RetoucherPayout
 import grails.transaction.Transactional;
 import com.paypal.api.payments.Currency;
 import com.paypal.api.payments.Payout;
@@ -16,12 +17,18 @@ class PaypalService {
 
 
 
-    def massPay() {
+    def issueRetoucherPayout(Redeemtion red){
+       def  payOut = new RetoucherPayout(red);
+        PayoutBatch pb =  issuePayment(payOut);
+        println "**************Payout Details****************"
+        println "Receiver: " + red.retoucher.email
+        println "Status: "+ pb.getBatchHeader().batchStatus
+        println "*******************************************"
 
     }
 
 
-    public PayoutBatch createSynchronousSinglePayout() {
+    public PayoutBatch issuePayment(RetoucherPayout rp) {
 
         // ###Payout
         // A resource representing a payout
@@ -43,16 +50,16 @@ class PaypalService {
 
         // ### Currency
         Currency amount = new Currency();
-        amount.setValue("1.00").setCurrency("USD");
+        amount.setValue(rp.getStringAmount()).setCurrency("USD");
 
         // #### Sender Item
         // Please note that if you are using single payout with sync mode, you
         // can only pass one Item in the request
         PayoutItem senderItem = new PayoutItem();
         senderItem.setRecipientType("Email")
-                .setNote("Thanks for your patronage")
-                .setReceiver("test-personal1@1hretouch.com")
-                .setSenderItemId("201404324234").setAmount(amount);
+                .setNote(rp.getNote())
+                .setReceiver(rp.getReceiverEmail())
+                .setSenderItemId(rp.getRedeemtionId()).setAmount(amount);
 
         List<PayoutItem> items = new ArrayList<PayoutItem>();
         items.add(senderItem);
@@ -94,6 +101,7 @@ class PaypalService {
                     "Created Single Synchronous Payout",
                     Payout.getLastRequest(), Payout.getLastResponse(), null);*/
         } catch (PayPalRESTException e) {
+            println e.details
            /* ResultPrinter.addResult(req, resp,
                     "Created Single Synchronous Payout",
                     Payout.getLastRequest(), null, e.getMessage());*/
