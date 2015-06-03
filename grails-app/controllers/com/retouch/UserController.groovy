@@ -88,7 +88,9 @@ class UserController {
 	@Transactional
 	def update(User userInstance) {
 
-		def userRole = Role.findByAuthority(params.role)
+
+
+		def userRole = Role.findById(params.role)
 
 		if (userInstance == null) {
 			notFound()

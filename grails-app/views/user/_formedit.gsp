@@ -65,10 +65,14 @@
                         <label class="col-xs-5 control-label mt-xs pt-none">User
                         Role</label>
 
+                        <g:each in="${userInstance?.authorities?.id}" status="i" var="authority">
+                            <g:set var="authority" value="${authority}"></g:set>
+                        </g:each>
+
                         <div class="col-md-5">
                             <div class="">
-                                <g:select class="form-control populate" name="role" from="${Role.list()}"
-                                          value="${userInstance.id ? userInstance?.authorities.iterator().next() : ""}"/>
+                                <g:select class="form-control populate" id="user" name="role" from="${Role.list()}"
+                                          optionKey="id" value="${authority}"/>
                                 <label for="enabled"></label>
                             </div>
                         </div>
