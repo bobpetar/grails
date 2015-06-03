@@ -103,7 +103,9 @@ class UserController {
 		}
 
 		def deleteRole = UserRole.findByUser(userInstance)
-		deleteRole.delete flush:true
+        if(deleteRole){
+            deleteRole.delete flush:true
+        }
 
 		userInstance.save flush:true
 
