@@ -102,7 +102,7 @@
                 </g:form>
                 </sec:ifAllGranted>
                 <g:if test="${userProjects}">
-                <h4 class="page-header">Project List: Uploaded</h4>
+                <h4>Project List: Uploaded</h4>
                 </g:if>
                 <table class="table table-striped">
                     <tbody>
