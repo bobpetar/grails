@@ -4,6 +4,8 @@ import grails.transaction.Transactional
 
 @Transactional
 class AccountService {
+
+    def paypalService
     final BigDecimal REDEEM_LIMIT = 0.1
     BigDecimal getTotalEarned(User retoucher) {
 
@@ -49,8 +51,12 @@ class AccountService {
     def redeemAmount(User retoucher, BigDecimal amount){
         def balance = getAvailableBalance(retoucher)
         if(amount<=balance && amount>=REDEEM_LIMIT){
-            def red  = new Redeemtion(redeemId: (new Date()).time.toString(),status:"Pending",retoucher:retoucher,amount:amount,createdDate: new Date())
-            return red.save(flush:true)
+            def redemptionID = Redeemtion.generateRedeemId(retoucher)
+            def red  = new Redeemtion(redeemId:redemptionID ,status:"Pending",retoucher:retoucher,amount:amount,createdDate: new Date())
+            red.save(flush:true)
+            Redeemtion redSaved = Redeemtion.findByRedeemId(redemptionID);
+            paypalService.issueRetoucherPayout(redSaved)
+            return
         }else{
             return null
         }

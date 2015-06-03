@@ -159,11 +159,11 @@
                 </p>
 
                 <ul class="social-icons">
-                    <li class="facebook"><a href="${siteParams.FACEBOOK}" target="_blank"
+                    <li class="facebook"><a href="${siteParams?.FACEBOOK}" target="_blank"
                                             title="Facebook">Facebook</a></li>
-                    <li class="twitter"><a href="${siteParams.TWITTER}" target="_blank" title="Twitter">Twitter</a>
+                    <li class="twitter"><a href="${siteParams?.TWITTER}" target="_blank" title="Twitter">Twitter</a>
                     </li>
-                    <li class="linkedin"><a href="${siteParams.LINKEDIN}" target="_blank" title="Linkedin">Linkedin</a>
+                    <li class="linkedin"><a href="${siteParams?.LINKEDIN}" target="_blank" title="Linkedin">Linkedin</a>
                     </li>
                 </ul>
             </div>

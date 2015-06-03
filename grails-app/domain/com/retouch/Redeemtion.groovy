@@ -16,4 +16,8 @@ class Redeemtion {
             createdDate = new Date()
         }
     }
+
+    static String generateRedeemId(User retoucher){
+        "1HR-R"+retoucher.id+""+(new Date()).time.toString()
+    }
 }
