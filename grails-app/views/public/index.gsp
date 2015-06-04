@@ -93,14 +93,47 @@
                              data-speed="1000"
                              data-start="3250"
                              data-easing="easeOutBack"><asset:image src="img/slides/img04.png" alt="" /></div>
+                    </li>
+
+                    <li data-transition="fade" data-slotamount="5" data-masterspeed="1000">
+
+                        <asset:image src="img/slides/slide-bg.jpg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" alt="" />
+
+                        <div class="tp-caption sft stb"
+                             data-x="205"
+                             data-y="80"
+                             data-speed="600"
+                             data-start="100"
+                             data-easing="easeOutExpo"><asset:image src="img/slides/slide-concept-3-1.png" alt="" /></div>
+
+                        <div class="tp-caption blackboard-text sft stb"
+                             data-x="230"
+                             data-y="250"
+                             data-speed="900"
+                             data-start="1000"
+                             data-easing="easeOutExpo"><asset:image src="img/slides/slide-concept-3-2.png" alt="" /></div>
 
 
+                        <div class="tp-caption main-label sft stb"
+                             data-x="775"
+                             data-y="190"
+                             data-speed="300"
+                             data-start="900"
+                             data-easing="easeOutExpo">1H Retouch</div>
+
+                        <div class="tp-caption bottom-label sft stb secText"
+                             data-x="735"
+                             data-y="250"
+                             data-speed="500"
+                             data-start="2000"
+                             data-easing="easeOutExpo">Your images will be ready within an hour.</div>
 
                     </li>
-                    <li data-transition="fade" data-slotamount="13" data-masterspeed="300" >
 
-                        <asset:image src="img/slides/slide-bg.jpg" data-bgfit="cover" data-bgposition="left top"
-                                     data-bgrepeat="no-repeat" alt=""/>
+                    <li data-transition="fade" data-slotamount="13" data-masterspeed="300">
+
+                        <asset:image src="img/slides/slide-bg.jpg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" alt="" />
+
                         <div class="tp-caption top-label lfl stl textFirst"
                              data-x="125"
                              data-y="195"
@@ -124,35 +157,11 @@
                              data-easing="easeOutExpo">Retouching was never better.</div>
 
                         <div class="tp-caption randomrotate"
-                             data-x="600"
-                             data-y="248"
+                             data-x="650"
+                             data-y="90"
                              data-speed="500"
                              data-start="2500"
-                             data-easing="easeOutBack"><asset:image src="img/slides/img01.png" alt="" /></div>
-
-                        <div class="tp-caption sfb"
-                             data-x="500"
-                             data-y="175"
-                             data-speed="400"
-                             data-start="3000"
-                             data-easing="easeOutBack"><asset:image src="img/slides/img02.png" alt="" /></div>
-
-                        <div class="tp-caption sfb"
-                             data-x="700"
-                             data-y="74"
-                             data-speed="700"
-                             data-start="3150"
-                             data-easing="easeOutBack"><asset:image src="img/slides/img03.png" alt="" /></div>
-
-                        <div class="tp-caption sfb"
-                             data-x="925"
-                             data-y="165"
-                             data-speed="1000"
-                             data-start="3250"
-                             data-easing="easeOutBack"><asset:image src="img/slides/img04.png" alt="" /></div>
-
-
-
+                             data-easing="easeOutBack"><asset:image src="img/slides/slide-concept-4.png" alt="" /></div>
                     </li>
                 </ul>
             </div>

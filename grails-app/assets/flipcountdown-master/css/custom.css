@@ -96,4 +96,6 @@ ul.footerlist li i { padding:0 10px 0 0;}
 .secText {color:#000000!important; font-size:23px; font-weight:500!important;}
 #header nav ul.nav-main .dropdown > ul.dropdown-menu {border-top-color:#ed1d24!important;}
 
+#header nav.mega-menu ul.nav-main .mega-menu-signin .dropdown-menu { right:0!important; border-radius:0!important;}
+
 
