@@ -43,7 +43,7 @@
         seconds--
         $("#seconds").text(seconds);
         if (seconds === 0){
-          if($.cookie("colorboxShown")){
+          if(!$.cookie("colorboxShown")){
                 openColorBox();
                 $.cookie('colorboxShown', true, { expires: 1, path: '/' });
             }
@@ -51,7 +51,7 @@
         }
       }
 
-      var seconds = 2,
+      var seconds = 20,
       i = setInterval(countDown, 1000);
 
     </script>
