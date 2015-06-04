@@ -34,31 +34,34 @@
 
     </script>
 
-    <script>
-      function openColorBox(){
-        $.colorbox({width:"40%", html:'<div class="center"><h2>Join Us Today</h2> <h1 style="font-size:50px;"><b>1H Retouch!</b></h1><hr class="tall"/></div><div class="home-intro" id="home-intro"><div class="container col-md-12"><div class="col-md-6"><div class="upLoad"><a href="${createLink(uri: '/register/customer')}" class="btn btn-lg btn-primary">Upload your photo</a></div></div><div class="col-md-6"><div class="retoucher"><a href="${createLink(uri: '/register/retoucher')}" class="btn btn-lg btn-retoucher">Become a retoucher</a></div></div></div></div>'});
-      }
+    <sec:ifNotLoggedIn>
+        <script>
+          function openColorBox(){
+            $.colorbox({width:"40%", html:'<div class="center"><h2>Join Us Today</h2> <h1 style="font-size:50px;"><b>1H Retouch!</b></h1><hr class="tall"/></div><div class="home-intro" id="home-intro"><div class="container col-md-12"><div class="col-md-6"><div class="upLoad"><a href="${createLink(uri: '/register/customer')}" class="btn btn-lg btn-primary">Upload your photo</a></div></div><div class="col-md-6"><div class="retoucher"><a href="${createLink(uri: '/register/retoucher')}" class="btn btn-lg btn-retoucher">Become a retoucher</a></div></div></div></div>'});
+          }
 
-      function countDown(){
-        seconds--
-        $("#seconds").text(seconds);
-        if (seconds === 0){
-          if(!$.cookie("colorboxShown")){
-                openColorBox();
-                $.cookie('colorboxShown', true, { expires: 1, path: '/' });
+          function countDown(){
+            seconds--
+            $("#seconds").text(seconds);
+            if (seconds === 0){
+              if(!$.cookie("colorboxShown")){
+                    openColorBox();
+                    $.cookie('colorboxShown', true, { expires: 1, path: '/' });
+                }
+              clearInterval(i);
             }
-          clearInterval(i);
-        }
-      }
+          }
 
-      var seconds = 20,
-      i = setInterval(countDown, 1000);
+          var seconds = 20,
+          i = setInterval(countDown, 1000);
 
-    </script>
+        </script>
+    </sec:ifNotLoggedIn>
 
     <asset:javascript src="jquery.colorbox.js" />
 
     <asset:stylesheet src="colorbox.css" />
+
 
 </head>
     <div role="main" class="main" id="home">
