@@ -43,7 +43,7 @@
         seconds--
         $("#seconds").text(seconds);
         if (seconds === 0){
-          if(!$.cookie("colorboxShown")){
+          if($.cookie("colorboxShown")){
                 openColorBox();
                 $.cookie('colorboxShown', true, { expires: 1, path: '/' });
             }
@@ -51,14 +51,14 @@
         }
       }
 
-      var seconds = 20,
+      var seconds = 2,
       i = setInterval(countDown, 1000);
 
     </script>
 
-    <script src="http://www.jacklmoore.com/colorbox/jquery.colorbox.js"></script>
+    <asset:javascript src="jquery.colorbox.js" />
 
-    <link rel="stylesheet" href="http://www.jacklmoore.com/colorbox/example1/colorbox.css" />
+    <asset:stylesheet src="colorbox.css" />
 
 </head>
     <div role="main" class="main" id="home">
