@@ -88,7 +88,12 @@ class UserController {
 	@Transactional
 	def update(User userInstance) {
 
-
+        if(SpringSecurityUtils.ifNotGranted('ROLE_ADMIN')){
+            if(springSecurityService.getCurrentUser() != userInstance){
+                notFound()
+                return
+            }
+        }
 
 		def userRole = Role.findById(params.role)
 
@@ -103,13 +108,15 @@ class UserController {
 		}
 
 		def deleteRole = UserRole.findByUser(userInstance)
-        if(deleteRole){
+        if(deleteRole && SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')){
             deleteRole.delete flush:true
         }
 
 		userInstance.save flush:true
 
-		UserRole.create userInstance, userRole, true
+        if(SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')){
+            UserRole.create userInstance, userRole, true
+        }
 
 		request.withFormat {
 			form multipartForm {

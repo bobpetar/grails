@@ -163,6 +163,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/**':						  ['ROLE_ADMIN'],
 	'/user/show/**':				  ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_RETOUCHER'],
 	'/user/edit/**':				  ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_RETOUCHER'],
+    '/user/update/**':				  ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_RETOUCHER'],
     '/paypal/**':                     ['ROLE_USER'],
     '/paypal/notifyPaypal':           ['permitAll'],
 	'/project/myTasks':				  ['ROLE_RETOUCHER'],
