@@ -220,7 +220,7 @@
                 <div class="row center">
                     <div class="col-md-12">
                         <div class="conAdd">
-                            <p>Prices start from <span class="price-color"> 50¢ </span> Check out price per Technique now</p>
+                            <p>Prices start at <span class="price-color"> 50¢ </span> "Discover and choose which techniques suit your photo best"</p>
                             <p>Have more than <span class="price-color">100 images per month?</span> Become a Corporate Client.</p>
                         </div>
                     </div>
