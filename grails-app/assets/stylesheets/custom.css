@@ -267,3 +267,23 @@ body > .loading-overlay {
     top: 0;
     width: 100%;
 }
+
+.img-thumbnail{
+    border-radius: 0;!important;
+}
+
+.btn {
+    border-radius: 0;!important;
+}
+
+.breadcrumb {
+    border-radius: 0;!important;
+}
+
+.well {
+    border-radius: 0;!important;
+}
+
+.img-responsive {
+    border-radius: 0;!important;
+}
