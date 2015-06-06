@@ -33,7 +33,7 @@ class AccountService {
                 sum('amount')
             }
         }
-        println "REBEEEMMMEEEPTION + "  + results
+       // println "REBEEEMMMEEEPTION + "  + results
         if(results[0]){
             return results[0]
         }else{
