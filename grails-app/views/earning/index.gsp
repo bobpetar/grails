@@ -20,8 +20,9 @@
                     <ul class="breadcrumb">
                         <li><a class="home" href="${createLink(uri: '/')}"><g:message
                                 code="default.home.label" /></a></li>
-                        <li><a class="home" href="${createLink(action:'redeemHistory')}">Redeem History</a></li>
+
                         <li>My Earnings</li>
+                        <li><a class="home" href="${createLink(action:'redeemHistory')}">Redeem History</a></li>
                     </ul>
                 </div>
             </div>

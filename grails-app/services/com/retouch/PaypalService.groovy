@@ -1,6 +1,7 @@
 package com.retouch
 
 import com.codeharmony.RetoucherPayout
+import com.paypal.base.rest.OAuthTokenCredential
 import grails.transaction.Transactional;
 import com.paypal.api.payments.Currency;
 import com.paypal.api.payments.Payout;
@@ -14,6 +15,7 @@ import com.paypal.api.payments.util.GenerateAccessToken;
 
 @Transactional
 class PaypalService {
+    def grailsApplication
 
 
 
@@ -21,7 +23,7 @@ class PaypalService {
        def  payOut = new RetoucherPayout(red);
         PayoutBatch pb =  issuePayment(payOut);
         println "**************Payout Details****************"
-        println "Receiver: " + red.retoucher.email
+        println "Receiver: " + payOut.getReceiverEmail()
         println "Status: "+ pb.getBatchHeader().batchStatus
         println "*******************************************"
 
@@ -29,6 +31,10 @@ class PaypalService {
 
 
     public PayoutBatch issuePayment(RetoucherPayout rp) {
+        String pcid =  grailsApplication.config.retouch.paypal.clientID
+        String pcs =  grailsApplication.config.retouch.paypal.clientSecret
+println pcid
+        println pcs
 
         // ###Payout
         // A resource representing a payout
@@ -46,7 +52,7 @@ class PaypalService {
         // #### Batch Header Instance
         Random random = new Random();
         senderBatchHeader.setSenderBatchId(
-                new Double(random.nextDouble()).toString()).setEmailSubject("You have a pay sachit");
+                new Double(random.nextDouble()).toString()).setEmailSubject(rp.getEmailMessage());
 
         // ### Currency
         Currency amount = new Currency();
@@ -76,7 +82,8 @@ class PaypalService {
             // It is not mandatory to generate Access Token on a per call basis.
             // Typically the access token can be generated once and
             // reused within the expiry window
-            String accessToken = GenerateAccessToken.getAccessToken();
+            String accessToken = new OAuthTokenCredential(pcid, pcs).getAccessToken();
+           // String accessToken = GenerateAccessToken.getAccessToken();
 
             // ### Api Context
             // Pass in a `ApiContext` object to authenticate

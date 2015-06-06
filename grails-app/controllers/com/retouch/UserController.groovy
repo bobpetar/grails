@@ -124,7 +124,7 @@ class UserController {
 					message(code: 'User.label', default: 'User'),
 					userInstance.id
 				])
-				redirect userInstance
+				redirect action:'edit',id:userInstance.id
 			}
 			'*'{ respond userInstance, [status: OK] }
 		}

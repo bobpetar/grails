@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-4">
     <section>
         <h1>Account Information</h1>
 
@@ -18,10 +18,20 @@
                 <i class="fa fa-money"></i>
                 Total Earned : <g:formatNumber number="${totalEarned}" type="currency"/>
             </div>
+            <g:if test="${retoucher?.paypalAccount && retoucher?.paypalAccount!=''}">
+                <div class="col-md-12 col-sm-12">
+                    <i class="fa fa-paypal"></i>
+                    Paypal : ${retoucher?.paypalAccount}
+                </div>
+            </g:if>
+
+
         </div>
         <g:if test="${availableBalance>redeemLimit}">
             <h1>Redeem</h1>
             <div class="form-group">
+
+            <g:if test="${retoucher?.paypalAccount && retoucher?.paypalAccount!=''}">
                 <g:form action="redeem" enctype="multipart/form-data">
                     <div class="col-md-12">
                         <div data-plugin-spinner data-plugin-options='{ "value":${availableBalance}, "min":${redeemLimit}, "max": ${availableBalance} }'>
@@ -41,6 +51,14 @@
                         <g:submitButton name="upload" class="btn btn-primary btn-lg" value="Redeem!"/>
                     </div>
                 </g:form>
+            </g:if><g:else>
+                <div class="col-md-12" >
+                    Please setup your payment method at <g:link controller="user" action="edit">My Accounts page</g:link>  in order to redeem your earnings.
+
+                    <br>
+                </div>
+
+            </g:else>
             </div>
 
         </g:if>

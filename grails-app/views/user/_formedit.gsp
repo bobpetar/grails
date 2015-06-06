@@ -104,8 +104,18 @@
                     </div>
                 </fieldset>
             </sec:ifAnyGranted>
-            <hr class="dotted tall">
-            <h4 class="mb-xlg">Enter Password</h4>
+            <br>
+            <fieldset class="mb-xl">
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </div>
+                </div>
+            </div>
+            </fieldset>
+          %{--  <h4 class="mb-xlg">Enter Password</h4>
             <fieldset class="mb-xl">
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="password">
@@ -125,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-            </fieldset>
+            </fieldset>--}%
         </div>
     </div>
 </div>

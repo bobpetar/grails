@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * Created by Aasiz on 6/2/2015.
  */
 public class RetoucherPayout {
-    String emailMessage = "You have a payment from 1hretouch!";
+    String emailMessage = "Payment from 1hretouch!";
     BigDecimal amount;
     String note = "Thank you for your hard work on 1hretouch.";
     String receiverEmail;
@@ -27,7 +27,7 @@ public class RetoucherPayout {
 
     public RetoucherPayout(Redeemtion red) {
         this.redeemtionId = red.getRedeemId();
-        this.receiverEmail = red.getRetoucher().getEmail();
+        this.receiverEmail = red.getRetoucher().getPaypalAccount();
         this.amount = red.getAmount();
         this.retoucher = red.getRetoucher();
     }
