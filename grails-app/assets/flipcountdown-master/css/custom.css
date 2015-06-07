@@ -44,13 +44,11 @@ html .retoucher .btn-retoucher:focus {
 	margin-top: 15px;
 	margin-bottom: 15px;
 	position: relative;
-	text-align: right;
 }
 .home-intro .retoucher {
 	margin-top: 15px;
 	margin-bottom: 15px;
 	position: relative;
-	text-align: left;
 }
 
 .home-intro .upLoad .btn, .home-intro .retoucher .btn {
