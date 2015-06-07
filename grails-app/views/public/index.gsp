@@ -195,23 +195,33 @@
                 </ul>
             </div>
         </div>
+
         <div class="home-intro" id="home-intro">
+
             <div class="container">
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="upLoad">
-                            <a href="${createLink(uri:'/upload')}" class="btn btn-lg btn-primary">Upload your photo</a>
+                <center>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            <div class="upLoad">
+                                <a href="${createLink(uri: '/upload')}"
+                                   class="btn btn-lg btn-primary">Upload your photo</a>
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="retoucher">
-                            <a href="${createLink(uri: '/register/retoucher')}" class="btn btn-lg btn-retoucher">Become a retoucher</a>
 
+                        <div class="col-md-3">
+                            <div class="retoucher">
+                                <a href="${createLink(uri: '/register/retoucher')}"
+                                   class="btn btn-lg btn-retoucher">Become a retoucher</a>
+
+                            </div>
                         </div>
+
+                        <div class="col-md-3"></div>
                     </div>
-                </div>
+                </center>
 
             </div>
         </div>
