@@ -13,6 +13,7 @@ class User {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+    String paypalAccount
 
 	static transients = ['springSecurityService']
 
@@ -22,6 +23,7 @@ class User {
 		email blank:false, email:true
 		firstname blank:false
 		lastname blank:false
+        paypalAccount nullable:true, blank:true
 	}
 
 	static mapping = {

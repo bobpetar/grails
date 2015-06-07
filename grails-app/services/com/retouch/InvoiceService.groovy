@@ -4,6 +4,7 @@ import grails.transaction.Transactional
 
 @Transactional
 class InvoiceService {
+    int retoucherEarningPercentage = 90
 
     Double calculateAmount(Task task) {
 
@@ -40,9 +41,9 @@ class InvoiceService {
     def registerEarning(Project project){
 
         def registeredEarning = Earning.findByProject(project)
-        println "REGISTERING EARNING FOR "+registeredEarning
-        println "REGISTERING EARNING FOR "+ project.assignedTo
-        println "REGISTERING EARNING FOR "+ project.status
+      //  println "REGISTERING EARNING FOR "+registeredEarning
+      //  println "REGISTERING EARNING FOR "+ project.assignedTo
+       // println "REGISTERING EARNING FOR "+ project.status
         //TODO consider using status 'In Review' instead of 'complete'
         if(project.status=="Complete" && !registeredEarning && project.assignedTo){
             println "REGISTERING EARNING FOR "+ project.assignedTo
@@ -52,7 +53,7 @@ class InvoiceService {
             def paymentItems = project.task.payment.paymentItems
             def sumTechnique = paymentItems.amount.sum()
             println sumTechnique
-            def percent = 90
+            def percent = retoucherEarningPercentage
             def amountEarned = (percent*sumTechnique)/100
             def earning = new Earning(project: project,amount: amountEarned,retoucher:project.assignedTo )
             earning.save(flush: true)

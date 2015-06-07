@@ -20,6 +20,8 @@ class EarningController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+        params.sort = 'id'
+        params.order='desc'
         def retoucher = springSecurityService.getCurrentUser()
 
         def earnings = Earning.findAllByRetoucher(retoucher,params)
@@ -31,11 +33,13 @@ class EarningController {
         if(!earnings)
             earnings=[]
 
-        respond earnings, model: [earningInstanceCount: earningInstanceCount,totalEarned : totalEarned,totalProjects:totalProjects, availableBalance:availableBalance ,redeemLimit:redeemLimit]
+        respond earnings, model: [retoucher:retoucher, earningInstanceCount: earningInstanceCount,totalEarned : totalEarned,totalProjects:totalProjects, availableBalance:availableBalance ,redeemLimit:redeemLimit]
     }
 
     def redeemHistory(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+        params.sort = 'id'
+        params.order='desc'
         def retoucher = springSecurityService.getCurrentUser()
 
         def redeemtions = Redeemtion.findAllByRetoucher(retoucher,params)
@@ -47,7 +51,7 @@ class EarningController {
 
         if(!redeemtions)
             redeemtions=[]
-        [redeemtions:redeemtions , redeemtionInstanceCount: redeemtionInstanceCount,totalEarned : totalEarned,totalProjects:totalProjects, availableBalance:availableBalance ,redeemLimit:redeemLimit]
+        [retoucher:retoucher, redeemtions:redeemtions , redeemtionInstanceCount: redeemtionInstanceCount,totalEarned : totalEarned,totalProjects:totalProjects, availableBalance:availableBalance ,redeemLimit:redeemLimit]
     }
 
     @Transactional
@@ -55,6 +59,13 @@ class EarningController {
         User retoucher = (User)springSecurityService.getCurrentUser()
         println params.redeemAmount
         BigDecimal redeemAmt = 0
+        if(!retoucher.paypalAccount || retoucher.paypalAccount==""){
+            flash.error = "Please setup your payment method before redeeming an amount."
+            redirect(action:'index' )
+            return
+        }
+
+
         try{
             redeemAmt = new BigDecimal(params.redeemAmount)
         }catch(e){

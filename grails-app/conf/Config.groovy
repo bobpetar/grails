@@ -103,6 +103,9 @@ environments {
         grails.paypal.server="https://www.sandbox.paypal.com/cgi-bin/webscr"
         grails.paypal.email="sachit.nep-facilitator@gmail.com"
         grails.serverURL = "http://localhost:8080/retouch"
+        //TODO Move paypal secrets to somewhere safe
+        retouch.paypal.clientID="AcExlqqd0YbAMJ_yZdUmo30B4ms-kRG8TrfA08Gslf4Bdo92muBYd9BsGQsOsvVM1rUXBJoigOR66bTj"
+        retouch.paypal.clientSecret="EEbyTTKJYdbBO9FSwkKo2xYVeZLSjYCxjiskMJodksR4VnIYUtCXtzVxjoal7IzW5Tjk7QqIVBl9XhEP"
     }
     production {
         grails.logging.jul.usebridge = false
@@ -113,6 +116,9 @@ environments {
         grails.paypal.server="https://www.sandbox.paypal.com/cgi-bin/webscr"
         grails.paypal.email="sachit.nep-facilitator@gmail.com"
         grails.serverURL = "http://1hretouch.com"
+        //TODO Move paypal secrets to somewhere safe
+        retouch.paypal.clientID="AcExlqqd0YbAMJ_yZdUmo30B4ms-kRG8TrfA08Gslf4Bdo92muBYd9BsGQsOsvVM1rUXBJoigOR66bTj"
+        retouch.paypal.clientSecret="EEbyTTKJYdbBO9FSwkKo2xYVeZLSjYCxjiskMJodksR4VnIYUtCXtzVxjoal7IzW5Tjk7QqIVBl9XhEP"
     }
 }
 

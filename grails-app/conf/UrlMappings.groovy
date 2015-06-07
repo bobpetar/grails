@@ -17,6 +17,7 @@ class UrlMappings {
         "/instructions/$id"(controller: "project",action: "instructions")
         "/service/$id"(controller: "project",action: "service")
         "/projects"(controller: "project",action: "projects")
+/*        "/account"(controller: "user",action: "edit")*/
         "/tasks"(controller: "task",action: "myTasks")
         "/new-tasks"(controller: "task",action: "newTasks")
         "500"(view:'/error')

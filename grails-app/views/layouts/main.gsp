@@ -383,7 +383,8 @@
                                     <i class="fa fa-user"></i> <sec:username/>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><g:link controller="user" action="edit"
+                                   %{-- <li><a href="${createLink(uri: '/earning')}">My Account</a>--}%
+                                      <li>  <g:link controller="user" action="edit"
                                                 id="${sec.loggedInUserInfo(field: 'id')}">My Account</g:link></li>
                                     <li><a href="${createLink(uri: '/logout')}">Log Out</a></li>
                                 </ul>

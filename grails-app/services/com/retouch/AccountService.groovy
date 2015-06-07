@@ -6,7 +6,7 @@ import grails.transaction.Transactional
 class AccountService {
 
     def paypalService
-    final BigDecimal REDEEM_LIMIT = 0.1
+    final BigDecimal REDEEM_LIMIT = 10
     BigDecimal getTotalEarned(User retoucher) {
 
         def c = Earning.createCriteria()
@@ -33,7 +33,7 @@ class AccountService {
                 sum('amount')
             }
         }
-        println "REBEEEMMMEEEPTION + "  + results
+       // println "REBEEEMMMEEEPTION + "  + results
         if(results[0]){
             return results[0]
         }else{
@@ -56,7 +56,7 @@ class AccountService {
             red.save(flush:true)
             Redeemtion redSaved = Redeemtion.findByRedeemId(redemptionID);
             paypalService.issueRetoucherPayout(redSaved)
-            return
+            return true
         }else{
             return null
         }
