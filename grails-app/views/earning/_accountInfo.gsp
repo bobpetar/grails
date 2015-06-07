@@ -61,7 +61,11 @@
             </g:else>
             </div>
 
-        </g:if>
+        </g:if><g:else>
+        <span class="label btn-warning">
+            A minimum balance of $${redeemLimit} is required in order to redeem your earnings.
+        </span>
+        </g:else>
 
     </section>
 </div>

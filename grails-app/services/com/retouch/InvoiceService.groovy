@@ -51,7 +51,8 @@ class InvoiceService {
 
             //TODO Add support for multiple tasks
             def paymentItems = project.task.payment.paymentItems
-            def sumTechnique = paymentItems.amount.sum()
+            def sumTechnique =  calculateAmount(project.task)
+
             println sumTechnique
             def percent = retoucherEarningPercentage
             def amountEarned = (percent*sumTechnique)/100
