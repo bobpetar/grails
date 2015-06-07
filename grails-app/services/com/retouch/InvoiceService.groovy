@@ -50,7 +50,7 @@ class InvoiceService {
             def techniqueList = project.task.techniques.toList()
 
             //TODO Add support for multiple tasks
-            def paymentItems = project.task.payment.paymentItems
+           // def paymentItems = project.task.payment.paymentItems
             def sumTechnique =  calculateAmount(project.task)
 
             println sumTechnique

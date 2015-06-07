@@ -45,7 +45,11 @@ class AccountService {
     BigDecimal getAvailableBalance(User retoucher) {
         BigDecimal earned = getTotalEarned(retoucher)
         BigDecimal redeemed = getTotalRedeemed(retoucher)
-        return earned - redeemed
+        if(earned!=null && redeemed!=null){
+            return earned - redeemed
+        }else{
+            return 0.0
+        }
     }
 
     def redeemAmount(User retoucher, BigDecimal amount){
