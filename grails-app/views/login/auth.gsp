@@ -42,7 +42,7 @@
 						<div
 							class="featured-box featured-box-secundary default info-content">
 							<div class="box-content">
-								<h4>Sing In</h4>
+								<h4>Sign In</h4>
 								<form action="${postUrl}" id="loginForm" method="post"
 									name="loginForm" autocomplete='off'>
 									<g:if test='${flash.message}'>
