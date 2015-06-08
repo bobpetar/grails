@@ -105,8 +105,24 @@ class ProjectController {
 
         def techniqueList = projectInstance.task.techniques.toList()
         def sumTechnique = techniqueList.ratePerTechnique.sum()
+
+        def maxamount
+        if(!SiteParams.findByParameterName('MAXAMOUNT')){
+            maxamount=10.0
+        } else{
+            maxamount=Double.valueOf(SiteParams.findByParameterName('MAXAMOUNT').parameterValue)
+        }
+
         def cashDiscount = 0.0
+        if(sumTechnique>maxamount){
+            cashDiscount = sumTechnique - maxamount
+        }
+
         def couponDiscount = 0.0
+        if(IssuedCoupon.findByProjectId(projectInstance.id)  && sumTechnique){
+            couponDiscount = (sumTechnique - cashDiscount) * IssuedCoupon.findByProjectId(projectInstance.id).discountPercent / 100
+        }
+
         def paypalFlag = 1
         [projectInstance:projectInstance, techniqueList:techniqueList, sumTechnique:sumTechnique, cashDiscount:cashDiscount, couponDiscount:couponDiscount, paypalFlag:paypalFlag]
 
