@@ -20,6 +20,9 @@
                     <div class="col-md-8">
                         <g:passwordField name="password" id="password" class="form-control"
                                          required="" value="" />
+                        <g:each in="${userInstance?.authorities?.id}" status="i" var="authority">
+                            <input id="role" name="role" value="${authority}" type="hidden"/>
+                        </g:each>
                     </div>
                 </div>
 
