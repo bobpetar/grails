@@ -68,7 +68,7 @@
                                     <li class="fieldcontain">
                                         <span id="client-label" class="property-label"><g:message code="project.client.label" default="Client" /></span>
 
-                                        <span class="property-value" aria-labelledby="client-label">: ${projectInstance?.client?.username?.encodeAsHTML()}</span>
+                                        <span class="property-value" aria-labelledby="client-label">: ${projectInstance?.client?.firstname?.encodeAsHTML()} ${projectInstance?.client?.lastname?.encodeAsHTML()}</span>
 
                                     </li>
                                 </g:if>

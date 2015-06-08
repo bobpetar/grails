@@ -42,7 +42,7 @@
                         <div class="col-md-12 push-bottom">
 
                             <g:if test="${projectInstance?.assignedTo}">
-                                <span class="label btn-primary">Retoucher: ${projectInstance?.assignedTo?.username?.encodeAsHTML()}</span>
+                                <span class="label btn-primary">Retoucher: ${projectInstance?.assignedTo?.firstname?.encodeAsHTML()} ${projectInstance?.assignedTo?.lastname?.encodeAsHTML()}</span>
                             </g:if>
 
                             <g:if test="${projectInstance?.createdDate}">
@@ -133,9 +133,6 @@
                                 <i class="fa fa-search"></i>
                             </span>
                         </a>
-                        %{--            <img alt="${projectInstance.task.originalImage.getLargeImageName()}"
-                                         class="img-responsive img-thumbnail"
-                                         src="${grailsApplication.config.retouch.imageServer}${projectInstance.task.originalImage.getLargeImageName()}"/>--}%
                     </div>
 
 

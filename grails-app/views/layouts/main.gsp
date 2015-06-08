@@ -382,10 +382,9 @@
                         <sec:ifLoggedIn>
                             <li class="dropdown" id="profileMenu">
                                 <a class="dropdown-toggle" href="#">
-                                    <i class="fa fa-user"></i> <sec:username/>
+                                    <i class="fa fa-user"></i> ${userInfo?.firstname}
                                 </a>
                                 <ul class="dropdown-menu">
-                                   %{-- <li><a href="${createLink(uri: '/earning')}">My Account</a>--}%
                                       <li>  <g:link controller="user" action="edit"
                                                 id="${sec.loggedInUserInfo(field: 'id')}">My Account</g:link></li>
                                     <li><a href="${createLink(uri: '/logout')}">Log Out</a></li>
