@@ -57,4 +57,12 @@ class User {
     String toString(){
         return username
     }
+
+    public String getFirstname(){
+        return firstname
+    }
+
+    public String getLastname(){
+        return lastname
+    }
 }

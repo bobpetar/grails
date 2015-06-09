@@ -25,6 +25,7 @@ class MainFilterFilters {
                 model?.postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
                 model?.rememberMeParameter= config.rememberMe.parameter
                 model?.siteParams = configurationService.getParamsKeyValue()
+                model?.userInfo = springSecurityService.getCurrentUser()
             }
             afterView = { Exception e ->
 
