@@ -14,21 +14,19 @@ class InvoiceService {
             return
         }
 
-        def maxamount
-
-        if(!SiteParams.findByParameterName('MAXAMOUNT')){
-            maxamount=10.0
-        } else{
-            maxamount=Double.valueOf(SiteParams.findByParameterName('MAXAMOUNT').parameterValue)
-        }
+        def maxamount =  getMaxDiscountLimit()
 
         def cashDiscount = 0.0
         if(sumTechnique>maxamount){
             cashDiscount = sumTechnique - maxamount
         }
 
-        def couponDiscount = 0.0
-      /*  def issuedCoupon = IssuedCoupon.findByProjectId(task.project.id)
+
+
+        //Coupon discount moved to paypal countroller
+      /*
+      def couponDiscount = 0.0
+      def issuedCoupon = IssuedCoupon.findByProjectId(task.project.id)
         if( issuedCoupon && sumTechnique){
             couponDiscount = (sumTechnique - cashDiscount) * issuedCoupon.discountPercent / 100
         }
@@ -37,6 +35,29 @@ class InvoiceService {
 
         return totalAmount
     }
+
+
+    Double calculateCouponDiscountedAmount(Task task) {
+        def amount =  calculateAmount(task)
+        def couponDiscountedAmt = 0.0
+        def issuedCoupon = IssuedCoupon.findByProjectId(task.project.id)
+        if( issuedCoupon && amount>0){
+            couponDiscountedAmt = amount - ((amount) * issuedCoupon.discountPercent / 100)
+        }
+    }
+
+    def getMaxDiscountLimit(){
+        def maxamount
+
+        if(!SiteParams.findByParameterName('MAXAMOUNT')){
+            maxamount=10.0
+        } else{
+            maxamount=Double.valueOf(SiteParams.findByParameterName('MAXAMOUNT').parameterValue)
+        }
+        return maxamount
+    }
+
+
 
     def registerEarning(Project project){
 
@@ -47,11 +68,19 @@ class InvoiceService {
         //TODO consider using status 'In Review' instead of 'complete'
         if(project.status=="Complete" && !registeredEarning && project.assignedTo){
             println "REGISTERING EARNING FOR "+ project.assignedTo
-            def techniqueList = project.task.techniques.toList()
+            //def techniqueList = project.task.techniques.toList()
 
             //TODO Add support for multiple tasks
            // def paymentItems = project.task.payment.paymentItems
-            def sumTechnique =  calculateAmount(project.task)
+
+            //Proposition 1
+           // def sumTechnique =  calculateCouponDiscountedAmount(project.task)
+
+
+            //Proposition 2
+            def sumTechnique = calculateAmount(project.task)
+
+            //End of proposition 2
 
             println sumTechnique
             def percent = retoucherEarningPercentage
