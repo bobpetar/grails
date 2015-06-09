@@ -127,7 +127,7 @@ class MyImageService {
         return fileName
     }
 
-    private static String getFileExtension(String fileName) {
+    public static String getFileExtension(String fileName) {
         int lastIndexOf = fileName.lastIndexOf(".");
         if (lastIndexOf == -1) {
             return ""; // empty extension

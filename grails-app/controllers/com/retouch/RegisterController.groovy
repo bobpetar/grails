@@ -52,7 +52,7 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
             return
         }
 
-        println(params)
+        //println(params)
 
         String url
 
@@ -62,10 +62,15 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
             url = generateLink('verifyRegistration', [t: registrationCode.token])
         }
 
-        println("url " + url)
-
         def conf = SpringSecurityUtils.securityConfig
-        def body = conf.ui.register.emailBody
+        def body
+
+        if(params.retoucher){
+            body =  conf.ui.register.emailBodyRetoucher
+        }else{
+            body =  conf.ui.register.emailBody
+        }
+
         if (body.contains('$')) {
             body = evaluate(body, [user: user, url: url])
         }

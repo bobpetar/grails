@@ -230,7 +230,17 @@ class ProjectController {
             imageFile = request.getFile('reimage')
         }
 
+
         if(imageFile && !imageFile.empty) {
+            def supportedFiles = grailsApplication.config.retouch.supportedFormats
+            println "EXTENSION..." +imageFile.originalFilename
+            String ext =  myImageService.getFileExtension(imageFile.originalFilename);
+            println "EXTENSION" +ext
+            if(!supportedFiles.contains(ext.toLowerCase())){
+                flash.message = "This file format is not support by our system."
+                redirect(action: "upload")
+                return
+            }
             def fileName = myImageService.saveImagePackage( imageFile )
             def image = new ReImage(imagePath: fileName)
             def task = new Task(originalImage: image)
@@ -239,8 +249,10 @@ class ProjectController {
                 myImageService.deleteImagePackage(image)
                 flash.message = "Action Failed!!! Please try again"
                 redirect(action: "upload")
+                return
             }else{
                 redirect(action: "technique", id:project.projectId )
+                return
             }
         }else{
             flash.message = "Please select an image"

@@ -174,7 +174,7 @@
                 <a href="${createLink(uri:'/')}">
                    %{-- <asset:image alt="1hretouch" width="200" height="41" data-sticky-width="170" data-sticky-height="35"
                                  src="logo.png"/>--}%
-                    <asset:image alt="1hretouch" width="266" height="41" data-sticky-width="227" data-sticky-height="35"
+                    <asset:image alt="1hretouch" width="217" height="49" data-sticky-width="177" data-sticky-height="40"
                                  src="logo.png"/>
                 </a>
             </div>

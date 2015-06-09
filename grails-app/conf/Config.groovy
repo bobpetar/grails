@@ -177,12 +177,26 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 
 
 grails.plugin.springsecurity.ui.register.emailBody = '''\
-Hi $user.username,<br/>
+Hi $user.firstname,<br/>
 <br/>
-We are happy to see you choose for 1hretouch. Your registration is almost complete.
+Thank you for choosing 1Hretouch. Your registration is almost complete.
 click&nbsp;<a href="$url">here</a> to finish your registration and upload your first Image.
 <br/><br/>
 If you need any support call 0031622752205 or use the chat function on our website.
+<br/><br/>
+Regards,
+<br/>
+Support Team 1hretouch
+'''
+
+
+grails.plugin.springsecurity.ui.register.emailBodyRetoucher = '''\
+Hi $user.firstname,<br/>
+<br/>
+Thank you for choosing 1Hretouch. Your registration is almost complete.
+click&nbsp;<a href="$url">here</a> to finish your registration and start retouching.
+<br/><br/>
+If you need any support call 0031622752205.
 <br/><br/>
 Regards,
 <br/>
@@ -222,3 +236,7 @@ grails.config.locations = ["classpath:sdk_config.properties"]
 imageUpload {
     temporaryFile = '/tmp/uploaded.file' // Path to where files will be uploaded
 }
+retouch.supportedFormats = ['.jpeg', '.jpg','.png',".3fr",".ari", ".arw",".bay",".crw", ".cr2",".cap",".dcs", ".dcr", ".dng",".drf",".eip", ".erf",".fff",".iiq",".k25", ".kdc",".mdc", ".mef", ".mos", ".mrw",".nef", ".nrw",
+                            ".obm", ".orf",".pef", ".ptx", ".pxn",".r3d", ".raf", ".raw", ".rwl", ".rw2", ".rwz",".sr2", ".srf", ".srw",".tif",".x3f"]
+//TODO Test all raw format
+//TESTED FORMATS : jpeg, jpg, nef
