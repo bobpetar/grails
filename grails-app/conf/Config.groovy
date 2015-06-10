@@ -106,6 +106,7 @@ environments {
         //TODO Move paypal secrets to somewhere safe
         retouch.paypal.clientID="AcExlqqd0YbAMJ_yZdUmo30B4ms-kRG8TrfA08Gslf4Bdo92muBYd9BsGQsOsvVM1rUXBJoigOR66bTj"
         retouch.paypal.clientSecret="EEbyTTKJYdbBO9FSwkKo2xYVeZLSjYCxjiskMJodksR4VnIYUtCXtzVxjoal7IzW5Tjk7QqIVBl9XhEP"
+        grails.config.locations = ["classpath:sdk_config_qa.properties"]
     }
     production {
         grails.logging.jul.usebridge = false
@@ -119,6 +120,21 @@ environments {
         //TODO Move paypal secrets to somewhere safe
         retouch.paypal.clientID="AcExlqqd0YbAMJ_yZdUmo30B4ms-kRG8TrfA08Gslf4Bdo92muBYd9BsGQsOsvVM1rUXBJoigOR66bTj"
         retouch.paypal.clientSecret="EEbyTTKJYdbBO9FSwkKo2xYVeZLSjYCxjiskMJodksR4VnIYUtCXtzVxjoal7IzW5Tjk7QqIVBl9XhEP"
+        grails.config.locations = ["classpath:sdk_config_qa.properties"]
+    }
+    qa {
+        grails.logging.jul.usebridge = false
+        retouch.imageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/"
+        retouch.techniqueImageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/techniques/"
+        retouch.imageServer= "http://1hretouch.com/retouch/"
+        retouch.techniqueImageServer= "http://1hretouch.com/retouch/techniques/"
+        grails.paypal.server="https://www.sandbox.paypal.com/cgi-bin/webscr"
+        grails.paypal.email="sachit.nep-facilitator@gmail.com"
+        grails.serverURL = "http://1hretouch.com"
+        //TODO Move paypal secrets to somewhere safe
+        retouch.paypal.clientID="AcExlqqd0YbAMJ_yZdUmo30B4ms-kRG8TrfA08Gslf4Bdo92muBYd9BsGQsOsvVM1rUXBJoigOR66bTj"
+        retouch.paypal.clientSecret="EEbyTTKJYdbBO9FSwkKo2xYVeZLSjYCxjiskMJodksR4VnIYUtCXtzVxjoal7IzW5Tjk7QqIVBl9XhEP"
+        grails.config.locations = ["classpath:sdk_config_qa.properties"]
     }
 }
 
@@ -231,7 +247,7 @@ grails {
 
 grails.mail.default.from = "1hRetouch <info@1hretouch.com>"
 grails.plugins.remotepagination.enableBootstrap=true
-grails.config.locations = ["classpath:sdk_config.properties"]
+
 
 imageUpload {
     temporaryFile = '/tmp/uploaded.file' // Path to where files will be uploaded
