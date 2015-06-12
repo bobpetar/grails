@@ -122,7 +122,7 @@ environments {
         retouch.paypal.clientSecret="ENlCMk_lFUVVIbkHXp813Qr95BMb_y8FU8ka8GsGq-hQnsxyYdzjPTWwmnhPMJ6VjlGgDJIzegiTwDgv"
         grails.config.locations = ["classpath:sdk_config.properties"]
     }
-    qa {
+    qa1 {
         grails.logging.jul.usebridge = false
         retouch.imageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/"
         retouch.techniqueImageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/techniques/"
@@ -135,6 +135,20 @@ environments {
         retouch.paypal.clientID="AcExlqqd0YbAMJ_yZdUmo30B4ms-kRG8TrfA08Gslf4Bdo92muBYd9BsGQsOsvVM1rUXBJoigOR66bTj"
         retouch.paypal.clientSecret="EEbyTTKJYdbBO9FSwkKo2xYVeZLSjYCxjiskMJodksR4VnIYUtCXtzVxjoal7IzW5Tjk7QqIVBl9XhEP"
         grails.config.locations = ["classpath:sdk_config_qa.properties"]
+    }
+    qa {
+        grails.logging.jul.usebridge = false
+        retouch.imageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/"
+        retouch.techniqueImageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/techniques/"
+        retouch.imageServer= "http://qa.1hretouch.com/retouch/"
+        retouch.techniqueImageServer= "http://qa.1hretouch.com/retouch/techniques/"
+        grails.paypal.server="https://www.paypal.com/cgi-bin/webscr"
+        grails.paypal.email="nuri.bayram@me.com"
+        grails.serverURL = "http://qa.1hretouch.com"
+        //TODO Move paypal secrets to somewhere safe
+        retouch.paypal.clientID="Aar14c4oS9OGimv_5Uh374uGdcYaVixDbRyM6KyU7-1jqGbrmcewseZ-tb3RPjG9TyfpFJEXFpVY_Koa"
+        retouch.paypal.clientSecret="ENlCMk_lFUVVIbkHXp813Qr95BMb_y8FU8ka8GsGq-hQnsxyYdzjPTWwmnhPMJ6VjlGgDJIzegiTwDgv"
+        grails.config.locations = ["classpath:sdk_config.properties"]
     }
 }
 
