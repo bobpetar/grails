@@ -448,7 +448,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-1">
-                        <a href="index.html" class="logo">
+                        <a href="/" class="logo">
                             <asset:image alt="1hretouch" class="" src="logo-footer.png"/>
                         </a>
                     </div>
