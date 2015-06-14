@@ -131,6 +131,11 @@ class TaskController {
             redirect(action: "newTasks")
         }
 
+        if(projectInstance.status != 'New'){
+            flash.message = "Claim Failed! Someone else must have claimed the task before you."
+            redirect(action: 'myTasks')
+        }
+
         if(!projectInstance.assignedTo || projectInstance.assignedTo == springSecurityService.getCurrentUser()){
             respond projectInstance
         }else{
