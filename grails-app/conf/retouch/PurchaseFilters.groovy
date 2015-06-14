@@ -32,13 +32,19 @@ class PurchaseFilters {
         paymentReceivedFilter(controller:'paypal', action:'(success|notifyPaypal)') {
             after = {
                 def payment = request.payment
+                println "**********************************IPN RECIVED***********************************"
+                println "action: " + params.action
+                println "payment: " +payment.status
+
                 if(payment && payment.status == Payment.COMPLETE) {
+                    println "updating tasks and notifying retouchers"
                     def task = Task.findByPayment(payment)
                     taskService.triggerConfirmation(task.project.client)
                     task.project.status = "Paid"
                     task.project.save()
                     taskService.notifyRetouchers(task)
                 }
+                println "**********************************IPN END***********************************"
             }
         }
     }
