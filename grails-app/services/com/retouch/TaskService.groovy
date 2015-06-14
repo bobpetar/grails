@@ -35,9 +35,9 @@ class TaskService {
             if(recoucherRole){
                 def retouchersEmails
                 if(settingsService.isInTestMode()){
-                    retouchersEmails = UserRole.findAllByRole(recoucherRole).user.email.toArray()
-                }else{
                     retouchersEmails = settingsService.getTestMailRetouchers()
+                }else{
+                    retouchersEmails = UserRole.findAllByRole(recoucherRole).user.email.toArray()
                 }
 
                 println retouchersEmails
