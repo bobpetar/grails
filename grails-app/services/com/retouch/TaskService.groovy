@@ -62,6 +62,7 @@ class TaskService {
 
     def triggerConfirmation(User user){
         IssuedCoupon newCoupon = generateCoupon(user)
+        println "NEW COUPON GENERATED" + newCoupon
         if(newCoupon){
             sendConfirmationMailWithCoupon(user,newCoupon)
         }
@@ -92,11 +93,13 @@ class TaskService {
                     html "Hey ${user.firstname}, <br><br>" +
                             "Thank you for your order. We are happy to have you as a customer." +
                             " We hope you enjoyed our services and as a thank you, we are giving you a free discount coupon." +
-                            " Your discount code is ${coupon.code} which will give you a discount of ${coupon.discountPercent}%" +
+                            " Your discount code is ${coupon?.code} which will give you a discount of ${coupon?.discountPercent}%" +
                             " on your next service purchase." //TODO add detailed email
                 }
             }
         }catch(e){
+            println "EMAIL SENDING FAILED!!!! TO: " +user?.email
+
             log.error(e)
         }
     }
