@@ -122,7 +122,7 @@ environments {
         retouch.paypal.clientSecret="ENlCMk_lFUVVIbkHXp813Qr95BMb_y8FU8ka8GsGq-hQnsxyYdzjPTWwmnhPMJ6VjlGgDJIzegiTwDgv"
         grails.config.locations = ["classpath:sdk_config.properties"]
     }
-    qa1 {
+    qa {
         grails.logging.jul.usebridge = false
         retouch.imageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/"
         retouch.techniqueImageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/techniques/"
@@ -136,7 +136,7 @@ environments {
         retouch.paypal.clientSecret="EEbyTTKJYdbBO9FSwkKo2xYVeZLSjYCxjiskMJodksR4VnIYUtCXtzVxjoal7IzW5Tjk7QqIVBl9XhEP"
         grails.config.locations = ["classpath:sdk_config_qa.properties"]
     }
-    qa {
+    qa1 {
         grails.logging.jul.usebridge = false
         retouch.imageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/"
         retouch.techniqueImageUploadPath = "/home/admin/web/1hretouch.com/public_html/retouch/techniques/"
