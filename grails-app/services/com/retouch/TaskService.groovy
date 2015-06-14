@@ -9,6 +9,8 @@ class TaskService {
 
     def mailService
     def grailsApplication
+    def settingsService
+
    // def grailsLinkGenerator
 
     def getImageTagJSON(ImageTag tag) {
@@ -31,11 +33,17 @@ class TaskService {
         try{
 
             if(recoucherRole){
-                def retouchers = UserRole.findAllByRole(recoucherRole).user
-                println retouchers
+                def retouchersEmails
+                if(settingsService.isInTestMode()){
+                    retouchersEmails = UserRole.findAllByRole(recoucherRole).user.email.toArray()
+                }else{
+                    retouchersEmails = settingsService.getTestMailRetouchers()
+                }
+
+                println retouchersEmails
                 mailService.sendMail {
                     async true
-                    bcc retouchers.email.toArray()
+                    bcc retouchersEmails
                     subject "New Task"
                     html "Hi Retoucher,<br><br>" +
                             "A new retouch task is available. You can check out the task and see if you want to claim it.<br>"+
