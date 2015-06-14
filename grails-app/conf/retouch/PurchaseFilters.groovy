@@ -37,11 +37,13 @@ class PurchaseFilters {
                 println "payment: " +payment.status
 
                 if(payment && payment.status == Payment.COMPLETE) {
-                    println "updating tasks and notifying retouchers"
+                    println "updating tasks and notifying client"
                     def task = Task.findByPayment(payment)
+                    println "client email: "+task?.project?.client?.email
                     taskService.triggerConfirmation(task.project.client)
                     task.project.status = "Paid"
                     task.project.save()
+                    println "updating tasks and notifying retouchers"
                     taskService.notifyRetouchers(task)
                 }
                 println "**********************************IPN END***********************************"
