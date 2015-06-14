@@ -29,7 +29,7 @@ class PurchaseFilters {
 
             }
         }
-        paymentReceivedFilter(controller:'paypal', action:'(success|notifyPaypal)') {
+        paymentReceivedFilter(controller:'paypal', action:'(notifyPaypal)') {
             after = {
                 def payment = request.payment
                 println "**********************************IPN RECIVED***********************************"
