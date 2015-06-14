@@ -26,6 +26,8 @@ class TaskController {
                 flash.message = "Task has been successfully claimed"
                 redirect(action: "show",id:projectInstance.id )
                 return
+            }else{
+                println "WARNING: Failed to change project status to In Progress"
             }
         }
         flash.message = "Claim Failed! Someone else must have claimed the task before you."
