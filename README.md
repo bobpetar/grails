@@ -11,7 +11,11 @@ This is an app which is time based and has workers(communities) available that a
 
 ### Run the app locally ###
 
+
+* create a database called "retouch"
 * compile the grails war file or grails run(will start tomcat server)
+  by running grails run app
+
 * application will now be available at localhost:8080
 
 ### Contribution guidelines ###
