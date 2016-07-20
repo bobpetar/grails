@@ -6,12 +6,17 @@ import java.net.URLConnection
 class MediaController {
 
     def technique() { 
-	    String profilePicturePath = "${grailsApplication.config.retouch.techniqueImageUploadPath}/${params.media}"
+    	String profilePicturePath = "${grailsApplication.config.retouch.techniqueImageUploadPath}/${params.media}"
 	    File file = new File(profilePicturePath)
-	    // response.setHeader('Expires', '-1')
-	    response.contentType = URLConnection.guessContentTypeFromName(file.getName())
-	    response.outputStream << file.bytes
-	    response.outputStream.flush()
+	    if(file.exists()){
+	    	// response.setHeader('Expires', '-1')
+		    response.contentType = URLConnection.guessContentTypeFromName(file.getName())
+		    response.outputStream << file.bytes
+		    response.outputStream.flush()
+		    }else{
+		    	response.status = 404;
+		    }
+	    
 	}
 
 
