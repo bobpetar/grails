@@ -10,6 +10,7 @@ class UrlMappings {
         "/"(controller: "public", action: 'index')
 		"/examples"(view:"/examples")
 		"/faq"(view:"/faq")
+        "/media/technique/$media"(controller: 'media', action:"technique")
 		"/pricing"(view:'/pricing')
         "/upload/"(controller: "project",action: "upload")
         "/instructions/"(controller: "project",action: "instructions")
