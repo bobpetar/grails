@@ -89,20 +89,27 @@ grails.hibernate.osiv.readonly = false
 
 environments {
     development {
+        grails.serverURL = "http://localhost:8080/retouch"
         grails.logging.jul.usebridge = true
-        if(SystemUtils.IS_OS_LINUX){
-            retouch.imageUploadPath = "/opt/lampp/htdocs/retouch/"
-            retouch.techniqueImageUploadPath = "/opt/lampp/htdocs/retouch/techniques/"
+        if(SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC_OSX){
+            // retouch.imageUploadPath = "/opt/lampp/htdocs/retouch/"
+            // retouch.techniqueImageUploadPath = "/opt/lampp/htdocs/retouch/techniques/"
+            String currentDir = new File( '.' ).absolutePath
+            retouch.imageUploadPath =  "${currentDir}/media/"
+            retouch.techniqueImageUploadPath = "${currentDir}/media/techniques/"
+            def techniqueImageUploadDir = new File(retouch.techniqueImageUploadPath)
+            if(!techniqueImageUploadDir.exists()){
+                techniqueImageUploadDir.mkdirs()
+            }
         } else {
             retouch.imageUploadPath = "C:\\wamp\\www\\retouch\\"
             retouch.techniqueImageUploadPath = "C:\\wamp\\www\\retouch\\techniques\\"
         }
-        retouch.imageServer= "http://localhost/retouch/"
-        retouch.techniqueImageServer= "http://localhost/retouch/techniques/"
+        retouch.imageServer= "${grails.serverURL}/media/retouch/"
+        retouch.techniqueImageServer= "${grails.serverURL}/media/technique/"
         salt = "1HR-RETOUCH-SALT"
         grails.paypal.server="https://www.sandbox.paypal.com/cgi-bin/webscr"
         grails.paypal.email="sachit.nep-facilitator@gmail.com"
-        grails.serverURL = "http://localhost:8080/retouch"
         //TODO Move paypal secrets to somewhere safe
         retouch.paypal.clientID="AcExlqqd0YbAMJ_yZdUmo30B4ms-kRG8TrfA08Gslf4Bdo92muBYd9BsGQsOsvVM1rUXBJoigOR66bTj"
         retouch.paypal.clientSecret="EEbyTTKJYdbBO9FSwkKo2xYVeZLSjYCxjiskMJodksR4VnIYUtCXtzVxjoal7IzW5Tjk7QqIVBl9XhEP"
