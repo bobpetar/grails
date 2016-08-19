@@ -6,7 +6,7 @@ import static org.springframework.http.HttpStatus.*
 
 import javax.swing.GroupLayout.Spring;
 
-import com.mysql.jdbc.AuthenticationPlugin;
+
 import com.sun.org.apache.xerces.internal.parsers.SecurityConfiguration;
 
 import grails.plugin.springsecurity.SpringSecurityService;
